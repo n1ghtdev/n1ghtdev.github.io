@@ -5,4 +5,4 @@ export {
   H4,
   H5,
   H6,
-} from './H1';
+} from './Headings';

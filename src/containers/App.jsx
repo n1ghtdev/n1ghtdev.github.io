@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H2 } from '../components/H1';
+import { H1, H2 } from '../components/Headings';
 
 export default function App() {
   return (
