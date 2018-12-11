@@ -4,18 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint /src",
     "clean": "rimraf build",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./internals/webpack/webpack.dev.babel.js",
     "build": "cross-env npm run clean NODE_ENV=production && webpack --config internals/webpack/webpack.prod.babel.js"
   },
   "author": "Nickew",
   "license": "ISC",
-  "list-staged": {
-    "*.js": "lint:eslint"
-  },
   "pre-commit": "lint:staged",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "particles.js": "git+https://github.com/mmacheerpuppy/particles.js.git",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
