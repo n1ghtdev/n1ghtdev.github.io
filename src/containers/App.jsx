@@ -4,16 +4,33 @@ import { H1, H2 } from '../components/Headings';
 import Header from '../components/Header';
 import Section from '../components/Section';
 import Particles from './Particles';
+import Grid from '../components/Grid';
+import Row from '../components/Row';
+import Col from '../components/Col';
 
 export default function App() {
   return (
     <Wrapper>
-      <Header />
-      <Particles />
-      <Section Height="100vh" Background="url(./src/assets/img/top-bg.png)">
-        <H1 hColor="green">Heading1</H1>
-        <H2 hColor="red">H2 in red color</H2>
+      <Header>
+        
+      </Header>
+      <Section
+        Height="460px"
+        Background="linear-gradient(to top, rgb(26,37,51), rgb(29,26,51))"
+      >
+        <Particles />
+        <Grid>
+          <Row>
+            <Col lg={4} md={6}>
+              <H1 hColor="white">nickew</H1>
+            </Col>
+            <Col lg={8}>
+              <H1 hColor="orange">front-end developer</H1>
+            </Col>
+          </Row>
+        </Grid>
       </Section>
     </Wrapper>
   );
 }
+

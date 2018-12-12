@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Container from '../Container.jsx';
 
 const SectionWrapper = styled.div`
   height: ${(props) => props.Height || 'auto' };  
@@ -12,9 +11,7 @@ const SectionWrapper = styled.div`
 const Section = ({ children, Height, Background }) => {
   return (
     <SectionWrapper Height={Height} Background={Background}>
-      <Container>
-        { children }
-      </Container>
+       { children }
     </SectionWrapper>
   );
 };
@@ -26,3 +23,4 @@ Section.propTypes = {
 };
 
 export default Section;
+

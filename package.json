@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Nickew/nickew.github.io"
+  },
   "scripts": {
     "lint": "eslint /src",
     "clean": "rimraf build",

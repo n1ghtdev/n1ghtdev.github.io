@@ -8,7 +8,7 @@ const ParticlesWrapper = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 70%;
+  height: inherit;
 `;
 
 class Particles extends React.Component {
@@ -16,7 +16,7 @@ class Particles extends React.Component {
     particlesJS.load('particles-js', 'src/assets/particles.json', () => console.log('ParticlesJS loaded.')); 
   }
   componentWillUnmount() {
-    // destroy
+    particlesJS.fn.vendors.destroy();
   }
   render() {
     return <ParticlesWrapper id="particles-js"  ref="particles-js" />; 
@@ -24,3 +24,4 @@ class Particles extends React.Component {
 }
 
 export default Particles;
+
