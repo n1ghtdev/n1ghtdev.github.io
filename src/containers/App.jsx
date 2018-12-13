@@ -7,6 +7,7 @@ import Particles from './Particles';
 import Grid from '../components/Grid';
 import Row from '../components/Row';
 import Col from '../components/Col';
+import Logotype from '../components/Logotype';
 
 export default function App() {
   return (
@@ -20,8 +21,8 @@ export default function App() {
       >
         <Grid justify='center' alignItems='center' relative>
           <Row>
-            <Col lg={6} xs={12}>
-              <H1 Color="white">nickew</H1>
+            <Col lg={12} xs={12}>
+              <Logotype />
             </Col>
           </Row>
         </Grid>

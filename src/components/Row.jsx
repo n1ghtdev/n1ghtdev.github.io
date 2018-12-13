@@ -6,19 +6,11 @@ const Row = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
-  justify-content: ${({ justify }) => justify};
-  align-items: ${({ alignItems }) => alignItems};
+  flex-wrap: wrap;
 `;
 
 Row.propTypes = {
   children: PropTypes.any,
-  justify: PropTypes.string,
-  alignItems: PropTypes.string,
-};
-
-Row.defaultProps = {
-  alignItems: 'flex-start',
-  justify: 'flex-start',
 };
 
 export default Row;
