@@ -14,6 +14,8 @@ const Grid = styled.div`
   display: flex;
   justify-content: ${(props) => props.justify || 'flex-start'};
   align-items: ${(props) => props.alignItems || 'flex-start'};
+  z-index: ${(props) => props.relative ? '1' : 'auto'};
+  position: ${(props) => props.relative ? 'relative' : 'static'};
 
   @media (min-width: 1200px) {
     max-width: 1170px;
@@ -33,6 +35,7 @@ Grid.propTypes = {
   children: PropTypes.any,
   alignItems: PropTypes.string,
   justify: PropTypes.string,
+  relative: PropTypes.boolean,
 };
 
 export default Grid;
