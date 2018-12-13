@@ -12,10 +12,10 @@ const Grid = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: ${(props) => props.justify || 'flex-start'};
-  align-items: ${(props) => props.alignItems || 'flex-start'};
-  z-index: ${(props) => props.relative ? '1' : 'auto'};
-  position: ${(props) => props.relative ? 'relative' : 'static'};
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ alignItems }) => alignItems};
+  z-index: ${({relative}) => relative ? '1' : 'auto'};
+  position: ${({relative}) => relative ? 'relative' : 'static'};
 
   @media (min-width: 1200px) {
     max-width: 1170px;
@@ -35,7 +35,12 @@ Grid.propTypes = {
   children: PropTypes.any,
   alignItems: PropTypes.string,
   justify: PropTypes.string,
-  relative: PropTypes.boolean,
+  relative: PropTypes.bool,
+};
+
+Grid.defaultProps = {
+  alignItems: 'flex-start',
+  justify: 'flex-start',
 };
 
 export default Grid;

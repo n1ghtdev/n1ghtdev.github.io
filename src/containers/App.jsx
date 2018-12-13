@@ -18,13 +18,10 @@ export default function App() {
         Height="460px"
         Background="linear-gradient(to top, rgb(26,37,51), rgb(29,26,51))" 
       >
-        <Grid relative>
+        <Grid justify='center' alignItems='center' relative>
           <Row>
-            <Col lg={4} md={6}>
+            <Col lg={6} xs={12}>
               <H1 Color="white">nickew</H1>
-            </Col>
-            <Col lg={8}>
-              <H1 Color="orange">front-end developer</H1>
             </Col>
           </Row>
         </Grid>

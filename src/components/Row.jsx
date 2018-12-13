@@ -3,18 +3,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Row = styled.div`
-  width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
   display: flex;
-  justify-content: ${(props) => props.justify || 'flex-start'};
-  align-items: ${(props) => props.alignItems || 'flex-start'};
+  justify-content: ${({ justify }) => justify};
+  align-items: ${({ alignItems }) => alignItems};
 `;
 
 Row.propTypes = {
   children: PropTypes.any,
   justify: PropTypes.string,
   alignItems: PropTypes.string,
+};
+
+Row.defaultProps = {
+  alignItems: 'flex-start',
+  justify: 'flex-start',
 };
 
 export default Row;
