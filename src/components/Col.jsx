@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Col = styled.div`
+  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
   @media (min-width: 1200px) {
     flex: 0 0  ${({ lg }) => 100 / 12 * lg}%;
   }
@@ -23,13 +24,15 @@ Col.propTypes = {
   md: PropTypes.number,
   sm: PropTypes.number,
   xs: PropTypes.number,
+  Padding: PropTypes.number,
 };
 
 Col.defaultProps = {
-  lg: 100,
-  md: 100,
-  sm: 100,
-  xs: 100,
+  lg: 12,
+  md: 12,
+  sm: 12,
+  xs: 12,
+  Padding: 5,
 };
 
 export default Col;

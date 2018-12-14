@@ -8,6 +8,25 @@ import Grid from '../components/Grid';
 import Row from '../components/Row';
 import Col from '../components/Col';
 import Logotype from '../components/Logotype';
+import Projects from '../components/Projects';
+
+const projects = [
+  {
+    img: 'https://via.placeholder.com/350' 
+  },
+  {
+    img: 'https://via.placeholder.com/350' 
+  },
+  {
+    img: 'https://via.placeholder.com/350' 
+  },
+  {
+    img: 'https://via.placeholder.com/350' 
+  },
+  {
+    img: 'https://via.placeholder.com/350' 
+  },
+];
 
 export default function App() {
   return (
@@ -19,7 +38,7 @@ export default function App() {
         Height="460px"
         Background="linear-gradient(to top, rgb(26,37,51), rgb(29,26,51))" 
       >
-        <Grid justify='center' alignItems='center' relative>
+        <Grid justify="center" alignItems="center" relative>
           <Row>
             <Col lg={12} xs={12}>
               <Logotype />
@@ -27,6 +46,9 @@ export default function App() {
           </Row>
         </Grid>
         <Particles />
+      </Section>
+      <Section>
+        <Projects projects={projects} />
       </Section>
     </Wrapper>
   );

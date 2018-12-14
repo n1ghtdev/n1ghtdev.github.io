@@ -10,6 +10,7 @@ const Grid = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: ${({ justify }) => justify};
   align-items: ${({ alignItems }) => alignItems};
   z-index: ${({relative}) => relative ? '1' : 'auto'};
