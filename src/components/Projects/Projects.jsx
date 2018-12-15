@@ -5,8 +5,9 @@ import Grid from '../Grid';
 import Row from '../Row';
 import Col from '../Col';
 import { H2 } from '../Headings';
+import Item from './Item';
 
-const Projects = ({ children, projects }) => {
+const Projects = ({ children, projects, ListStyle }) => {
   return (
     <Grid justify="center">
       <Row>
@@ -15,10 +16,29 @@ const Projects = ({ children, projects }) => {
         </Col>
       </Row>
       <Row>
-        { projects.map(project => (
-          <Col lg={3} md={3} sm={4} xs={12} Padding={0}>
-            <img src={project.img} />
-          </Col>
+        <Col>
+
+        </Col>
+      </Row>
+      <Row>
+        { projects.map((project, i) => (
+        <Col
+          lg={ListStyle === 'photo' ? 3 : 12}
+          md={ListStyle === 'photo' ? 3 : 12}
+          sm={ListStyle === 'photo' ? 4 : 12}
+          xs={12}
+          Padding={0}
+        >
+          <Item
+            key={i}
+            ImgSrc={project.img.src}
+            ImgAlt={project.img.alt}
+            Title={project.title}
+            Description={project.description}
+            Link={project.link}
+            Tools={project.tools}
+          />
+        </Col>
         )) }
       </Row>
     </Grid>

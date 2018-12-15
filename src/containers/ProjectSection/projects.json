@@ -1,0 +1,48 @@
+
+const projects = [
+  {
+    title: 'Project Blog',
+    description: 'Simple blog developed with Spring Boot and React.',
+    link: 'https://github.com/Nickew/project-blog',
+    tools: ['html', 'css', 'js', 'java'],
+    img: {
+      src: 'https://via.placeholder.com/350',
+    },
+  },
+  {
+    title: 'Project Blog',
+    description: 'Simple blog developed with Spring Boot and React.',
+    link: 'https://github.com/Nickew/project-blog',
+    tools: ['html', 'css', 'js', 'java'],
+    img: {
+      src: 'https://via.placeholder.com/350',
+    },
+  },
+  {
+    title: 'Project Blog',
+    description: 'Simple blog developed with Spring Boot and React.',
+    link: 'https://github.com/Nickew/project-blog',
+    tools: ['html', 'css', 'js', 'java'],
+    img: {
+      src: 'https://via.placeholder.com/350',
+    },
+  },
+  {
+    title: 'Project Blog',
+    description: 'Simple blog developed with Spring Boot and React.',
+    link: 'https://github.com/Nickew/project-blog',
+    tools: ['html', 'css', 'js', 'java'],
+    img: {
+      src: 'https://via.placeholder.com/350',
+    },
+  },
+  {
+    title: 'Project Blog',
+    description: 'Simple blog developed with Spring Boot and React.',
+    link: 'https://github.com/Nickew/project-blog',
+    tools: ['html', 'css', 'js', 'java'],
+    img: {
+      src: 'https://via.placeholder.com/350',
+    },
+  },
+];

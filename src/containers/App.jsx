@@ -8,25 +8,7 @@ import Grid from '../components/Grid';
 import Row from '../components/Row';
 import Col from '../components/Col';
 import Logotype from '../components/Logotype';
-import Projects from '../components/Projects';
-
-const projects = [
-  {
-    img: 'https://via.placeholder.com/350' 
-  },
-  {
-    img: 'https://via.placeholder.com/350' 
-  },
-  {
-    img: 'https://via.placeholder.com/350' 
-  },
-  {
-    img: 'https://via.placeholder.com/350' 
-  },
-  {
-    img: 'https://via.placeholder.com/350' 
-  },
-];
+import ProjectSection from './ProjectSection';
 
 export default function App() {
   return (
@@ -48,7 +30,7 @@ export default function App() {
         <Particles />
       </Section>
       <Section>
-        <Projects projects={projects} />
+        <ProjectSection />
       </Section>
     </Wrapper>
   );
