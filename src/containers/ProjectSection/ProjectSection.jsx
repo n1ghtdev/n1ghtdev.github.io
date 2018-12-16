@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Section from '../../components/Section';
 import Projects from '../../components/Projects';
-import Options from '../../components/Projects/Options';
-import Button from '../../components/Projects/Options/Button';
+import List from '../../components/List';
+import Item from '../../components/List/Item';
+import Button from '../../components/Button';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
@@ -81,10 +82,14 @@ class ProjectSection extends React.Component {
         </Row>
         <Row>
           <Col textAlign="center">
-            <Options>
-              <Button onClick={this.toggleListStyle} name="list">List</Button>
-              <Button onClick={this.toggleListStyle} name="photo">Photo</Button>
-            </Options>
+            <List>
+              <Item>
+                <Button onClick={this.toggleListStyle} name="list">List</Button>
+              </Item>
+              <Item>
+                <Button onClick={this.toggleListStyle} name="photo">Photo</Button>
+              </Item>
+            </List>
           </Col>
         </Row>
         <Projects projects={projects} ListStyle={this.state.listStyle} />
