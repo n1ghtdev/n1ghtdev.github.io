@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Section from '../../components/Section';
 import Projects from '../../components/Projects';
 import Options from '../../components/Projects/Options';
+import Button from '../../components/Projects/Options/Button';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
@@ -64,9 +65,11 @@ class ProjectSection extends React.Component {
     this.state = {
       listStyle: 'list',
     };
+
+    this.toggleListStyle = this.toggleListStyle.bind(this);
   }
-  toggleListStyle() {
-    //this.setState({ listStyle: })
+  toggleListStyle(e) {
+    this.setState({ listStyle: e.target.name});
   }
   render() {
     return (
@@ -78,10 +81,13 @@ class ProjectSection extends React.Component {
         </Row>
         <Row>
           <Col textAlign="center">
-            <Options />
+            <Options>
+              <Button onClick={this.toggleListStyle} name="list">List</Button>
+              <Button onClick={this.toggleListStyle} name="photo">Photo</Button>
+            </Options>
           </Col>
         </Row>
-        <Projects projects={projects} listStyle={this.state.listStyle} />
+        <Projects projects={projects} ListStyle={this.state.listStyle} />
       </Grid>  
     );
   }

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Col = styled.div`
   padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
   text-align: ${({ textAlign }) => textAlign};
-  margin: 0 auto;
   @media (min-width: 1200px) {
     flex: 0 0  ${({ lg }) => 100 / 12 * lg}%;
     max-width: ${({ lg }) => 100 /12 * lg}%;
