@@ -9,10 +9,6 @@ const Grid = styled.div`
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: ${({ justify }) => justify};
-  align-items: ${({ alignItems }) => alignItems};
   z-index: ${({relative}) => relative ? '1' : 'auto'};
   position: ${({relative}) => relative ? 'relative' : 'static'};
 
@@ -32,14 +28,7 @@ const Grid = styled.div`
 
 Grid.propTypes = {
   children: PropTypes.any,
-  alignItems: PropTypes.string,
-  justify: PropTypes.string,
   relative: PropTypes.bool,
-};
-
-Grid.defaultProps = {
-  alignItems: 'flex-start',
-  justify: 'flex-start',
 };
 
 export default Grid;

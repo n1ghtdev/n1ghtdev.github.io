@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { H1 } from '../Headings';
 
 const LogotypeWrapper = styled.div`
-  display: flex;
+  text-align: center;
   font-size: 2rem;
   color: #fff;
 `;

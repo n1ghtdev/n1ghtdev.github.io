@@ -20,8 +20,8 @@ export default function App() {
         Height="460px"
         Background="linear-gradient(to top, rgb(26,37,51), rgb(29,26,51))" 
       >
-        <Grid justify="center" alignItems="center" relative>
-          <Row>
+        <Grid relative>
+          <Row Height="inherit" alignItems="center">
             <Col lg={12} xs={12}>
               <Logotype />
             </Col>

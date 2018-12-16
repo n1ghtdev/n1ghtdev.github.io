@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const OptionsList = styled.ul`
-  display: flex;
+  display: inline-flex;
   list-style-type: none;
 `;
 
@@ -22,21 +22,22 @@ const OptionsButton = styled.a`
 
 `;
 
-const Options = ({ children }) => {
+const Options = ({ onClick, value }) => {
   return (
     <OptionsList>
-      <OptionItem>
-        <OptionsButton onClick={}>List</OptionsButton>
-      </OptionItem>
-      <OptionItem> 
-        <OptionsButton onClick={}>Photo</OptionsButton>
-      </OptionItem>
+      <OptionsItem>
+        <OptionsButton onClick={onClick} value={value}>List</OptionsButton>
+      </OptionsItem>
+      <OptionsItem> 
+        <OptionsButton onClick={onClick} value={value}>Photo</OptionsButton>
+      </OptionsItem>
     </OptionsList>
   );
 };
 
 Options.propTypes = {
-  children: PropTypes.any,
+  onClick: PropTypes.func,
+  value: PropTypes.string,
 };
 
 export default Options;
