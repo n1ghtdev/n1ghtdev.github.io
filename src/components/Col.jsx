@@ -38,7 +38,7 @@ Col.defaultProps = {
   md: 12,
   sm: 12,
   xs: 12,
-  Padding: 5,
+  Padding: 0,
   textAlign: 'left',
 };
 

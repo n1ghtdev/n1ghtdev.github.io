@@ -12,6 +12,11 @@ const Grid = styled.div`
   z-index: ${({relative}) => relative ? '1' : 'auto'};
   position: ${({relative}) => relative ? 'relative' : 'static'};
 
+  ${({flex}) => flex && `
+    display: flex;
+    flex-flow: column nowrap;
+  `}
+
   @media (min-width: 1200px) {
     max-width: 1170px;
   }
@@ -29,6 +34,7 @@ const Grid = styled.div`
 Grid.propTypes = {
   children: PropTypes.any,
   relative: PropTypes.bool,
+  flex: PropTypes.bool,
 };
 
 export default Grid;
