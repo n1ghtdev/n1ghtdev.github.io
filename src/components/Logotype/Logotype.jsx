@@ -56,13 +56,15 @@ const Logotype = ({ children }) => {
   return (
     <Wrapper>
       <Nk>
-        <BlueGradient>N</BlueGradient>
-        <RedGradient>k</RedGradient>
+        {/* <BlueGradient>N</BlueGradient>
+        <RedGradient>k</RedGradient>*/}
+        {/*<img src="./src/assets/nk-logo.svg" />*/}
+        { children }
       </Nk>
-      <About>
+      {/*<About>
         <Name>Nikita Borodai</Name>
         <Spec>front-end developer</Spec>
-      </About>
+      </About>*/}
     </Wrapper>
   );
 };

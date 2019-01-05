@@ -8,7 +8,7 @@ const Header = styled.header`
 `;
 
 Header.propTypes = {
-
+  onMouseMove: PropTypes.func,
 };
 
 export default Header;

@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const List = styled.ul`
-
+  width: 45px;
+  margin-left: auto;
 `;
 
 const Item = styled.li`
