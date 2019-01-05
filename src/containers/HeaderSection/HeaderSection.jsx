@@ -7,6 +7,8 @@ import Logotype from '../../components/Logotype';
 import Particles from '../Particles';
 import Socials from '../../components/Socials';
 import NkSvg from '../../components/Logotype/NkSvg';
+import ScrolldownHint from '../../components/ScrolldownHint';
+import Link from '../../components/Link';
 
 class HeaderSection extends React.Component {
   constructor(props) {
@@ -30,9 +32,15 @@ class HeaderSection extends React.Component {
     return (
       <Header onMouseMove={this.onMouseMove}>
         <Grid relative flex>
-          <Row>
-            <Col lg={12}>
-              <div style={{ 'background': 'grey'}}>nickew.github.io</div>
+          <Row Height={50} alignItems="center">
+            <Col lg={12} textAlign="right">
+              <Link
+                Style="grey"
+                href="https://github.com/Nickew/nickew.github.io"
+                target="_blank"
+              >
+                nickew.github.io
+              </Link>
             </Col>
           </Row>
           <Row FlexProps="1" alignItems="center">
@@ -46,8 +54,8 @@ class HeaderSection extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col lg={12}> 
-              <div style={{ 'background': 'grey'}}>latest projects</div>
+            <Col lg={12}>
+              <ScrolldownHint />
             </Col>
           </Row>
         </Grid>

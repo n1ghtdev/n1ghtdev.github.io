@@ -9,7 +9,9 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-
+  &:last-child {
+    padding-top: 20px;
+  }
 `;
 
 const Link = styled.a`
@@ -22,6 +24,11 @@ const Link = styled.a`
   font-size: 1.5rem;
   border: 2px solid #fff;
   border-radius: 50%;
+  transition: all .25s;
+
+  &:hover {
+    border-color: #435365;
+  }
 `;
 
 const Socials = ({ children }) => {

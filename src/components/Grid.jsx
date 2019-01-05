@@ -5,8 +5,6 @@ import styled from 'styled-components';
 const Grid = styled.div`
   height: inherit;
   width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
   z-index: ${({relative}) => relative ? '1' : 'auto'};

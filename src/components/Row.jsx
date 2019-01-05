@@ -7,6 +7,8 @@ const Row = styled.div`
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
   height: ${({ Height }) => typeof Height === 'string' ? Height : `${Height}px`};
   justify-content: ${({ justify }) => justify};
   align-items: ${({ alignItems }) => alignItems};
