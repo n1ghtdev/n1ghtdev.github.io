@@ -6,6 +6,7 @@ import Row from '../../components/Row';
 import Col from '../../components/Col';
 import LatestProjects from '../../components/LatestProjects';
 import Project from '../../components/LatestProjects/Project';
+import Line from '../../components/Line';
 
 const latestProjects = [
   {
@@ -54,11 +55,14 @@ class ProjectSection extends React.Component {
       </Row>
     ));
     return (
-      <LatestProjects>
-        <Grid>
+      <Grid relative> 
+        <Line vertical color="#dfdfdf" />
+        <Line vertical color="#dfdfdf" align="right" />
+        <LatestProjects>
+          <Line vertical color="#dfdfdf" align="center" />
           { renderProjects } 
-        </Grid>
-      </LatestProjects>
+        </LatestProjects>
+      </Grid>
     );
   }
 }

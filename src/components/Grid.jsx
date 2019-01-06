@@ -16,7 +16,7 @@ const Grid = styled.div`
   `}
 
   @media (min-width: 1200px) {
-    max-width: 1170px;
+    max-width: 1200px;
   }
   @media (min-width: 992px) and (max-width: 1200px) {
     max-width: 970px;

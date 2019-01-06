@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin-bottom: 125px;
+  position: relative;
 `;
 
 const Container = styled.article`
@@ -41,11 +42,28 @@ const Image = styled.img`
 `;
 
 const Line = styled.div`
-
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 1px;
+  background: #dfdfdf;
 `;
 
 const Number = styled.span`
+  position: absolute;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
+  top: 39%;
+  left: -7px;
+  font-size: 2.5rem;
+  color: #8c8c8c;
+  transition: all .25s;
 
+  ${Wrapper}:hover & {
+    color: #37639a;
+  }
 `;
 
 const Header = styled.header`
@@ -65,10 +83,10 @@ const Description = styled.p`
 const Project = ({ number, imgSrc, imgAlt, projectTitle, projectDesc }) => {
   return (
     <Wrapper>
+      <Line />
+      <Number>{ `0${number}` }</Number>
       <Container>
         <Image src={imgSrc} alt={imgAlt} />
-        <Line />
-        <Number>{ number }</Number>
         <Overlay>
           <Header>
             <Title>{ projectTitle }</Title>

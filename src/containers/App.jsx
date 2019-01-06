@@ -18,9 +18,7 @@ export default function App() {
   return (
     <Wrapper>
       <HeaderSection />
-      <Section>
-        <ProjectSection />
-      </Section>
+      <ProjectSection />
     </Wrapper>
   );
 }

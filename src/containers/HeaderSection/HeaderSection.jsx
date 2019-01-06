@@ -9,6 +9,7 @@ import Socials from '../../components/Socials';
 import NkSvg from '../../components/Logotype/NkSvg';
 import ScrolldownHint from '../../components/ScrolldownHint';
 import Link from '../../components/Link';
+import Line from '../../components/Line';
 
 class HeaderSection extends React.Component {
   constructor(props) {
@@ -32,6 +33,9 @@ class HeaderSection extends React.Component {
     return (
       <Header onMouseMove={this.onMouseMove}>
         <Grid relative flex>
+          <Line vertical color="#25282D" />
+          <Line vertical color="#25282D" align="center" />
+          <Line vertical color="#25282D" align="right" />
           <Row Height={50} alignItems="center">
             <Col lg={12} textAlign="right">
               <Link

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Project from './Project';
 
 const Wrapper = styled.main`
-  margin-top: 125px;
+ padding-top: 125px;
 `;
 
 const LatestProjects = ({ children }) => {
