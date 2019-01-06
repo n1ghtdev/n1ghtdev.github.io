@@ -1,61 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Section from '../../components/Section';
-import Projects from '../../components/Projects';
-import List from '../../components/List';
-import Item from '../../components/List/Item';
-import Button from '../../components/Button';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
-import { H2 } from '../../components/Headings';
+import LatestProjects from '../../components/LatestProjects';
+import Project from '../../components/LatestProjects/Project';
 
-const projects = [
+const latestProjects = [
   {
-    title: 'Project Blog',
-    description: 'Simple blog developed with Spring Boot and React.',
-    link: 'https://github.com/Nickew/project-blog',
-    tools: ['html', 'css', 'js', 'java'],
-    img: {
-      src: 'https://via.placeholder.com/350',
-    },
+    number: 1,
+    title: 'Latest project #1',
+    description: 'This is latest projects section made with React and HTML5 semantic tags.',
+    imgSrc: 'https://via.placeholder.com/960',
+    imgAlt: 'Something here',
   },
   {
-    title: 'Project Blog',
-    description: 'Simple blog developed with Spring Boot and React.',
-    link: 'https://github.com/Nickew/project-blog',
-    tools: ['html', 'css', 'js', 'java'],
-    img: {
-      src: 'https://via.placeholder.com/350',
-    },
+    number: 2,
+    title: 'Latest project #2',
+    description: 'This is latest projects section made with React and HTML5 semantic tags.',
+    imgSrc: 'https://via.placeholder.com/960',
+    imgAlt: 'Something here',
   },
   {
-    title: 'Project Blog',
-    description: 'Simple blog developed with Spring Boot and React.',
-    link: 'https://github.com/Nickew/project-blog',
-    tools: ['html', 'css', 'js', 'java'],
-    img: {
-      src: 'https://via.placeholder.com/350',
-    },
-  },
-  {
-    title: 'Project Blog',
-    description: 'Simple blog developed with Spring Boot and React.',
-    link: 'https://github.com/Nickew/project-blog',
-    tools: ['html', 'css', 'js', 'java'],
-    img: {
-      src: 'https://via.placeholder.com/350',
-    },
-  },
-  {
-    title: 'Project Blog',
-    description: 'Simple blog developed with Spring Boot and React.',
-    link: 'https://github.com/Nickew/project-blog',
-    tools: ['html', 'css', 'js', 'java'],
-    img: {
-      src: 'https://via.placeholder.com/350',
-    },
+    number: 3,
+    title: 'Latest project #3',
+    description: 'This is latest projects section made with React and HTML5 semantic tags.',
+    imgSrc: 'https://via.placeholder.com/960',
+    imgAlt: 'Something here',
   },
 ];
 
@@ -64,36 +36,29 @@ class ProjectSection extends React.Component {
     super(props);
 
     this.state = {
-      listStyle: 'list',
     };
 
-    this.toggleListStyle = this.toggleListStyle.bind(this);
-  }
-  toggleListStyle(e) {
-    this.setState({ listStyle: e.target.name});
   }
   render() {
+    const renderProjects = latestProjects.map(project => (
+      <Row key={project.number}>
+        <Col>
+          <Project
+            number={project.number}
+            projectTitle={project.title}
+            projectDesc={project.description}
+            imgSrc={project.imgSrc}
+            imgAlt={project.imgAlt}
+          />
+        </Col>
+      </Row>
+    ));
     return (
-      <Grid>
-        <Row>
-          <Col Padding="15px 0px" textAlign="center">
-            <H2>Projects</H2>
-          </Col>
-        </Row>
-        <Row>
-          <Col textAlign="center">
-            <List>
-              <Item>
-                <Button onClick={this.toggleListStyle} name="list">List</Button>
-              </Item>
-              <Item>
-                <Button onClick={this.toggleListStyle} name="photo">Photo</Button>
-              </Item>
-            </List>
-          </Col>
-        </Row>
-        <Projects projects={projects} ListStyle={this.state.listStyle} />
-      </Grid>  
+      <LatestProjects>
+        <Grid>
+          { renderProjects } 
+        </Grid>
+      </LatestProjects>
     );
   }
 }
