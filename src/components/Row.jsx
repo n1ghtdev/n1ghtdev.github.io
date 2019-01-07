@@ -5,8 +5,6 @@ import styled from 'styled-components';
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-left: 15px;
-  padding-right: 15px;
   height: ${({ Height }) => typeof Height === 'string' ? Height : `${Height}px`};
   justify-content: ${({ justify }) => justify};
   align-items: ${({ alignItems }) => alignItems};

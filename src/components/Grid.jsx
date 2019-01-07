@@ -7,12 +7,19 @@ const Grid = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  z-index: ${({relative}) => relative ? '1' : 'auto'};
-  position: ${({relative}) => relative ? 'relative' : 'static'};
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: ${({ relative }) => relative ? '1' : 'auto'};
+  position: ${({ relative }) => relative ? 'relative' : 'static'};
 
-  ${({flex}) => flex && `
+  ${({ flex }) => flex && `
     display: flex;
     flex-flow: column nowrap;
+  `}
+
+  ${({ fluid }) => fluid && `
+    max-width: 100%!important;
+    padding: 0;
   `}
 
   @media (min-width: 1200px) {
@@ -33,6 +40,7 @@ Grid.propTypes = {
   children: PropTypes.any,
   relative: PropTypes.bool,
   flex: PropTypes.bool,
+  fluid: PropTypes.bool,
 };
 
 export default Grid;

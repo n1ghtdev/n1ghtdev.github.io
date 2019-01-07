@@ -11,6 +11,7 @@ import Row from '../components/Row';
 import Col from '../components/Col';
 import HeaderSection from './HeaderSection';
 import ProjectSection from './ProjectSection';
+import OtherProjectsSection from './OtherProjectsSection';
 
 library.add(fab);
 
@@ -19,6 +20,7 @@ export default function App() {
     <Wrapper>
       <HeaderSection />
       <ProjectSection />
+      <OtherProjectsSection />
     </Wrapper>
   );
 }

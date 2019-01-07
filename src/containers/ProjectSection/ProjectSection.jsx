@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Grid from '../../components/Grid';
-import Row from '../../components/Row';
-import Col from '../../components/Col';
-import LatestProjects from '../../components/LatestProjects';
-import Project from '../../components/LatestProjects/Project';
 import Line from '../../components/Line';
+import ProjectList from './ProjectList';
 
 const latestProjects = [
   {
@@ -31,37 +28,20 @@ const latestProjects = [
     imgAlt: 'Something here',
   },
 ];
-
+// should be stateless?, if there is no api for projects, then yes, it is stateless 
 class ProjectSection extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-    };
-
+    this.state = {};
   }
   render() {
-    const renderProjects = latestProjects.map(project => (
-      <Row key={project.number}>
-        <Col>
-          <Project
-            number={project.number}
-            projectTitle={project.title}
-            projectDesc={project.description}
-            imgSrc={project.imgSrc}
-            imgAlt={project.imgAlt}
-          />
-        </Col>
-      </Row>
-    ));
     return (
       <Grid relative> 
         <Line vertical color="#dfdfdf" />
         <Line vertical color="#dfdfdf" align="right" />
-        <LatestProjects>
-          <Line vertical color="#dfdfdf" align="center" />
-          { renderProjects } 
-        </LatestProjects>
+        <Line vertical color="#dfdfdf" align="center" />
+        <ProjectList projects={latestProjects} />
       </Grid>
     );
   }
