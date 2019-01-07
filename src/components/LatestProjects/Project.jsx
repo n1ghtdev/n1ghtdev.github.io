@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin-bottom: 125px;
   position: relative;
+  margin-top: 125px;
 `;
 
 const Container = styled.article`
@@ -23,7 +23,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: all .25s;
+  transition: all .5s;
   background: rgba(26, 37, 51, .9);
   display: flex;
   align-items: flex-end;
