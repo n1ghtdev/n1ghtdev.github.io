@@ -20,19 +20,16 @@ const Path = styled.path`
   }
 `;
 
-const ScrolldownSVG = ({ children }) => {
+const ScrolldownSVG = () => {
   return (
-    <svg width="30" height="67">
-      <Path d="M9 60L15.5 65L22 60" stroke="white" />
-      <rect x="1" y="1" width="28" height="47" rx="14" stroke="white" strokeWidth="2"  strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="15" cy="16" r="3" stroke="white" strokeWidth="2" />
-      <Path d="M9 52L15.5 57L22 52" stroke="white" strokeOpacity="0.75" />
-    </svg>
+	<svg width="30" height="67" fill="none">
+		<Path d="M9 60L15.5 65L22 60" stroke="white" />
+		<rect x="1" y="1" width="28" height="47" rx="14" stroke="white" strokeWidth="2"  strokeLinecap="round" strokeLinejoin="round"/>
+		<circle cx="15" cy="16" r="3" stroke="white" strokeWidth="2" />
+		<Path d="M9 52L15.5 57L22 52" stroke="white" strokeOpacity="0.75" />
+	</svg>
 	);
 };
 
-ScrolldownSVG.propTypes = {
-  children: PropTypes.any,
-};
-
 export default ScrolldownSVG;
+

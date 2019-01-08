@@ -18,7 +18,7 @@ const H3 = styled.h3`
   padding-top: 5px;
 `;
 
-const ScrolldownHint = ({ children }) => {
+const ScrolldownHint = () => {
   return (
     <Wrapper>
       <ScrolldownSVG />
@@ -27,8 +27,5 @@ const ScrolldownHint = ({ children }) => {
   );
 };
 
-ScrolldownHint.propTypes = {
-  children: PropTypes.any,
-};
-
 export default ScrolldownHint;
+

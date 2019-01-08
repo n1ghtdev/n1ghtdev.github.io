@@ -39,10 +39,12 @@ Line.propTypes = {
   horizontal: PropTypes.bool,
   vertical: PropTypes.bool,
   color: PropTypes.string,
+  align: PropTypes.string,
 };
 
 Line.defaultProps = {
   color: '#eee',
+  align: 'left',
 };
 
 export default Line;
