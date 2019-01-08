@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Heading = styled.span`
-  color: ${(props) => props.Color || 'black' };
-  font-weight: bold;
+  color: ${({ Color }) => Color || '#000'};
+  font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
+  font-size: ${({ fontSize }) => fontSize && `${fontSize}!important`};
+  font-style: ${({ fontStyle }) => fontStyle};
 `;
 
 const H1 = Heading.withComponent('h1').extend`
@@ -31,35 +33,17 @@ const H6 = Heading.withComponent('h6').extend`
   font-size: .75rem;
 `;
 
-H1.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
+const listOfHeadings = [H1, H2, H3, H4, H5, H6];
 
-H2.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
-
-H3.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
-
-H4.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
-
-H5.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
-
-H6.propTypes = {
-  Color: PropTypes.string,
-  children: PropTypes.any,
-};
+listOfHeadings.forEach(heading => {
+  heading.propTypes = {
+    Color: PropTypes.string,
+    children: PropTypes.any,
+    fontSize: PropTypes.string,
+    fontStyle: PropTypes.string,
+    fontWeight: PropTypes.string,
+  };
+});
 
 export {
   H1,

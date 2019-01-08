@@ -1,46 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// refactor default col
+
+// TODO: refactor inheriting from upper screen size, get rid of nested ternary operators.
 const Col = styled.div`
-  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
+  order: ${({ Order }) => Order};
+  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding :
+                              (typeof Padding === 'array' ? Padding.map(pad => `${pad}px`) :
+                              `${Padding}px`)};
   text-align: ${({ textAlign }) => textAlign};
+
   @media (min-width: 1200px) {
-    flex: 0 0  ${({ lg }) => 100 / 12 * lg}%;
-    max-width: ${({ lg }) => 100 /12 * lg}%;
+    flex: 0 0  ${({ lg }) => calcWidth(lg)}%;
+    max-width: ${({ lg }) => calcWidth(lg)}%;
   }
   @media (min-width: 992px) and (max-width: 1200px) {
-    flex: 0 0  ${({ md }) => 100 / 12 * md}%;
-    max-width: ${({ md }) => 100 /12 * md}%;
+    flex: 0 0  ${({ md, lg }) => calcWidth(!md ? lg : md)}%;
+    max-width: ${({ md, lg }) => calcWidth(!md ? lg : md)}%;
   }
   @media (min-width: 768px) and (max-width: 992px) {
-    flex: 0 0  ${({ sm }) => 100 / 12 * sm}%;
-    max-width: ${({ sm }) => 100 /12 * sm}%;
+    flex: 0 0  ${({ sm, md, lg }) => calcWidth(!sm ? (lg ? lg : md) : sm)}%;
+    max-width: ${({ sm, md, lg }) => calcWidth(!sm ? (lg ? lg : md) : sm)}%;
   }
   @media (max-width: 768px) {
-    flex: 0 0  ${({ xs }) => 100 / 12 * xs}%;
-    max-width: ${({ xs }) => 100 /12 * xs}%;
+    flex: 0 0  ${({ xs, sm, md, lg }) => calcWidth(!xs ? (sm ? sm : (md ? md : lg)) : xs)}%;
+    max-width: ${({ xs, sm, md, lg }) => calcWidth(!xs ? (sm ? sm : (md ? md : lg)) : xs)}%;
   }
 `;
 
+const calcWidth = (cols) => {
+  return (100 / 12) * cols;
+};
+
 Col.propTypes = {
   children: PropTypes.any,
-  lg: PropTypes.number,
-  md: PropTypes.number,
-  sm: PropTypes.number,
-  xs: PropTypes.number,
-  Padding: PropTypes.any,
+  lg: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  md: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  sm: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  xs: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  Padding: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   textAlign: PropTypes.string,
+  Order: PropTypes.number,
 };
 
 Col.defaultProps = {
   lg: 12,
-  md: 12,
-  sm: 12,
-  xs: 12,
   Padding: 0,
   textAlign: 'left',
+  Order: 0,
 };
 
 export default Col;
-
