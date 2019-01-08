@@ -10,6 +10,7 @@ const otherProjects = [
   {
     id: 0,
     title: 'Other project #1',
+    tools: ['html', 'css'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -17,6 +18,7 @@ const otherProjects = [
   {
     id: 1,
     title: 'Other project #1',
+    tools: ['html', 'css', 'js'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -24,6 +26,7 @@ const otherProjects = [
   {
     id: 2,
     title: 'Other project #1',
+    tools: ['react', 'node.js'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -31,6 +34,7 @@ const otherProjects = [
   {
     id: 3,
     title: 'Other project #1',
+    tools: ['html', 'css'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -38,6 +42,7 @@ const otherProjects = [
   {
     id: 4,
     title: 'Other project #1',
+    tools: ['react', 'spring boot'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -45,6 +50,7 @@ const otherProjects = [
   {
     id: 5,
     title: 'Other project #1',
+    tools: ['figma', 'photoshop'],
     description: 'Description of other projects section',
     imgSrc: 'https://via.placeholder.com/640',
     imgAlt: 'Image Alt',
@@ -59,6 +65,7 @@ const OtherProjectsSection = () => {
           <Col lg={4} key={project.id}>
             <Project
               title={project.title}
+              tools={project.tools}
               description={project.description}
               imgSrc={project.imgSrc}
               imgAlt={project.imgAlt}
