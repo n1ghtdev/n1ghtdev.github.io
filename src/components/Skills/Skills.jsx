@@ -3,13 +3,37 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SVGScreen from './SVGScreen';
 
-const List = styled.ul``;
+const List = styled.ul`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+`;
 
-const Skill = styled.article``;
+const Skill = styled.article`
+  padding-top: 20px;
+`;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
 
-const Description = styled.p``;
+  &:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    width: 6px;
+    height: 6px;
+    background: #5C7A9E;
+    border-radius: 50%;
+  }
+`;
+
+const Description = styled.p`
+  color: #fff;
+`;
 
 const Skills = ({ skills }) => {
   return (
