@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Header = styled.header`
   height: 100vh;
-  background: linear-gradient(180deg, #030E1C 0%, #0D1116 100%);
+  background: linear-gradient(180deg, #080E1F 0%, #0A0B10 100%);
 `;
 
 Header.propTypes = {

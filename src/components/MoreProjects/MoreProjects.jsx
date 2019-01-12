@@ -31,7 +31,7 @@ const Hover = styled.div`
   opacity: 0;
   background: #154883;
   transform: translateX(-100%);
-  transition: all .25s;
+  transition: all .5s;
 
   ${Button}:hover & {
     opacity: 1;
@@ -45,7 +45,7 @@ const Text = styled.span`
   display: block;
   color: #fff;
   font-size: 2rem;
-  transition: all .25s;
+  transition: all .5s;
 
   ${Button}:hover & {
     transform: translateX(30%);

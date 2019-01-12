@@ -3,6 +3,7 @@ import Wrapper from '../components/Wrapper';
 import HeaderSection from './HeaderSection';
 import ProjectSection from './ProjectSection';
 import AboutSection from './AboutSection';
+import FooterSection from './FooterSection';
 
 export default function Mainpage() {
   return (
@@ -10,6 +11,7 @@ export default function Mainpage() {
       <HeaderSection />
       <ProjectSection />
       <AboutSection />
+      <FooterSection />
     </Wrapper>
   );
 }

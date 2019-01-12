@@ -7,6 +7,7 @@ import Skills from '../../components/Skills';
 import { H2 } from '../../components/Headings';
 import SVGScreen from '../../components/Skills/SVGScreen';
 import Tools from '../../components/Tools';
+import ButtonLink from '../../components/Button/ButtonLink';
 
 const skillsData = [
   {
@@ -77,6 +78,11 @@ const AboutSection = () => {
         <Row>
           <Col lg={12} Padding="20px 0">
             <Tools tools={toolsData} />
+          </Col>
+        </Row>
+        <Row justify="center">
+          <Col lg={6} textAlign="center" Padding="80px 0 120px 0">
+            <ButtonLink Mod="simple" to="/resume">resume</ButtonLink>
           </Col>
         </Row>
       </Grid>
