@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '../../components/Grid';
 import Line from '../../components/Line';
 import ProjectList from './ProjectList';
-import MoreProjects from '../../components/MoreProjects';
+import ButtonLink from '../../components/Button/ButtonLink';
 
 const latestProjects = [
   {
@@ -41,7 +41,7 @@ class ProjectSection extends React.Component {
         <Line vertical color="#dfdfdf" align="right" />
         <Line vertical color="#dfdfdf" align="center" />
         <ProjectList projects={latestProjects} />
-        <MoreProjects to="/projects">More projects</MoreProjects>
+        <ButtonLink view="blue" to="/projects" Padding="0 0 200px">More projects</ButtonLink>
       </Grid>
     );
   }

@@ -81,8 +81,8 @@ const AboutSection = () => {
           </Col>
         </Row>
         <Row justify="center">
-          <Col lg={6} textAlign="center" Padding="80px 0 120px 0">
-            <ButtonLink Mod="simple" to="/resume">resume</ButtonLink>
+          <Col lg={10} Padding="80px 0 120px 0">
+            <ButtonLink view="simple" to="/resume">resume</ButtonLink>
           </Col>
         </Row>
       </Grid>

@@ -28,9 +28,7 @@ const Col = styled.div`
   }
 `;
 
-const calcWidth = (cols) => {
-  return (100 / 12) * cols;
-};
+const calcWidth = (cols) => (100 / 12) * cols;
 
 Col.propTypes = {
   children: PropTypes.any,
