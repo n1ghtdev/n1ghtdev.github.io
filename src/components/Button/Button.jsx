@@ -6,11 +6,9 @@ const ButtonLink = styled.a`
 
 `;
 
-const Button = ({ children, onClick, name }) => {
-  return (
-    <ButtonLink onClick={onClick} name={name}>{children}</ButtonLink>
-  );
-};
+const Button = ({ children, onClick, name }) => (
+  <ButtonLink onClick={onClick} name={name}>{children}</ButtonLink>
+);
 
 Button.propTypes = {
   children: PropTypes.string,

@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Grid from '../../components/Grid';
 import Line from '../../components/Line';
 import ProjectList from './ProjectList';
+import MoreProjects from '../../components/MoreProjects';
 
 const latestProjects = [
   {
@@ -37,18 +36,15 @@ class ProjectSection extends React.Component {
   }
   render() {
     return (
-      <Grid relative> 
+      <Grid relative>
         <Line vertical color="#dfdfdf" />
         <Line vertical color="#dfdfdf" align="right" />
         <Line vertical color="#dfdfdf" align="center" />
         <ProjectList projects={latestProjects} />
+        <MoreProjects to="/projects">More projects</MoreProjects>
       </Grid>
     );
   }
 }
-
-ProjectSection.propTypes = {
-  children: PropTypes.any,
-};
 
 export default ProjectSection;

@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Project from './Project';
 
 const Wrapper = styled.main`
-  padding-bottom: 125px;
+  padding-bottom: 200px;
 `;
 
-const LatestProjects = ({ children }) => {
-  return (
-    <Wrapper>
-      { children }
-    </Wrapper>
-  );
-};
+const LatestProjects = ({ children }) => (
+  <Wrapper>
+    { children }
+  </Wrapper>
+);
 
 LatestProjects.propTypes = {
   children: PropTypes.any,
