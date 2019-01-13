@@ -1,5 +1,7 @@
 import React from 'react';
 import Grid from '../../components/Grid';
+import Row from '../../components/Row';
+import Col from '../../components/Col';
 import Line from '../../components/Line';
 import ProjectList from './ProjectList';
 import ButtonLink from '../../components/Button/ButtonLink';
@@ -27,24 +29,19 @@ const latestProjects = [
     imgAlt: 'Something here',
   },
 ];
-// should be stateless?, if there is no api for projects, then yes, it is stateless 
-class ProjectSection extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {};
-  }
-  render() {
-    return (
-      <Grid relative>
-        <Line vertical color="#dfdfdf" />
-        <Line vertical color="#dfdfdf" align="right" />
-        <Line vertical color="#dfdfdf" align="center" />
-        <ProjectList projects={latestProjects} />
+const ProjectSection = () => (
+  <Grid relative>
+    <Line vertical color="#dfdfdf" />
+    <Line vertical color="#dfdfdf" align="right" />
+    <Line vertical color="#dfdfdf" align="center" />
+    <ProjectList projects={latestProjects} />
+    <Row justify="center">
+      <Col lg={10} md={12}>
         <ButtonLink view="blue" to="/projects" Padding="0 0 200px">More projects</ButtonLink>
-      </Grid>
-    );
-  }
-}
+      </Col>
+    </Row>
+  </Grid>
+);
 
 export default ProjectSection;

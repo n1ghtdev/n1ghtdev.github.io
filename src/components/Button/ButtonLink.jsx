@@ -3,23 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// const Wrapper = styled(Link)`
-//   ${({ Mod }) => Mod === 'simple' && `
-//     display: inline-block;
-//     border: 2px solid #fff;
-//     background: transparency;
-//     font-size: 2rem;
-//     color: #fff;
-//     font-weight: bold;
-//     text-transform: uppercase;
-//     text-decoration: none;
-//     padding: 8px 60px;
-//   `}
-// `;
-
 const Wrapper = styled.div`
-  width: 960px;
-  margin: 0 auto;
   padding: ${({ Padding }) => Padding};
 `;
 
@@ -50,12 +34,14 @@ const Button = styled(Link)`
       color: #fff;
       text-transform: uppercase;
       font-weight: bold;
-      &:hover {
-        color: #12121B;
-      }
     }
     & > ${Hover} {
       background: #fff;
+    }
+    &:hover {
+      & > ${Text} {
+        color: #12121B;
+      }
     }
   `} 
 `;
@@ -97,20 +83,11 @@ const ButtonLink = ({ children, to, view, Padding }) => (
   </Wrapper>
 );
 
-// const ButtonLink = ({ children, to, Mod }) => (
-//   <Wrapper Mod={Mod} to={to}>{children}</Wrapper>
-// );
-
 ButtonLink.propTypes = {
   children: PropTypes.any,
   to: PropTypes.any,
   view: PropTypes.string,
   Padding: PropTypes.string,
-  reverse: PropTypes.bool,
-};
-
-ButtonLink.defaultProps = {
-  reverse: false,
 };
 
 export default ButtonLink;
