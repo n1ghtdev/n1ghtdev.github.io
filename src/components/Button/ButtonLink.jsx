@@ -16,6 +16,8 @@ const Button = styled(Link)`
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  text-transform: uppercase;
+  font-weight: bold;
 
   ${({ view }) => view === 'blue' && css`
     background: #889FB0;
@@ -32,8 +34,6 @@ const Button = styled(Link)`
     border: 1px solid rgba(255,255,255, .1);
     & > ${Text} {
       color: #fff;
-      text-transform: uppercase;
-      font-weight: bold;
     }
     & > ${Hover} {
       background: #fff;

@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import '../../../node_modules/particles.js/particles.min.js';
 
 const ParticlesWrapper = styled.div`
-  z-index: 12;
   position: absolute;
   left: 0;
   top: 0;

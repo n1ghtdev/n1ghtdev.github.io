@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  margin-top: 125px;
+  margin-top: 150px;
 `;
 
 const Container = styled.article`
