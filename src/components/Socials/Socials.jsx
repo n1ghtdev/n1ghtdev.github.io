@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const List = styled.ul`
   width: 45px;
@@ -9,6 +8,11 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
+  ${({ overlap }) => overlap && `
+    position: relative;
+    z-index: 1;
+  `}
+
   &:last-child {
     padding-top: 20px;
   }
@@ -31,21 +35,18 @@ const Link = styled.a`
   }
 `;
 
-const Socials = ({ children }) => {
-  return (
-    <List>
-      <Item>
-        <Link href="#facebook"><FontAwesomeIcon icon={['fab', 'facebook-f']}/></Link>
-      </Item>
-      <Item>
-        <Link href="#telegram"><FontAwesomeIcon icon={['fab', 'telegram-plane']}/></Link>
-      </Item>
-    </List>
-  );
-};
+const Socials = ({ children }) => (
+  <List>
+    {children}
+  </List>
+);
 
 Socials.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node.isRequired,
+  overlap: PropTypes.bool,
 };
+
+Socials.Item = Item;
+Socials.Link = Link;
 
 export default Socials;

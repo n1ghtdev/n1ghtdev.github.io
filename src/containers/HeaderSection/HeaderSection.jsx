@@ -5,23 +5,24 @@ import Row from '../../components/Row';
 import Col from '../../components/Col';
 import Logotype from '../../components/Logotype';
 import Particles from '../Particles';
-import Socials from '../../components/Socials';
 import ScrolldownHint from '../../components/ScrolldownHint';
 import Link from '../../components/Link';
 import Line from '../../components/Line';
+import SocialsContainer from '../SocialsContainer';
 
 const HeaderSection = () => (
   <Header>
-    <Grid relative flex>
+    <Grid flex>
       <Line vertical color="#0E2130" />
       <Line vertical color="#0E2130" align="center" />
       <Line vertical color="#0E2130" align="right" />
       <Row Height={50} alignItems="center">
         <Col lg={12} textAlign="right">
           <Link
-            Style="grey"
+            Style="grey-italic"
             href="https://github.com/Nickew/nickew.github.io"
             target="_blank"
+            overlap
           >
                 nickew.github.io
           </Link>
@@ -32,7 +33,7 @@ const HeaderSection = () => (
           <Logotype />
         </Col>
         <Col lg={1} md={1} sm={1}>
-          <Socials />
+          <SocialsContainer />
         </Col>
       </Row>
       <Row>

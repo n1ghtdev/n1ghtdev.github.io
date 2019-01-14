@@ -5,7 +5,12 @@ const Link = styled.a`
   text-decoration: none;
   color: #fff;
 
-  ${({ Style }) => Style && `
+  ${({ overlap }) => overlap && `
+    position: relative;
+    z-index: 1;
+  `}
+
+  ${({ Style }) => Style === 'grey-italic' && `
     font-style: italic;
     opacity: .35;
     transition: all .25s;
@@ -21,6 +26,7 @@ Link.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
   Style: PropTypes.string,
+  overlap: PropTypes.bool,
 };
 
 export default Link;

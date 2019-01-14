@@ -37,8 +37,8 @@ const ProjectSection = () => (
     <Line vertical color="#dfdfdf" align="center" />
     <ProjectList projects={latestProjects} />
     <Row justify="center">
-      <Col lg={10} md={12}>
-        <ButtonLink view="blue" to="/projects" Padding="0 0 200px">More projects</ButtonLink>
+      <Col lg={10} md={12} Padding="0 0 200px 0">
+        <ButtonLink view="blue" to="/projects">More projects</ButtonLink>
       </Col>
     </Row>
   </Grid>

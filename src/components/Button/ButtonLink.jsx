@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Wrapper = styled.div`
-  padding: ${({ Padding }) => Padding};
-`;
-
 const Button = styled(Link)`
   position: relative;
   display: block;
@@ -74,20 +70,21 @@ const Text = styled.span`
   }
 `;
 
-const ButtonLink = ({ children, to, view, Padding }) => (
-  <Wrapper Padding={Padding}>
+const ButtonLink = ({ children, to, view }) => (
     <Button to={to} view={view}>
       <Text>{children}</Text>
       <Hover />
     </Button>
-  </Wrapper>
 );
 
 ButtonLink.propTypes = {
-  children: PropTypes.any,
-  to: PropTypes.any,
+  children: PropTypes.string,
+  to: PropTypes.string.isRequired,
   view: PropTypes.string,
-  Padding: PropTypes.string,
+};
+
+ButtonLink.defaultProps = {
+  view: 'simple',
 };
 
 export default ButtonLink;
