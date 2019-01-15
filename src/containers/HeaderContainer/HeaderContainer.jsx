@@ -10,7 +10,7 @@ import Link from '../../components/Link';
 import Line from '../../components/Line';
 import SocialsContainer from '../SocialsContainer';
 
-const HeaderSection = () => (
+const HeaderContainer = () => (
   <Header>
     <Grid flex>
       <Line vertical color="#0E2130" />
@@ -46,4 +46,4 @@ const HeaderSection = () => (
   </Header>
 );
 
-export default HeaderSection;
+export default HeaderContainer;

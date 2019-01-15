@@ -4,7 +4,7 @@ import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
 
-const FooterSection = () => (
+const FooterContainer = () => (
   <Footer>
     <Grid>
       <Row>
@@ -16,4 +16,4 @@ const FooterSection = () => (
   </Footer>
 );
 
-export default FooterSection;
+export default FooterContainer;

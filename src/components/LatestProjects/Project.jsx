@@ -80,26 +80,30 @@ const Description = styled.p`
 
 `;
 
-const Project = ({ number, imgSrc, imgAlt, projectTitle, projectDesc }) => {
-  return (
-    <Wrapper>
-      <Line />
-      <Number>{ `0${number}` }</Number>
-      <Container>
-        <Image src={imgSrc} alt={imgAlt} />
-        <Overlay>
-          <Header>
-            <Title>{ projectTitle }</Title>
-            <Description>{ projectDesc }</Description>
-          </Header>
-        </Overlay>
-      </Container>
-    </Wrapper>
-  );
-};
+const Project = ({
+  number, imgSrc, imgAlt, projectTitle, projectDesc,
+}) => (
+  <Wrapper>
+    <Line />
+    <Number>{ `0${number}` }</Number>
+    <Container>
+      <Image src={imgSrc} alt={imgAlt} />
+      <Overlay>
+        <Header>
+          <Title>{ projectTitle }</Title>
+          <Description>{ projectDesc }</Description>
+        </Header>
+      </Overlay>
+    </Container>
+  </Wrapper>
+);
 
 Project.propTypes = {
-  children: PropTypes.any,
+  number: PropTypes.number,
+  imgSrc: PropTypes.string,
+  imgAlt: PropTypes.string,
+  projectTitle: PropTypes.string,
+  projectDesc: PropTypes.string,
 };
 
 export default Project;

@@ -62,8 +62,8 @@ const Tool = styled.li`
 const Tools = ({ tools }) => (
   <Wrapper>
     { tools.map((tool, i) => (
-      <List>
-        <Tool key={i} bgColor={tool.bgColor} parent>
+      <List key={i}>
+        <Tool bgColor={tool.bgColor} parent>
           {tool.title}
         </Tool>
         { tool.children.map((child, i) => (

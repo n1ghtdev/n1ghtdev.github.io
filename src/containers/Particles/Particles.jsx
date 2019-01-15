@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import styled from 'styled-components';
 import '../../../node_modules/particles.js/particles.min';
@@ -12,13 +13,13 @@ const ParticlesWrapper = styled.div`
 
 class Particles extends React.Component {
   componentDidMount() {
-    particlesJS.load('particles-js', 'src/assets/particles.json', () => console.log('ParticlesJS loaded.')); 
+    particlesJS.load('particles-js', 'src/assets/particles.json');
   }
   componentWillUnmount() {
-    particlesJS.fn.vendors.destroy();
+    particlesJS.destroypJS();
   }
   render() {
-    return <ParticlesWrapper id="particles-js"  ref="particles-js" />; 
+    return <ParticlesWrapper id="particles-js"  ref="particles-js" />;
   }
 }
 

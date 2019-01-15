@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const Path = styled.path`
   stroke-width: 2;
-  &:last-child {
+  &:first-child {
     animation: blink .75s ease .50s infinite;
   }
-  &:first-child {
+  &:last-child {
     animation: blink .75s ease .25s infinite;
   }
   @keyframes blink {

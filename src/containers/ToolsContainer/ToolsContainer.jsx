@@ -34,8 +34,8 @@ const toolsData = [
   },
 ];
 
-const ToolsSection = () => (
+const ToolsContainer = () => (
   <Tools tools={toolsData} />
 );
 
-export default ToolsSection;
+export default ToolsContainer;

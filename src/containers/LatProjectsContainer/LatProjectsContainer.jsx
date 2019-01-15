@@ -3,8 +3,8 @@ import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
 import Line from '../../components/Line';
-import ProjectList from './ProjectList';
-import ButtonLink from '../../components/Button/ButtonLink';
+import LatestProjects from '../../components/LatestProjects';
+import WideButton from '../../components/WideButton';
 
 const latestProjects = [
   {
@@ -30,18 +30,20 @@ const latestProjects = [
   },
 ];
 
-const ProjectSection = () => (
-  <Grid relative>
-    <Line vertical color="#dfdfdf" />
-    <Line vertical color="#dfdfdf" align="right" />
-    <Line vertical color="#dfdfdf" align="center" />
-    <ProjectList projects={latestProjects} />
-    <Row justify="center">
-      <Col lg={10} md={12} Padding="0 0 200px 0">
-        <ButtonLink view="blue" to="/projects">More projects</ButtonLink>
-      </Col>
-    </Row>
-  </Grid>
+const ProjectsContainer = () => (
+  <LatestProjects.Container>
+    <Grid relative>
+      <Line vertical color="#dfdfdf" />
+      <Line vertical color="#dfdfdf" align="right" />
+      <Line vertical color="#dfdfdf" align="center" />
+      <LatestProjects projects={latestProjects} />
+      <Row justify="center">
+        <Col lg={10} md={12} Padding="0 0 200px 0">
+          <WideButton view="blue" to="/projects">More projects</WideButton>
+        </Col>
+      </Row>
+    </Grid>
+  </LatestProjects.Container>
 );
 
-export default ProjectSection;
+export default ProjectsContainer;

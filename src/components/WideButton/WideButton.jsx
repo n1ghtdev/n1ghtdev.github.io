@@ -70,21 +70,21 @@ const Text = styled.span`
   }
 `;
 
-const ButtonLink = ({ children, to, view }) => (
-    <Button to={to} view={view}>
-      <Text>{children}</Text>
-      <Hover />
-    </Button>
+const WideButton = ({ children, to, view }) => (
+  <Button to={to} view={view}>
+    <Text>{children}</Text>
+    <Hover />
+  </Button>
 );
 
-ButtonLink.propTypes = {
+WideButton.propTypes = {
   children: PropTypes.string,
   to: PropTypes.string.isRequired,
   view: PropTypes.string,
 };
 
-ButtonLink.defaultProps = {
+WideButton.defaultProps = {
   view: 'simple',
 };
 
-export default ButtonLink;
+export default WideButton;

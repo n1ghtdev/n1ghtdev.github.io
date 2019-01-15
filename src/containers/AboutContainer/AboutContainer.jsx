@@ -5,9 +5,9 @@ import Row from '../../components/Row';
 import Col from '../../components/Col';
 import Skills from '../../components/Skills';
 import { H2 } from '../../components/Headings';
-import SVGScreen from '../../components/Skills/SVGScreen';
-import ButtonLink from '../../components/Button/ButtonLink';
-import ToolsSection from '../ToolsSection';
+import MonitorSvg from '../../components/MonitorSvg';
+import WideButton from '../../components/WideButton';
+import ToolsContainer from '../ToolsContainer';
 
 const skillsData = [
   {
@@ -29,7 +29,7 @@ const skillsData = [
 ];
 
 
-const AboutSection = () => (
+const AboutContainer = () => (
   <About>
     <Grid>
       <Row>
@@ -42,7 +42,7 @@ const AboutSection = () => (
           <Skills skills={[skillsData[0], skillsData[1]]} />
         </Col>
         <Col lg={4}>
-          <SVGScreen />
+          <MonitorSvg />
         </Col>
         <Col lg={4}>
           <Skills skills={[skillsData[2], skillsData[3]]} />
@@ -50,16 +50,16 @@ const AboutSection = () => (
       </Row>
       <Row>
         <Col lg={12} Padding="40px 0">
-          <ToolsSection />
+          <ToolsContainer />
         </Col>
       </Row>
       <Row justify="center">
         <Col lg={10} md={12} Padding="80px 0 120px 0">
-          <ButtonLink view="simple" to="/resume">resume</ButtonLink>
+          <WideButton view="simple" to="/resume">resume</WideButton>
         </Col>
       </Row>
     </Grid>
   </About>
 );
 
-export default AboutSection;
+export default AboutContainer;
