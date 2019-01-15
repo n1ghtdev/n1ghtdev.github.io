@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 const Wrapper = styled.div`
   position: relative;
-  margin-top: 150px;
+  margin-top: 350px;
 `;
 
 const Container = styled.article`
+  transition: all 1s ease-out;
   position: relative;
   width: 960px;
   height: 400px;
@@ -81,12 +81,12 @@ const Description = styled.p`
 `;
 
 const Project = ({
-  number, imgSrc, imgAlt, projectTitle, projectDesc,
+  number, imgSrc, imgAlt, projectTitle, projectDesc, Style,
 }) => (
   <Wrapper>
     <Line />
     <Number>{ `0${number}` }</Number>
-    <Container>
+    <Container style={Style}>
       <Image src={imgSrc} alt={imgAlt} />
       <Overlay>
         <Header>
@@ -104,6 +104,7 @@ Project.propTypes = {
   imgAlt: PropTypes.string,
   projectTitle: PropTypes.string,
   projectDesc: PropTypes.string,
+  Style: PropTypes.object,
 };
 
 export default Project;

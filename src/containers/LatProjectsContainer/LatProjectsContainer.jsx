@@ -5,6 +5,7 @@ import Col from '../../components/Col';
 import Line from '../../components/Line';
 import LatestProjects from '../../components/LatestProjects';
 import WideButton from '../../components/WideButton';
+import { calcParallax } from '../../utils/scrollParallax';
 
 const latestProjects = [
   {
@@ -30,20 +31,46 @@ const latestProjects = [
   },
 ];
 
-const ProjectsContainer = () => (
-  <LatestProjects.Container>
-    <Grid relative>
-      <Line vertical color="#dfdfdf" />
-      <Line vertical color="#dfdfdf" align="right" />
-      <Line vertical color="#dfdfdf" align="center" />
-      <LatestProjects projects={latestProjects} />
-      <Row justify="center">
-        <Col lg={10} md={12} Padding="0 0 200px 0">
-          <WideButton view="blue" to="/projects">More projects</WideButton>
-        </Col>
-      </Row>
-    </Grid>
-  </LatestProjects.Container>
-);
+class LatProjectsContainer extends React.Component {
+  constructor() {
+    super();
 
-export default ProjectsContainer;
+    this.state = {
+      coords: [0, 0, 0],
+    };
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  handleScroll = () => {
+    this.setState({
+      coords: [
+        calcParallax(100, 350, 1700),
+        calcParallax(100, 1100, 2450),
+        calcParallax(100, 1850, 3200),
+      ],
+    });
+  }
+  render() {
+    return (
+      <LatestProjects.Container>
+        <Grid relative>
+          <Line vertical color="#dfdfdf" />
+          <Line vertical color="#dfdfdf" align="right" />
+          <Line vertical color="#dfdfdf" align="center" />
+          <LatestProjects projects={latestProjects} coords={this.state.coords} />
+          <Row justify="center">
+            <Col lg={10} md={12} Padding="0 0 200px 0">
+              <WideButton view="blue" to="/projects">More projects</WideButton>
+            </Col>
+          </Row>
+        </Grid>
+      </LatestProjects.Container>
+    );
+  }
+}
+
+export default LatProjectsContainer;
