@@ -1,35 +1,40 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Heading = styled.span`
+const baseHeadingStyles = css`
   color: ${({ Color }) => Color || '#000'};
   font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
   font-size: ${({ fontSize }) => fontSize && `${fontSize}!important`};
   font-style: ${({ fontStyle }) => fontStyle};
 `;
 
-const H1 = Heading.withComponent('h1').extend`
+const H1 = styled.h1`
+  ${baseHeadingStyles}
   font-size: 2rem;
 `;
 
-const H2 = Heading.withComponent('h2').extend`
+const H2 = styled.h2`
+  ${baseHeadingStyles}
   font-size: 1.5rem;
 `;
 
-const H3 = Heading.withComponent('h3').extend`
+const H3 = styled.h3`
+  ${baseHeadingStyles}
   font-size: 1.17rem;
 `;
 
-const H4 = Heading.withComponent('h4').extend`
+const H4 = styled.h4`
+  ${baseHeadingStyles}
   font-size: 1.12rem;
 `;
 
-const H5 = Heading.withComponent('h5').extend`
+const H5 = styled.h5`
+  ${baseHeadingStyles}
   font-size: .83rem;
 `;
 
-const H6 = Heading.withComponent('h6').extend`
+const H6 = styled.h6`
+  ${baseHeadingStyles}
   font-size: .75rem;
 `;
 
