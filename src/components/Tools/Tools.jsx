@@ -1,6 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import Item from './Item';
 
 const Wrapper = styled.section`
   display: flex;
@@ -30,46 +32,17 @@ const List = styled.ul`
   }
 `;
 
-const Tool = styled.li`
-  position: relative;
-  z-index: 2;
-  width: 120px;
-  height: 30px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #242E39;
-  font-weight: bold;
-  font-size: 0.875rem;
-  color: #fff;
-  text-transform: uppercase;
-  transition: all .25s;
-  cursor: help;
-
-  ${({ parent }) => parent ? css`
-    &:hover {
-      cursor: default;
-    }
-    background: ${({ bgColor }) => bgColor};
-  ` : css`
-      &:hover {
-        background: #2F3C4C;
-      }
-  `}
-`;
-
 const Tools = ({ tools }) => (
   <Wrapper>
     { tools.map((tool, i) => (
       <List key={i}>
-        <Tool bgColor={tool.bgColor} parent>
+        <Item bgColor={tool.bgColor} parent>
           {tool.title}
-        </Tool>
-        { tool.children.map((child, i) => (
-          <Tool key={i}>
+        </Item>
+        { tool.children.map((child, ii) => (
+          <Item key={ii}>
             {child}
-          </Tool>
+          </Item>
         )) }
       </List>
     )) }

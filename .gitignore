@@ -16,6 +16,9 @@
 node_modules
 build
 
+### jest ###
+coverage
+
 # Swap
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]

@@ -3,7 +3,41 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Button = styled(Link)`
+// Create Wrapper to prevent passing React props to DOM
+// more info: https://github.com/styled-components/styled-components/issues/439
+const Wrapper = styled.span`
+ ${({ Style }) => Style === 'blue' && css`
+    & > ${Button} {
+      background: #889FB0;
+      & > ${Text} {
+        color: #fff;
+      }
+      & > ${Hover} {
+        background: #154883;
+      }
+    }
+  `}
+
+  ${({ Style }) => Style === 'simple' && css`
+    ${Button} {
+      background: transparent;
+      border: 1px solid rgba(255,255,255, .1);
+      & > ${Text} {
+        color: #fff;
+      }
+      & > ${Hover} {
+        background: #fff;
+      }
+      &:hover {
+        & > ${Text} {
+          color: #12121B;
+        }
+      }
+    }
+  `} 
+`;
+
+const Button = styled(Link, { Style: false })`
   position: relative;
   display: block;
   width: 100%;
@@ -15,31 +49,7 @@ const Button = styled(Link)`
   text-transform: uppercase;
   font-weight: bold;
 
-  ${({ view }) => view === 'blue' && css`
-    background: #889FB0;
-    & > ${Text} {
-      color: #fff;
-    }
-    & > ${Hover} {
-      background: #154883;
-    }
-  `}
-
-  ${({ view }) => view === 'simple' && css`
-    background: transparent;
-    border: 1px solid rgba(255,255,255, .1);
-    & > ${Text} {
-      color: #fff;
-    }
-    & > ${Hover} {
-      background: #fff;
-    }
-    &:hover {
-      & > ${Text} {
-        color: #12121B;
-      }
-    }
-  `} 
+ 
 `;
 
 const Hover = styled.div`
@@ -70,21 +80,23 @@ const Text = styled.span`
   }
 `;
 
-const WideButton = ({ children, to, view }) => (
-  <Button to={to} view={view}>
-    <Text>{children}</Text>
-    <Hover />
-  </Button>
+const WideButton = ({ children, to, Style }) => (
+  <Wrapper Style={Style}>
+    <Button to={to}>
+      <Text>{children}</Text>
+      <Hover />
+    </Button>
+  </Wrapper>
 );
 
 WideButton.propTypes = {
   children: PropTypes.string,
   to: PropTypes.string.isRequired,
-  view: PropTypes.string,
+  Style: PropTypes.string,
 };
 
 WideButton.defaultProps = {
-  view: 'simple',
+  Style: 'simple',
 };
 
 export default WideButton;
