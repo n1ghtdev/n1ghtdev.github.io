@@ -64,7 +64,7 @@ class LatProjectsContainer extends React.Component {
           <LatestProjects projects={latestProjects} coords={this.state.coords} />
           <Row justify="center">
             <Col lg={10} md={12} Padding="0 0 200px 0">
-              <WideButton view="blue" to="/projects">More projects</WideButton>
+              <WideButton Style="blue" to="/projects">More projects</WideButton>
             </Col>
           </Row>
         </Grid>

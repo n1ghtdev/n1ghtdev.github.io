@@ -59,7 +59,7 @@ const AboutContainer = () => (
       </Row>
       <Row justify="center">
         <Col lg={10} md={12} Padding="60px 0 100px 0">
-          <WideButton view="simple" to="/resume">resume</WideButton>
+          <WideButton Style="simple" to="/resume">resume</WideButton>
         </Col>
       </Row>
     </Grid>
