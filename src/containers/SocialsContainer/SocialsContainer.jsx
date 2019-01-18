@@ -1,16 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Socials from '../../components/Socials';
+import Item from '../../components/Socials/Item';
 
 
 const SocialsContainer = () => (
   <Socials>
-    <Socials.Item overlap>
-      <Socials.Link href="#facebook"><FontAwesomeIcon icon={['fab', 'facebook-f']} /></Socials.Link>
-    </Socials.Item>
-    <Socials.Item overlap>
-      <Socials.Link href="#facebook"><FontAwesomeIcon icon={['fab', 'telegram-plane']} /></Socials.Link>
-    </Socials.Item>
+    <Item href="#facebook" overlap><FontAwesomeIcon icon={['fab', 'facebook-f']} /></Item>
+    <Item href="#telegram" overlap><FontAwesomeIcon icon={['fab', 'telegram-plane']} /></Item>
   </Socials>
 );
 

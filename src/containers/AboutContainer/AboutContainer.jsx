@@ -11,20 +11,24 @@ import ToolsContainer from '../ToolsContainer';
 
 const skillsData = [
   {
-    title: 'Skill title #1',
-    description: 'Description of skill #1',
+    id: 0,
+    title: 'HTML/CSS development',
+    description: 'BEM-methodology, HTML5-semantics, SEO-friendly tags, responsive WEB-development.',
   },
   {
-    title: 'Skill title #2',
-    description: 'Description of skill #2',
+    id: 1,
+    title: 'JavaScript experienced',
+    description: 'Writing well-optimized modern JS code for client-side development. Reading ECMAScript specifications, learning about most performant ways to develop solutions.',
   },
   {
-    title: 'Skill title #3',
-    description: 'Description of skill #3',
+    id: 2,
+    title: 'Front-end frameworks',
+    description: 'Working with React most of the time. Don\'t mind learning new stuff. ',
   },
   {
-    title: 'Skill title #4',
-    description: 'Description of skill #4',
+    id: 3,
+    title: 'Tools matter',
+    description: 'Building with Webpack became almost an standard in JS development. Let\'s not forget about some other stuff like: Babel, Jest, Enzyme, Sass, Eslint...',
   },
 ];
 
@@ -33,7 +37,7 @@ const AboutContainer = () => (
   <About>
     <Grid>
       <Row>
-        <Col Padding="70px 0" textAlign="center">
+        <Col Padding="60px 0" textAlign="center">
           <H2 Color="#fdfdfd" fontSize="2rem">Here a list of my skills and tools</H2>
         </Col>
       </Row>
@@ -54,7 +58,7 @@ const AboutContainer = () => (
         </Col>
       </Row>
       <Row justify="center">
-        <Col lg={10} md={12} Padding="80px 0 120px 0">
+        <Col lg={10} md={12} Padding="60px 0 100px 0">
           <WideButton view="simple" to="/resume">resume</WideButton>
         </Col>
       </Row>
