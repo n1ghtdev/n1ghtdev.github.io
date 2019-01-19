@@ -12,10 +12,8 @@ import SocialsContainer from '../SocialsContainer';
 
 const HeaderContainer = () => (
   <Header>
-    <Grid flex>
-      <Line vertical color="#0E2130" />
+    <Grid borderColor="#0E2130" flex>
       <Line vertical color="#0E2130" align="center" />
-      <Line vertical color="#0E2130" align="right" />
       <Row Height={50} alignItems="center">
         <Col lg={12} textAlign="right">
           <Link

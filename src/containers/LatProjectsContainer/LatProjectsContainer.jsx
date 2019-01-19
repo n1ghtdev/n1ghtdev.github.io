@@ -57,9 +57,7 @@ class LatProjectsContainer extends React.Component {
   render() {
     return (
       <LatestProjects.Container>
-        <Grid relative>
-          <Line vertical color="#dfdfdf" />
-          <Line vertical color="#dfdfdf" align="right" />
+        <Grid borderColor="#dfdfdf" relative>
           <Line vertical color="#dfdfdf" align="center" />
           <LatestProjects projects={latestProjects} coords={this.state.coords} />
           <Row justify="center">

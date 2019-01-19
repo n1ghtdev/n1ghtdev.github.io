@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -11,6 +10,8 @@ const Grid = styled.div`
   padding-right: 15px;
   z-index: ${({ relative }) => relative ? '1' : 'auto'};
   position: ${({ relative }) => relative ? 'relative' : 'static'};
+  border-left: ${({ borderColor }) => `1px solid ${borderColor}`};
+  border-right: ${({ borderColor }) => `1px solid ${borderColor}`};
 
   ${({ flex }) => flex && `
     display: flex;
@@ -41,6 +42,11 @@ Grid.propTypes = {
   relative: PropTypes.bool,
   flex: PropTypes.bool,
   fluid: PropTypes.bool,
+  borderColor: PropTypes.string,
+};
+
+Grid.defaultProps = {
+  borderColor: 'none',
 };
 
 export default Grid;
