@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { Route, Switch } from 'react-router-dom';
@@ -9,10 +9,10 @@ library.add(fab);
 
 export default function App() {
   return (
-    <Switch>
+    <div>
       <Route exact path="/" component={MainPage} />
-      <Route exact path="/projects" component={ProjectsPage} />
-    </Switch>
+      <Route path="/projects" component={ProjectsPage} />
+    </div>
   );
 }
 
