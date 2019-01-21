@@ -156,7 +156,7 @@ const data = [
     tools: [
       {
         id: 0,
-        title: 'backend',
+        title: 'design',
       },
     ],
   },
@@ -169,11 +169,11 @@ const data = [
     tools: [
       {
         id: 1,
-        title: 'javascript',
+        title: 'design',
       },
     ],
   },
-  
+
 ];
 
 const ProjectList = ({ match }) => {

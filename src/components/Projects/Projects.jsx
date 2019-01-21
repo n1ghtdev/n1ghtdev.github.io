@@ -9,7 +9,7 @@ const Projects = styled.section`
   flex-wrap: inherit;
   justify-content: inherit;
   align-items: inherit;
-  flex: inherit;
+  flex: auto;
 `;
 
 Projects.propTypes = {
