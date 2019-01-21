@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { H2 } from '../../components/Headings';
 import filterByUrl from '../../utils/filterArrayByUrl';
+import { H2 } from '../../components/Headings';
+import Projects from '../../components/Projects';
+import Item from '../../components/Projects/Item';
 
 const data = [
   {
     id: 0,
     title: 'asdasd',
     description: '',
-    imgSrc: '',
+    imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
       {
@@ -19,9 +21,9 @@ const data = [
   },
   {
     id: 1,
-    title: 'asdasd',
+    title: 'Hello my name is',
     description: '',
-    imgSrc: '',
+    imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
       {
@@ -38,7 +40,7 @@ const data = [
     id: 2,
     title: 'asdasd',
     description: '',
-    imgSrc: '',
+    imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
       {
@@ -51,7 +53,7 @@ const data = [
     id: 3,
     title: 'asdasd',
     description: '',
-    imgSrc: '',
+    imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
       {
@@ -64,14 +66,13 @@ const data = [
 
 const ProjectList = ({ match }) => {
   const renderedProjects = filterByUrl(data, match.params.catId).map(proj => (
-    <div>{proj.title}</div>
+    <Item imgSrc={proj.imgSrc} imgAlt={proj.imgAlt}>{proj.title}</Item>
   ));
 
   return (
-    <div>
-      <H2>{match.params.catId}</H2>
+    <Projects>
       { renderedProjects }
-    </div>
+    </Projects>
   );
 };
 

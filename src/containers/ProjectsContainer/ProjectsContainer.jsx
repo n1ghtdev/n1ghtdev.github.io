@@ -47,7 +47,7 @@ const ProjectsContainer = ({ match }) => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col textAlign="center" Padding="20px 0">
+        <Col textAlign="center" Padding="60px 0 0 0">
           <List>
             { categories.map((cat) => (
               <Item key={cat.id} to={`${match.url}${cat.url}`}>{cat.title}</Item>
@@ -56,11 +56,11 @@ const ProjectsContainer = ({ match }) => (
         </Col>
       </Row>
       <Row>
-        <Col textAlign="center">
+        <Col textAlign="center" Padding="40px 0 0 0">
           <HR />
         </Col>
       </Row>
-      <Row>
+      <Row justify="space-between">
         <Route path={`${match.path}/:catId`} component={ProjectList} />
         <Route
           exact

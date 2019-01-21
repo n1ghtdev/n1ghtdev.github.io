@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 const baseHeadingStyles = css`
   color: ${({ Color }) => Color || '#000'};
+  font-family: ${({ fontFamily }) => fontFamily === 'ShadowsIntoLight' ? 'Shadows Into Light' : 'Source Sans Pro'};
   font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
   font-size: ${({ fontSize }) => fontSize && `${fontSize}!important`};
   font-style: ${({ fontStyle }) => fontStyle};
@@ -38,17 +39,15 @@ const H6 = styled.h6`
   font-size: .75rem;
 `;
 
-const listOfHeadings = [H1, H2, H3, H4, H5, H6];
 
-listOfHeadings.forEach(heading => {
-  heading.propTypes = {
-    Color: PropTypes.string,
-    children: PropTypes.any,
-    fontSize: PropTypes.string,
-    fontStyle: PropTypes.string,
-    fontWeight: PropTypes.string,
-  };
-});
+baseHeadingStyles.propTypes = {
+  Color: PropTypes.string,
+  children: PropTypes.any,
+  fontSize: PropTypes.string,
+  fontStyle: PropTypes.string,
+  fontWeight: PropTypes.string,
+  fontFamily: PropTypes.string,
+};
 
 export {
   H1,

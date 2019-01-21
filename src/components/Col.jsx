@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // TODO: refactor inheriting from upper screen size, get rid of nested ternary operators.
+// left, right side paddings should be diff from col width
 const Col = styled.div`
   order: ${({ Order }) => Order};
   padding: ${({ Padding }) => typeof Padding === 'string' ? Padding :
