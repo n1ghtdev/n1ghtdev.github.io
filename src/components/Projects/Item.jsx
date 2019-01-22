@@ -14,19 +14,7 @@ const ImageContainer = styled.div`
   height: 200px;
   position: relative;
   transition: all .25s;
-  /* &:hover {
-    height: 230px;
-    position: absolute;
-  } */
 `;
-
-/*
-  default state: pos rel, h 200
-  hover: state: pos abs, h 230
-  onHover: pos abs -> h 230 -> which works as intended
-  onLeaveHover: pos rel -> h 200 -> yep
-  because of transition with .25s it waits for height, but not for position
-*/
 
 const Hover = styled(ItemHover)`
   ${ImageContainer}:hover & {
@@ -50,14 +38,6 @@ const Header = styled.div`
     color: #000;
   }
 `;
-
-const onHover = (e) => {
-  e.target.parentElement.style.height = '230px';
-};
-
-const onHoverOff = (e) => {
-  e.target.parentElement.style.height = '200px';
-};
 
 const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
   <Wrapper>
