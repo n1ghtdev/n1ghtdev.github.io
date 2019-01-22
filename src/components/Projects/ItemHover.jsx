@@ -7,7 +7,7 @@ const ItemHover = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,.5);
-  display: none;
+  transform: translateY(-100%);
 `;
 
 export default ItemHover;

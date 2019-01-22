@@ -7,18 +7,18 @@ import ItemHover from './ItemHover';
 const Wrapper = styled.article`
   flex: 0 1 30%;
   padding: 15px 0;
-  position: relative;
 `;
 
 const ImageContainer = styled.div`
   height: 200px;
   position: relative;
-  transition: all .25s;
+  overflow: hidden;
 `;
 
 const Hover = styled(ItemHover)`
+  transition: all .5s ease; 
   ${ImageContainer}:hover & {
-    display: block;
+    transform: translateY(0);
   }
 `;
 
@@ -41,7 +41,7 @@ const Header = styled.div`
 
 const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
   <Wrapper>
-    <ImageContainer onMouseEnter={onHover} onMouseLeave={onHoverOff}>
+    <ImageContainer>
       <Image src={imgSrc} alt={imgAlt} />
       <Hover description={description} tools={tools} />
     </ImageContainer>
