@@ -1,34 +1,31 @@
+/* eslint-disable object-curly-newline */
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { getColWidth } from '../utils/getColWidth';
 
-// TODO: refactor inheriting from upper screen size, get rid of nested ternary operators.
-// left, right side paddings should be diff from col width
+// TODO: auto columns
 const Col = styled.div`
   order: ${({ Order }) => Order};
-  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding :
-                              (typeof Padding === 'array' ? Padding.map(pad => `${pad}px`) :
-                              `${Padding}px`)};
+  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
   text-align: ${({ textAlign }) => textAlign};
 
   @media (min-width: 1200px) {
-    flex: 0 0  ${({ lg }) => calcWidth(lg)}%;
-    max-width: ${({ lg }) => calcWidth(lg)}%;
+    flex: 0 0  ${({ lg }) => getColWidth(lg)}%;
+    max-width: ${({ lg }) => getColWidth(lg)}%;
   }
   @media (min-width: 992px) and (max-width: 1200px) {
-    flex: 0 0  ${({ md, lg }) => calcWidth(!md ? lg : md)}%;
-    max-width: ${({ md, lg }) => calcWidth(!md ? lg : md)}%;
+    flex: 0 0  ${({ lg, md }) => getColWidth(lg, md)}%;
+    max-width: ${({ lg, md }) => getColWidth(lg, md)}%;
   }
   @media (min-width: 768px) and (max-width: 992px) {
-    flex: 0 0  ${({ sm, md, lg }) => calcWidth(!sm ? (lg ? lg : md) : sm)}%;
-    max-width: ${({ sm, md, lg }) => calcWidth(!sm ? (lg ? lg : md) : sm)}%;
+    flex: 0 0  ${({ lg, md, sm }) => getColWidth(lg, md, sm)}%;
+    max-width: ${({ lg, md, sm }) => getColWidth(lg, md, sm)}%;
   }
   @media (max-width: 768px) {
-    flex: 0 0  ${({ xs, sm, md, lg }) => calcWidth(!xs ? (sm ? sm : (md ? md : lg)) : xs)}%;
-    max-width: ${({ xs, sm, md, lg }) => calcWidth(!xs ? (sm ? sm : (md ? md : lg)) : xs)}%;
+    flex: 0 0  ${({ lg, md, sm, xs }) => getColWidth(lg, md, sm, xs)}%;
+    max-width: ${({ lg, md, sm, xs }) => getColWidth(lg, md, sm, xs)}%;
   }
 `;
-
-const calcWidth = (cols) => (100 / 12) * cols;
 
 Col.propTypes = {
   children: PropTypes.any,

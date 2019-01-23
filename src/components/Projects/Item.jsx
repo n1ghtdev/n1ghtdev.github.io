@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { H3 } from '../Headings';
 import ItemHover from './ItemHover';
+import Col from '../../components/Col';
 
 const Wrapper = styled.article`
   flex: 0 1 30%;
   padding: 15px 0;
+  margin: 0 15px;
 `;
 
 const ImageContainer = styled.div`
@@ -41,20 +43,22 @@ const Header = styled.div`
 
 const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
   <Wrapper>
-    <ImageContainer>
-      <Image src={imgSrc} alt={imgAlt} />
-      <Hover description={description} tools={tools} />
-    </ImageContainer>
-    <Header>
-      <H3
-        fontFamily="ShadowsIntoLight"
-        fontSize="1.25rem"
-        fontWeight="normal"
-        Color="inherit"
-      >
-        {children}
-      </H3>
-    </Header>
+    <Col>
+      <ImageContainer>
+        <Image src={imgSrc} alt={imgAlt} />
+        <Hover description={description} tools={tools} />
+      </ImageContainer>
+      <Header>
+        <H3
+          fontFamily="ShadowsIntoLight"
+          fontSize="1.25rem"
+          fontWeight="normal"
+          Color="inherit"
+        >
+          {children}
+        </H3>
+      </Header>
+    </Col>
   </Wrapper>
 );
 
