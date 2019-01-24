@@ -6,9 +6,9 @@ import ItemHover from './ItemHover';
 import Col from '../../components/Col';
 
 const Wrapper = styled.article`
-  flex: 0 1 30%;
   padding: 15px 0;
   margin: 0 15px;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.div`
@@ -18,9 +18,9 @@ const ImageContainer = styled.div`
 `;
 
 const Hover = styled(ItemHover)`
-  transition: all .5s ease; 
-  ${ImageContainer}:hover & {
-    transform: translateY(0);
+  transition: all .35s ease; 
+  ${Wrapper}:hover & {
+    transform: translateY(-50%);
   }
 `;
 
@@ -42,8 +42,8 @@ const Header = styled.div`
 `;
 
 const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
-  <Wrapper>
-    <Col>
+  <Col lg={4}>
+    <Wrapper>
       <ImageContainer>
         <Image src={imgSrc} alt={imgAlt} />
         <Hover description={description} tools={tools} />
@@ -58,8 +58,8 @@ const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
           {children}
         </H3>
       </Header>
-    </Col>
-  </Wrapper>
+    </Wrapper>
+  </Col>
 );
 
 Item.propTypes = {

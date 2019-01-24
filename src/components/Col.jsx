@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getColWidth } from '../utils/getColWidth';
 
 // TODO: auto columns
+// add as prop, which changes div to anything else
 const Col = styled.div`
   order: ${({ Order }) => Order};
   padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
