@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Col from '../../components/Col';
 import { H3 } from '../Headings';
 import ItemHover from './ItemHover';
-import Col from '../../components/Col';
+import ItemTools from './ItemTools';
 
 const Wrapper = styled.article`
   padding: 15px 0;
@@ -15,12 +16,17 @@ const ImageContainer = styled.div`
   height: 200px;
   position: relative;
   overflow: hidden;
+  opacity: .5;
+  transition: all .25s;
+  ${Wrapper}:hover & {
+    opacity: 1;
+  }
 `;
 
 const Hover = styled(ItemHover)`
-  transition: all .35s ease; 
+  transition: all .25s ease; 
   ${Wrapper}:hover & {
-    transform: translateY(-50%);
+    transform: translateY(calc(-50% + 20px));
   }
 `;
 
@@ -33,20 +39,22 @@ const Image = styled.img`
 const Header = styled.div`
   padding: 10px 0;
   text-align: center;
-  color: #7F7F7F;
+  color: #bcbcbc;
   transition: all .25s;
 
   ${Wrapper}:hover & {
-    color: #000;
+    color: #7c7c7c;
   }
 `;
 
-const Item = ({ children, imgSrc, imgAlt, description, tools }) => (
+const Item = ({ children, imgSrc, imgAlt, tools }) => (
   <Col lg={4}>
     <Wrapper>
       <ImageContainer>
         <Image src={imgSrc} alt={imgAlt} />
-        <Hover description={description} tools={tools} />
+        <Hover>
+          <ItemTools tools={tools} />
+        </Hover>
       </ImageContainer>
       <Header>
         <H3
@@ -66,7 +74,6 @@ Item.propTypes = {
   children: PropTypes.any,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
-  description: PropTypes.string,
   tools: PropTypes.array,
 };
 
