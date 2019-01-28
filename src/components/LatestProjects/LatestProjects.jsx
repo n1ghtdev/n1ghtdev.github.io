@@ -11,7 +11,7 @@ const Wrapper = styled.main`
   padding-bottom: 200px;
 `;
 
-const LatestProjects = ({ projects, coords }) => (
+const LatestProjects = ({ projects }) => (
   <Wrapper>
     { projects.map(project => (
       <Row key={project.number}>
@@ -23,7 +23,6 @@ const LatestProjects = ({ projects, coords }) => (
             projectDesc={project.description}
             imgSrc={project.imgSrc}
             imgAlt={project.imgAlt}
-            Style={{ transform: `translateX(${coords[project.number - 1]}px)` }}
           />
         </Col>
       </Row>
@@ -33,7 +32,6 @@ const LatestProjects = ({ projects, coords }) => (
 
 LatestProjects.propTypes = {
   projects: PropTypes.array,
-  coords: PropTypes.arrayOf(PropTypes.number),
 };
 
 LatestProjects.Container = Container;

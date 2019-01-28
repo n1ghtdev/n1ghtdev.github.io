@@ -5,7 +5,6 @@ import Col from '../../components/Col';
 import Line from '../../components/Line';
 import LatestProjects from '../../components/LatestProjects';
 import WideButton from '../../components/WideButton';
-import { calcParallax } from '../../utils/scrollParallax';
 
 const latestProjects = [
   {
@@ -31,44 +30,18 @@ const latestProjects = [
   },
 ];
 
-class LatProjectsContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      coords: [0, 0, 0],
-    };
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-  handleScroll = () => {
-    this.setState({
-      coords: [
-        calcParallax(100, 350, 1700),
-        calcParallax(100, 1100, 2450),
-        calcParallax(100, 1850, 3200),
-      ],
-    });
-  }
-  render() {
-    return (
-      <LatestProjects.Container>
-        <Grid borderColor="#dfdfdf" relative>
-          <Line vertical color="#dfdfdf" align="center" />
-          <LatestProjects projects={latestProjects} coords={this.state.coords} />
-          <Row justify="center">
-            <Col lg={10} md={12} Padding="0 0 200px 0">
-              <WideButton Style="blue" to="/projects">More projects</WideButton>
-            </Col>
-          </Row>
-        </Grid>
-      </LatestProjects.Container>
-    );
-  }
-}
+const LatProjectsContainer = () => (
+  <LatestProjects.Container>
+    <Grid borderColor="#dfdfdf" relative>
+      <Line vertical color="#dfdfdf" align="center" />
+      <LatestProjects projects={latestProjects} />
+      <Row justify="center">
+        <Col lg={10} md={12} Padding="0 0 200px 0">
+          <WideButton Style="blue" to="/projects">More projects</WideButton>
+        </Col>
+      </Row>
+    </Grid>
+  </LatestProjects.Container>
+);
 
 export default LatProjectsContainer;

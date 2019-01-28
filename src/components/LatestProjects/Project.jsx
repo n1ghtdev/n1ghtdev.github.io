@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.article`
-  transition: all 1s ease-out;
   position: relative;
   width: 960px;
   height: 400px;
@@ -81,12 +80,12 @@ const Description = styled.p`
 `;
 
 const Project = ({
-  number, imgSrc, imgAlt, projectTitle, projectDesc, Style,
+  number, imgSrc, imgAlt, projectTitle, projectDesc,
 }) => (
   <Wrapper>
     <Line />
     <Number>{ `0${number}` }</Number>
-    <Container style={Style}>
+    <Container>
       <Image src={imgSrc} alt={imgAlt} />
       <Overlay>
         <Header>
@@ -104,7 +103,6 @@ Project.propTypes = {
   imgAlt: PropTypes.string,
   projectTitle: PropTypes.string,
   projectDesc: PropTypes.string,
-  Style: PropTypes.object,
 };
 
 export default Project;
