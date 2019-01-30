@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import styled from 'styled-components';
-import '../../../node_modules/particles.js/particles.min';
+import '../../assets/libs/particles.min';
 
 const ParticlesWrapper = styled.div`
   position: absolute;
