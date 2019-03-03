@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { Route } from 'react-router-dom';
 import MainPage from '../pages/MainPage';
 import ProjectsPage from '../pages/ProjectsPage';
 
@@ -15,4 +15,3 @@ export default function App() {
     </Fragment>
   );
 }
-

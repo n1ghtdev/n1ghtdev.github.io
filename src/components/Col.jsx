@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { getColWidth } from '../utils/getColWidth';
 
 // TODO: auto columns
-// add as prop, which changes div to anything else
 const Col = styled.div`
   order: ${({ Order }) => Order};
   padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
   text-align: ${({ textAlign }) => textAlign};
+  margin: ${({ Margin }) => Margin};
 
   @media (min-width: 1200px) {
     flex: 0 0  ${({ lg }) => getColWidth(lg)}%;
@@ -53,6 +53,7 @@ Col.propTypes = {
   ]),
   textAlign: PropTypes.string,
   Order: PropTypes.number,
+  Margin: PropTypes.string,
 };
 
 Col.defaultProps = {

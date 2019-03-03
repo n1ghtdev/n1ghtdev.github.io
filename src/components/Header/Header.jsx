@@ -4,12 +4,16 @@ import styled from 'styled-components';
 const Header = styled.header`
   position: relative;
   height: ${({ Height }) => Height};
-  background: linear-gradient(180deg, #080E1F 0%, #0A0B10 100%);
+  background-image: url(./src/assets/img/header-bg-v7.png);
+  /* background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover; */
 `;
 
 Header.propTypes = {
   children: PropTypes.any,
   Height: PropTypes.string,
+  onScroll: PropTypes.func,
 };
 
 Header.defaultProps = {

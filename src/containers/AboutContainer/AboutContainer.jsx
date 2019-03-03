@@ -57,7 +57,7 @@ const AboutContainer = () => (
           <ToolsContainer />
         </Col>
       </Row>
-      <Row justify="center">
+      <Row justifyContent="center">
         <Col lg={10} md={12} Padding="60px 0 100px 0">
           <WideButton Style="simple" to="/resume">resume</WideButton>
         </Col>

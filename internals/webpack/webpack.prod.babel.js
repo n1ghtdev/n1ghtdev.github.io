@@ -16,7 +16,7 @@ module.exports = require('./webpack.base.babel')({
     sideEffects: true,
     concatenateModules: true,
     splitChunks: { chunks: 'all' },
-    runtimeChunk: true,
+    runtimeChunk: false,
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ScrolldownSVG from './ScrolldownSVG';
 
@@ -18,14 +17,12 @@ const H3 = styled.h3`
   padding-top: 5px;
 `;
 
-const ScrolldownHint = () => {
-  return (
-    <Wrapper>
-      <ScrolldownSVG />
-      <H3>latest projects</H3>
-    </Wrapper>
-  );
-};
+const ScrollComponent = () => (
+  <Wrapper>
+    <ScrolldownSVG />
+    <H3>latest projects</H3>
+  </Wrapper>
+);
 
-export default ScrolldownHint;
+export default ScrollComponent;
 

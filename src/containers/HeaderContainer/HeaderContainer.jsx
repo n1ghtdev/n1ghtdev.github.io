@@ -3,40 +3,37 @@ import Header from '../../components/Header';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
-import Logotype from '../../components/Logotype';
+import Paragraph from '../../components/Paragraph';
+import Span from '../../components/Span';
+import HR from '../../components/HR';
 import Particles from '../Particles';
-import ScrolldownHint from '../../components/ScrolldownHint';
-import Link from '../../components/Link';
-import Line from '../../components/Line';
-import SocialsContainer from '../SocialsContainer';
+import ScrollComponent from '../../components/ScrollComponent';
+import A from '../../components/A';
+import ParallaxProvider from '../ParallaxProvider';
 
 const HeaderContainer = () => (
   <Header>
-    <Grid borderColor="#0E2130" flex>
-      <Line vertical color="#0E2130" align="center" />
-      <Row Height={50} alignItems="center">
-        <Col lg={12} textAlign="right">
-          <Link
-            Style="grey-italic"
-            href="https://github.com/Nickew/nickew.github.io"
-            target="_blank"
-            overlap
-          >
-                nickew.github.io
-          </Link>
+    <Grid flex>
+      <Row Height={75} alignItems="center" justifyContent="space-between">
+        <Col lg={6} textAlign="left">
+          <A Color="#504D7D" href="https://github.com/Nickew" target="_blank" relative>github.com/nickew</A>
+        </Col>
+        <Col lg={6} textAlign="right">
+          <A Color="#504D7D" href="mailto://nickew@yahoo.com" relative>nickew@yahoo.com</A>
         </Col>
       </Row>
-      <Row FlexProps="1" alignItems="center">
-        <Col lg={11} md={11} sm={11}>
-          <Logotype />
-        </Col>
-        <Col lg={1} md={1} sm={1}>
-          <SocialsContainer />
+      <Row FlexProps="1" alignItems="center" justifyContent="center">
+        <Col lg={8} textAlign="center">
+          <ParallaxProvider>
+            <Paragraph fontSize="1.5rem" lineHeight={1.8}>Hi, my name is <Span Color="#3777F3">Nikita</Span>, I am an <Span Color="#CB2A2A">front-end developer</Span> from Ukraine. Passionate about web development by its beauty. I trying to learn new stuff everyday to be a good specialist.</Paragraph>
+            <HR hrWidth="80%" hrThickness={2} hrColor="#CB2A2A" Offset={25} />
+            <Paragraph fontSize="1.5rem" lineHeight={1.8}>Studying last year on <Span Color="#CB2A2A">software-engeeniring</Span> in Kyiv National University of Trade and Economics</Paragraph>
+          </ParallaxProvider>
         </Col>
       </Row>
       <Row>
         <Col lg={12}>
-          <ScrolldownHint />
+          <ScrollComponent />
         </Col>
       </Row>
     </Grid>

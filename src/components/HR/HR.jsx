@@ -1,17 +1,31 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const HR = () => (
-  <svg width="124" height="23" viewBox="0 0 124 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M49.9873 8.89362C48.9113 9.47381 47.8032 9.98929 46.723 10.5638C46.1371 10.8754 45.5336 11.1366 44.9183 11.3832C44.5611 11.5264 43.9204 11.6443 43.6225 11.9099C43.4963 12.0223 45.0478 12.5468 45.171 12.5898C46.3928 13.016 47.566 13.5599 48.7542 14.0685" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M54.1495 6.79956C53.9073 8.61561 53.6815 10.4492 53.5232 12.2751C53.4741 12.8415 53.4561 13.4069 53.3403 13.9653C53.339 13.9719 53.1944 14.5044 53.2645 14.5107C53.3846 14.5217 53.7991 13.0645 53.8297 12.8904C53.9049 12.4617 54.0635 12.2553 54.3179 11.8914C55.3782 10.375 57.1478 11.0341 57.8809 12.4988C58.1675 13.0714 58.0628 13.5806 57.9523 14.1887C57.896 14.4986 57.9961 14.7918 57.8944 15.0835" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M60.1735 10.8452C60.2812 11.6817 60.4652 12.4684 60.6065 13.284C60.6714 13.6587 60.5669 14.0545 60.6439 14.4155C60.708 14.7164 60.7992 14.9879 60.7949 15.2943" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M60.7973 12.6642C60.8061 12.3231 60.7737 11.4035 61.1933 11.2009C61.438 11.0828 61.809 11.3013 62.0447 11.3835C62.9509 11.6996 63.5266 11.1965 64.0724 10.4894" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M69.0337 7.41602C68.4775 10.0094 67.4785 12.5304 66.6053 15.0337" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M70.9263 8.87691C72.5505 9.44348 74.1406 10.1143 75.7987 10.5765C76.4776 10.7658 77.1545 10.9692 77.8364 11.1475C77.9793 11.1849 78.3875 11.1871 78.1028 11.3675C76.894 12.1339 75.5319 12.6275 74.1923 13.1047C73.3585 13.4017 72.6206 13.9313 71.8086 14.2178" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M119.537 9.54492C120.386 9.86093 121.284 10.0359 122.125 10.3828C122.28 10.4467 123.75 10.9439 123.172 11.1309C122.05 11.4941 120.998 12.278 120.479 13.3153" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M43.148 12.0459C38.5125 12.9953 33.5471 12.2404 28.8593 12.2404C19.5727 12.2404 10.2882 12.5845 1 12.5845" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M78.1176 11.4002C82.6395 11.4002 87.1549 11.5759 91.6779 11.5059C101.951 11.3469 112.223 11.3664 122.497 11.2734" stroke="#3A3A3A" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const HR = styled.div`
+  width: ${({ hrWidth }) => hrWidth};
+  border-bottom-width: ${({ hrThickness }) => `${hrThickness}px`};
+  border-bottom-style: ${({ hrStyle }) => hrStyle};
+  border-bottom-color: ${({ hrColor }) => hrColor};
+  margin: ${({ Offset }) => typeof Offset === 'string' ? Offset : `${Offset}px`} auto;
+`;
+
+HR.propTypes = {
+  hrWidth: PropTypes.string,
+  hrThickness: PropTypes.number,
+  hrStyle: PropTypes.string,
+  hrColor: PropTypes.string,
+  Offset: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
+
+HR.defaultProps = {
+  hrWidth: '100%',
+  hrThickness: 1,
+  hrStyle: 'solid',
+  hrColor: '#fff',
+  Offset: 10,
+};
 
 export default HR;

@@ -1,6 +1,7 @@
 TODO
 -----
 - [x] refactor col
+- [ ] add <section> component instead of creating each comp for new section
 - [ ] add 'auto' value to props in Col
 - [ ] add 'as' prop to Col (styled-components)
 - [ ] replace custom data in containers with JSON

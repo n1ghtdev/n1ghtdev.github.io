@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const About = styled.div`
-  background: linear-gradient(180deg, #171d24 0%, #111019 100%);
-`;
+const About = styled.div``;
 
 About.propTypes = {
   children: PropTypes.any,

@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.footer`
-  background: #111019;
+  position: relative;
+  background: #151331;
+  z-index: 3;
   color: #fff;
   border-top: 1px solid rgba(255,255,255, .1);
 `;

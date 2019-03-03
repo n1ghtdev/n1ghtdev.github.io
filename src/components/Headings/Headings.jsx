@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const baseHeadingStyles = css`
   color: ${({ Color }) => Color || '#000'};
-  font-family: ${({ fontFamily }) => fontFamily === 'ShadowsIntoLight' ? 'Shadows Into Light' : 'Source Sans Pro'};
+  font-family: ${({ fontFamily }) => fontFamily};
   font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
   font-size: ${({ fontSize }) => fontSize && `${fontSize}!important`};
   font-style: ${({ fontStyle }) => fontStyle};

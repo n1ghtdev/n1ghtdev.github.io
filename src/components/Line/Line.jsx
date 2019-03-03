@@ -1,50 +1,33 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Line = styled.div`
-  background: ${({ color  }) => color };
+const CustomLine = styled.div`
+  background: ${({ LineColor }) => LineColor};
+  left: ${({ align }) => `${align}%`};
   position: absolute;
-
-  ${({ vertical }) => vertical && `
-    width: 1px;
-    height: 100%;
-  `}
-
-  ${({ horizontal }) => horizontal && `
-    width: 100%;
-    height: 1px;
-  `}
-
-  ${( props ) => {
-    if (props.vertical) {
-      if (props.align === 'center') {
-        return `left: 50%;`;
-      } else if (props.align === 'right') {
-        return `right: 0;`;
-      } else return `left: 0;`;
-    } else {
-      if (props.align === 'center') {
-        return `top: 50%;`;
-      } else if (props.align === 'bottom') {
-        return `bottom: 0;`;
-      } else {
-        return `top: 0;`;
-      }
-    }
-  }}
+  height: 100%;
+  width: 1px;
+  top: 0;
+  z-index: 1;
 `;
 
+const Line = ({ LineColor }) => (
+  <Fragment>
+    <CustomLine align={15} LineColor={LineColor} />
+    <CustomLine align={32.5} LineColor={LineColor} />
+    <CustomLine align={50} LineColor={LineColor} />
+    <CustomLine align={67.5} LineColor={LineColor} />
+    <CustomLine align={85} LineColor={LineColor} />
+  </Fragment>
+);
+
 Line.propTypes = {
-  horizontal: PropTypes.bool,
-  vertical: PropTypes.bool,
-  color: PropTypes.string,
-  align: PropTypes.string,
+  LineColor: PropTypes.string,
 };
 
 Line.defaultProps = {
-  color: '#eee',
-  align: 'left',
+  LineColor: '#eee',
 };
 
 export default Line;
