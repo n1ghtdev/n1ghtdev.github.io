@@ -11,10 +11,15 @@ html {
 html, body {
   min-height: 100%;
   font-family: 'Source Sans Pro';
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background-color: #f7f7f7;
+  transition: background .35s;
+  // background: #0D0B21; // default
+  // background: #140F30; // purple v2
+  // background: #151631; // v6
+  background: #151331; // v7
 }
 
 img {
@@ -23,4 +28,18 @@ img {
   max-height: 100%;
   width: auto;
   height: auto;
+}
+
+.section--white {
+  opacity: 0;
+}
+
+.transitioned {
+  #app > section {
+    opacity: 0;
+  }
+  #app > .section--white {
+    opacity: 1!important;
+  }
+  background: #fff;
 }

@@ -31,8 +31,24 @@ module.exports = (options) => ({
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
+        test: /\.(eot|otf|ttf|woff|woff2)$/,
         use: 'file-loader',
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'svg-react-loader',
+          options: {
+            tag: 'svg',
+            raw: true,
+          },
+        },
+      },
+      {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        loader: 'json-loader',
       },
       {
         test: /\.(jpg|png|gif)$/,

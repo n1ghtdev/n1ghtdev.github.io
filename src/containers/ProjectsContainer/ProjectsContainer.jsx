@@ -60,7 +60,7 @@ const ProjectsContainer = ({ match }) => (
           <HR />
         </Col>
       </Row>
-      <Row justify="center">
+      <Row justifyContent="center">
         <Route path={`${match.path}/:catId`} component={ProjectList} />
         <Route
           exact

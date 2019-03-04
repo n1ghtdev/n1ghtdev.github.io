@@ -1,36 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Col from '../Col';
+import Button from '../Button';
+
 const Wrapper = styled.div`
   position: relative;
-  margin-top: 350px;
+  margin-top: 400px;
+  display: flex;
+
+  ${({ Id }) => {
+    if (Id % 2 === 0) {
+      return `
+        & > ${Container} {
+          margin-left: auto;
+          order: 2;
+        }
+        & > ${Header} {
+          padding: 0 120px 0 25px;
+        }
+      `;
+    }
+    return `
+      & > ${Container} {
+        margin-left: auto;
+        order: 0;
+      }
+      & > ${Header} {
+        padding: 0 25px 0 120px;
+      }
+    `;
+  }}
 `;
+
 
 const Container = styled.article`
   position: relative;
-  width: 960px;
-  height: 400px;
-  margin: 0 auto;
+  height: 428px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .45);
-  overflow: hidden;
-`;
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: all .5s;
-  background: rgba(26, 37, 51, .9);
-  display: flex;
-  align-items: flex-end;
-  transform: translateX(100%);
-
-  ${Container}:hover & {
-    transform: translateX(0);
-    opacity: 1;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 105%;
+    height: 110%;
+    border: 1px solid rgba(255,255,255, .1);
+    border-radius: 5px;
   }
 `;
 
@@ -38,67 +57,55 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`;
-
-const Line = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%;
-  height: 1px;
-  background: #dfdfdf;
-`;
-
-const Number = styled.span`
-  position: absolute;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 500;
-  top: 39%;
-  left: -7px;
-  font-size: 2.5rem;
-  color: #8c8c8c;
-  transition: all .25s;
-
-  ${Wrapper}:hover & {
-    color: #37639a;
-  }
+  border-radius: 3px;
 `;
 
 const Header = styled.header`
-  max-width: 275px;
+  order: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  padding: 0 0 50px 50px;
 `;
 
 const Title = styled.h2`
-
+  font-family: 'Lobster Two', cursive;
+  letter-spacing: .0625rem;
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 1.5;
+  &:after {
+    content: '';
+    width: 60px;
+    height: 12px;
+    display: block;
+    margin: 5px auto 10px auto;
+    background: url(src/assets/svg/hr.svg) no-repeat;
+  }
 `;
 
 const Description = styled.p`
-
+  line-height: 1.2;
 `;
 
 const Project = ({
-  number, imgSrc, imgAlt, projectTitle, projectDesc,
+  Id, imgSrc, imgAlt, projectTitle, projectDesc,
 }) => (
-  <Wrapper>
-    <Line />
-    <Number>{ `0${number}` }</Number>
-    <Container>
+  <Wrapper Id={Id}>
+    <Header as={Col} lg={4} textAlign="center">
+      <Title>{ projectTitle }</Title>
+      <Description>{ projectDesc }</Description>
+      <Button href="#demo" Offset="40px 0 0 0" Theme="blue-squared">DEMO</Button>
+    </Header>
+    <Container as={Col} lg={8}>
       <Image src={imgSrc} alt={imgAlt} />
-      <Overlay>
-        <Header>
-          <Title>{ projectTitle }</Title>
-          <Description>{ projectDesc }</Description>
-        </Header>
-      </Overlay>
     </Container>
   </Wrapper>
 );
 
 Project.propTypes = {
-  number: PropTypes.number,
+  Id: PropTypes.number,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
   projectTitle: PropTypes.string,

@@ -1,20 +1,23 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Wrapper = styled.ul`
+const List = styled.ul`
   display: inline-flex;
-  list-style-type: none;
+  flex-direction: ${({ listDir }) => listDir};
+  list-style-type: ${({ listStyle }) => listStyle};
 `;
-
-const List = ({ children }) => (
-  <Wrapper>
-    {children}
-  </Wrapper>
-);
 
 List.propTypes = {
   children: PropTypes.any,
+  listDir: PropTypes.oneOf([
+    'row', 'column',
+  ]),
+  listStyle: PropTypes.string,
+};
+
+List.defaultProps = {
+  listDir: 'row',
+  listStyle: 'none',
 };
 
 export default List;
