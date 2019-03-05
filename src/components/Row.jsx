@@ -9,6 +9,7 @@ const Row = styled.div`
   align-items: ${({ alignItems }) => alignItems};
   flex: ${({ FlexProps }) => FlexProps};
   position: relative;
+  padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
 `;
 
 Row.propTypes = {
@@ -17,6 +18,10 @@ Row.propTypes = {
   alignItems: PropTypes.string,
   Height: PropTypes.any,
   FlexProps: PropTypes.string,
+  Padding: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 Row.defaultProps = {

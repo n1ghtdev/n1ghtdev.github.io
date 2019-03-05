@@ -5,7 +5,7 @@ import OtherProjectsContainer from '../containers/OtherProjectsContainer';
 import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
 import Line from '../components/Line';
-import withScroll from '../utils/withSroll';
+import withScroll from '../utils/withScroll';
 
 class MainPage extends React.Component {
   state = {
@@ -24,9 +24,9 @@ class MainPage extends React.Component {
   }
   componentDidUpdate() {
     const { scrollY, testElementY } = this.state;
-    if (scrollY >= testElementY + 200) {
+    if (scrollY >= testElementY + 450) {
       document.body.classList.add('transitioned');
-    } else if (scrollY <= testElementY + 200 && document.body.classList.contains('transitioned')) {
+    } else if (scrollY <= testElementY + 450 && document.body.classList.contains('transitioned')) {
       document.body.classList.remove('transitioned');
     }
   }

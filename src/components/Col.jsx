@@ -49,7 +49,6 @@ Col.propTypes = {
   Padding: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.array,
   ]),
   textAlign: PropTypes.string,
   Order: PropTypes.number,

@@ -3,62 +3,35 @@ import Section from '../../components/Section';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
-import Tools from '../../components/Tools';
 import { H2 } from '../../components/Headings';
 import Paragraph from '../../components/Paragraph';
-import List from '../../components/List';
-import Icon from '../../components/Icon';
+import Skill from '../../components/Skill';
+import ToolsList from '../ToolsList';
 
-const tools = [
+const skills = [
+  {
+    id: 0,
+    title: 'html',
+    icon: 'html5',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis?',
+  },
+  {
+    id: 1,
+    title: 'css',
+    icon: 'css3',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis?',
+  },
   {
     id: 2,
     title: 'javascript',
     icon: 'javascript',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
   },
   {
     id: 3,
     title: 'react',
     icon: 'react',
-  },
-  {
-    id: 4,
-    title: 'redux',
-    icon: 'redux',
-  },
-  {
-    id: 5,
-    title: 'git',
-    icon: 'git',
-  },
-  {
-    id: 6,
-    title: 'webpack',
-    icon: 'webpack',
-  },
-  {
-    id: 7,
-    title: 'jquery',
-    icon: 'jquery',
-  },
-  {
-    id: 8,
-    title: 'eslint',
-    icon: 'eslint',
-  },
-  {
-    id: 9,
-    title: 'gulp',
-    icon: 'gulp',
-  },
-  {
-    id: 10,
-    title: 'sass',
-    icon: 'sass',
-  },
-  {
-    id: 11,
-    title: 'npm',
-    icon: 'npm',
+    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. ',
   },
 ];
 
@@ -66,42 +39,25 @@ class ToolsContainer extends React.Component {
   render() {
     return (
       <Section
-        style={{border: '1px solid red'}}
         ref={node => {
           this.node = node;
         }}
         Height="100vh"
         className="section--white"
       >
-        <Grid style={{border: '1px solid black'}}>
+        <Grid>
           <Row>
             <Col lg={6} Margin="0 auto" textAlign="center">
-              <H2 Color="#000" fontSize="2rem" fontFamily="Lobster Two">Tools I experienced with</H2>
-              <Paragraph Color="#000" fontStyle="italic">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis?</Paragraph>
+              <H2 Color="#000" fontSize="2rem" fontFamily="Lobster Two">My skills and tools</H2>
+              <Paragraph Color="#000" fontStyle="italic">web. js. front-end.</Paragraph>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <Tools tools={tools} />
-            </Col>
+          <Row Padding="50px 0" as="ul">
+            { skills.map(item => (
+              <Skill key={item.id} description={item.description} icon={item.icon} />
+            )) }
           </Row>
-          <Row>
-            <Col lg={6} style={{fontSize: '5rem'}}>
-              <Icon iconName="html5" />
-              <Icon iconName="css3" />
-              <p style={{ fontSize: '1rem' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit nesciunt eligendi est illum quidem.</p>
-            </Col>
-            <Col lg={6} textAlign="center">
-              <List listDir="column" listStyle="circle">
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem dolorem quaerat quidem aut, minima modi.</li>
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem dolorem quaerat quidem aut, minima modi.</li>
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem dolorem quaerat quidem aut, minima modi.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorem qui repellendus mollitia quasi laboriosam reprehenderit aut tenetur earum vel, natus, amet nemo laborum adipisci.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorem qui repellendus mollitia quasi laboriosam reprehenderit aut tenetur earum vel, natus, amet nemo laborum adipisci.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorem qui repellendus mollitia quasi laboriosam reprehenderit aut tenetur earum vel, natus, amet nemo laborum adipisci.</li>
-              </List>
-            </Col>
-          </Row>
+          <ToolsList />
         </Grid>
       </Section>
     );

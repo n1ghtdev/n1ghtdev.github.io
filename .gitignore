@@ -16,6 +16,8 @@
 node_modules
 build
 
+sources
+
 ### jest ###
 coverage
 

@@ -8,6 +8,7 @@ const Paragraph = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight};
   color: ${({ Color }) => Color};
   line-height: ${({ lineHeight }) => lineHeight};
+  text-align: ${({ textAlign }) => textAlign};
 `;
 
 Paragraph.propTypes = {
@@ -21,6 +22,9 @@ Paragraph.propTypes = {
   ]),
   Color: PropTypes.string,
   lineHeight: PropTypes.number,
+  textAlign: PropTypes.oneOf([
+    'center', 'right', 'left', 'inherit', 'initial',
+  ]),
 };
 
 Paragraph.defaultProps = {
@@ -29,6 +33,7 @@ Paragraph.defaultProps = {
   fontWeight: 'normal',
   Color: '#fff',
   lineHeight: 1.5,
+  textAlign: 'inherit',
 };
 
 export default Paragraph;

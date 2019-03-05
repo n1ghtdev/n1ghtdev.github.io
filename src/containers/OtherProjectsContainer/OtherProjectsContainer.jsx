@@ -112,7 +112,7 @@ const data = [
 ];
 
 const OtherProjectsContainer = () => (
-  <Section Padding="200px 0 300px 0">
+  <Section Padding="200px 0">
     <Grid>
       <Row>
         { data.map(entity => (
