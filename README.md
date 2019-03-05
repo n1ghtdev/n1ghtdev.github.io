@@ -12,8 +12,7 @@ Tools/Libs
 Done
 -----
 * Grid system (with styled-components)
-* Headings (h1, h2..)
-* Main page (Header, Latest Projects, About, Footer)
+* Sections: Header, Latest Projects, Other Projects, About, Footer
 
 LICENSE
 -----
