@@ -2,10 +2,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const A = styled.a`
-  ${({ relative }) => relative && `
-    position: relative;
-    z-index: 1;
-  `}
+  position: relative;
+  z-index: 1;
 
   text-decoration: ${({ textDecoration }) => textDecoration};
   font-weight: ${({ fontWeight }) => fontWeight};
@@ -21,9 +19,6 @@ const A = styled.a`
 
 A.propTypes = {
   children: PropTypes.any,
-  href: PropTypes.string,
-  target: PropTypes.string,
-  relative: PropTypes.bool,
   textDecoration: PropTypes.string,
   fontWeight: PropTypes.oneOfType([
     PropTypes.string,
@@ -39,7 +34,7 @@ A.propTypes = {
 
 A.defaultProps = {
   textDecoration: 'none',
-  Color: '#fff',
+  Color: 'inherit',
 };
 
 export default A;

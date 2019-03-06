@@ -1,28 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import A from '../A';
 
 const Wrapper = styled.li`
-  ${({ overlap }) => overlap && `
-    position: relative;
-    z-index: 1;
-  `}
+  display: inline-block;
+  padding-right: 20px;
 
   &:last-child {
-    padding-top: 20px;
+    padding-right: 0;
   }
 `;
 
 const Link = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
   color: #fff;
-  font-size: 1.5rem;
-  border: 2px solid #fff;
-  border-radius: 50%;
+  font-size: 2rem;
   transition: all .25s;
 
   &:hover {
@@ -30,16 +22,14 @@ const Link = styled.a`
   }
 `;
 
-const Item = ({ children, overlap, href }) => (
-  <Wrapper overlap={overlap}>
-    <Link href={href}>{children}</Link>
+const Item = (props) => (
+  <Wrapper>
+    <A as={Link} {...props}>{props.children}</A>
   </Wrapper>
 );
 
 Item.propTypes = {
   children: PropTypes.node,
-  href: PropTypes.string,
-  overlap: PropTypes.bool,
 };
 
 export default Item;

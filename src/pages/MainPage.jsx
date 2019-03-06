@@ -6,6 +6,7 @@ import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
 import Line from '../components/Line';
 import withScroll from '../utils/withScroll';
+import ArrowUp from '../components/ArrowUp';
 
 class MainPage extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <Fragment>
-        <Line LineColor="rgba(255,255,255,.025)" />
+        <ArrowUp />
         <HeaderContainer />
         <LatProjectsContainer />
         <OtherProjectsContainer />

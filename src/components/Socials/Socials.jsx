@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const List = styled.ul`
-  width: 45px;
-  margin-left: auto;
+  display: inline;
 `;
 
 const Socials = ({ children }) => (

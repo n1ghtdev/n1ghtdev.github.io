@@ -1,9 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-const Wrapper = styled.li`
+const Item = styled.li`
   &:last-child {
     margin-right: 0;
   }
@@ -20,19 +18,6 @@ const Wrapper = styled.li`
     display: none;
   }
 `;
-
-const A = styled(Link)`
-  font-size: 0.875rem;
-  color: ${({ active }) => active ? '#525252' : '#a6a6a6'};
-  text-decoration: none;
-  text-transform: uppercase;
-`;
-
-const Item = ({ children, to, active }) => (
-  <Wrapper>
-    <A to={to} active={active}>{children}</A>
-  </Wrapper>
-);
 
 Item.propTypes = {
   children: PropTypes.any,

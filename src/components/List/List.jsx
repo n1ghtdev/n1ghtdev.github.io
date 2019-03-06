@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Item from './Item';
 
 const List = styled.ul`
   display: flex;
@@ -24,5 +25,7 @@ List.defaultProps = {
   listStyle: 'none',
   flexWrap: 'nowrap',
 };
+
+List.Item = Item;
 
 export default List;

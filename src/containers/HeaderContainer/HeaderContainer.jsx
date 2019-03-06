@@ -13,13 +13,13 @@ import ParallaxProvider from '../ParallaxProvider';
 
 const HeaderContainer = () => (
   <Header>
-    <Grid flex>
+    <Grid flex style={{zIndex: '10'}} relative>
       <Row Height={75} alignItems="center" justifyContent="space-between">
         <Col lg={6} textAlign="left">
-          <A Color="#504D7D" href="https://github.com/Nickew" target="_blank" relative>github.com/nickew</A>
+          <A Color="hsl(250, 25%, 40%)" href="https://github.com/Nickew" target="_blank" relative>github.com/nickew</A>
         </Col>
         <Col lg={6} textAlign="right">
-          <A Color="#504D7D" href="mailto://nickew@yahoo.com" relative>nickew@yahoo.com</A>
+          <A Color="hsl(250, 25%, 40%)" href="mailto://nickew@yahoo.com" relative>nickew@yahoo.com</A>
         </Col>
       </Row>
       <Row FlexProps="1" alignItems="center" justifyContent="center">

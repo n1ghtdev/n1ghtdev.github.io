@@ -29,6 +29,7 @@ Row.defaultProps = {
   alignItems: 'flex-start',
   Height: 'auto',
   FlexProps: '0 1 auto',
+  Padding: '0',
 };
 
 export default Row;

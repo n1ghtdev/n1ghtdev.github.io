@@ -6,8 +6,10 @@ import Item from '../../components/Socials/Item';
 
 const SocialsContainer = () => (
   <Socials>
-    <Item href="#facebook" overlap><FontAwesomeIcon icon={['fab', 'facebook-f']} /></Item>
-    <Item href="#telegram" overlap><FontAwesomeIcon icon={['fab', 'telegram-plane']} /></Item>
+    <Item href="mailto://artyenick@gmail.com/"><FontAwesomeIcon icon={['fas', 'envelope-square']} /></Item>
+    <Item href="https://t.me/n1ckew" target="_blank"><FontAwesomeIcon icon={['fab', 'github-square']} /></Item>
+    <Item href="#facebook"><FontAwesomeIcon icon={['fab', 'facebook']} /></Item>
+    <Item href="#telegram"><FontAwesomeIcon icon={['fab', 'linkedin']} /></Item>
   </Socials>
 );
 
