@@ -14,6 +14,10 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+* {
+  cursor: none!important;
+}
+
 body {
   transition: background .35s;
   // background: #0D0B21; // default
@@ -59,7 +63,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 6px;
   border: 3px solid hsl(244, 44%, 13%);
 }
-
 
 /* selection */
 -moz-::selection {

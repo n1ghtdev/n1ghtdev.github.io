@@ -1,9 +1,13 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const A = styled.a`
+const Link = styled.a`
   position: relative;
   z-index: 1;
+  /*  set padding to 20px for better custom cursor hover/interaction */
+  padding: 20px;
+  display: inline-block;
 
   text-decoration: ${({ textDecoration }) => textDecoration};
   font-weight: ${({ fontWeight }) => fontWeight};
@@ -16,6 +20,12 @@ const A = styled.a`
     opacity: .75;
   }
 `;
+
+const A = (props) => (
+  <Link {...props}>
+    <span>{props.children}</span>
+  </Link>
+);
 
 A.propTypes = {
   children: PropTypes.any,

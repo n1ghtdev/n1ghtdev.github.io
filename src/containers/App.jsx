@@ -1,16 +1,17 @@
 import React, { Fragment } from 'react';
-import { Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { faGithubSquare, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
 import MainPage from '../pages/MainPage';
+import withMousePointer from '../utils/withMousePointer';
+import MousePointer from './MousePointer';
+library.add(faGithubSquare, faFacebook, faLinkedin, faEnvelopeSquare);
 
-library.add(fab, fas);
+const App = () => (
+  <Fragment>
+    <MousePointer />
+    <MainPage />
+  </Fragment>
+);
 
-export default function App() {
-  return (
-    <Fragment>
-      <Route exact path="/" component={MainPage} />
-    </Fragment>
-  );
-}
+export default App;
