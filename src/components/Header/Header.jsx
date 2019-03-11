@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import headerImage from '../../assets/img/header.jpg';
+
+console.log(headerImage);
 
 const Header = styled.header`
   position: relative;
   height: ${({ Height }) => Height};
-  background: url(./src/assets/img/header.jpg);
+  background-image: url(${headerImage});
   background-position: 0 -158px;
   /* background-attachment: fixed;
   background-repeat: no-repeat;
