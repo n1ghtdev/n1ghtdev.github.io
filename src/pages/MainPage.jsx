@@ -4,7 +4,6 @@ import LatProjectsContainer from '../containers/LatProjectsContainer';
 import OtherProjectsContainer from '../containers/OtherProjectsContainer';
 import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
-import Line from '../components/Line';
 import withScroll from '../utils/withScroll';
 import ArrowUp from '../components/ArrowUp';
 

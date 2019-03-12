@@ -6,7 +6,6 @@ import Col from '../../components/Col';
 import Paragraph from '../../components/Paragraph';
 import Span from '../../components/Span';
 import HR from '../../components/HR';
-import Particles from '../Particles';
 import ScrollComponent from '../../components/ScrollComponent';
 import A from '../../components/A';
 import ParallaxProvider from '../ParallaxProvider';
@@ -37,7 +36,6 @@ const HeaderContainer = () => (
         </Col>
       </Row>
     </Grid>
-    <Particles />
   </Header>
 );
 

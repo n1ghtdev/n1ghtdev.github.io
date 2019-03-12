@@ -5,10 +5,6 @@ import styled from 'styled-components';
 const Link = styled.a`
   position: relative;
   z-index: 1;
-  /*  set padding to 20px for better custom cursor hover/interaction */
-  padding: 20px;
-  display: inline-block;
-
   text-decoration: ${({ textDecoration }) => textDecoration};
   font-weight: ${({ fontWeight }) => fontWeight};
   font-size: ${({ fontSize }) => typeof fontSize === 'string' ? fontSize : `${fontSize}px`};
