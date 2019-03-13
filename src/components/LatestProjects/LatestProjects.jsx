@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Project from './Project';
-import Row from '../Row';
+import Item from './Item';
+import Poster from './Poster';
+import Header from './Header';
+import Title from './Title';
 
 const Wrapper = styled.main`
   max-width: 1360px;
@@ -10,24 +12,19 @@ const Wrapper = styled.main`
   padding-bottom: 200px;
 `;
 
-const LatestProjects = ({ projects }) => (
+const LatestProjects = ({ children }) => (
   <Wrapper>
-    { projects.map(project => (
-      <Project
-        as={Row}
-        key={project.id}
-        Id={project.id}
-        projectTitle={project.title}
-        projectDesc={project.description}
-        imgSrc={project.imgSrc}
-        imgAlt={project.imgAlt}
-      />
-    )) }
+    { children }
   </Wrapper>
 );
 
 LatestProjects.propTypes = {
-  projects: PropTypes.array,
+  children: PropTypes.node,
 };
+
+LatestProjects.Item = Item;
+LatestProjects.Poster = Poster;
+LatestProjects.Header = Header;
+LatestProjects.Title = Title;
 
 export default LatestProjects;

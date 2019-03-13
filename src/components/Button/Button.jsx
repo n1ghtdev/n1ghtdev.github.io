@@ -2,23 +2,47 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const BlueSquared = css`
-  background: hsl(245, 40%, 20%);
+  background: transparent;
   color: #fff;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  padding: 7px 35px;
+  padding: 15px 45px;
   transition: all .25s;
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: transform .25s ease-out;
+  }
+  &:before {
+    left: -25%;
+    top: 0;
+  }
+  &:after {
+    left: 25%;
+    bottom: 0;
+  }
   &:hover {
-    opacity: .9;
-    padding: 7px 25px 7px 45px;
+    &:before {
+      transform: translateX(50%) rotate(90deg);
+    }
+    &:after {
+      transform: translateX(-50%) rotate(90deg);
+    }
   }
 `;
 
 const Button = styled.a.attrs(({ href }) => ({
   href: href || '#',
 }))`
-  margin: ${({ Offset }) => Offset};
+  margin: ${({ Margin }) => Margin};
   display: block;
   ${({ Theme }) => {
     switch (Theme) {
@@ -37,7 +61,7 @@ Button.propTypes = {
   Theme: PropTypes.oneOf([
     'blue-squared',
   ]),
-  Offset: PropTypes.string,
+  Margin: PropTypes.string,
 };
 
 export default Button;

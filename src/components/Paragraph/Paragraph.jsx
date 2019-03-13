@@ -20,8 +20,11 @@ Paragraph.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  lineHeight: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   Color: PropTypes.string,
-  lineHeight: PropTypes.number,
   textAlign: PropTypes.oneOf([
     'center', 'right', 'left', 'inherit', 'initial',
   ]),

@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '../../components/Grid';
 import Section from '../../components/Section';
 import LatestProjects from '../../components/LatestProjects';
+import ProjectContainer from './ProjectContainer';
 
 const latestProjects = [
   {
@@ -20,12 +21,16 @@ const latestProjects = [
   },
 ];
 
-const LatProjectsContainer = () => (
+const LatestSection = () => (
   <Section>
     <Grid fluid relative>
-      <LatestProjects projects={latestProjects} />
+      <LatestProjects>
+        { latestProjects.map(item => (
+          <ProjectContainer project={item} />
+        )) }
+      </LatestProjects>
     </Grid>
   </Section>
 );
 
-export default LatProjectsContainer;
+export default LatestSection;

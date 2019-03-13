@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import HeaderContainer from '../containers/HeaderContainer';
-import LatProjectsContainer from '../containers/LatProjectsContainer';
+import LatestSection from '../containers/LatestSection';
 import OtherProjectsContainer from '../containers/OtherProjectsContainer';
 import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
@@ -35,7 +35,7 @@ class MainPage extends React.Component {
       <Fragment>
         <ArrowUp />
         <HeaderContainer />
-        <LatProjectsContainer />
+        <LatestSection />
         <OtherProjectsContainer />
         <ToolsContainer ref={node => { this.testNode = node; }} />
         <FooterContainer />
