@@ -4,13 +4,13 @@ import LatestSection from '../containers/LatestSection';
 import OtherProjectsContainer from '../containers/OtherProjectsContainer';
 import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
+import ArrowUpContainer from '../containers/ArrowUpContainer';
 import withScroll from '../utils/withScroll';
-import ArrowUp from '../components/ArrowUp';
 
 class MainPage extends React.Component {
   state = {
     scrollY: null,
-    testElementY: null,
+    triggerElement: null,
   };
   static getDerivedStateFromProps(props, state) {
     if (props.scrollY !== state.scrollY) {
@@ -19,25 +19,38 @@ class MainPage extends React.Component {
     return null;
   }
   componentDidMount() {
-    const testElementY = this.testNode.node.offsetTop - this.testNode.node.offsetHeight;
-    this.setState({ testElementY });
+    const triggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
+    this.setState({ triggerElement });
   }
-  componentDidUpdate() {
-    const { scrollY, testElementY } = this.state;
-    if (scrollY >= testElementY + 450) {
-      document.body.classList.add('transitioned');
-    } else if (scrollY <= testElementY + 450 && document.body.classList.contains('transitioned')) {
-      document.body.classList.remove('transitioned');
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    const newTriggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
+    if (prevState.triggerElement !== newTriggerElement && this.waitNode.state.fetched) {
+      this.setState({ triggerElement: newTriggerElement });
+      return true;
+    }
+    return false;
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { scrollY, triggerElement } = this.state;
+
+    if (!snapshot) {
+      const { body } = document;
+      if (scrollY >= triggerElement + 450) {
+        body.classList.add('transitioned');
+      } else if (scrollY <= triggerElement + 450 && body.classList.contains('transitioned')) {
+        body.classList.remove('transitioned');
+      }
     }
   }
   render() {
+    const { scrollY } = this.state;
     return (
       <Fragment>
-        <ArrowUp />
+        <ArrowUpContainer scrollY={scrollY} />
         <HeaderContainer />
-        <LatestSection />
+        <LatestSection ref={node => { this.waitNode = node; }} />
         <OtherProjectsContainer />
-        <ToolsContainer ref={node => { this.testNode = node; }} />
+        <ToolsContainer ref={node => { this.triggerNode = node; }} />
         <FooterContainer />
       </Fragment>
     );
