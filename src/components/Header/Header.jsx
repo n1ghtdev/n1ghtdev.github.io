@@ -2,16 +2,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import headerImage from '../../assets/img/header.jpg';
 
-console.log(headerImage);
-
 const Header = styled.header`
   position: relative;
   height: ${({ Height }) => Height};
   background-image: url(${headerImage});
   background-position: 0 -158px;
-  /* background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   &:after {
     content: '';
     position: absolute;
@@ -26,7 +23,6 @@ const Header = styled.header`
 Header.propTypes = {
   children: PropTypes.any,
   Height: PropTypes.string,
-  onScroll: PropTypes.func,
 };
 
 Header.defaultProps = {
