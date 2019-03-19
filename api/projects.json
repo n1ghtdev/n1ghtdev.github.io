@@ -1,0 +1,16 @@
+{
+  "0": {
+    "id": 1,
+    "title": "Weather App",
+    "description": "This is latest projects section made with React and HTML5 semantic tags.",
+    "imgSrc": "https://i.imgur.com/FAmHLyz.jpg",
+    "imgAlt": "Something here"
+  },
+  "1": {
+    "id": 2,
+    "title": "Project example",
+    "description": "This is latest projects section made with React and HTML5 semantic tags.",
+    "imgSrc": "https://via.placeholder.com/960",
+    "imgAlt": "Something here"
+  }
+}

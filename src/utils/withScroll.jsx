@@ -9,7 +9,7 @@ const withScroll = ComposedComponent => class scrollHandler extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const THROTTLE_INTERVAL = 200;
     this.intervalID = setInterval(this.handleInterval, THROTTLE_INTERVAL);
   }
@@ -32,10 +32,9 @@ const withScroll = ComposedComponent => class scrollHandler extends Component {
 
   handleRAF = () => {
     const { scrollY } = this.state;
-    const newScrollY = this.getWindowScrollTop();
 
-    if (newScrollY !== scrollY) {
-      this.setState({ scrollY: newScrollY });
+    if (scrollY !== this.getWindowScrollTop()) {
+      this.setState({ scrollY: this.getWindowScrollTop() });
     }
   };
 

@@ -5,6 +5,7 @@ import Item from './Item';
 import Poster from './Poster';
 import Header from './Header';
 import Title from './Title';
+import Btn from './Button';
 
 const Wrapper = styled.main`
   max-width: 1360px;
@@ -22,6 +23,7 @@ LatestProjects.propTypes = {
   children: PropTypes.node,
 };
 
+LatestProjects.Button = Btn;
 LatestProjects.Item = Item;
 LatestProjects.Poster = Poster;
 LatestProjects.Header = Header;

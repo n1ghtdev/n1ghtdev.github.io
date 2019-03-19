@@ -4,8 +4,8 @@ import LatestSection from '../containers/LatestSection';
 import OtherProjectsContainer from '../containers/OtherProjectsContainer';
 import FooterContainer from '../containers/FooterContainer';
 import ToolsContainer from '../containers/ToolsContainer';
-import ArrowUpContainer from '../containers/ArrowUpContainer';
 import withScroll from '../utils/withScroll';
+import ArrowUpContainer from '../containers/ArrowUpContainer';
 
 class MainPage extends React.Component {
   state = {
@@ -32,6 +32,11 @@ class MainPage extends React.Component {
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     const { scrollY, triggerElement } = this.state;
+    const newTriggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
+
+    if (prevState.triggerElement !== newTriggerElement) {
+      this.setState({ triggerElement: newTriggerElement });
+    }
 
     if (!snapshot) {
       const { body } = document;
