@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ArrowUpSvg from './ArrowUpSvg';
-
 const Wrapper = styled.div`
   animation: ${({ Visible }) => Visible ? 'slideDown' : 'slideUp'} .5s linear forwards;
   
@@ -34,8 +33,8 @@ const Wrapper = styled.div`
   }
 `;
 
-const ArrowUp = ({ Visible }) => (
-  <Wrapper Visible={Visible}>
+const ArrowUp = ({ Visible, onClick }) => (
+  <Wrapper Visible={Visible} onClick={onClick}>
     <ArrowUpSvg />
   </Wrapper>
 );

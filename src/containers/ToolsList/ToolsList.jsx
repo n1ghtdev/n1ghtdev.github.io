@@ -53,7 +53,7 @@ const ToolsList = () => (
     <Col lg={6} Margin="0 auto" Padding="75px 0 0 0">
       <List flexWrap="wrap" >
         { tools.map(item => (
-          <Tool>
+          <Tool key={item.id}>
             <Icon iconName={item.icon} />
           </Tool>
         )) }

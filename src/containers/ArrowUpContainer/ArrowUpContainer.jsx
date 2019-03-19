@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { animateScroll } from 'react-scroll';
 import ArrowUp from '../../components/ArrowUp';
 
 class ArrowUpContainer extends Component {
@@ -17,9 +18,9 @@ class ArrowUpContainer extends Component {
     return null;
   }
   componentDidUpdate() {
-    this.checkVisibility();
+    this.isVisible();
   }
-  checkVisibility = () => {
+  isVisible = () => {
     const { visible, scrollY } = this.state;
 
     if (!visible && scrollY > 1000) {
@@ -28,9 +29,12 @@ class ArrowUpContainer extends Component {
       this.setState({ visible: false });
     }
   }
+  scrollUp = () => {
+    animateScroll.scrollToTop();
+  }
   render() {
     return (
-      <ArrowUp Visible={this.state.visible} />
+      <ArrowUp Visible={this.state.visible} onClick={this.scrollUp} />
     );
   }
 }
