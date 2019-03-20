@@ -9,6 +9,7 @@ class ArrowUpContainer extends Component {
   }
   state = {
     visible: false,
+    toggle: false,
     scrollY: this.props.scrollY,
   };
   static getDerivedStateFromProps(props, state) {
@@ -17,16 +18,19 @@ class ArrowUpContainer extends Component {
     }
     return null;
   }
+  componentDidMount() {
+    this.setState({ visible: true });
+  }
   componentDidUpdate() {
     this.isVisible();
   }
   isVisible = () => {
-    const { visible, scrollY } = this.state;
+    const { toggle, scrollY } = this.state;
 
-    if (!visible && scrollY > 1000) {
-      this.setState({ visible: true });
-    } else if (visible && scrollY < 1000) {
-      this.setState({ visible: false });
+    if (scrollY > 1000 && !toggle) {
+      this.setState({ toggle: true });
+    } else if (scrollY < 1000 && toggle) {
+      this.setState({ toggle: false });
     }
   }
   scrollUp = () => {
@@ -34,7 +38,7 @@ class ArrowUpContainer extends Component {
   }
   render() {
     return (
-      <ArrowUp Visible={this.state.visible} onClick={this.scrollUp} />
+      <ArrowUp Visible={this.state.visible} Toggle={this.state.toggle} onClick={this.scrollUp} />
     );
   }
 }

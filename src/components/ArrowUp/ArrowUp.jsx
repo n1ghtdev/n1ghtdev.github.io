@@ -2,14 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ArrowUpSvg from './ArrowUpSvg';
+
 const Wrapper = styled.div`
-  animation: ${({ Visible }) => Visible ? 'slideDown' : 'slideUp'} .5s linear forwards;
+  ${({ Visible }) => !Visible && `
+    display: none;
+  `}
+  animation: ${({ Toggle }) => Toggle ? 'slideDown' : 'slideUp'} .25s linear forwards;
   
   position: fixed;
+  display: block;
   transform: translateZ(0);
   right: 50px;
   bottom: 150px;
   z-index: 9999;
+  opacity: 0;
 
   @keyframes slideDown {
     0% {
@@ -33,14 +39,16 @@ const Wrapper = styled.div`
   }
 `;
 
-const ArrowUp = ({ Visible, onClick }) => (
-  <Wrapper Visible={Visible} onClick={onClick}>
+const ArrowUp = ({ Visible, Toggle, onClick }) => (
+  <Wrapper Visible={Visible} Toggle={Toggle} onClick={onClick}>
     <ArrowUpSvg />
   </Wrapper>
 );
 
 ArrowUp.propTypes = {
   Visible: PropTypes.bool,
+  Toggle: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default ArrowUp;

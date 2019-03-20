@@ -1,0 +1,11 @@
+General:
+  ☐ implement live demos of some projects
+  ☐ remove particles.js or change to another bg-animation (not particles alike)
+  ☐ responsive design
+  ☐ browser support IE9+ atleast?
+
+Archive:
+  ✔ replace arrays of data in containers to JSON (fetch, HOC?) @done(19-03-20 20:05)
+  ✔ refactor col @done(19-03-20 19:45)
+  ✔ add Section component @done(19-03-20 19:45)
+  ✔ fix ArrowUp formula @done(19-03-20 19:45)
