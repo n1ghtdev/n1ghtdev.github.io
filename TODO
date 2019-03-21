@@ -1,6 +1,6 @@
 General:
-  ☐ implement live demos of some projects
-  ☐ remove particles.js or change to another bg-animation (not particles alike)
+  ☐ update cache, if data has changed / expire cache every day/week
+  ☐ add demos to projects
   ☐ responsive design
   ☐ browser support IE9+ atleast?
 

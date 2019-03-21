@@ -48,9 +48,9 @@ class LatestSection extends React.Component {
     //   })
     //   .catch(err => console.log(err.message));
   }
-  componentWillUnmount() {
-    localStorage.setItem('projects', JSON.stringify(this.state.data));
-  }
+  // componentWillUnmount() {
+  //   localStorage.setItem('projects', JSON.stringify(this.state.data));
+  // }
   render() {
     const { data } = this.state;
     const projectsArray = Object.keys(data).map(key => data[key]);
