@@ -1,19 +1,25 @@
 import '@babel/polyfill';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-const withProjects = ComposedComponent => class getProjects extends Component {
+const withProjects = ComposedComponent => class fetchProjects extends Component {
   constructor() {
     super();
 
     this.state = {
-      fetched: false,
+      fetched: localStorage.getItem('projects') && true,
       fetching: false,
       error: false,
-      data: {},
+      data: localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : {},
     };
   }
   componentDidMount() {
-    this.fetchProjects();
+    const cachedData = localStorage.getItem('projects');
+    if (cachedData) {
+      this.setState({ data: JSON.parse(cachedData), fetched: true });
+    } else {
+      this.fetchProjects();
+    }
+
   }
   componentWillUnmount() {
     localStorage.setItem('projects', JSON.stringify(this.state.data));
@@ -29,7 +35,6 @@ const withProjects = ComposedComponent => class getProjects extends Component {
       });
 
       const data = await response.json();
-
       this.setState({ data });
     } catch (error) {
       this.setState({ error });
@@ -37,27 +42,16 @@ const withProjects = ComposedComponent => class getProjects extends Component {
     } finally {
       this.setState({ fetched: true, fetching: false });
     }
-    // fetch('/api/projects.json', {
-    //   method: 'get',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*',
-    //   },
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({ data });
-    //   })
-    //   .catch(err => console.log(err.message));
   }
 
   render() {
-    const { data } = this.state;
+    const { data, fetched } = this.state;
     return (
-      <ComposedComponent
-        {...this.props}
-        projects={data}
-      />
+      <Fragment>
+        { fetched ?
+          <ComposedComponent {...this.props} projects={data} /> :
+          'loading...' }
+      </Fragment>
     );
   }
 };

@@ -1,11 +1,18 @@
 General:
-  ☐ update cache, if data has changed / expire cache every day/week
+  ☐ update cache, if data has changed, or expire cache every N-days
   ☐ add demos to projects
   ☐ responsive design
   ☐ browser support IE9+ atleast?
+
+Tuesday, March 21, 2019:
+  ☐ create Loading component
+  ☐ restyle LatestSection's button
+  ☐ make header bg-gradient responsive, or just apply gradient to image in PS
+  ✔ refactor LatestSection and getProjects HOC @done(19-03-21 21:38)
+  ✔ fix ArrowUp, again @done(19-03-21 21:39)
 
 Archive:
   ✔ replace arrays of data in containers to JSON (fetch, HOC?) @done(19-03-20 20:05)
   ✔ refactor col @done(19-03-20 19:45)
   ✔ add Section component @done(19-03-20 19:45)
-  ✔ fix ArrowUp formula @done(19-03-20 19:45)
+  ✔ fix ArrowUp logic  @done(19-03-20 19:45)

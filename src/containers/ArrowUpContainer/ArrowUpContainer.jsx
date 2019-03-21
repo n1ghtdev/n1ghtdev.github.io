@@ -8,24 +8,16 @@ class ArrowUpContainer extends Component {
     scrollY: PropTypes.number,
   }
   state = {
-    visible: false,
-    toggle: false,
-    scrollY: this.props.scrollY,
-  };
-  static getDerivedStateFromProps(props, state) {
-    if (props.scrollY !== state.scrollY) {
-      return { scrollY: props.scrollY };
+    toggle: null,
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.scrollY !== this.props.scrollY) {
+      this.isVisible();
     }
-    return null;
-  }
-  componentDidMount() {
-    this.setState({ visible: true });
-  }
-  componentDidUpdate() {
-    this.isVisible();
   }
   isVisible = () => {
-    const { toggle, scrollY } = this.state;
+    const { toggle } = this.state;
+    const { scrollY } = this.props;
 
     if (scrollY > 1000 && !toggle) {
       this.setState({ toggle: true });
@@ -38,7 +30,7 @@ class ArrowUpContainer extends Component {
   }
   render() {
     return (
-      <ArrowUp Visible={this.state.visible} Toggle={this.state.toggle} onClick={this.scrollUp} />
+      <ArrowUp Toggle={this.state.toggle} onClick={this.scrollUp} />
     );
   }
 }

@@ -4,11 +4,15 @@ import styled from 'styled-components';
 import ArrowUpSvg from './ArrowUpSvg';
 
 const Wrapper = styled.div`
-  ${({ Visible }) => !Visible && `
-    display: none;
-  `}
-  animation: ${({ Toggle }) => Toggle ? 'slideDown' : 'slideUp'} .25s linear forwards;
-  
+  animation: ${({ Toggle }) => {
+    if (Toggle) {
+      return 'slideDown .25s linear forwards';
+    } else if (Toggle === null) {
+      return 'none';
+    }
+    return 'slideUp .25s linear forwards';
+  }};
+
   position: fixed;
   display: block;
   transform: translateZ(0);
@@ -39,14 +43,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const ArrowUp = ({ Visible, Toggle, onClick }) => (
-  <Wrapper Visible={Visible} Toggle={Toggle} onClick={onClick}>
+const ArrowUp = ({ Toggle, onClick }) => (
+  <Wrapper Toggle={Toggle} onClick={onClick}>
     <ArrowUpSvg />
   </Wrapper>
 );
 
 ArrowUp.propTypes = {
-  Visible: PropTypes.bool,
   Toggle: PropTypes.bool,
   onClick: PropTypes.func,
 };

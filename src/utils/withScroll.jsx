@@ -5,7 +5,7 @@ const withScroll = ComposedComponent => class scrollHandler extends Component {
     super();
 
     this.state = {
-      scrollY: this.getWindowScrollTop,
+      scrollY: 0,
     };
   }
 
