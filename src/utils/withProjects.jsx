@@ -6,23 +6,22 @@ const withProjects = ComposedComponent => class fetchProjects extends Component 
     super();
 
     this.state = {
-      fetched: localStorage.getItem('projects') && true,
+      fetched: sessionStorage.getItem('projects') && true,
       fetching: false,
       error: false,
-      data: localStorage.getItem('projects') ? JSON.parse(localStorage.getItem('projects')) : {},
+      data: sessionStorage.getItem('projects') ? JSON.parse(sessionStorage.getItem('projects')) : {},
     };
   }
   componentDidMount() {
-    const cachedData = localStorage.getItem('projects');
+    const cachedData = sessionStorage.getItem('projects');
     if (cachedData) {
       this.setState({ data: JSON.parse(cachedData), fetched: true });
     } else {
       this.fetchProjects();
     }
-
   }
   componentWillUnmount() {
-    localStorage.setItem('projects', JSON.stringify(this.state.data));
+    sessionStorage.setItem('projects', JSON.stringify(this.state.data));
   }
   async fetchProjects() {
     try {

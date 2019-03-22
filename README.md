@@ -1,18 +1,16 @@
 # Nickew's portfolio-website
-[TODO LIST](https://github.com/Nickew/nickew.github.io/blob/dev/TODO.md)
+[TODO LIST](https://github.com/Nickew/nickew.github.io/blob/dev/TODO)
 
 Tools/Libs
 -----
-* React, React-Router
-* Webpack, WDS
+* React
+* React-router v4
+* React-scroll
+* Webpack
+* Webpack-dev-server
 * Jest, Enzyme
 * styled-components
 * particles.js
-
-Done
------
-* Grid system (with styled-components)
-* Sections: Header, Latest Projects, Other Projects, About, Footer
 
 LICENSE
 -----

@@ -1,8 +1,8 @@
 General:
-  ☐ update cache, if data has changed, or expire cache every N-days
   ☐ add demos to projects
   ☐ responsive design
   ☐ browser support IE9+ atleast?
+  ✔ update cache, if data has changed, or expire cache every N-days @done(19-03-22 22:05)
 
 Tuesday, March 21, 2019:
   ☐ create Loading component

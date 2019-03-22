@@ -15,7 +15,8 @@ const Icon = ({ iconName }) => (
     { !icons ?
       null :
       <Svg role={icons[`${iconName}.svg`].props.role} viewBox={icons[`${iconName}.svg`].props.viewBox}>
-        {icons[`${iconName}.svg`].children.map(item => React.createElement(item.tagname, item.props && { ...item.props }, item.children && item.children[0]))}
+        {icons[`${iconName}.svg`].children.map(item =>
+          React.createElement(item.tagname, item.props && { ...item.props }, item.children && item.children[0]))}
       </Svg> }
   </Fragment>
 );
