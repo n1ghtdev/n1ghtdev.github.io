@@ -35,20 +35,16 @@ module.exports = (options) => ({
         use: 'file-loader',
       },
       {
-        test: /\.svg$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'svg-react-loader',
-          options: {
-            tag: 'svg',
-            raw: true,
-          },
-        },
-      },
-      {
         test: /\.json$/,
         exclude: /node_modules/,
         loader: 'json-loader',
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'image-webpack-loader',
+        },
       },
       {
         test: /\.(jpg|png|gif)$/,

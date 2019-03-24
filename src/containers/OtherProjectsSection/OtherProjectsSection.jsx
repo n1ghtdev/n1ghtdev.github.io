@@ -111,7 +111,7 @@ const data = [
   },
 ];
 
-const OtherProjectsContainer = () => (
+const OtherProjectsSection = () => (
   <Section Padding="200px 0">
     <Grid>
       <Row>
@@ -129,4 +129,4 @@ const OtherProjectsContainer = () => (
   </Section>
 );
 
-export default OtherProjectsContainer;
+export default OtherProjectsSection;

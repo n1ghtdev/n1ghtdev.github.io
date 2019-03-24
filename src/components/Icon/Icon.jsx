@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { icons } from './getIcons';
+import getIcon from '../../utils/getIcon';
 
 const Svg = styled.svg`
   display: inline-block;
@@ -10,17 +10,16 @@ const Svg = styled.svg`
   font-size: inherit;
 `;
 
-const Icon = ({ iconName }) => (
-  <Fragment>
-    { !icons ?
-      null :
-      <Svg role={icons[`${iconName}.svg`].props.role} viewBox={icons[`${iconName}.svg`].props.viewBox}>
-        {icons[`${iconName}.svg`].children.map(item =>
-          React.createElement(item.tagname, item.props && { ...item.props }, item.children && item.children[0]))}
-      </Svg> }
-  </Fragment>
-);
-
+const Icon = ({ iconName }) => {
+  const IconSvg = getIcon(iconName);
+  return (
+    <Fragment>
+      { IconSvg ?
+        <Svg as={IconSvg} /> :
+        null }
+    </Fragment>
+  );
+};
 
 Icon.propTypes = {
   iconName: PropTypes.oneOf([
@@ -31,14 +30,10 @@ Icon.propTypes = {
     'html5',
     'javascript',
     'jquery',
-    'mysql',
-    'nodejs',
     'npm',
-    'postgresql',
-    'react',
+    'reactjs',
     'redux',
     'sass',
-    'visualstudiocode',
     'webpack',
   ]),
 };

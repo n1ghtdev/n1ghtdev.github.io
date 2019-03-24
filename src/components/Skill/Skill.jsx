@@ -16,14 +16,14 @@ const IconWrapper = styled.div`
   margin-right: 25px;
 `;
 
-const Skill = React.memo(({ description, icon }) => (
+const Skill = ({ description, icon }) => (
   <Col as={Wrapper} lg={6} Padding={25}>
     <IconWrapper>
       <Icon iconName={icon} />
     </IconWrapper>
     <Paragraph Color="rgb(50,50,50)" fontSize="1rem">{description}</Paragraph>
   </Col>
-));
+);
 
 Skill.propTypes = {
   description: PropTypes.string,

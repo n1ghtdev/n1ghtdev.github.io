@@ -2,16 +2,22 @@ General:
   ☐ add demos to projects
   ☐ responsive design
   ☐ browser support IE9+ atleast?
-  ✔ update cache, if data has changed, or expire cache every N-days @done(19-03-22 22:05)
+
+Sunday, March 24, 2019:
+  ☐ prevent child components of MainPage from re-render (could use context api)
+
+Saturday, March 23, 2019:
+  ✔ refactor Icon component (use svgo) @done(19-03-24 17:50)
 
 Tuesday, March 21, 2019:
   ☐ create Loading component
   ☐ restyle LatestSection's button
   ☐ make header bg-gradient responsive, or just apply gradient to image in PS
-  ✔ refactor LatestSection and getProjects HOC @done(19-03-21 21:38)
-  ✔ fix ArrowUp, again @done(19-03-21 21:39)
 
 Archive:
+  ✔ update cache, if data has changed, or expire cache every N-days @done(19-03-22 22:05)
+  ✔ refactor LatestSection and getProjects HOC @done(19-03-21 21:38)
+  ✔ fix ArrowUp, again @done(19-03-21 21:39)
   ✔ replace arrays of data in containers to JSON (fetch, HOC?) @done(19-03-20 20:05)
   ✔ refactor col @done(19-03-20 19:45)
   ✔ add Section component @done(19-03-20 19:45)

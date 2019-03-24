@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
-import HeaderContainer from '../containers/HeaderContainer';
-import LatestSection from '../containers/LatestSection';
-import OtherProjectsContainer from '../containers/OtherProjectsContainer';
-import FooterContainer from '../containers/FooterContainer';
-import ToolsContainer from '../containers/ToolsContainer';
 import withScroll from '../utils/withScroll';
 import ArrowUpContainer from '../containers/ArrowUpContainer';
+import HeaderContainer from '../containers/HeaderContainer';
+import LatestSection from '../containers/LatestSection';
+import OtherProjectsSection from '../containers/OtherProjectsSection';
+import SkillSection from '../containers/SkillSection';
+import FooterContainer from '../containers/FooterContainer';
 
 class MainPage extends React.Component {
   state = {
     scrollY: null,
-    triggerElement: null,
-  };
+    waypointY: null,
+  }
   static getDerivedStateFromProps(props, state) {
     if (props.scrollY !== state.scrollY) {
       return { scrollY: props.scrollY };
@@ -19,32 +19,23 @@ class MainPage extends React.Component {
     return null;
   }
   componentDidMount() {
-    const triggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
-    this.setState({ triggerElement });
+    const waypointY = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
+    this.setState({ waypointY });
   }
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    const newTriggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
-    if (prevState.triggerElement !== newTriggerElement && this.waitNode.state.fetched) {
-      this.setState({ triggerElement: newTriggerElement });
-      return true;
-    }
-    return false;
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { scrollY, triggerElement } = this.state;
-    const newTriggerElement = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
+  componentDidUpdate(prevProps, prevState) {
+    const { scrollY, waypointY } = this.state;
+    const newWaypointY = this.triggerNode.node.offsetTop - this.triggerNode.node.offsetHeight;
 
-    if (prevState.triggerElement !== newTriggerElement) {
-      this.setState({ triggerElement: newTriggerElement });
+    if (prevState.waypointY !== newWaypointY) {
+      /* eslint-disable-next-line react/no-did-update-set-state */
+      this.setState({ waypointY: newWaypointY });
     }
 
-    if (!snapshot) {
-      const { body } = document;
-      if (scrollY >= triggerElement + 450) {
-        body.classList.add('transitioned');
-      } else if (scrollY <= triggerElement + 450 && body.classList.contains('transitioned')) {
-        body.classList.remove('transitioned');
-      }
+    const { body } = document;
+    if (scrollY >= waypointY + 450) {
+      body.classList.add('transitioned');
+    } else if (scrollY <= waypointY + 450 && body.classList.contains('transitioned')) {
+      body.classList.remove('transitioned');
     }
   }
   render() {
@@ -53,9 +44,9 @@ class MainPage extends React.Component {
       <Fragment>
         <ArrowUpContainer scrollY={scrollY} />
         <HeaderContainer />
-        <LatestSection ref={node => { this.waitNode = node; }} />
-        <OtherProjectsContainer />
-        <ToolsContainer ref={node => { this.triggerNode = node; }} />
+        <LatestSection />
+        <OtherProjectsSection />
+        <SkillSection ref={node => { this.triggerNode = node; }} />
         <FooterContainer />
       </Fragment>
     );

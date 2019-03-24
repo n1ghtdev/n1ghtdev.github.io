@@ -6,7 +6,7 @@ import Col from '../../components/Col';
 import { H2 } from '../../components/Headings';
 import Paragraph from '../../components/Paragraph';
 import Skill from '../../components/Skill';
-import ToolsList from '../ToolsList';
+import ToolsList from './ToolsList';
 
 const skills = [
   {
@@ -30,12 +30,12 @@ const skills = [
   {
     id: 3,
     title: 'react',
-    icon: 'react',
+    icon: 'reactjs',
     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos, perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. ',
   },
 ];
 
-class ToolsContainer extends React.Component {
+class SkillSection extends React.PureComponent {
   render() {
     return (
       <Section
@@ -64,4 +64,4 @@ class ToolsContainer extends React.Component {
   }
 }
 
-export default ToolsContainer;
+export default SkillSection;
