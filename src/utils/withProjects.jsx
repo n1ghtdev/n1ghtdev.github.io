@@ -1,7 +1,7 @@
 import '@babel/polyfill';
 import React, { Component, Fragment } from 'react';
 
-const withProjects = ComposedComponent => class fetchProjects extends Component {
+const withProjects = ComposedComponent => class getProjects extends Component {
   constructor() {
     super();
 
@@ -42,7 +42,6 @@ const withProjects = ComposedComponent => class fetchProjects extends Component 
       this.setState({ fetched: true, fetching: false });
     }
   }
-
   render() {
     const { data, fetched } = this.state;
     return (

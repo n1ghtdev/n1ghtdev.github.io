@@ -9,18 +9,9 @@ const Wrapper = styled.div`
   padding-bottom: 20px;
 `;
 
-const H3 = styled.h3`
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, .75);
-  text-transform: uppercase;
-  padding-top: 5px;
-`;
-
 const ScrollComponent = () => (
   <Wrapper>
     <ScrolldownSVG />
-    <H3>latest projects</H3>
   </Wrapper>
 );
 

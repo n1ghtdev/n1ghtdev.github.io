@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { animateScroll } from 'react-scroll';
 import ArrowUp from '../../components/ArrowUp';
-
+import { withScroll } from '../../modules/ScrollProvider';
 class ArrowUpContainer extends Component {
   static propTypes = {
     scrollY: PropTypes.number,
@@ -35,4 +35,4 @@ class ArrowUpContainer extends Component {
   }
 }
 
-export default ArrowUpContainer;
+export default withScroll(ArrowUpContainer);

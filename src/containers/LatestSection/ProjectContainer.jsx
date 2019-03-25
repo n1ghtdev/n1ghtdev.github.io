@@ -18,7 +18,7 @@ class ProjectContainer extends Component {
           <LatestProjects.Title
             as={H3}
             fontFamily="Lobster Two"
-            fontSize="2rem"
+            fontSize="2.5rem"
             Color="#fff"
           >
             { project.title }

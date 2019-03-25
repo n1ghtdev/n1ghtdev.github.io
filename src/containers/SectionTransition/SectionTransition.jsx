@@ -1,0 +1,27 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withScroll } from '../../modules/ScrollProvider';
+
+class SectionTransition extends React.Component {
+  static propTypes = {
+    scrollY: PropTypes.number,
+    refObject: PropTypes.object,
+  }
+  componentDidUpdate() {
+    const { scrollY, refObject } = this.props;
+    const { current } = refObject;
+    const waypoint = current.offsetTop - current.offsetHeight;
+
+    const { body } = document;
+    if (scrollY > waypoint + 450) {
+      body.classList.add('transitioned');
+    } else if (scrollY < waypoint + 450 && body.classList.contains('transitioned')) {
+      body.classList.remove('transitioned');
+    }
+  }
+  render() {
+    return null;
+  }
+}
+
+export default withScroll(SectionTransition);

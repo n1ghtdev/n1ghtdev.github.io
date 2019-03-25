@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Section from '../../components/Section';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
@@ -7,6 +8,7 @@ import { H2 } from '../../components/Headings';
 import Paragraph from '../../components/Paragraph';
 import Skill from '../../components/Skill';
 import ToolsList from './ToolsList';
+// import { withScroll } from '../../modules/ScrollProvider';
 
 const skills = [
   {
@@ -35,13 +37,14 @@ const skills = [
   },
 ];
 
-class SkillSection extends React.PureComponent {
+class SkillSection extends React.Component {
+  static propTypes = {
+    innerRef: PropTypes.object,
+  }
   render() {
     return (
       <Section
-        ref={node => {
-          this.node = node;
-        }}
+        ref={this.props.innerRef}
         Height="100vh"
         className="section--white"
       >
