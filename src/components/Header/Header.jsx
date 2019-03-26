@@ -27,7 +27,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  Height: '100vh',
+  Height: '20vh',
 };
 
 export default Header;

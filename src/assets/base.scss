@@ -15,7 +15,6 @@ html, body {
 }
 
 body {
-  transition: background .35s;
   // background: #0D0B21; // default
   // background: #140F30; // purple v2
   // background: #151631; // v6
@@ -35,11 +34,15 @@ img {
   opacity: 0;
 }
 
+#app {
+  transition: background .35s;
+}
+
 .transitioned {
-  #app > section {
+  & > section {
     opacity: 0;
   }
-  #app > .section--white {
+  & > .section--white {
     opacity: 1!important;
   }
   background: #eee;

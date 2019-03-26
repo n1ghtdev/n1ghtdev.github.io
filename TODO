@@ -3,7 +3,11 @@ General:
   ☐ responsive design
   ☐ browser support IE9+ atleast?
 
-Tuesday, March 21, 2019:
+Tuesday, March 26, 2019:
+  ✔ refactor withProjects to Context API module @done(19-03-26 21:27)
+  ☐ refactor SectionTransition logic
+
+Thursday, March 21, 2019:
   ☐ create Loading component
   ☐ restyle LatestSection's button
   ☐ make header bg-gradient responsive, or just apply gradient to image in PS

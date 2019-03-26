@@ -5,11 +5,6 @@ import Paragraph from '../../components/Paragraph';
 import { H3 } from '../../components/Headings';
 
 class ProjectContainer extends Component {
-  state = {
-    loaded: false,
-    visible: false,
-  };
-  showDemo = () => {};
   render() {
     const { project } = this.props;
     return (

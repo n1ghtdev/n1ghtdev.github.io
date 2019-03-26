@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Tools from './Tools';
+import Tools from '../Tools';
 
 const Wrapper = styled.article`
   z-index: 1;

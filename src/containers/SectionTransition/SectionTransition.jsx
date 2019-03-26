@@ -12,11 +12,11 @@ class SectionTransition extends React.Component {
     const { current } = refObject;
     const waypoint = current.offsetTop - current.offsetHeight;
 
-    const { body } = document;
+    const container = document.getElementById('app');
     if (scrollY > waypoint + 450) {
-      body.classList.add('transitioned');
-    } else if (scrollY < waypoint + 450 && body.classList.contains('transitioned')) {
-      body.classList.remove('transitioned');
+      container.classList.add('transitioned');
+    } else if (scrollY < waypoint + 450 && container.classList.contains('transitioned')) {
+      container.classList.remove('transitioned');
     }
   }
   render() {

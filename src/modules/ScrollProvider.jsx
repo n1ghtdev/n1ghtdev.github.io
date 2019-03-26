@@ -11,7 +11,7 @@ export class ScrollProvider extends React.Component {
     scrollY: 0,
   }
   componentDidMount() {
-    const THROTTLE_INTERVAL = 500;
+    const THROTTLE_INTERVAL = 400;
     this.intervalID = setInterval(this.handleInterval, THROTTLE_INTERVAL);
   }
   componentWillUnmount() {

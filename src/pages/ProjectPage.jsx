@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import AboutProjectSection from '../containers/AboutProjectSection';
+import { withProjects } from '../modules/ProjectsProvider';
 
-const ProjectPage = (props) => {
-  console.log(props);
+const ProjectPage = ({ projects, match }) => {
+  const thisProject = projects.find(p => p.id === Number(match.params.id));
   return (
-    <div style={{height: '1800px'}}>
-      <h3>{props.match.params.id}</h3>
-    </div>
+    <Fragment>
+      <AboutProjectSection project={thisProject} />
+    </Fragment>
   );
 };
 
 ProjectPage.propTypes = {
-  children: PropTypes.any,
+  projects: PropTypes.array.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
-export default ProjectPage;
+export default withProjects(ProjectPage);
