@@ -1,18 +1,13 @@
 General:
   ☐ add demos to projects
+  ☐ refactor SectionTransition logic
+  ☐ restyle LatestSection's button
+  ☐ create Loading component
   ☐ responsive design
   ☐ browser support IE9+ atleast?
 
-Tuesday, March 26, 2019:
-  ✔ refactor withProjects to Context API module @done(19-03-26 21:27)
-  ☐ refactor SectionTransition logic
-
-Thursday, March 21, 2019:
-  ☐ create Loading component
-  ☐ restyle LatestSection's button
-  ☐ make header bg-gradient responsive, or just apply gradient to image in PS
-
 Archive:
+  ✔ refactor withProjects as Context API module @done(19-03-26 21:27)
   ✔ prevent child components of MainPage from re-render (could use context api with hoc) @done(19-03-24 21:41)
   ✔ refactor Icon component (use svgo) @done(19-03-24 17:50)
   ✔ update cache, if data has changed, or expire cache every N-days @done(19-03-22 22:05)
