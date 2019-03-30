@@ -21,7 +21,7 @@ const Skill = ({ description, icon }) => (
     <IconWrapper>
       <Icon iconName={icon} />
     </IconWrapper>
-    <Paragraph Color="rgb(50,50,50)" fontSize="1rem">{description}</Paragraph>
+    <Paragraph Color="rgb(50,50,50)" FontSize="1rem">{description}</Paragraph>
   </Col>
 );
 

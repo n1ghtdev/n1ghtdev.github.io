@@ -16,7 +16,10 @@ Row.propTypes = {
   children: PropTypes.any,
   justifyContent: PropTypes.string,
   alignItems: PropTypes.string,
-  Height: PropTypes.any,
+  Height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   FlexProps: PropTypes.string,
   Padding: PropTypes.oneOfType([
     PropTypes.string,

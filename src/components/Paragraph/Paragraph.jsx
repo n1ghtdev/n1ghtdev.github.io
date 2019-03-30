@@ -2,25 +2,26 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Paragraph = styled.p`
-  font-family: ${({ fontFamily }) => fontFamily};
-  font-size: ${({ fontSize }) => fontSize};
-  font-style: ${({ fontStyle }) => fontStyle};
-  font-weight: ${({ fontWeight }) => fontWeight};
+  font-family: ${({ FontFamily }) => FontFamily};
+  font-size: ${({ FontSize }) => FontSize};
+  font-style: ${({ FontStyle }) => FontStyle};
+  font-weight: ${({ FontWeight }) => FontWeight};
   color: ${({ Color }) => Color};
-  line-height: ${({ lineHeight }) => lineHeight};
+  line-height: ${({ LineHeight }) => LineHeight};
   text-align: ${({ textAlign }) => textAlign};
+  margin: ${({ Margin }) => typeof Margin === 'string' ? Margin : `${Margin}px`}
 `;
 
 Paragraph.propTypes = {
   children: PropTypes.any,
-  fontFamily: PropTypes.string,
-  fontSize: PropTypes.string,
-  fontStyle: PropTypes.string,
-  fontWeight: PropTypes.oneOfType([
+  FontFamily: PropTypes.string,
+  FontSize: PropTypes.string,
+  FontStyle: PropTypes.string,
+  FontWeight: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
-  lineHeight: PropTypes.oneOfType([
+  LineHeight: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
@@ -28,15 +29,20 @@ Paragraph.propTypes = {
   textAlign: PropTypes.oneOf([
     'center', 'right', 'left', 'inherit', 'initial',
   ]),
+  Margin: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 Paragraph.defaultProps = {
-  fontSize: '1rem',
-  fontStyle: 'normal',
-  fontWeight: 'normal',
+  FontSize: '1rem',
+  FontStyle: 'normal',
+  FontWeight: 'normal',
   Color: '#fff',
-  lineHeight: 1.5,
+  LineHeight: 1.5,
   textAlign: 'inherit',
+  Margin: '0',
 };
 
 export default Paragraph;

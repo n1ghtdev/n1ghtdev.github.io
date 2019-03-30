@@ -15,7 +15,7 @@ const FooterContainer = () => (
           <SocialsContainer />
         </Col>
         <Col lg={2} textAlign="center" Padding="20px 0">
-          <Paragraph fontSize=".875rem" Color="hsl(250, 10%, 45%)">developed by <A href="https://github.com/Nickew" target="_blank">Nickew</A></Paragraph>
+          <Paragraph FontSize=".875rem" Color="hsl(250, 10%, 45%)">developed by <A href="https://github.com/Nickew" target="_blank">Nickew</A></Paragraph>
         </Col>
       </Row>
     </Grid>

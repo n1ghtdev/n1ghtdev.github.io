@@ -12,13 +12,13 @@ class ProjectContainer extends Component {
         <LatestProjects.Header>
           <LatestProjects.Title
             as={H3}
-            fontFamily="Lobster Two"
-            fontSize="2.5rem"
+            FontFamily="Lobster Two"
+            FontSize="2.5rem"
             Color="#fff"
           >
             { project.title }
           </LatestProjects.Title>
-          <Paragraph lineHeight={1.2}>{ project.description }</Paragraph>
+          <Paragraph LineHeight={1.2}>{ project.description }</Paragraph>
           <LatestProjects.Button to={`/projects/${project.id}`}>demo</LatestProjects.Button>
         </LatestProjects.Header>
         <LatestProjects.Poster imgSrc={project.imgSrc} imgAlt={project.imgAlt} />

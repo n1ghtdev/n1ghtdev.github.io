@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   position: relative;
-  min-height: ${({ Height }) => Height};
+  height: ${({ Height }) => Height};
   background-color: ${({ bgColor }) => bgColor};
-  background-image: ${({ bgImage }) => bgImage};
+  background-image: ${({ bgImage }) => `url(${bgImage})`};
+  background-repeat: no-repeat;
   padding: ${({ Padding }) => Padding};
 `;
 

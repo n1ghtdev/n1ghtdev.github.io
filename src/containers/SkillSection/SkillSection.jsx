@@ -51,8 +51,8 @@ class SkillSection extends React.Component {
         <Grid>
           <Row>
             <Col lg={6} Margin="0 auto" textAlign="center">
-              <H2 Color="#000" fontSize="2rem" fontFamily="Lobster Two">My skills and tools</H2>
-              <Paragraph Color="#000" fontStyle="italic">web. js. front-end.</Paragraph>
+              <H2 Color="#000" FontSize="2rem" FontFamily="Lobster Two">My skills and tools</H2>
+              <Paragraph Color="#000" FontStyle="italic">web. js. front-end.</Paragraph>
             </Col>
           </Row>
           <Row Padding="50px 0" as="ul">

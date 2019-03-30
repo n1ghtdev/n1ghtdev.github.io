@@ -24,9 +24,9 @@ const HeaderContainer = () => (
       </Row>
       <Row FlexProps="1" alignItems="center" justifyContent="center">
         <Col lg={8} textAlign="center">
-          <Paragraph fontSize="1.5rem" lineHeight={1.8}>Hi, my name is <Span Color="#3777F3">Nikita</Span>, I am an <Span Color="#CB2A2A">front-end developer</Span> from Ukraine. Passionate about web development by its beauty. I trying to learn new stuff everyday to be a good specialist.</Paragraph>
+          <Paragraph FontSize="1.5rem" LineHeight={1.8}>Hi, my name is <Span Color="#3777F3">Nikita</Span>, I am an <Span Color="#CB2A2A">front-end developer</Span> from Ukraine. Passionate about web development by its beauty. I trying to learn new stuff everyday to be a good specialist.</Paragraph>
           <HR hrWidth="80%" hrThickness={2} hrColor="#CB2A2A" Offset={25} />
-          <Paragraph fontSize="1.5rem" lineHeight={1.8}>Studying last year on <Span Color="#CB2A2A">software-engeeniring</Span> in Kyiv National University of Trade and Economics</Paragraph>
+          <Paragraph FontSize="1.5rem" LineHeight={1.8}>Studying last year on <Span Color="#CB2A2A">software-engeeniring</Span> in Kyiv National University of Trade and Economics</Paragraph>
         </Col>
       </Row>
       <Row FlexProps="0 0 10%" alignItems="flex-start" justifyContent="center">

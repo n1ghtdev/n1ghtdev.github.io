@@ -5,6 +5,7 @@ import { getColWidth } from '../utils/getColWidth';
 
 // TODO: auto columns
 const Col = styled.div`
+  height: ${({ Height }) => typeof Height === 'string' ? Height : `${Height}px`};
   order: ${({ Order }) => Order};
   padding: ${({ Padding }) => typeof Padding === 'string' ? Padding : `${Padding}px`};
   text-align: ${({ textAlign }) => textAlign};
@@ -50,6 +51,10 @@ Col.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  Height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   textAlign: PropTypes.string,
   Order: PropTypes.number,
   Margin: PropTypes.string,
@@ -60,6 +65,7 @@ Col.defaultProps = {
   Padding: 0,
   textAlign: 'left',
   Order: 0,
+  Height: 'auto',
 };
 
 export default Col;

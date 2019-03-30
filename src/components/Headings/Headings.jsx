@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 
 const baseHeadingStyles = css`
   color: ${({ Color }) => Color || '#000'};
-  font-family: ${({ fontFamily }) => fontFamily};
-  font-weight: ${({ fontWeight }) => fontWeight || 'bold'};
-  font-size: ${({ fontSize }) => fontSize && `${fontSize}!important`};
-  font-style: ${({ fontStyle }) => fontStyle};
+  font-family: ${({ FontFamily }) => FontFamily};
+  font-weight: ${({ FontWeight }) => FontWeight || 'bold'};
+  font-size: ${({ FontSize }) => FontSize && `${FontSize}!important`};
+  font-style: ${({ FontStyle }) => FontStyle};
 `;
 
 const H1 = styled.h1`
@@ -43,10 +43,10 @@ const H6 = styled.h6`
 baseHeadingStyles.propTypes = {
   Color: PropTypes.string,
   children: PropTypes.any,
-  fontSize: PropTypes.string,
-  fontStyle: PropTypes.string,
-  fontWeight: PropTypes.string,
-  fontFamily: PropTypes.string,
+  FontSize: PropTypes.string,
+  FontStyle: PropTypes.string,
+  FontWeight: PropTypes.string,
+  FontFamily: PropTypes.string,
 };
 
 export {

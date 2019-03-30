@@ -2,17 +2,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Span = styled.span`
-font-size: ${({ fontSize }) => fontSize};
-font-style: ${({ fontStyle }) => fontStyle};
-font-weight: ${({ fontWeight }) => fontWeight};
+font-size: ${({ FontSize }) => FontSize};
+font-style: ${({ FontStyle }) => FontStyle};
+font-weight: ${({ FontWeight }) => FontWeight};
 color: ${({ Color }) => Color};
 `;
 
 Span.propTypes = {
-  children: PropTypes.string,
-  fontSize: PropTypes.string,
-  fontStyle: PropTypes.string,
-  fontWeight: PropTypes.oneOfType([
+  children: PropTypes.any,
+  FontSize: PropTypes.string,
+  FontStyle: PropTypes.string,
+  FontWeight: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
@@ -20,9 +20,9 @@ Span.propTypes = {
 };
 
 Span.defaultProps = {
-  fontSize: 'inherit',
-  fontStyle: 'normal',
-  fontWeight: 'normal',
+  FontSize: 'inherit',
+  FontStyle: 'normal',
+  FontWeight: 'normal',
   Color: '#fff',
 };
 
