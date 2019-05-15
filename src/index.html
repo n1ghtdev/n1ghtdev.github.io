@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Nickore</title>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js@3.0.1/dist/fullpage.min.css">
-</head>
-<body>
-  <style>
-    .loader {
-      z-index: 9999;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #151331;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .loader__spinner {
-      width: 100px;
-      height: 100px;
-      border: 7px solid transparent;
-      border-radius: 50%;
-      border-right-color: #fff;
-      border-left-color: #fff;
-      animation: spin linear 1s infinite;
-    }
-    @keyframes spin {
-      from {
-        transform: rotate(0) translateZ(0);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nickore</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Shadows+Into+Light"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster+Two"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/fullpage.js@3.0.1/dist/fullpage.min.css"
+    />
+  </head>
+  <body>
+    <style>
+      .loader {
+        z-index: 9999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #151331;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      to {
-        transform: rotate(360deg) translateZ(0);
+      .loader__spinner {
+        width: 100px;
+        height: 100px;
+        border: 7px solid transparent;
+        border-radius: 50%;
+        border-right-color: #fff;
+        border-left-color: #fff;
+        animation: spin linear 1s infinite;
       }
-    }
-    #app:not(:empty) + .loader {
-      display: none;
-    }
-  </style>
-  <div id="app"></div>
-  <!-- <div class="loader">
-    <div class="loader__spinner"></div>
-  </div> -->
-</body>
+      @keyframes spin {
+        from {
+          transform: rotate(0) translateZ(0);
+        }
+        to {
+          transform: rotate(360deg) translateZ(0);
+        }
+      }
+      #app:not(:empty) + .loader {
+        display: none;
+      }
+    </style>
+    <div id="app"></div>
+    <div class="loader">
+      <div class="loader__spinner"></div>
+    </div>
+  </body>
 </html>
