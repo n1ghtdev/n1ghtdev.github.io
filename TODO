@@ -14,20 +14,3 @@ Archive:
   ✔ fix ArrowUp, again @done(19-03-21 21:39)
   ✔ replace arrays of data in containers to JSON (fetch, HOC?) @done(19-03-20 20:05)
   ✔ fix ArrowUp logic  @done(19-03-20 19:45)
-
-
-commit changes:
-  added fullPage library (react version)
-  moved ProjectsProvider up to MainPage
-  refactored LatestProjects component
-  refactored LatestSection to LatestProject (now it's supposed to work as container for single project)
-  removed SectionTransition, instead created logic with fullPage onLeave method
-  tweaked previously transitioned and section--white classes in base.scss
-  refactored ArrowUpContainer logic, now it depends on fullPage in MainPage page
-  added class "section" to Header, Section and Footer components for fullPage support
-  added justifyContent prop to Grid component
-  added togglePageFading util functions, which adds and removes "faded" class. It has two separated functions instead of one which just toggles class because of how fullPage works (maybe there is another way of doing this)
-  removed react-scroll library. fullPage library has it own moveTo animation method
-
-
-
