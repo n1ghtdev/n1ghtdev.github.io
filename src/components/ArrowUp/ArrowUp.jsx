@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     } else if (Toggle === null) {
       return 'none';
     }
+
     return 'slideUp .25s linear forwards';
   }};
 
@@ -44,7 +45,7 @@ const Wrapper = styled.div`
 `;
 
 const ArrowUp = ({ Toggle, onClick }) => (
-  <Wrapper Toggle={Toggle} onClick={onClick}>
+  <Wrapper id="arrow-up" Toggle={Toggle} onClick={onClick}>
     <ArrowUpSvg />
   </Wrapper>
 );

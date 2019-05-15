@@ -9,40 +9,17 @@ const Container = styled.div`
 
 const Button = styled(Link)`
   display: block;
-  background: transparent;
+  background: hsl(244, 44%, 20%);
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 15px 45px;
+  font-size: 1.5rem;
+  padding: 10px 30px;
   transition: all .25s;
   position: relative;
   overflow: hidden;
-  line-height: 1;
-  &:before, &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #fff;
-    transition: transform .25s ease-out;
-  }
-  &:before {
-    left: -25%;
-    top: 0;
-  }
-  &:after {
-    left: 25%;
-    bottom: 0;
-  }
+  font-family: 'Lobster Two', cursive;
   &:hover {
-    &:before {
-      transform: translateX(50%) rotate(90deg);
-    }
-    &:after {
-      transform: translateX(-50%) rotate(90deg);
-    }
+    background: hsl(244, 44%, 15%);
   }
 `;
 

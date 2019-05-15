@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Section = styled.section`
+const Section = styled.section.attrs(() => ({
+  className: 'section',
+}))`
   position: relative;
   height: ${({ Height }) => Height};
   background-color: ${({ bgColor }) => bgColor};

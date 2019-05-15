@@ -10,6 +10,7 @@ const Grid = styled.div`
   padding-right: 15px;
   z-index: ${({ relative }) => relative ? '1' : 'auto'};
   position: ${({ relative }) => relative ? 'relative' : 'static'};
+  ${({ justifyContent }) => justifyContent && `justify-content: ${justifyContent}`};
 
   ${({ flex }) => flex && `
     display: flex;
@@ -40,6 +41,7 @@ Grid.propTypes = {
   relative: PropTypes.bool,
   flex: PropTypes.bool,
   fluid: PropTypes.bool,
+  justifyContent: PropTypes.string,
 };
 
 export default Grid;

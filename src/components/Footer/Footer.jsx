@@ -7,13 +7,10 @@ const Wrapper = styled.footer`
   z-index: 3;
   background: hsl(250, 25%, 5%);
   color: #fff;
-  /* border-top: 1px solid #ddd; */
 `;
 
 const Footer = ({ children }) => (
-  <Wrapper>
-    {children}
-  </Wrapper>
+  <Wrapper className="section fp-auto-height">{children}</Wrapper>
 );
 
 Footer.propTypes = {

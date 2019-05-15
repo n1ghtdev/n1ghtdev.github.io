@@ -14,7 +14,7 @@ const Wrapper = styled.header`
 
 const Header = ({ children }) => (
   <Wrapper as={Col} lg={3} textAlign="center">
-    { children }
+    {children}
   </Wrapper>
 );
 

@@ -4,11 +4,14 @@ html {
   overflow-x: hidden;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
   min-height: 100%;
   font-family: 'Source Sans Pro';
   -webkit-font-smoothing: antialiased;
@@ -30,27 +33,27 @@ img {
 }
 
 /* transition between sections */
-.section--white {
+.section--faded {
   opacity: 0;
 }
 
 #app {
-  transition: background .35s;
+  transition: background 0.35s;
 }
 
-.transitioned {
-  & > section {
+.faded {
+  & section {
     opacity: 0;
   }
-  & > .section--white {
-    opacity: 1!important;
+  & .section--faded {
+    opacity: 1 !important;
   }
   background: #eee;
 }
 
 /* custom scroll */
 body::-webkit-scrollbar {
-  width: .8em;
+  width: 0.8em;
 }
 
 body::-webkit-scrollbar-track {

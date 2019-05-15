@@ -6,10 +6,10 @@ const ScrollContext = React.createContext({ scrollY: 0 });
 export class ScrollProvider extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-  }
+  };
   state = {
     scrollY: 0,
-  }
+  };
   componentDidMount() {
     const THROTTLE_INTERVAL = 400;
     this.intervalID = setInterval(this.handleInterval, THROTTLE_INTERVAL);
@@ -29,7 +29,6 @@ export class ScrollProvider extends React.Component {
   };
   handleRAF = () => {
     const { scrollY } = this.state;
-
     if (scrollY !== window.pageYOffset) {
       this.setState({ scrollY: window.pageYOffset });
     }
@@ -37,16 +36,14 @@ export class ScrollProvider extends React.Component {
   render() {
     return (
       <ScrollContext.Provider value={this.state}>
-        { this.props.children }
+        {this.props.children}
       </ScrollContext.Provider>
     );
   }
 }
 
-export const withScroll = (ComposedComponent) => (props) => (
+export const withScroll = ComposedComponent => props => (
   <ScrollContext.Consumer>
-    {({ scrollY }) => (
-      <ComposedComponent {...props} scrollY={scrollY} />
-    )}
+    {({ scrollY }) => <ComposedComponent {...props} scrollY={scrollY} />}
   </ScrollContext.Consumer>
 );
