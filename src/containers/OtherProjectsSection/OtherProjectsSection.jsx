@@ -9,7 +9,8 @@ const data = [
   {
     id: 0,
     title: 'asdasd',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -22,7 +23,8 @@ const data = [
   {
     id: 1,
     title: 'Hello my name is',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -39,7 +41,8 @@ const data = [
   {
     id: 2,
     title: 'asdasd',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -52,7 +55,8 @@ const data = [
   {
     id: 3,
     title: 'asdasd',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -65,7 +69,8 @@ const data = [
   {
     id: 4,
     title: 'asdasd',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -78,7 +83,8 @@ const data = [
   {
     id: 5,
     title: 'Hello my name is',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -95,7 +101,8 @@ const data = [
   {
     id: 6,
     title: 'Hello my name is',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     imgSrc: 'https://via.placeholder.com/350',
     imgAlt: '',
     tools: [
@@ -112,10 +119,10 @@ const data = [
 ];
 
 const OtherProjectsSection = () => (
-  <Section Padding="200px 0">
-    <Grid>
+  <Section>
+    <Grid flex justifyContent="center">
       <Row>
-        { data.map(entity => (
+        {data.map(entity => (
           <Col lg="4" Padding="10px" key={entity.id}>
             <OtherProject
               title={entity.title}
@@ -123,7 +130,7 @@ const OtherProjectsSection = () => (
               tools={entity.tools}
             />
           </Col>
-        )) }
+        ))}
       </Row>
     </Grid>
   </Section>
