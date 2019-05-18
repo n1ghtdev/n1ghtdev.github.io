@@ -6,11 +6,13 @@ import HeaderContainer from '../containers/HeaderContainer';
 import LatestProject from '../containers/LatestProject';
 import OtherProjectsSection from '../containers/OtherProjectsSection';
 import SkillSection from '../containers/SkillSection';
-import { withProjects } from '../modules/ProjectsProvider';
 import FooterContainer from '../containers/FooterContainer';
 import { addPageFading, removePageFading } from '../utils/togglePageFading';
+import { withProjects } from '../modules/ProjectsProvider';
+import { WindowContext } from '../modules/WindowProvider';
 
 class MainPage extends React.Component {
+  static contextType = WindowContext;
   static propTypes = {
     projects: PropTypes.array.isRequired,
     activeSection: PropTypes.number,
@@ -22,9 +24,16 @@ class MainPage extends React.Component {
   state = {
     arrowUpIsVisible: null,
   };
+  componentDidMount() {
+    this.toggleFullPage();
+  }
+  componentDidUpdate() {
+    this.toggleFullPage();
+  }
   componentWillUnmount() {
     if (this.props.history.action === 'PUSH') {
       this.props.handleRouteChange(true);
+      window.fullpage_api.destroy('all');
     }
   }
   onLeave = (origin, destination, direction) => {
@@ -43,6 +52,19 @@ class MainPage extends React.Component {
         this.setState({ arrowUpIsVisible: false });
       } else if (index === 4) {
         removePageFading();
+      }
+    }
+  };
+  toggleFullPage = () => {
+    const { width, isMobile } = this.context;
+
+    if (window.fullpage_api !== undefined && width !== undefined) {
+      if (isMobile) {
+        window.fullpage_api.destroy('all');
+      } else if (width <= 768) {
+        window.fullpage_api.setResponsive(true);
+      } else {
+        window.fullpage_api.setResponsive(false);
       }
     }
   };
@@ -70,14 +92,12 @@ class MainPage extends React.Component {
               isVisible={this.state.arrowUpIsVisible}
               onClick={this.arrowUpOnClick}
             />
-            <React.Fragment>
-              <HeaderContainer />
-              <LatestProject project={projects[0]} />
-              <LatestProject project={projects[1]} />
-              <OtherProjectsSection />
-              <SkillSection />
-              <FooterContainer />
-            </React.Fragment>
+            <HeaderContainer />
+            <LatestProject project={projects[0]} />
+            <LatestProject project={projects[1]} />
+            <OtherProjectsSection />
+            <SkillSection />
+            <FooterContainer />
           </React.Fragment>
         )}
       />
