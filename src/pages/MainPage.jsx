@@ -7,19 +7,30 @@ import LatestProject from '../containers/LatestProject';
 import OtherProjectsSection from '../containers/OtherProjectsSection';
 import SkillSection from '../containers/SkillSection';
 import { withProjects } from '../modules/ProjectsProvider';
-import { ScrollProvider } from '../modules/ScrollProvider';
 import FooterContainer from '../containers/FooterContainer';
 import { addPageFading, removePageFading } from '../utils/togglePageFading';
 
 class MainPage extends React.Component {
   static propTypes = {
     projects: PropTypes.array.isRequired,
+    activeSection: PropTypes.number,
+    isRouteChanged: PropTypes.bool,
+    handleRouteChange: PropTypes.func,
+    setActiveSection: PropTypes.func,
+    history: PropTypes.object.isRequired,
   };
   state = {
     arrowUpIsVisible: null,
   };
+  componentWillUnmount() {
+    if (this.props.history.action === 'PUSH') {
+      this.props.handleRouteChange(true);
+    }
+  }
   onLeave = (origin, destination, direction) => {
     const { index } = origin;
+
+    this.props.setActiveSection(destination.index + 1);
 
     if (direction === 'down') {
       if (index === 2) {
@@ -35,23 +46,29 @@ class MainPage extends React.Component {
       }
     }
   };
-  arrowUpOnClick = (callback, index) => {
+  arrowUpOnClick = () => {
     this.setState({ arrowUpIsVisible: false });
     removePageFading();
-    callback(index);
+    window.fullpage_api.moveTo(1);
+  };
+  afterRender = () => {
+    if (this.props.isRouteChanged && window.fullpage_api !== undefined) {
+      window.fullpage_api.moveTo(this.props.activeSection);
+      /* set isPageRestored to false, after it's had been restored and move to saved section */
+      this.props.handleRouteChange(false);
+    }
   };
   render() {
     const { projects } = this.props;
-    const { arrowUpIsVisible } = this.state;
     return (
       <ReactFullpage
         onLeave={this.onLeave}
-        fixedElements="#arrow-up"
-        render={({ state, fullpageApi }) => (
-          <ScrollProvider>
+        afterRender={this.afterRender}
+        render={() => (
+          <React.Fragment>
             <ArrowUpContainer
-              isVisible={arrowUpIsVisible}
-              onClick={() => this.arrowUpOnClick(fullpageApi.moveTo, 1)}
+              isVisible={this.state.arrowUpIsVisible}
+              onClick={this.arrowUpOnClick}
             />
             <React.Fragment>
               <HeaderContainer />
@@ -61,7 +78,7 @@ class MainPage extends React.Component {
               <SkillSection />
               <FooterContainer />
             </React.Fragment>
-          </ScrollProvider>
+          </React.Fragment>
         )}
       />
     );

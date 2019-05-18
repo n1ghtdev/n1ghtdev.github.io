@@ -5,6 +5,7 @@ import { withProjects } from '../modules/ProjectsProvider';
 
 const ProjectPage = ({ projects, match }) => {
   const thisProject = projects.find(p => p.id === Number(match.params.id));
+
   return (
     <Fragment>
       <AboutProjectSection project={thisProject} />

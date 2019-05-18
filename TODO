@@ -1,11 +1,12 @@
 General:
   ☐ design project page
-  ✔ restyle LatestSection's button @done(19-05-15 21:43)
   ☐ create Loading component
   ☐ responsive design
   ☐ browser support IE9+ atleast?
 
 Archive:
+  ✔ refactor ScrollRestoration to work with fullpage (because scrollY of page returns always 0) @done(19-05-18 17:45)
+  ✔ restyle LatestSection's button @done(19-05-15 21:43)
   ✔ refactor withProjects as Context API module @done(19-03-26 21:27)
   ✔ prevent child components of MainPage from re-render (could use context api with hoc) @done(19-03-24 21:41)
   ✔ refactor Icon component (use svgo) @done(19-03-24 17:50)
