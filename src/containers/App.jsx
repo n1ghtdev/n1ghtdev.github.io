@@ -12,7 +12,6 @@ import ProjectPage from '../pages/ProjectPage';
 import { ProjectsProvider } from '../modules/ProjectsProvider';
 import withSectionRestoration from '../modules/withSectionRestoration';
 import { WindowProvider } from '../modules/WindowProvider';
-
 library.add(faGithubSquare, faFacebook, faLinkedin, faEnvelopeSquare);
 
 const App = props => (

@@ -9,7 +9,8 @@ const Paragraph = styled.p`
   color: ${({ Color }) => Color};
   line-height: ${({ LineHeight }) => LineHeight};
   text-align: ${({ textAlign }) => textAlign};
-  margin: ${({ Margin }) => typeof Margin === 'string' ? Margin : `${Margin}px`}
+  margin: ${({ Margin }) =>
+    typeof Margin === 'string' ? Margin : `${Margin}px`};
 `;
 
 Paragraph.propTypes = {
@@ -17,22 +18,11 @@ Paragraph.propTypes = {
   FontFamily: PropTypes.string,
   FontSize: PropTypes.string,
   FontStyle: PropTypes.string,
-  FontWeight: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  LineHeight: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  FontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  LineHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   Color: PropTypes.string,
-  textAlign: PropTypes.oneOf([
-    'center', 'right', 'left', 'inherit', 'initial',
-  ]),
-  Margin: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  textAlign: PropTypes.oneOf(['center', 'right', 'left', 'inherit', 'initial']),
+  Margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Paragraph.defaultProps = {

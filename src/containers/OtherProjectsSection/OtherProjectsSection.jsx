@@ -118,22 +118,26 @@ const data = [
   },
 ];
 
-const OtherProjectsSection = () => (
-  <Section>
-    <Grid flex justifyContent="center">
-      <Row>
-        {data.map(entity => (
-          <Col lg="4" Padding="10px" key={entity.id}>
-            <OtherProject
-              title={entity.title}
-              description={entity.description}
-              tools={entity.tools}
-            />
-          </Col>
-        ))}
-      </Row>
-    </Grid>
-  </Section>
-);
+class OtherProjectsSection extends React.Component {
+  render() {
+    return (
+      <Section>
+        <Grid flex justifyContent="center">
+          <Row>
+            {data.map(entity => (
+              <Col lg="4" Padding="10px" key={entity.id}>
+                <OtherProject
+                  title={entity.title}
+                  description={entity.description}
+                  tools={entity.tools}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Grid>
+      </Section>
+    );
+  }
+}
 
 export default OtherProjectsSection;

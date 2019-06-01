@@ -2,7 +2,6 @@ import '@babel/polyfill';
 
 const defaultHeaders = {
   'content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*',
 };
 
 async function fetchData(url, method = 'get', headers = defaultHeaders) {

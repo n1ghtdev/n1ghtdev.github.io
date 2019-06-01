@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Paragraph from '../Paragraph';
 import headerImage from '../../assets/img/header.jpg';
+import { device } from '../breakpoints';
 
 const Header = styled.header.attrs(() => ({
   className: 'section',
@@ -27,6 +29,19 @@ const Header = styled.header.attrs(() => ({
   }
 `;
 
+const P = styled(Paragraph).attrs(props => ({
+  ...props,
+}))`
+  font-size: 1.5rem;
+
+  @media ${device.tablet} {
+    font-size: 1.25rem;
+  }
+  @media ${device.tabletSmall} {
+    font-size: 1.25rem;
+  }
+`;
+
 Header.propTypes = {
   children: PropTypes.any,
   Height: PropTypes.string,
@@ -35,5 +50,7 @@ Header.propTypes = {
 Header.defaultProps = {
   Height: '100vh',
 };
+
+Header.Paragraph = P;
 
 export default Header;
