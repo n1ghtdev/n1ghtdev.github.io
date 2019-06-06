@@ -22,5 +22,68 @@
       { "id": 1, "title": "css" },
       { "id": 2, "title": "javascript" }
     ]
+  },
+  {
+    "id": 3,
+    "title": "Project example",
+    "description": "This is latest projects section made with React and HTML5 semantic tags.",
+    "imgSrc": "https://i.imgur.com/kwn9WWo.png",
+    "imgAlt": "Something here",
+    "tools": [
+      {
+        "id": 0,
+        "title": "html"
+      },
+      {
+        "id": 1,
+        "title": "css"
+      },
+      {
+        "id": 2,
+        "title": "javascript"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Project example",
+    "description": "This is latest projects section made with React and HTML5 semantic tags.",
+    "imgSrc": "https://via.placeholder.com/960",
+    "imgAlt": "Something here",
+    "tools": [
+      {
+        "id": 0,
+        "title": "html"
+      },
+      {
+        "id": 1,
+        "title": "css"
+      },
+      {
+        "id": 2,
+        "title": "javascript"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Project example",
+    "description": "This is latest projects section made with React and HTML5 semantic tags.",
+    "imgSrc": "https://via.placeholder.com/960",
+    "imgAlt": "Something here",
+    "tools": [
+      {
+        "id": 0,
+        "title": "html"
+      },
+      {
+        "id": 1,
+        "title": "css"
+      },
+      {
+        "id": 2,
+        "title": "javascript"
+      }
+    ]
   }
 ]
