@@ -38,7 +38,11 @@ const AboutSection = () => (
             title="Nikita @ nickew my journey"
             bgColor="hsl(210, 100%, 27%)"
           >
-            <Paragraph Margin="0 0 20px 0" FontFamily="Ubuntu Mono">
+            <Paragraph
+              Color="#fff"
+              Margin="0 0 20px 0"
+              FontFamily="Ubuntu Mono"
+            >
               I always had a passion to develop something, that’s why I went
               studying software engineering. 2 years of learning object-oriented
               programming and software architecturing while writing code in C#
@@ -48,7 +52,7 @@ const AboutSection = () => (
               managed to copy (ripping) others uCoz websites designs and make
               them as a templates. JUST FOR FUN.
             </Paragraph>
-            <Paragraph FontFamily="Ubuntu Mono">
+            <Paragraph Color="#fff" FontFamily="Ubuntu Mono">
               So I thought maybe I should give a chance to web development...and
               I did.
             </Paragraph>
@@ -75,7 +79,7 @@ const AboutSection = () => (
             Skills:
           </Paragraph>
 
-          <List FontSize="1.125rem" LineHeight="1.5">
+          <List listStyle="line" FontSize="1.125rem" LineHeight="1.5">
             <List.Item>optimizing features in JavaScript;</List.Item>
             <List.Item>writing modern JavaScript code (es2015+);</List.Item>
             <List.Item>responsive web design;</List.Item>

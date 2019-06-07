@@ -1,18 +1,17 @@
 import React from 'react';
+import SocialsList from './SocialsList';
 import Anim from '../components/Anim';
-import Header from '../components/Header';
+import MainHeader from '../components/MainHeader';
 import Grid from '../components/Grid';
 import Row from '../components/Row';
 import Col from '../components/Col';
 import Logotype from '../components/Logotype';
 import Span from '../components/Span';
-import Nav from '../components/Nav';
-import NavItem from '../components/NavItem';
 import ScrolldownIcon from '../components/ScrolldownIcon';
 import WaypointWrapper from './WaypointWrapper';
 
-const HeaderContainer = () => (
-  <Header>
+const MainHeaderSection = () => (
+  <MainHeader Height="100vh">
     <WaypointWrapper delay={250} waypointProps={{ topOffset: -200 }}>
       <Grid flex style={{ zIndex: '10' }} relative>
         <Row FlexProps="1" alignItems="center" justifyContent="center">
@@ -23,17 +22,17 @@ const HeaderContainer = () => (
           </Col>
           <Col lg={8}>
             <Anim anim="bounceInDown" duration={0.75}>
-              <Header.Title
+              <MainHeader.Title
                 Color="#fff"
                 FontSize="4.5rem"
                 FontWeight="normal"
                 FontFamily="Ubuntu"
               >
                 front-end developer
-              </Header.Title>
+              </MainHeader.Title>
             </Anim>
             <Anim anim="bounceInRight" duration={0.75}>
-              <Header.SubTitle
+              <MainHeader.SubTitle
                 Color="#fff"
                 FontWeight="normal"
                 FontFamily="Merriweather"
@@ -41,7 +40,7 @@ const HeaderContainer = () => (
                 who’s passionate about
                 <Span FontStyle="italic"> highly optimized </Span>and
                 <Span FontStyle="italic"> quality driven solutions </Span>
-              </Header.SubTitle>
+              </MainHeader.SubTitle>
             </Anim>
             <Anim
               anim="bounceInUp"
@@ -49,11 +48,7 @@ const HeaderContainer = () => (
               delay={0.5}
               style={{ opacity: 0 }}
             >
-              <Nav Color="#fff" FontFamily="'Ubuntu Mono', monospace">
-                <NavItem href="#telegram">telegram</NavItem>
-                <NavItem href="#facebook">facebook</NavItem>
-                <NavItem href="#github">github</NavItem>
-              </Nav>
+              <SocialsList />
             </Anim>
           </Col>
         </Row>
@@ -64,7 +59,7 @@ const HeaderContainer = () => (
         </Row>
       </Grid>
     </WaypointWrapper>
-  </Header>
+  </MainHeader>
 );
 
-export default HeaderContainer;
+export default MainHeaderSection;

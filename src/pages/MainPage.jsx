@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import HeaderContainer from '../containers/HeaderContainer';
+import React, { Component } from 'react';
+import MainHeaderSection from '../containers/MainHeaderSection';
 import AboutSection from '../containers/AboutSection';
 import LatestProjectSection from '../containers/LatestProjectSection';
 import ToolsSection from '../containers/ToolsSection';
@@ -10,13 +10,13 @@ class MainPage extends Component {
   static contextType = WindowContext;
   render() {
     return (
-      <Fragment>
-        <HeaderContainer />
+      <div style={{ margin: '15px' }}>
+        <MainHeaderSection />
         <AboutSection />
         <LatestProjectSection />
         <ToolsSection />
         <FooterContainer />
-      </Fragment>
+      </div>
     );
   }
 }

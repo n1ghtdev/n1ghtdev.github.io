@@ -16,7 +16,7 @@ const propTypes = {
 const defaultProps = {
   FontSize: 'inherit',
   FontFamily: 'inherit',
-  Color: '#fff',
+  Color: '#000',
   LineHeight: '1.5',
   textAlign: 'inherit',
 };

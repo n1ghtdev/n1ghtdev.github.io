@@ -18,7 +18,9 @@ const Scroll = styled.div`
 const ScrolldownIcon = () => (
   <Wrapper>
     <Scroll />
-    <Paragraph FontFamily="Ubuntu">scroll</Paragraph>
+    <Paragraph Color="#fff" FontFamily="Ubuntu">
+      scroll
+    </Paragraph>
   </Wrapper>
 );
 
