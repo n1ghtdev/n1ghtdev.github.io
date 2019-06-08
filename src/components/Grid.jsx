@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const propTypes = {
+  children: PropTypes.any,
+  relative: PropTypes.bool,
+  flex: PropTypes.bool,
+  fluid: PropTypes.bool,
+  justifyContent: PropTypes.string,
+};
+
 const Grid = styled.div`
   height: inherit;
   width: 100%;
@@ -8,16 +16,21 @@ const Grid = styled.div`
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  z-index: ${({ relative }) => relative ? '1' : 'auto'};
-  position: ${({ relative }) => relative ? 'relative' : 'static'};
-  ${({ justifyContent }) => justifyContent && `justify-content: ${justifyContent}`};
+  z-index: ${({ relative }) => (relative ? '1' : 'auto')};
+  position: ${({ relative }) => (relative ? 'relative' : 'static')};
+  ${({ justifyContent }) =>
+    justifyContent && `justify-content: ${justifyContent}`};
 
-  ${({ flex }) => flex && `
+  ${({ flex }) =>
+    flex &&
+    `
     display: flex;
     flex-flow: column nowrap;
   `}
 
-  ${({ fluid }) => fluid && `
+  ${({ fluid }) =>
+    fluid &&
+    `
     max-width: 100%!important;
     padding: 0;
   `}
@@ -36,12 +49,6 @@ const Grid = styled.div`
   }
 `;
 
-Grid.propTypes = {
-  children: PropTypes.any,
-  relative: PropTypes.bool,
-  flex: PropTypes.bool,
-  fluid: PropTypes.bool,
-  justifyContent: PropTypes.string,
-};
+Grid.propTypes = propTypes;
 
 export default Grid;

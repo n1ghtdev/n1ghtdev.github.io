@@ -1,7 +1,9 @@
 html {
   box-sizing: border-box;
-  height: 100%;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 *,
@@ -12,67 +14,34 @@ html {
 
 html,
 body {
-  min-height: 100%;
-  font-family: 'Source Sans Pro';
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  // background: #0D0B21; // default
-  // background: #140F30; // purple v2
-  // background: #151631; // v6
-  background: #151331; // v7
+  background: #fff;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
   width: auto;
+  max-width: 100%;
   height: auto;
 }
 
-/* transition between sections */
-.section--faded {
-  opacity: 0;
-}
-
 #app {
-  transition: background 0.35s;
-}
-
-.faded {
-  & section {
-    opacity: 0;
-  }
-  & .section--faded {
-    opacity: 1 !important;
-  }
-  background: #eee;
-}
-
-/* custom scroll */
-body::-webkit-scrollbar {
-  width: 0.8em;
-}
-
-body::-webkit-scrollbar-track {
-  background: hsl(244, 44%, 13%);
-}
-
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(to top, hsl(229, 76%, 44%), hsl(261, 72%, 48%));
-  border-radius: 6px;
-  border: 3px solid hsl(244, 44%, 13%);
+  height: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 /* selection */
 -moz-::selection {
-  background-color: rgba(45, 37, 168, 0.3);
+  background-color: #002b44;
   color: #fff;
 }
 
 ::selection {
-  background-color: rgba(45, 37, 168, 0.3);
+  background-color: #002b44;
   color: #fff;
 }

@@ -1,0 +1,18 @@
+{
+  "frontend": [
+    "react",
+    "redux",
+    "redux-saga",
+    "styled",
+    "webpack",
+    "gulp",
+    "enzyme",
+    "jest",
+    "babel",
+    "eslint"
+  ],
+  "backend": ["node.js", "express", "crypto"],
+  "other": ["git", "npm", "bash"],
+  "sql": ["mysql", "postresql"],
+  "graphics": ["photoshop", "figma"]
+}

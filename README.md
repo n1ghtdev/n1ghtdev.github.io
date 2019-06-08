@@ -1,18 +1,16 @@
-# Nickew's portfolio-website
-[TODO LIST](https://github.com/Nickew/nickew.github.io/blob/dev/TODO)
+## Nickew's portfolio-website
 
-Tools/Libs
------
-* React
-* React-router v4
-* React-scroll
-* Webpack
-* Webpack-dev-server
-* Jest, Enzyme
-* styled-components
-* particles.js
+<a href="https://i.imgur.com/vRWm1U2.jpg"><img src="https://i.imgur.com/vRWm1U2.jpg" style="border-radius: 5px" /></a>
 
-LICENSE
------
+### Tools
+
+- react v16.7
+- react-router v5
+- webpack v4
+- styled-components v4
+
+### License
+
 Licensed under the MIT License, Copyright © 2019 Nickew  
-See [LICENSE](https://github.com/Nickew/nickew.github.io/blob/dev/LICENSE) for more information.
+See [LICENSE](https://github.com/Nickew/nickew.github.io/blob/dev/LICENSE) for
+more information.
