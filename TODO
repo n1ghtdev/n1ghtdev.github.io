@@ -1,7 +1,12 @@
 General:
+  ☐ fix scroll restoration (when navigating to projects page scroll jumps down)
+  ☐ add smaller images to projects.json
+    ☐ implement usage of smaller images with srcset
   ✔ implement new design (rewrite almost whole repo) @done(19-06-06 21:07)
-  ☐ design project page
-  ☐ create Loading component
+  ✔ design single project page @done(19-06-08 21:29)
+  ✔ design projects page @done(19-06-08 21:31)
+  ✔ refactor project structure @done(19-06-08 21:32)
+  ☐ create loading component handler for ProjectsProvider
   ☐ responsive design
   ☐ browser support IE9+ atleast?
 

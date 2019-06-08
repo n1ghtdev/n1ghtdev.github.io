@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Grid from '../components/Grid';
 import Row from '../components/Row';
 import Nav from '../components/Nav';
-import NavItem from '../components/NavItem';
+import RouterNavItem from '../components/RouterNavItem';
 
 import Socials from '../containers/Socials';
 
@@ -14,11 +14,11 @@ const HeaderSection = () => (
     <Grid>
       <Row Height="inherit" alignItems="center" justifyContent="space-between">
         <Nav Color="#fff">
-          <NavItem href="/">
+          <RouterNavItem to="/">
             <RoundLogotype />
-          </NavItem>
-          <NavItem href="/">mainpage</NavItem>
-          <NavItem href="/projects">projects</NavItem>
+          </RouterNavItem>
+          <RouterNavItem to="/">mainpage</RouterNavItem>
+          <RouterNavItem to="/projects">projects</RouterNavItem>
         </Nav>
         <Socials />
       </Row>

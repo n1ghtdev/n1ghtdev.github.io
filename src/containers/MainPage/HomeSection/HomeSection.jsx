@@ -17,8 +17,8 @@ import WaypointWrapper from '../../WaypointWrapper';
 
 const HomeSection = () => (
   <StyledHomeSection>
-    <Grid flex style={{ zIndex: '10' }} relative>
-      <WaypointWrapper delay={250} waypointProps={{ topOffset: -200 }}>
+    <WaypointWrapper delay={250} waypointProps={{ topOffset: -200 }}>
+      <Grid flex style={{ zIndex: '10' }} relative>
         <Row FlexProps="1" alignItems="center" justifyContent="center">
           <Col lg={4} textAlign="center">
             <Anim anim="bounceInLeft" duration={0.5}>
@@ -46,13 +46,13 @@ const HomeSection = () => (
             </Anim>
           </Col>
         </Row>
-      </WaypointWrapper>
-      <Row>
-        <Col lg={12}>
-          <Scrolldown />
-        </Col>
-      </Row>
-    </Grid>
+        <Row>
+          <Col lg={12}>
+            <Scrolldown />
+          </Col>
+        </Row>
+      </Grid>
+    </WaypointWrapper>
   </StyledHomeSection>
 );
 
