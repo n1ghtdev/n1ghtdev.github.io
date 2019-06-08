@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const propTypes = {
   children: PropTypes.any,
   TextDecoration: PropTypes.string,
-  FontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  FontWeight: PropTypes.string,
   FontSize: PropTypes.string,
   FontStyle: PropTypes.string,
   Color: PropTypes.string,

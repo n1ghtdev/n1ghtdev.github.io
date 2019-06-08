@@ -9,24 +9,28 @@ export class ProjectsProvider extends React.Component {
     children: PropTypes.node.isRequired,
   };
   state = {
-    fetched: false,
+    loading: false,
+    error: false,
     data: [],
   };
   async componentDidMount() {
+    this.setState({ loading: true });
     const cachedData = sessionStorage.getItem('projects');
     if (cachedData) {
-      this.setState({ data: JSON.parse(cachedData), fetched: true });
+      this.setState({ data: JSON.parse(cachedData), loading: false });
     } else {
-      await fetchData('/api/projects.json').then(data => {
-        this.setState({ data, fetched: true });
-        sessionStorage.setItem('projects', JSON.stringify(this.state.data));
-      });
+      await fetchData('/api/projects.json')
+        .then(data => {
+          this.setState({ data, loading: false });
+          sessionStorage.setItem('projects', JSON.stringify(this.state.data));
+        })
+        .catch(error => this.setState({ error }));
     }
   }
   render() {
-    const { data, fetched } = this.state;
+    const { data, loading, error } = this.state;
     return (
-      <ProjectsContext.Provider value={{ data, fetched }}>
+      <ProjectsContext.Provider value={{ data, loading, error }}>
         {this.props.children}
       </ProjectsContext.Provider>
     );
@@ -35,9 +39,9 @@ export class ProjectsProvider extends React.Component {
 
 export const withProjects = ComposedComponent => props => (
   <ProjectsContext.Consumer>
-    {({ data, fetched }) => (
+    {({ data, loading, error }) => (
       <Fragment>
-        {fetched ? (
+        {!loading && !error && data.length !== 0 ? (
           <ComposedComponent {...props} projects={data} />
         ) : (
           'loading...'

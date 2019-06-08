@@ -3,16 +3,12 @@ import styled from 'styled-components';
 
 const Header = styled.header`
   position: relative;
-  height: ${({ Height }) => Height};
+  background-color: #001f31;
+  height: 75px;
 `;
 
 Header.propTypes = {
   children: PropTypes.any,
-  Height: PropTypes.string,
-};
-
-Header.defaultProps = {
-  Height: 'auto',
 };
 
 export default Header;

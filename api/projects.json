@@ -1,34 +1,83 @@
 [
   {
     "id": 1,
-    "title": "Weather App",
-    "description": "This is latest projects section made with React and HTML5 semantic tags.",
-    "imgSrc": "https://i.imgur.com/FAmHLyz.jpg",
-    "imgAlt": "Something here",
+    "title": "Project #1",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://i.imgur.com/FAmHLyz.jpg",
+        "alt": "Something here"
+      },
+      {
+        "id": 1,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      },
+      {
+        "id": 2,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      }
+    ],
     "tools": [
       { "id": 0, "title": "html" },
       { "id": 1, "title": "css" },
       { "id": 2, "title": "javascript" }
-    ]
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://github.com/Nickew/Encode"
   },
   {
     "id": 2,
-    "title": "Project example",
-    "description": "This is latest projects section made with React and HTML5 semantic tags.",
-    "imgSrc": "https://via.placeholder.com/960",
-    "imgAlt": "Something here",
+    "title": "Testing project API",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://via.placeholder.com/960",
+        "alt": "Something here"
+      },
+      {
+        "id": 1,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      },
+      {
+        "id": 2,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      }
+    ],
     "tools": [
       { "id": 0, "title": "html" },
       { "id": 1, "title": "css" },
       { "id": 2, "title": "javascript" }
-    ]
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://github.com/Nickew/Encode"
   },
   {
     "id": 3,
     "title": "Project example",
-    "description": "This is latest projects section made with React and HTML5 semantic tags.",
-    "imgSrc": "https://i.imgur.com/kwn9WWo.png",
-    "imgAlt": "Something here",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://via.placeholder.com/960",
+        "alt": "Something here"
+      },
+      {
+        "id": 1,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      },
+      {
+        "id": 2,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      }
+    ],
     "tools": [
       {
         "id": 0,
@@ -42,14 +91,31 @@
         "id": 2,
         "title": "javascript"
       }
-    ]
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://github.com/Nickew/Encode"
   },
   {
     "id": 4,
     "title": "Project example",
-    "description": "This is latest projects section made with React and HTML5 semantic tags.",
-    "imgSrc": "https://via.placeholder.com/960",
-    "imgAlt": "Something here",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://via.placeholder.com/960",
+        "alt": "Something here"
+      },
+      {
+        "id": 1,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      },
+      {
+        "id": 2,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      }
+    ],
     "tools": [
       {
         "id": 0,
@@ -63,14 +129,31 @@
         "id": 2,
         "title": "javascript"
       }
-    ]
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://github.com/Nickew/Encode"
   },
   {
     "id": 5,
     "title": "Project example",
-    "description": "This is latest projects section made with React and HTML5 semantic tags.",
-    "imgSrc": "https://via.placeholder.com/960",
-    "imgAlt": "Something here",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://via.placeholder.com/960",
+        "alt": "Something here"
+      },
+      {
+        "id": 1,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      },
+      {
+        "id": 2,
+        "src": "https://via.placeholder.com/550",
+        "alt": "Something here"
+      }
+    ],
     "tools": [
       {
         "id": 0,
@@ -84,6 +167,8 @@
         "id": 2,
         "title": "javascript"
       }
-    ]
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://github.com/Nickew/Encode"
   }
 ]

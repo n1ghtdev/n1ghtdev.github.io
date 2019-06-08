@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import animations from './animations';
-// import { device } from './breakpoints';
+import animations from './Animations';
 
 const animationList = Object.keys(animations);
 
 const propTypes = {
-  anim: PropTypes.oneOf(animationList),
+  anim: PropTypes.oneOf(animationList).isRequired,
   duration: PropTypes.number,
   delay: PropTypes.number,
 };
 
 const defaultProps = {
-  anim: animationList[0],
   duration: 0.5,
   delay: 0,
 };

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { getColWidth } from '../utils/getColWidth';
+import styled, { css } from 'styled-components';
+import calculateColumnWidth from '../utils/calculateColumnWidth';
 
 const propTypes = {
   children: PropTypes.any,
@@ -28,22 +28,24 @@ const Col = styled.div`
   text-align: ${({ textAlign }) => textAlign};
   margin: ${({ Margin }) => Margin};
 
-  @media (min-width: 1200px) {
-    flex: 0 0 ${({ lg }) => getColWidth(lg)}%;
-    max-width: ${({ lg }) => getColWidth(lg)}%;
-  }
-  @media (min-width: 992px) and (max-width: 1200px) {
-    flex: 0 0 ${({ lg, md }) => getColWidth(lg, md)}%;
-    max-width: ${({ lg, md }) => getColWidth(lg, md)}%;
-  }
-  @media (min-width: 768px) and (max-width: 992px) {
-    flex: 0 0 ${({ lg, md, sm }) => getColWidth(lg, md, sm)}%;
-    max-width: ${({ lg, md, sm }) => getColWidth(lg, md, sm)}%;
-  }
-  @media (max-width: 768px) {
-    flex: 0 0 ${({ lg, md, sm, xs }) => getColWidth(lg, md, sm, xs)}%;
-    max-width: ${({ lg, md, sm, xs }) => getColWidth(lg, md, sm, xs)}%;
-  }
+  ${({ lg, md = lg, sm = md, xs = sm }) => css`
+    @media (min-width: 1200px) {
+      flex: 0 0 ${calculateColumnWidth(lg)}%;
+      max-width: ${calculateColumnWidth(lg)}%;
+    }
+    @media (min-width: 992px) and (max-width: 1200px) {
+      flex: 0 0 ${calculateColumnWidth(md)}%;
+      max-width: ${calculateColumnWidth(md)}%;
+    }
+    @media (min-width: 768px) and (max-width: 992px) {
+      flex: 0 0 ${calculateColumnWidth(sm)}%;
+      max-width: ${calculateColumnWidth(sm)}%;
+    }
+    @media (max-width: 768px) {
+      flex: 0 0 ${calculateColumnWidth(xs)}%;
+      max-width: ${calculateColumnWidth(xs)}%;
+    }
+  `}
 `;
 
 Col.propTypes = propTypes;
