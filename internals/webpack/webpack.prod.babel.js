@@ -1,13 +1,12 @@
 import path from 'path';
+import { HashedModuleIdsPlugin } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
-  entry: [
-    path.join(process.cwd(), 'src/index.jsx'),
-  ],
+  entry: [path.join(process.cwd(), 'src/index.jsx')],
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
@@ -36,28 +35,23 @@ module.exports = require('./webpack.base.babel')({
     nodeEnv: 'production',
     sideEffects: true,
     concatenateModules: true,
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
-      minSize: 30000,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      name: true,
+      maxInitialRequests: 10,
+      minSize: 0,
       cacheGroups: {
-        commons: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-        },
-        main: {
-          chunks: 'all',
-          minChunks: 2,
-          reuseExistingChunk: true,
-          enforce: true,
+          name(module) {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
+            )[1];
+            return `npm.${packageName.replace('@', '')}`;
+          },
         },
       },
     },
-    runtimeChunk: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -82,9 +76,14 @@ module.exports = require('./webpack.base.babel')({
       threshold: 10240,
       minRatio: 0.8,
     }),
+    new HashedModuleIdsPlugin({
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
+      hashDigestLength: 20,
+    }),
   ],
   performance: {
-    assetFilter: (assetFilename) =>
+    assetFilter: assetFilename =>
       !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
 });
