@@ -10,7 +10,7 @@ import HeaderSection from '../HeaderSection';
 import { withProjects } from '../../modules/ProjectsProvider';
 import ProjectItemContainer from '../ProjectItemContainer';
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   flex: 1 0 auto;
 `;
 

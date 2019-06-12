@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
+  display: block;
   height: inherit;
   object-fit: cover;
   border-radius: 5px;

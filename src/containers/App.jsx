@@ -6,9 +6,11 @@ import SingleProjectPage from './SingleProjectPage';
 import Footer from './Footer';
 import { ProjectsProvider } from '../modules/ProjectsProvider';
 import { WindowProvider } from '../modules/WindowProvider';
+import ScrollToTop from './ScrollToTop';
 
 const App = () => (
   <WindowProvider>
+    <ScrollToTop />
     <ProjectsProvider>
       <Switch>
         <Route exact path="/" component={MainPage} />
