@@ -1,6 +1,6 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -30,6 +30,7 @@ module.exports = require('./webpack.base.babel')({
     hot: true,
     historyApiFallback: true,
     port: 3000,
+    disableHostCheck: false,
   },
   performance: {
     hints: false,

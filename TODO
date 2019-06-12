@@ -1,23 +1,12 @@
 General:
-  ☐ fix scroll restoration (when navigating to projects page scroll jumps down)
-  ☐ add smaller images to projects.json
-    ☐ implement usage of smaller images with srcset
-  ✔ implement new design (rewrite almost whole repo) @done(19-06-06 21:07)
+  ✔ load polyfills with dynamic import @done(19-06-12 20:10)
+  ✔ replace @babel/polyfill with core-js and regenerator-runtime (for async/await) @done(19-06-12 17:40)
+  ✔ add whatwg-fetch polyfill @done(19-06-12 17:40)
+  ✔ make webpack to split packages as (polyfills -> react -> vendor(other pkgs) -> main) @done(19-06-12 17:40)
+  ✔ fix scroll restoration (when navigating to projects page scroll jumps down) @done(19-06-12 17:40)
+
+Archive:
+  ✔ implement new design @done(19-06-06 21:07)
   ✔ design single project page @done(19-06-08 21:29)
   ✔ design projects page @done(19-06-08 21:31)
   ✔ refactor project structure @done(19-06-08 21:32)
-  ☐ create loading component handler for ProjectsProvider
-  ☐ responsive design
-  ☐ browser support IE9+ atleast?
-
-Archive:
-  ✔ refactor ScrollRestoration to work with fullpage (because scrollY of page returns always 0) @done(19-05-18 17:45)
-  ✔ restyle LatestSection's button @done(19-05-15 21:43)
-  ✔ refactor withProjects as Context API module @done(19-03-26 21:27)
-  ✔ prevent child components of MainPage from re-render (could use context api with hoc) @done(19-03-24 21:41)
-  ✔ refactor Icon component (use svgo) @done(19-03-24 17:50)
-  ✔ update cache, if data has changed, or expire cache every N-days @done(19-03-22 22:05)
-  ✔ refactor LatestSection and getProjects HOC @done(19-03-21 21:38)
-  ✔ fix ArrowUp, again @done(19-03-21 21:39)
-  ✔ replace arrays of data in containers to JSON (fetch, HOC?) @done(19-03-20 20:05)
-  ✔ fix ArrowUp logic  @done(19-03-20 19:45)

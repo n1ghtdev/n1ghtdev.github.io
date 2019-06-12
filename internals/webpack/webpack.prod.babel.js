@@ -1,8 +1,10 @@
-import path from 'path';
-import { HashedModuleIdsPlugin } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
+const path = require('path');
+const { HashedModuleIdsPlugin } = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
@@ -37,18 +39,21 @@ module.exports = require('./webpack.base.babel')({
     concatenateModules: true,
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all',
+      chunks: 'initial',
       maxInitialRequests: 10,
       minSize: 0,
       cacheGroups: {
+        /* extract react and react-related libs to separate chunk */
+        react: {
+          test: /react/,
+          name: 'react',
+          chunks: 'all',
+          enforce: true,
+        },
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-            )[1];
-            return `npm.${packageName.replace('@', '')}`;
-          },
+          name: 'vendor',
+          priority: -10,
         },
       },
     },
@@ -81,6 +86,7 @@ module.exports = require('./webpack.base.babel')({
       hashDigest: 'hex',
       hashDigestLength: 20,
     }),
+    new BundleAnalyzerPlugin(),
   ],
   performance: {
     assetFilter: assetFilename =>

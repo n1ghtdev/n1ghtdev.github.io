@@ -1,5 +1,3 @@
-import '@babel/polyfill';
-
 const defaultHeaders = {
   'content-type': 'application/json',
 };

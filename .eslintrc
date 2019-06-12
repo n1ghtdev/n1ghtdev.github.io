@@ -4,10 +4,9 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
-    "jest/globals": true
+    "es6": true
   },
-  "plugins": ["react", "jsx-a11y", "jest"],
+  "plugins": ["react", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",

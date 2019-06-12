@@ -5,6 +5,8 @@
 ### Tools
 
 - react v16.7
+- react-waypoints
+- react-typist
 - react-router v5
 - webpack v4
 - styled-components v4
