@@ -109,7 +109,9 @@ const bounceInUp = keyframes`
     opacity: 0;
     transform: translate3d(0, 3000px, 0);
   }
-
+  40% {
+    opacity: 0;
+  }
   60% {
     opacity: 1;
     transform: translate3d(0, -20px, 0);

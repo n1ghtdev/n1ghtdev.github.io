@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { H3 } from '../../../components/Headings';
 import Paragraph from '../../../components/Paragraph';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled.div`
   position: relative;
@@ -10,6 +11,14 @@ const Wrapper = styled.div`
   margin: 0 50px;
   background-color: hsl(210, 100%, 27%);
   box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.15);
+  @media ${device.mobile} {
+    height: 580px;
+    margin: 0;
+  }
+  @media ${device.mobileLarge} {
+    height: 500px;
+    margin: 0;
+  }
 `;
 
 const Title = styled(H3)`
@@ -17,10 +26,20 @@ const Title = styled(H3)`
   left: -17px;
   top: -17px;
   width: 110%;
+  @media ${device.mobile} {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+  }
 `;
 
 const Content = styled.div`
   padding: 130px 10px 0 10px;
+  @media ${device.mobile} {
+    padding: 75px 10px 0 10px;
+  }
 `;
 
 const StyledParagraph = styled(Paragraph).attrs(() => ({
@@ -30,6 +49,9 @@ const StyledParagraph = styled(Paragraph).attrs(() => ({
 }))`
   font-size: 1.125rem;
   text-indent: 2rem;
+  @media ${device.mobile} {
+    font-size: 1rem;
+  }
 `;
 
 const StoryCard = ({ children, title }) => (

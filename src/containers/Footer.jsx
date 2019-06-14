@@ -2,29 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 import Grid from '../components/Grid';
 import Row from '../components/Row';
-import Col from '../components/Col';
 import Span from '../components/Span';
 import A from '../components/A';
+import { device } from '../breakpoints';
 
 const Wrapper = styled.footer`
   color: #000;
-  margin-bottom: 30px;
+  padding: 30px 0;
   flex-shrink: 0;
-  height: 70px;
+  @media ${device.mobile} {
+    padding: 15px 0;
+  }
+`;
+
+const StyledGrid = styled(Grid)`
+  text-align: center;
 `;
 
 const Footer = () => (
   <Wrapper>
-    <Grid>
-      <Row alignItems="center" Padding="35px 0 0 0">
-        <Col lg={12} textAlign="center">
-          <Span FontSize="1.5rem" FontFamily="Roboto" FontWeight="thin">
-            {'//////////////////////////////////////////////'} 2019 \\{' '}
-            <A href="#">GITHUB/NICKEW</A>
-          </Span>
-        </Col>
+    <StyledGrid>
+      <Row justifyContent="center">
+        <Span FontSize="1.5rem" FontFamily="Roboto" FontWeight="thin">
+          {'///////////////////////////////////////////'}
+        </Span>
+        <Span FontSize="1.5rem" FontFamily="Roboto" FontWeight="thin">
+          2019 \\ <A href="#">NICKEW</A>
+        </Span>
       </Row>
-    </Grid>
+    </StyledGrid>
   </Wrapper>
 );
 

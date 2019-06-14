@@ -27,30 +27,14 @@ const List = styled.ul`
   margin: ${({ Margin }) => Margin};
 
   ${({ listStyle }) => {
-    if (listStyle === 'line') {
-      return listStyleLines;
-    } else if (listStyle === 'circle') {
+    if (listStyle === 'circle') {
       return listStyleCircles;
     }
   }}
 `;
 
-const Item = styled.li``;
-
-const listStyleLines = css`
-  ${Item}:before {
-    content: '';
-    display: inline-block;
-    width: 32px;
-    height: 2px;
-    background: #fff;
-    vertical-align: middle;
-    margin: 0 10px;
-  }
-`;
-
 const listStyleCircles = css`
-  ${Item}:before {
+  /* ${Item}:before {
     content: '';
     display: inline-block;
     width: 5px;
@@ -59,13 +43,11 @@ const listStyleCircles = css`
     border-radius: 50%;
     vertical-align: middle;
     margin: 0 10px;
-  }
+  } */
 `;
 
 List.propTypes = propTypes;
 
 List.defaultProps = defaultProps;
-
-List.Item = Item;
 
 export default List;

@@ -15,6 +15,10 @@ const Title = styled(H1).attrs(() => ({
   @media ${device.tabletSmall} {
     font-size: 2rem;
   }
+  @media ${device.mobile} {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 Title.propTypes = {

@@ -1,4 +1,6 @@
 General:
+  ☐ fix ProjectTools design
+  ☐ start to fill portfolio with actual projects
   ✔ load polyfills with dynamic import @done(19-06-12 20:10)
   ✔ replace @babel/polyfill with core-js and regenerator-runtime (for async/await) @done(19-06-12 17:40)
   ✔ add whatwg-fetch polyfill @done(19-06-12 17:40)

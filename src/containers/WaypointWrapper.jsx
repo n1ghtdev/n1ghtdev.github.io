@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Waypoint } from 'react-waypoint';
+import isMobile from '../utils/isMobile';
 
-class WaypointWrapper extends React.Component {
+class WaypointWrapper extends Component {
   static propTypes = {
     delay: PropTypes.number,
     children: PropTypes.any.isRequired,
@@ -16,7 +17,13 @@ class WaypointWrapper extends React.Component {
 
     this.state = {
       entered: false,
+      disabled: false,
     };
+  }
+  componentDidMount() {
+    if (isMobile()) {
+      this.setState({ disabled: true });
+    }
   }
   onEnter = () => {
     const { delay } = this.props;
@@ -30,13 +37,19 @@ class WaypointWrapper extends React.Component {
     }
   };
   render() {
-    const { entered } = this.state;
+    const { entered, disabled } = this.state;
     const { waypointProps, children } = this.props;
 
     return (
-      <Waypoint onEnter={this.onEnter} {...waypointProps}>
-        {entered ? children : null}
-      </Waypoint>
+      <Fragment>
+        {disabled ? (
+          children
+        ) : (
+          <Waypoint onEnter={this.onEnter} {...waypointProps}>
+            {entered ? children : null}
+          </Waypoint>
+        )}
+      </Fragment>
     );
   }
 }

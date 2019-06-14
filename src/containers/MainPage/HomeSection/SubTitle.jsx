@@ -14,6 +14,10 @@ const SubTitle = styled(H2).attrs(() => ({
   }
   @media ${device.tabletSmall} {
   }
+  @media ${device.mobile} {
+    font-size: 1.25rem;
+    text-align: center;
+  }
 `;
 
 SubTitle.propTypes = {

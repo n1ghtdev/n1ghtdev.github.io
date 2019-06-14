@@ -6,13 +6,14 @@ import List from '../../components/List';
 const Box = styled.div`
   display: flex;
   width: 100%;
-  height: 150px;
+  height: 100%;
   border-radius: 5px;
   padding: 10px 30px;
+  background-color: #fafafa;
 `;
 
 const ProjectTools = ({ tools = [] }) => (
-  <Box Height="150px" Padding="10px 30px" Color="#fafafa" BorderRadius="5px">
+  <Box>
     <List Margin="0 50px 0 0" listStyle="circle" Color="#000">
       {tools.slice(0, 5).map(tool => (
         <List.Item key={tool.id}>{tool.title}</List.Item>

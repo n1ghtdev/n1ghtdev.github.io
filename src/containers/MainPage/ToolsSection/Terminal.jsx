@@ -2,16 +2,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CommandLine from './CommandLine';
 import Tree from './Tree';
+import { device } from '../../../breakpoints';
 
 const Terminal = styled.div`
   position: absolute;
   left: 30px;
   top: 30px;
   width: 100%;
-  height: 650px;
+  height: inherit;
   padding-top: 30px;
   background-color: #001f31;
   border-radius: 5px;
+  @media ${device.mobile} {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
 `;
 
 Terminal.propTypes = {

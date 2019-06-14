@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled.div`
   display: flex;
@@ -7,6 +8,9 @@ const Wrapper = styled.div`
   align-items: center;
   padding-bottom: 20px;
   color: #fff;
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const Scroll = styled.div`

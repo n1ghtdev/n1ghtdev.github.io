@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled.section`
   position: relative;
   background-color: #11ec83;
   height: 650px;
-  margin: 400px 30px 30px 0;
+  margin: 400px 30px 15px 0;
+  @media ${device.mobile} {
+    margin: 200px 0 15px 0;
+    height: 800px;
+    background-color: transparent;
+  }
 `;
 
 const DecorationLine = styled.div`
@@ -17,6 +23,9 @@ const DecorationLine = styled.div`
   width: 5px;
   transform: translateX(-50%);
   background-color: #11ec83;
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const StyledToolsSection = ({ children }) => (

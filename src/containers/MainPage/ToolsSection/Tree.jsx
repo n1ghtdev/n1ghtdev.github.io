@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -8,6 +9,10 @@ const Wrapper = styled.div`
   font-size: 2rem;
   margin-top: 4rem;
   white-space: nowrap;
+  @media ${device.mobile} {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
 `;
 const RootFolder = styled.div`
   display: flex;
@@ -25,15 +30,28 @@ const RootFolder = styled.div`
     height: 2px;
     background-color: #fff;
   }
+  @media ${device.mobile} {
+    flex-direction: column;
+    &:after {
+      display: none;
+      left: 7px;
+      width: 2px;
+      height: 100%;
+    }
+  }
 `;
 const RootFolderName = styled.span`
   background-color: #11ec83;
   color: #001f31;
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 const DeepFolder = styled.div`
   margin-left: 55px;
   z-index: 2;
   position: relative;
+  line-height: 1;
   &:after {
     z-index: -1;
     content: '';
@@ -45,16 +63,13 @@ const DeepFolder = styled.div`
     height: calc(100% - 12px);
     background-color: #fff;
   }
-  /* &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -47px;
-    top: 15px;
-    width: 47px;
-    height: 2px;
-    background-color: #fff;
-  } */
+  @media ${device.mobile} {
+    margin-left: 15px;
+    margin-top: 15px;
+    &:after {
+      height: calc(100% - 5px);
+    }
+  }
 `;
 const DeepFolderName = styled.span`
   background-color: #11ec83;

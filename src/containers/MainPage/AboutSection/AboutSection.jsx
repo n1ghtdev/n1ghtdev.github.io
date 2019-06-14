@@ -1,16 +1,15 @@
 import React from 'react';
 import StyledAboutSection from './StyledAboutSection';
+import SubTitle from './SubTitle';
+import Skills from './Skills';
 
 import Grid from '../../../components/Grid';
 import Row from '../../../components/Row';
 import Col from '../../../components/Col';
 import Paragraph from '../../../components/Paragraph';
-import List from '../../../components/List';
 import StoryCard from './StoryCard';
 import Anim from '../../../components/Anim';
 import { H2 } from '../../../components/Headings';
-
-import WaypointWrapper from '../../WaypointWrapper';
 
 const AboutSection = () => (
   <StyledAboutSection>
@@ -29,7 +28,7 @@ const AboutSection = () => (
         </Col>
       </Row>
       <Row Padding="50px 0 0 0">
-        <Col lg={6}>
+        <Col sm={12} lg={6}>
           <StoryCard title="Nikita @ nickew my journey">
             <StoryCard.Paragraph>
               I always had a passion to develop something, that’s why I went
@@ -47,17 +46,11 @@ const AboutSection = () => (
             </StoryCard.Paragraph>
           </StoryCard>
         </Col>
-        <Col lg={6}>
-          <Paragraph
-            LineHeight="1.35"
-            FontSize="1.5rem"
-            Color="#fff"
-            FontFamily="Merriweather"
-            FontStyle="italic"
-          >
+        <Col sm={12} lg={6}>
+          <SubTitle>
             A 21 years old - based in Kyiv, Ukraine. Self-taught front-end
             developer with software engingeering background.
-          </Paragraph>
+          </SubTitle>
           <Paragraph
             FontSize="1.75rem"
             Color="#fff"
@@ -68,34 +61,32 @@ const AboutSection = () => (
             Skills:
           </Paragraph>
 
-          <List listStyle="line" FontSize="1.125rem" LineHeight="1.5">
-            <List.Item>optimizing features in JavaScript;</List.Item>
-            <List.Item>writing modern JavaScript code (es2015+);</List.Item>
-            <List.Item>responsive web design;</List.Item>
-            <List.Item>
+          <Skills>
+            <Skills.Item>optimizing features in JavaScript;</Skills.Item>
+            <Skills.Item>writing modern JavaScript code (es2015+);</Skills.Item>
+            <Skills.Item>responsive web design;</Skills.Item>
+            <Skills.Item>
               understanding how server & client communicates;
-            </List.Item>
-            <List.Item>
+            </Skills.Item>
+            <Skills.Item>
               JavaScript essentials - Closures, Hoisting, Scopes;
-            </List.Item>
-            <List.Item>Node.js/Express back-end development;</List.Item>
-            <List.Item>designing database models;</List.Item>
-            <List.Item>object-oriented principles.</List.Item>
-          </List>
-          <WaypointWrapper delay={150} waypointProps={{ topOffset: -100 }}>
-            <Anim anim="shake" duration={1} delay={1}>
-              <Paragraph
-                FontSize="1.5rem"
-                Color="#fff"
-                FontFamily="Merriweather"
-                FontStyle="italic"
-                Margin="25px 0 0 0"
-              >
-                Currently looking for a local office job to gain real-world
-                experience in development.
-              </Paragraph>
-            </Anim>
-          </WaypointWrapper>
+            </Skills.Item>
+            <Skills.Item>Node.js/Express back-end development;</Skills.Item>
+            <Skills.Item>designing database models;</Skills.Item>
+            <Skills.Item>object-oriented principles.</Skills.Item>
+          </Skills>
+          <Anim anim="shake" duration={1} delay={1} iterationCount="2">
+            <Paragraph
+              FontSize="1.5rem"
+              Color="#fff"
+              FontFamily="Merriweather"
+              FontStyle="italic"
+              Margin="25px 0 0 0"
+            >
+              Currently looking for a local office job to gain real-world
+              experience in development.
+            </Paragraph>
+          </Anim>
         </Col>
       </Row>
     </Grid>
