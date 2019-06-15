@@ -10,6 +10,9 @@ const StyledParagraph = styled(Paragraph)`
     margin-top: 20px;
     text-align: center;
   }
+  @media ${device.tablet} {
+    margin-top: 20px;
+  }
 `;
 
 const SubTitle = ({ children }) => (

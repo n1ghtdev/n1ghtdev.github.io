@@ -33,15 +33,15 @@ const Col = styled.div`
       flex: 0 0 ${calculateColumnWidth(lg)}%;
       max-width: ${calculateColumnWidth(lg)}%;
     }
-    @media (min-width: 992px) and (max-width: 1200px) {
+    @media (min-width: 1025px) and (max-width: 1200px) {
       flex: 0 0 ${calculateColumnWidth(md)}%;
       max-width: ${calculateColumnWidth(md)}%;
     }
-    @media (min-width: 768px) and (max-width: 992px) {
+    @media (min-width: 768px) and (max-width: 1024px) {
       flex: 0 0 ${calculateColumnWidth(sm)}%;
       max-width: ${calculateColumnWidth(sm)}%;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       flex: 0 0 ${calculateColumnWidth(xs)}%;
       max-width: ${calculateColumnWidth(xs)}%;
     }

@@ -15,6 +15,12 @@ const Wrapper = styled.section`
   @media ${device.mobileLarge} {
     height: 1260px;
   }
+  @media ${device.tablet} {
+    height: 1075px;
+  }
+  @media ${device.tabletLandscape} {
+    height: 950px;
+  }
 `;
 
 const DecorationLine = styled.div`

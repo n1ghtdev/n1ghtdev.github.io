@@ -14,7 +14,7 @@ const InnerProjectContainer = ({ project }) => (
   <Section>
     <Grid>
       <Row justifyContent="space-between" Padding="50px 0 0 0">
-        <Col lg={7}>
+        <Col xs={12} lg={7}>
           <ProjectInfo
             title={project.title}
             description={project.description}
@@ -24,7 +24,7 @@ const InnerProjectContainer = ({ project }) => (
             demoLink={project.demoLink}
           />
         </Col>
-        <Col lg={4} Padding="20px 0 0 0">
+        <Col xs={12} lg={4} Padding="20px 0 0 0">
           <ProjectTools tools={project.tools} />
         </Col>
       </Row>

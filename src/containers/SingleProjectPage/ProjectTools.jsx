@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import List from '../../components/List';
+import ListItem from '../../components/ListItem';
 
 const Box = styled.div`
   display: flex;
@@ -12,16 +13,29 @@ const Box = styled.div`
   background-color: #fafafa;
 `;
 
+const ToolsItem = styled(ListItem)`
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: #1e94c7;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+`;
+
 const ProjectTools = ({ tools = [] }) => (
   <Box>
     <List Margin="0 50px 0 0" listStyle="circle" Color="#000">
       {tools.slice(0, 5).map(tool => (
-        <List.Item key={tool.id}>{tool.title}</List.Item>
+        <ToolsItem key={tool.id}>{tool.title}</ToolsItem>
       ))}
     </List>
     <List listStyle="circle" Color="#000">
       {tools.slice(5, 10).map(tool => (
-        <List.Item key={tool.id}>{tool.title}</List.Item>
+        <ToolsItem key={tool.id}>{tool.title}</ToolsItem>
       ))}
     </List>
   </Box>

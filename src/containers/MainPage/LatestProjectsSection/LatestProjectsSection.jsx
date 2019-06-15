@@ -26,11 +26,11 @@ const LatestProjectsSection = ({ projects }) => {
         </Row>
         <Row>
           {latestProjects.map(project => (
-            <Col sm={12} lg={4} Padding="10px">
+            <Col xs={12} sm={6} lg={4} Padding="10px">
               <ProjectItemContainer project={project} />
             </Col>
           ))}
-          <Col sm={12} lg={4} Padding="10px">
+          <Col xs={12} sm={6} lg={4} Padding="10px">
             <ExploreMore to="/projects" />
           </Col>
         </Row>

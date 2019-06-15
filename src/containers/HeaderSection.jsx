@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import RoundLogotype from 'svg-react-loader!../assets/svg/round-logotype.svg';
 
 import Header from '../components/Header';
@@ -8,6 +10,13 @@ import Nav from '../components/Nav';
 import RouterNavItem from '../components/RouterNavItem';
 
 import Socials from '../containers/Socials';
+import { device } from '../breakpoints';
+
+const SocialsWrapper = styled.div`
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
 
 const HeaderSection = () => (
   <Header>
@@ -20,7 +29,9 @@ const HeaderSection = () => (
           <RouterNavItem to="/">mainpage</RouterNavItem>
           <RouterNavItem to="/projects">projects</RouterNavItem>
         </Nav>
-        <Socials />
+        <SocialsWrapper>
+          <Socials />
+        </SocialsWrapper>
       </Row>
     </Grid>
   </Header>

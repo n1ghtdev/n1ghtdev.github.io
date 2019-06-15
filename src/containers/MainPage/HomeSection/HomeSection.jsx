@@ -18,12 +18,12 @@ const HomeSection = () => (
   <StyledHomeSection>
     <Grid flex style={{ zIndex: '10' }} relative>
       <Row FlexProps="1" alignItems="center" justifyContent="center">
-        <Col sm={0} lg={4} textAlign="center">
+        <Col xs={0} sm={4} lg={4} textAlign="center">
           <Anim anim="bounceInLeft" duration={0.5}>
             <Logotype />
           </Anim>
         </Col>
-        <Col sm={12} lg={8}>
+        <Col xs={12} sm={8} lg={8}>
           <Anim anim="bounceInDown" duration={0.75}>
             <Title>front-end developer</Title>
           </Anim>

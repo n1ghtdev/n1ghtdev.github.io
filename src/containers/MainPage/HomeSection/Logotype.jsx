@@ -6,6 +6,8 @@ const Svg = styled.svg`
   @media ${device.mobile} {
     display: none;
   }
+  @media ${device.tablet} {
+  }
 `;
 
 const Logotype = () => (

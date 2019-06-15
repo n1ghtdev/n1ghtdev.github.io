@@ -19,6 +19,12 @@ const Wrapper = styled.div`
     height: 500px;
     margin: 0;
   }
+  @media ${device.tablet} {
+    height: 450px;
+  }
+  @media ${device.tabletLandscape} {
+    height: 320px;
+  }
 `;
 
 const Title = styled(H3)`
@@ -33,12 +39,18 @@ const Title = styled(H3)`
     font-size: 2rem;
     font-weight: 700;
   }
+  @media ${device.tabletLandscape} {
+    font-size: 3rem;
+  }
 `;
 
 const Content = styled.div`
   padding: 130px 10px 0 10px;
   @media ${device.mobile} {
     padding: 75px 10px 0 10px;
+  }
+  @media ${device.tabletLandscape} {
+    padding-top: 60px;
   }
 `;
 

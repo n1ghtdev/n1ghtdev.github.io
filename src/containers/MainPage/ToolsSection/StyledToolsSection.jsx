@@ -13,6 +13,10 @@ const Wrapper = styled.section`
     height: 800px;
     background-color: transparent;
   }
+  @media ${device.tablet} {
+    margin: 400px 0 0 0;
+    height: 1050px;
+  }
 `;
 
 const DecorationLine = styled.div`

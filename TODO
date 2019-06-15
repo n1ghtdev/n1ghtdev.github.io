@@ -1,6 +1,9 @@
 General:
-  ☐ fix ProjectTools design
   ☐ start to fill portfolio with actual projects
+  ✔ responsive design @done(19-06-15 20:12)
+    ✔ tablet @done(19-06-15 20:12)
+    ✔ laptop @done(19-06-15 20:12)
+  ✔ fix ProjectTools design @done(19-06-14 20:38)
   ✔ load polyfills with dynamic import @done(19-06-12 20:10)
   ✔ replace @babel/polyfill with core-js and regenerator-runtime (for async/await) @done(19-06-12 17:40)
   ✔ add whatwg-fetch polyfill @done(19-06-12 17:40)

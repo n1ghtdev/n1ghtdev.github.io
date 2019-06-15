@@ -13,6 +13,10 @@ const Wrapper = styled.div`
     font-size: 1.5rem;
     margin-top: 2rem;
   }
+  @media ${device.tablet} {
+    margin-left: 4rem;
+    margin-top: 2rem;
+  }
 `;
 const RootFolder = styled.div`
   display: flex;
@@ -34,9 +38,15 @@ const RootFolder = styled.div`
     flex-direction: column;
     &:after {
       display: none;
-      left: 7px;
+      /* left: 7px;
       width: 2px;
-      height: 100%;
+      height: 100%; */
+    }
+  }
+  @media ${device.tablet} {
+    flex-direction: column;
+    &:after {
+      display: none;
     }
   }
 `;
@@ -44,6 +54,9 @@ const RootFolderName = styled.span`
   background-color: #11ec83;
   color: #001f31;
   @media ${device.mobile} {
+    display: none;
+  }
+  @media ${device.tablet} {
     display: none;
   }
 `;
@@ -69,6 +82,10 @@ const DeepFolder = styled.div`
     &:after {
       height: calc(100% - 5px);
     }
+  }
+  @media ${device.tablet} {
+    margin-left: 15px;
+    margin-top: 15px;
   }
 `;
 const DeepFolderName = styled.span`

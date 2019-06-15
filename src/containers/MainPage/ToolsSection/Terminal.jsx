@@ -18,6 +18,11 @@ const Terminal = styled.div`
     left: 0;
     top: 0;
   }
+  @media ${device.tablet} {
+    left: 0;
+    top: 0;
+    margin: 15px;
+  }
 `;
 
 Terminal.propTypes = {

@@ -20,7 +20,7 @@ const ProjectsPage = ({ projects }) => (
     <Grid>
       <Row Padding="40px 0 0 0">
         {projects.map(project => (
-          <Col lg={4} Padding="10px">
+          <Col xs={12} lg={4} Padding="10px">
             <ProjectItemContainer project={project} />
           </Col>
         ))}
