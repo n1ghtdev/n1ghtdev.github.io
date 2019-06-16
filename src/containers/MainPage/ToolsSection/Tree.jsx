@@ -80,7 +80,7 @@ const DeepFolder = styled.div`
     margin-left: 15px;
     margin-top: 15px;
     &:after {
-      height: calc(100% - 5px);
+      height: calc(100% - 9px);
     }
   }
   @media ${device.tablet} {
@@ -107,6 +107,11 @@ const DeepFolderItem = styled.li`
     width: 47px;
     height: 2px;
     background-color: #fff;
+  }
+  @media ${device.mobile} {
+    &:before {
+      top: 13px;
+    }
   }
 `;
 

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Logotype from 'svg-react-loader!../../../assets/svg/logotype.svg';
 import Logotype from './Logotype';
 import StyledHomeSection from './StyledHomeSection';
 import Title from './Title';
@@ -31,7 +30,7 @@ const HomeSection = () => (
             <SubTitle>
               who’s passionate about
               <Span FontStyle="italic"> highly optimized </Span>and
-              <Span FontStyle="italic"> quality driven solutions </Span>
+              <Span FontStyle="italic"> quality driven</Span> solutions
             </SubTitle>
           </Anim>
           <Anim

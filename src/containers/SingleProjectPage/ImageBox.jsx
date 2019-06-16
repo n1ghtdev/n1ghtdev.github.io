@@ -15,17 +15,19 @@ const Image = styled.img`
   height: inherit;
   object-fit: cover;
   border-radius: 5px;
+  cursor: zoom-in;
 `;
 
-const ImageBox = ({ imgSrc, imgAlt }) => (
+const ImageBox = ({ imgSrc, imgAlt, onClick }) => (
   <Wrapper>
-    <Image src={imgSrc} alt={imgAlt} />
+    <Image src={imgSrc} alt={imgAlt} onClick={onClick} />
   </Wrapper>
 );
 
 ImageBox.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   imgAlt: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default ImageBox;

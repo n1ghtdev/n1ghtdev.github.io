@@ -1,81 +1,99 @@
 [
   {
+    "id": 0,
+    "title": "Encode App",
+    "description": "Web application intended to encrypt and decrypt text information with symmetric and asymmetric (RSA) algorithms. Learned how to work with crypto and bcrypt libs, also got better understanding of how authentication works on server and client side.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://i.imgur.com/0M0FGDy.jpg",
+        "alt": "Screenshot of symmetric encryption page"
+      },
+      {
+        "id": 1,
+        "src": "https://i.imgur.com/rYDzBmL.jpg",
+        "alt": "Screenshot of symmetric decryption page"
+      },
+      {
+        "id": 2,
+        "src": "https://i.imgur.com/KJ9i7Ey.jpg",
+        "alt": "Screenshot of RSA encryption page"
+      },
+      {
+        "id": 3,
+        "src": "https://i.imgur.com/erTXE62.jpg",
+        "alt": "Screenshot of RSA decryption page"
+      }
+    ],
+    "tools": [
+      {
+        "id": 0,
+        "title": "react"
+      },
+      {
+        "id": 1,
+        "title": "react-router"
+      },
+      {
+        "id": 2,
+        "title": "node.js"
+      },
+      {
+        "id": 3,
+        "title": "express"
+      },
+      {
+        "id": 4,
+        "title": "crypto"
+      },
+      {
+        "id": 5,
+        "title": "postgresql"
+      }
+    ],
+    "sourceLink": "https://github.com/Nickew/Encode"
+  },
+  {
     "id": 1,
-    "title": "Project #1",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "title": "Weather Web application",
+    "description": "Did this one for course work in university. From all weather API's, DarkSky is better for a free development, they gave you about 1000 requests in a day. No mobile version available, only desktop/laptop.",
+    "images": [
+      {
+        "id": 0,
+        "src": "https://i.imgur.com/whjvAc2.jpg",
+        "alt": "Screenshot of Weather web app #1"
+      },
+      {
+        "id": 1,
+        "src": "https://i.imgur.com/OCQj5tH.jpg",
+        "alt": "Screenshot of Weather web app #2"
+      },
+      {
+        "id": 2,
+        "src": "https://i.imgur.com/yrPGuoc.jpg",
+        "alt": "Screenshot of Weather web app #3"
+      }
+    ],
+    "tools": [
+      { "id": 0, "title": "react" },
+      { "id": 1, "title": "redux" },
+      { "id": 2, "title": "redux-saga" },
+      { "id": 3, "title": "react-router" },
+      { "id": 4, "title": "webpack" },
+      { "id": 5, "title": "node.js" },
+      { "id": 6, "title": "express" }
+    ],
+    "sourceLink": "https://github.com/Nickew/weather-web-app"
+  },
+  {
+    "id": 2,
+    "title": "Weather landing page HTML layout",
+    "description": "",
     "images": [
       {
         "id": 0,
         "src": "https://i.imgur.com/FAmHLyz.jpg",
-        "alt": "Something here"
-      },
-      {
-        "id": 1,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      },
-      {
-        "id": 2,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      }
-    ],
-    "tools": [
-      { "id": 0, "title": "html" },
-      { "id": 1, "title": "css" },
-      { "id": 2, "title": "javascript" }
-    ],
-    "sourceLink": "https://github.com/Nickew/Encode",
-    "demoLink": "https://github.com/Nickew/Encode"
-  },
-  {
-    "id": 2,
-    "title": "Testing project API",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "images": [
-      {
-        "id": 0,
-        "src": "https://via.placeholder.com/960",
-        "alt": "Something here"
-      },
-      {
-        "id": 1,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      },
-      {
-        "id": 2,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      }
-    ],
-    "tools": [
-      { "id": 0, "title": "html" },
-      { "id": 1, "title": "css" },
-      { "id": 2, "title": "javascript" }
-    ],
-    "sourceLink": "https://github.com/Nickew/Encode",
-    "demoLink": "https://github.com/Nickew/Encode"
-  },
-  {
-    "id": 3,
-    "title": "Project example",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "images": [
-      {
-        "id": 0,
-        "src": "https://via.placeholder.com/960",
-        "alt": "Something here"
-      },
-      {
-        "id": 1,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      },
-      {
-        "id": 2,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
+        "alt": "screenshot of weather landing page"
       }
     ],
     "tools": [
@@ -85,90 +103,13 @@
       },
       {
         "id": 1,
-        "title": "css"
+        "title": "sass"
       },
       {
         "id": 2,
-        "title": "javascript"
+        "title": "npm scripts"
       }
     ],
-    "sourceLink": "https://github.com/Nickew/Encode",
-    "demoLink": "https://github.com/Nickew/Encode"
-  },
-  {
-    "id": 4,
-    "title": "Project example",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "images": [
-      {
-        "id": 0,
-        "src": "https://via.placeholder.com/960",
-        "alt": "Something here"
-      },
-      {
-        "id": 1,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      },
-      {
-        "id": 2,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      }
-    ],
-    "tools": [
-      {
-        "id": 0,
-        "title": "html"
-      },
-      {
-        "id": 1,
-        "title": "css"
-      },
-      {
-        "id": 2,
-        "title": "javascript"
-      }
-    ],
-    "sourceLink": "https://github.com/Nickew/Encode",
-    "demoLink": "https://github.com/Nickew/Encode"
-  },
-  {
-    "id": 5,
-    "title": "Project example",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "images": [
-      {
-        "id": 0,
-        "src": "https://via.placeholder.com/960",
-        "alt": "Something here"
-      },
-      {
-        "id": 1,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      },
-      {
-        "id": 2,
-        "src": "https://via.placeholder.com/550",
-        "alt": "Something here"
-      }
-    ],
-    "tools": [
-      {
-        "id": 0,
-        "title": "html"
-      },
-      {
-        "id": 1,
-        "title": "css"
-      },
-      {
-        "id": 2,
-        "title": "javascript"
-      }
-    ],
-    "sourceLink": "https://github.com/Nickew/Encode",
-    "demoLink": "https://github.com/Nickew/Encode"
+    "sourceLink": "https://github.com/Nickew/html-weather-app"
   }
 ]

@@ -1,46 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ProjectInfo from './ProjectInfo';
 import ProjectTools from './ProjectTools';
-import ImageBox from './ImageBox';
+import Gallery from './Gallery';
 
 import Section from '../../components/Section';
 import Grid from '../../components/Grid';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
+import { H2 } from '../../components/Headings';
+import Paragraph from '../../components/Paragraph';
+import Span from '../../components/Span';
+import HR from '../../components/HR';
+import Nav from '../../components/Nav';
+import NavItem from '../../components/NavItem';
 
-const InnerProjectContainer = ({ project }) => (
-  <Section>
-    <Grid>
-      <Row justifyContent="space-between" Padding="50px 0 0 0">
-        <Col xs={12} lg={7}>
-          <ProjectInfo
-            title={project.title}
-            description={project.description}
-            type="full stack experience"
-            date="May 2019"
-            sourceLink={project.sourceLink}
-            demoLink={project.demoLink}
-          />
-        </Col>
-        <Col xs={12} lg={4} Padding="20px 0 0 0">
-          <ProjectTools tools={project.tools} />
-        </Col>
-      </Row>
-      <Row Padding="50px 0 0 0">
-        <ImageBox imgSrc={project.images[0].src} alt={project.images[0].alt} />
-      </Row>
-      <Row justifyContent="space-between" Padding="50px 0 0 0">
-        {project.images.slice(1, project.images.length).map(img => (
-          <Col lg={6} Padding="0 10px">
-            <img src={img.src} alt={img.alt} />
+const InnerProjectContainer = ({ project }) => {
+  const {
+    title,
+    date,
+    description,
+    sourceLink,
+    demoLink,
+    tools,
+    images,
+  } = project;
+  return (
+    <Section>
+      <Grid>
+        <Row justifyContent="space-between" Padding="50px 0 0 0">
+          <Col xs={12} lg={7}>
+            <H2 FontSize="2rem" FontFamily="Merriweather" FontStyle="italic">
+              {title}
+            </H2>
+            <HR Color="#E5E5E5" />
+            <Span Color="#999999">{date}</Span>
+            <Paragraph Margin="20px 0" FontFamily="Ubuntu" FontWeight="300">
+              {description}
+            </Paragraph>
+            <HR Color="#E5E5E5" />
+            <Nav>
+              {sourceLink && (
+                <NavItem divider="square" href={sourceLink}>
+                  github source
+                </NavItem>
+              )}
+              {demoLink && (
+                <NavItem divider="square" href={demoLink}>
+                  live website/demo
+                </NavItem>
+              )}
+            </Nav>
           </Col>
-        ))}
-      </Row>
-    </Grid>
-  </Section>
-);
+          <Col xs={12} lg={4} Padding="20px 0 0 0">
+            <ProjectTools tools={tools} />
+          </Col>
+        </Row>
+        <Gallery images={images} />
+      </Grid>
+    </Section>
+  );
+};
 
 InnerProjectContainer.propTypes = {
   project: PropTypes.object.isRequired,
