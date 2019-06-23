@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import ProjectTools from './ProjectTools';
 import Gallery from './Gallery';
+import Links from './Links';
 
 import Section from '../../components/Section';
 import Grid from '../../components/Grid';
@@ -12,8 +13,6 @@ import { H2 } from '../../components/Headings';
 import Paragraph from '../../components/Paragraph';
 import Span from '../../components/Span';
 import HR from '../../components/HR';
-import Nav from '../../components/Nav';
-import NavItem from '../../components/NavItem';
 
 const InnerProjectContainer = ({ project }) => {
   const {
@@ -23,6 +22,7 @@ const InnerProjectContainer = ({ project }) => {
     sourceLink,
     demoLink,
     tools,
+    devTools,
     images,
   } = project;
   return (
@@ -39,21 +39,32 @@ const InnerProjectContainer = ({ project }) => {
               {description}
             </Paragraph>
             <HR Color="#E5E5E5" />
-            <Nav>
+            <Links>
               {sourceLink && (
-                <NavItem divider="square" href={sourceLink}>
+                <Links.Item
+                  github
+                  title="github source page"
+                  target="_blank"
+                  rel="noopener"
+                  href={sourceLink}
+                >
                   github source
-                </NavItem>
+                </Links.Item>
               )}
-              {demoLink && (
-                <NavItem divider="square" href={demoLink}>
-                  live website/demo
-                </NavItem>
+              {!demoLink && (
+                <Links.Item
+                  title="live website"
+                  target="_blank"
+                  rel="noopener"
+                  href="#"
+                >
+                  visit website
+                </Links.Item>
               )}
-            </Nav>
+            </Links>
           </Col>
           <Col xs={12} lg={4} Padding="20px 0 0 0">
-            <ProjectTools tools={tools} />
+            <ProjectTools tools={tools} devTools={devTools} />
           </Col>
         </Row>
         <Gallery images={images} />

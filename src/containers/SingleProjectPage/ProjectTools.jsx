@@ -1,48 +1,60 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import List from '../../components/List';
-import ListItem from '../../components/ListItem';
 
 const Box = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
   border-radius: 5px;
-  padding: 10px 30px;
+  padding: 10px;
   background-color: #fafafa;
+  margin-top: 10px;
 `;
 
-const ToolsItem = styled(ListItem)`
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background: #1e94c7;
-    border-radius: 50%;
-    vertical-align: middle;
-    margin: 0 10px;
-  }
+const ToolsList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-const ProjectTools = ({ tools = [] }) => (
-  <Box>
-    <List Margin="0 50px 0 0" listStyle="circle" Color="#000">
-      {tools.slice(0, 5).map(tool => (
-        <ToolsItem key={tool.id}>{tool.title}</ToolsItem>
-      ))}
-    </List>
-    <List listStyle="circle" Color="#000">
-      {tools.slice(5, 10).map(tool => (
-        <ToolsItem key={tool.id}>{tool.title}</ToolsItem>
-      ))}
-    </List>
-  </Box>
+const Tool = styled.div`
+  padding: 0 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  height: 16px;
+  border-radius: 3px;
+  background-color: ${({ bgColor }) => bgColor || '#000'};
+  margin: 2px;
+  font-size: 12px;
+  font-family: Verdana;
+`;
+
+const ProjectTools = ({ tools = [], devTools = [] }) => (
+  <React.Fragment>
+    <Box>
+      <ToolsList>
+        {tools.map(tool => (
+          <Tool bgColor="#001f31" key={tool.id}>
+            {tool.name}
+          </Tool>
+        ))}
+      </ToolsList>
+    </Box>
+    <Box>
+      <ToolsList>
+        {devTools.map(tool => (
+          <Tool bgColor="#256386" key={tool.id}>
+            {tool.name}
+          </Tool>
+        ))}
+      </ToolsList>
+    </Box>
+  </React.Fragment>
 );
 
 ProjectTools.propTypes = {
   tools: PropTypes.array,
+  devTools: PropTypes.array,
 };
 
 export default ProjectTools;

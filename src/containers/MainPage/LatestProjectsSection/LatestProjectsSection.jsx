@@ -13,7 +13,7 @@ import ProjectItemContainer from '../../ProjectItemContainer';
 import { withProjects } from '../../../modules/ProjectsProvider';
 
 const LatestProjectsSection = ({ projects }) => {
-  const latestProjects = projects.slice(0, 5);
+  const latestProjects = projects.slice(0, 3);
   return (
     <Section>
       <Grid>
@@ -30,7 +30,9 @@ const LatestProjectsSection = ({ projects }) => {
               <ProjectItemContainer project={project} />
             </Col>
           ))}
-          <Col xs={12} sm={6} lg={4} Padding="10px">
+        </Row>
+        <Row justifyContent="center">
+          <Col xs={12} md={8} sm={6} lg={4} Padding="50px 10px 0 10px">
             <ExploreMore to="/projects" />
           </Col>
         </Row>

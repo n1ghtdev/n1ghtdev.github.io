@@ -60,6 +60,7 @@ class Gallery extends React.Component {
           {images.length > 1
             ? images.slice(1, images.length).map((img, index) => (
               <Col
+                xs={12}
                 lg={6}
                 Padding="10px"
                 onClick={() => this.openModal(index + 1)}

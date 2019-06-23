@@ -28,34 +28,60 @@
     "tools": [
       {
         "id": 0,
-        "title": "react"
+        "name": "react"
       },
       {
         "id": 1,
-        "title": "react-router"
+        "name": "react-router"
       },
       {
         "id": 2,
-        "title": "node.js"
+        "name": "node.js"
       },
       {
         "id": 3,
-        "title": "express"
+        "name": "express"
       },
       {
         "id": 4,
-        "title": "crypto"
+        "name": "crypto"
       },
       {
         "id": 5,
-        "title": "postgresql"
+        "name": "pg/postgresql"
+      }
+    ],
+    "devTools": [
+      {
+        "id": 0,
+        "name": "webpack"
+      },
+      {
+        "id": 1,
+        "name": "npm"
+      },
+      {
+        "id": 2,
+        "name": "eslint"
+      },
+      {
+        "id": 3,
+        "name": "babel"
+      },
+      {
+        "id": 4,
+        "name": "nodemon"
+      },
+      {
+        "id": 5,
+        "name": "pgAdmin"
       }
     ],
     "sourceLink": "https://github.com/Nickew/Encode"
   },
   {
     "id": 1,
-    "title": "Weather Web application",
+    "title": "Forecast Weather App",
     "description": "Did this one for course work in university. From all weather API's, DarkSky is better for a free development, they gave you about 1000 requests in a day. No mobile version available, only desktop/laptop.",
     "images": [
       {
@@ -75,13 +101,35 @@
       }
     ],
     "tools": [
-      { "id": 0, "title": "react" },
-      { "id": 1, "title": "redux" },
-      { "id": 2, "title": "redux-saga" },
-      { "id": 3, "title": "react-router" },
-      { "id": 4, "title": "webpack" },
-      { "id": 5, "title": "node.js" },
-      { "id": 6, "title": "express" }
+      { "id": 0, "name": "react" },
+      { "id": 1, "name": "redux" },
+      { "id": 2, "name": "redux-saga" },
+      { "id": 3, "name": "react-router" },
+      { "id": 4, "name": "nuka-carousel" },
+      { "id": 5, "name": "node.js" },
+      { "id": 6, "name": "express" }
+    ],
+    "devTools": [
+      {
+        "id": 0,
+        "name": "webpack"
+      },
+      {
+        "id": 1,
+        "name": "npm"
+      },
+      {
+        "id": 2,
+        "name": "eslint"
+      },
+      {
+        "id": 3,
+        "name": "babel"
+      },
+      {
+        "id": 4,
+        "name": "postman"
+      }
     ],
     "sourceLink": "https://github.com/Nickew/weather-web-app"
   },
@@ -99,15 +147,41 @@
     "tools": [
       {
         "id": 0,
-        "title": "html"
+        "name": "html"
       },
       {
         "id": 1,
-        "title": "sass"
+        "name": "css"
+      }
+    ],
+    "devTools": [
+      {
+        "id": 0,
+        "name": "npm"
+      },
+      {
+        "id": 1,
+        "name": "postcss-cli"
       },
       {
         "id": 2,
-        "title": "npm scripts"
+        "name": "uglifyjs"
+      },
+      {
+        "id": 3,
+        "name": "browserify"
+      },
+      {
+        "id": 4,
+        "name": "browser-sync"
+      },
+      {
+        "id": 5,
+        "name": "autoprefixer"
+      },
+      {
+        "id": 6,
+        "name": "node-sass"
       }
     ],
     "sourceLink": "https://github.com/Nickew/html-weather-app"

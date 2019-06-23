@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Span from '../../../components/Span';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #001f31;
-  height: 250px;
+  height: 75px;
   border-radius: 3px;
   text-decoration: none;
-  padding-left: 20px;
   transition: opacity 0.25s;
   opacity: 0.5;
 
@@ -19,11 +21,19 @@ const Wrapper = styled(Link)`
   }
 `;
 
+const StyledSpan = styled(Span).attrs(() => ({
+  FontSize: '2rem',
+  FontWeight: 'bold',
+  Color: '#fff',
+}))`
+  @media ${device.mobile} {
+    font-size: 1.5rem;
+  }
+`;
+
 const ExploreItem = ({ to }) => (
   <Wrapper to={to}>
-    <Span FontSize="4rem" FontWeight="bold" Color="#fff">
-      explore other projects
-    </Span>
+    <StyledSpan>explore other projects</StyledSpan>
   </Wrapper>
 );
 
