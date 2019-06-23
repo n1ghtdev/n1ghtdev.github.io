@@ -51,7 +51,7 @@ const InnerProjectContainer = ({ project }) => {
                   github source
                 </Links.Item>
               )}
-              {!demoLink && (
+              {demoLink && (
                 <Links.Item
                   title="live website"
                   target="_blank"
