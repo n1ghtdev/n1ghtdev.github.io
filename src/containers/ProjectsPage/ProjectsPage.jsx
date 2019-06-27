@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -16,6 +17,10 @@ const Wrapper = styled.div`
 
 const ProjectsPage = ({ projects }) => (
   <Wrapper>
+    <Helmet>
+      <title>Projects - Nickew</title>
+      <meta property="og:title" content="Projects - Nickew's Portfolio" />
+    </Helmet>
     <HeaderSection />
     <Grid>
       <Row Padding="40px 0 0 0">

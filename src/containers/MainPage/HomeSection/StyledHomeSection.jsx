@@ -29,6 +29,8 @@ const StyledHomeSection = styled.section`
     );
   }
   @media ${device.mobile} {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 `;
 

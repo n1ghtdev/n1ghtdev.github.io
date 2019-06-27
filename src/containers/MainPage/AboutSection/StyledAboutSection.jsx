@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   margin-top: 75px;
   background-color: hsl(210, 100%, 20%);
   border-radius: 5px;
-  padding-bottom: 20px;
+  padding-bottom: 2rem;
 `;
 
 const DecorationLine = styled.div`

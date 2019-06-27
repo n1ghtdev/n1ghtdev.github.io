@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 
 import HomeSection from './HomeSection';
@@ -21,6 +22,18 @@ class MainPage extends Component {
   render() {
     return (
       <Wrapper>
+        <Helmet>
+          <title>Nickew | Front End Developer</title>
+          <meta property="og:title" content="Nickew's Front End Portfolio" />
+          <meta
+            property="og:description"
+            content="Portfolio of Front End Developer who's well experienced with React and JS in general."
+          />
+          <meta
+            name="description"
+            content="Portfolio of Front End Developer who's well experienced with React and JS in general."
+          />
+        </Helmet>
         <HomeSection />
         <AboutSection />
         <LatestProjectsSection />

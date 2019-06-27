@@ -15,10 +15,6 @@ const Wrapper = styled.div`
     height: auto;
     margin: 0;
   }
-  @media ${device.mobileLarge} {
-    height: auto;
-    margin: 0;
-  }
   @media ${device.tablet} {
     height: auto;
   }

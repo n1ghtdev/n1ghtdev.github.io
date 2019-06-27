@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -18,6 +19,13 @@ const SingleProjectPage = ({ projects, match }) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>{thisProject.title} - Nickew</title>
+        <meta
+          property="og:title"
+          content={`${thisProject.title} - Nickew's Portfolio`}
+        />
+      </Helmet>
       <HeaderSection />
       <Project project={thisProject} />
     </Wrapper>
