@@ -29,7 +29,7 @@ const AboutSection = () => (
       </Row>
       <Row Padding="50px 0 0 0">
         <Col sm={12} lg={6}>
-          <StoryCard title="Nikita @ nickew my journey">
+          <StoryCard title="Nikita @ nickew">
             <StoryCard.Paragraph>
               I always had a passion to develop something, that’s why I went
               studying software engineering. 2 years of learning object-oriented
@@ -81,7 +81,7 @@ const AboutSection = () => (
               Color="#fff"
               FontFamily="Merriweather"
               FontStyle="italic"
-              Margin="25px 0 0 0"
+              Margin="25px 0 10px 0"
             >
               Currently looking for a local office job to gain real-world
               experience in development.

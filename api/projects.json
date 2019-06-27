@@ -77,7 +77,8 @@
         "name": "pgAdmin"
       }
     ],
-    "sourceLink": "https://github.com/Nickew/Encode"
+    "sourceLink": "https://github.com/Nickew/Encode",
+    "demoLink": "https://encode-app.herokuapp.com/"
   },
   {
     "id": 1,
@@ -101,13 +102,34 @@
       }
     ],
     "tools": [
-      { "id": 0, "name": "react" },
-      { "id": 1, "name": "redux" },
-      { "id": 2, "name": "redux-saga" },
-      { "id": 3, "name": "react-router" },
-      { "id": 4, "name": "nuka-carousel" },
-      { "id": 5, "name": "node.js" },
-      { "id": 6, "name": "express" }
+      {
+        "id": 0,
+        "name": "react"
+      },
+      {
+        "id": 1,
+        "name": "redux"
+      },
+      {
+        "id": 2,
+        "name": "redux-saga"
+      },
+      {
+        "id": 3,
+        "name": "react-router"
+      },
+      {
+        "id": 4,
+        "name": "nuka-carousel"
+      },
+      {
+        "id": 5,
+        "name": "node.js"
+      },
+      {
+        "id": 6,
+        "name": "express"
+      }
     ],
     "devTools": [
       {

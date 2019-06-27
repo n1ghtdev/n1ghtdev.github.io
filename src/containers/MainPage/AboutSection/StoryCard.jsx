@@ -12,28 +12,34 @@ const Wrapper = styled.div`
   background-color: hsl(210, 100%, 27%);
   box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.15);
   @media ${device.mobile} {
-    height: 580px;
+    height: auto;
     margin: 0;
   }
   @media ${device.mobileLarge} {
-    height: 500px;
+    height: auto;
     margin: 0;
   }
   @media ${device.tablet} {
-    height: 450px;
+    height: auto;
   }
   @media ${device.tabletLandscape} {
     height: 320px;
+  }
+  @media ${device.laptop} {
+    height: auto;
+    margin: 0 25px;
   }
 `;
 
 const Title = styled(H3)`
   position: absolute;
-  left: -17px;
-  top: -17px;
-  width: 110%;
+  left: 0;
+  top: -25px;
+  width: 100%;
+  text-align: center;
   @media ${device.mobile} {
     left: 0;
+    top: -15px;
     width: 100%;
     text-align: center;
     font-size: 2rem;
@@ -42,15 +48,25 @@ const Title = styled(H3)`
   @media ${device.tabletLandscape} {
     font-size: 3rem;
   }
+  @media ${device.laptop} {
+    font-size: 3rem;
+  }
 `;
 
 const Content = styled.div`
-  padding: 130px 10px 0 10px;
+  padding: 75px 10px 0 10px;
   @media ${device.mobile} {
-    padding: 75px 10px 0 10px;
+    padding: 50px 10px 20px 10px;
+  }
+  @media ${device.tablet} {
+    padding: 50px 15px 20px 15px;
   }
   @media ${device.tabletLandscape} {
     padding-top: 60px;
+  }
+  @media ${device.laptop} {
+    padding-top: 50px;
+    padding-bottom: 20px;
   }
 `;
 
@@ -64,13 +80,16 @@ const StyledParagraph = styled(Paragraph).attrs(() => ({
   @media ${device.mobile} {
     font-size: 1rem;
   }
+  @media ${device.desktop} {
+    padding: 0 20px;
+  }
 `;
 
 const StoryCard = ({ children, title }) => (
   <Wrapper>
     <Title
       LineHeight="90%"
-      FontSize="4rem"
+      FontSize="3.5rem"
       Color="#fff"
       FontFamily="Merriweather"
       FontWeight="900"
