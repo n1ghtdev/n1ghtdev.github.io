@@ -1,7 +1,8 @@
 General:
-  ✔ implement React-Helmet @done(19-06-27 18:13)
-
+  ☐ add resume document in pdf
+  ☐ add email contact form with google forms
 Archive:
+  ✔ implement React-Helmet @done(19-06-27 18:13)
   ✔ start to fill portfolio with actual projects @done(19-06-23 16:00)
   ✔ responsive design @done(19-06-15 20:12)
   ✔ tablet @done(19-06-15 20:12)

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { device } from '../../../breakpoints';
 
 const Wrapper = styled.section`
   position: relative;
@@ -9,6 +10,9 @@ const Wrapper = styled.section`
   background-color: hsl(210, 100%, 20%);
   border-radius: 5px;
   padding-bottom: 2rem;
+  @media ${device.desktop} {
+    padding-bottom: 4rem;
+  }
 `;
 
 const DecorationLine = styled.div`
