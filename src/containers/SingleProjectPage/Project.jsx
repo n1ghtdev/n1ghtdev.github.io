@@ -56,7 +56,7 @@ const InnerProjectContainer = ({ project }) => {
                   title="live website"
                   target="_blank"
                   rel="noopener"
-                  href="#"
+                  href={demoLink}
                 >
                   visit website
                 </Links.Item>
