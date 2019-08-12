@@ -2,17 +2,31 @@
   "frontend": [
     "react",
     "redux",
-    "redux-saga",
-    "styled",
+    "react-native",
+    "next.js",
     "webpack",
     "gulp",
     "enzyme",
-    "jest",
-    "babel",
-    "eslint"
+    "jest"
   ],
-  "backend": ["node.js", "express", "crypto"],
-  "other": ["git", "npm", "bash"],
-  "sql": ["mysql", "postresql"],
-  "graphics": ["photoshop", "figma"]
+  "backend": [
+    "node.js",
+    "express",
+    "php",
+    "wordpress",
+    "crypto"
+  ],
+  "other": [
+    "git",
+    "npm",
+    "bash"
+  ],
+  "sql": [
+    "mysql",
+    "postresql"
+  ],
+  "graphics": [
+    "photoshop",
+    "figma"
+  ]
 }

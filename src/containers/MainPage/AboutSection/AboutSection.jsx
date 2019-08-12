@@ -38,7 +38,7 @@ const AboutSection = () => (
               interest me. I remembered that back in middle school I was
               creating websites with constructors like uCoz, and after a while
               managed to copy (ripping) others uCoz websites designs and make
-              them as a templates. JUST FOR FUN.
+              them as a templates.
             </StoryCard.Paragraph>
             <StoryCard.Paragraph>
               So I thought maybe I should give a chance to web development...and
@@ -49,7 +49,7 @@ const AboutSection = () => (
         <Col sm={12} lg={6}>
           <SubTitle>
             A 21 years old - based in Kyiv, Ukraine. Self-taught front-end
-            developer with software engingeering background.
+            developer with software engineering background.
           </SubTitle>
           <Paragraph
             FontSize="1.75rem"
@@ -58,22 +58,24 @@ const AboutSection = () => (
             FontStyle="italic"
             Margin="25px 0 0 0"
           >
-            Skills:
+            knowledge:
           </Paragraph>
 
           <Skills>
-            <Skills.Item>optimizing features in JavaScript;</Skills.Item>
-            <Skills.Item>writing modern JavaScript code (es2015+);</Skills.Item>
+            <Skills.Item>latest ECMA-specifications;</Skills.Item>
             <Skills.Item>responsive web design;</Skills.Item>
             <Skills.Item>
-              understanding how server & client communicates;
+              server & client communication (REST, graphql, websocket);
+            </Skills.Item>
+            <Skills.Item>js/react performance optimization;</Skills.Item>
+            <Skills.Item>
+              javascript essentials - Closures, Hoisting, Scopes;
             </Skills.Item>
             <Skills.Item>
-              JavaScript essentials - Closures, Hoisting, Scopes;
+              back-end development (wp/php, node.js/express);
             </Skills.Item>
-            <Skills.Item>Node.js/Express back-end development;</Skills.Item>
-            <Skills.Item>designing database models;</Skills.Item>
-            <Skills.Item>object-oriented principles.</Skills.Item>
+            <Skills.Item>database design;</Skills.Item>
+            <Skills.Item>OOP, SOLID.</Skills.Item>
           </Skills>
           <Anim anim="shake" duration={1} delay={1} iterationCount="2">
             <Paragraph
