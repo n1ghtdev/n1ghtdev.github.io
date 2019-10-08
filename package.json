@@ -1,11 +1,11 @@
 {
-  "name": "nickew.github.io",
-  "homepage": "https://nickew.github.io/",
-  "version": "1.1.0",
-  "description": "Nickew's personal portfolio website.",
+  "name": "n1ghtdev.github.io",
+  "homepage": "https://n1ghtdev.github.io/",
+  "version": "1.1.1",
+  "description": "N1ghtdev's personal portfolio website.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Nickew/nickew.github.io"
+    "url": "git://github.com/n1ghtdev/n1ghtdev.github.io"
   },
   "scripts": {
     "lint": "eslint /src",
@@ -13,7 +13,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --disable-host-check --host 0.0.0.0 --config ./internals/webpack/webpack.dev.babel.js",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js"
   },
-  "author": "Nickew",
+  "author": "n1ghtdev",
   "license": "MIT",
   "pre-commit": "lint:staged",
   "dependencies": {
