@@ -6,7 +6,7 @@ import { device } from '../../../breakpoints';
 const StyledHomeSection = styled.section`
   position: relative;
   height: 100vh;
-  height: -webkit-fill-available;
+  height: calc(100vh - 30px);
   background-color: #1d3247;
   background-image: url(${headerImage});
   background-repeat: no-repeat;
