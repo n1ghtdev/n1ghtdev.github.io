@@ -61,23 +61,22 @@ const AboutSection = () => (
             FontStyle="italic"
             Margin="25px 0 0 0"
           >
-            things I know:
+            skills:
           </Paragraph>
 
           <Skills>
-            <Skills.Item>latest ECMA-specifications;</Skills.Item>
             <Skills.Item>responsive web design;</Skills.Item>
             <Skills.Item>
-              server & client communication (REST, graphql, websocket);
+              server & client communication;
             </Skills.Item>
-            <Skills.Item>js/react performance optimization;</Skills.Item>
+            <Skills.Item>web performance optimization;</Skills.Item>
             <Skills.Item>
-              javascript essentials - Closures, Hoisting, Scopes;
+              javascript essentials - closures, hoisting, scopes;
             </Skills.Item>
             <Skills.Item>
               back-end development (wp/php, node.js/express);
             </Skills.Item>
-            <Skills.Item>database design;</Skills.Item>
+            <Skills.Item>design database models;</Skills.Item>
             <Skills.Item>OOP, SOLID.</Skills.Item>
           </Skills>
           <Anim anim="shake" duration={1} delay={1} iterationCount="2">
