@@ -16,7 +16,6 @@ const propTypes = {
 const defaultProps = {
   FontSize: 'inherit',
   FontFamily: 'inherit',
-  Color: '#000',
   LineHeight: '1.5',
   textAlign: 'inherit',
 };
@@ -26,7 +25,7 @@ const Paragraph = styled.p`
   font-size: ${({ FontSize }) => FontSize};
   font-style: ${({ FontStyle }) => FontStyle};
   font-weight: ${({ FontWeight }) => FontWeight};
-  color: ${({ Color }) => Color};
+  color: ${({ Color, theme }) => Color || theme.textColor};
   line-height: ${({ LineHeight }) => LineHeight};
   text-align: ${({ textAlign }) => textAlign};
   margin: ${({ Margin }) => Margin};

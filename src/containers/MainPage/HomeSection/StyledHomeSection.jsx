@@ -6,8 +6,8 @@ import { device } from '../../../breakpoints';
 const StyledHomeSection = styled.section`
   position: relative;
   height: 100vh;
-  height: -webkit-fill-available;
-  background-color: #1d3247;
+  height: calc(100vh - 30px);
+  background-color: ${({ theme }) => theme.primaryColor};
   background-image: url(${headerImage});
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,13 +20,14 @@ const StyledHomeSection = styled.section`
     left: 0;
     top: 0;
     border-radius: inherit;
-    opacity: 0.75;
-    filter: contrast(115%);
-    background: linear-gradient(
+    /* opacity: 0.75; */
+    /* filter: contrast(115%); */
+    /* background: linear-gradient(
       180deg,
       rgba(17, 236, 131, 0.5) 0%,
       rgba(0, 94, 175, 0.5) 100%
-    );
+    ); */
+    background: ${({ theme }) => theme.primaryColor};
   }
   @media ${device.mobile} {
     border-top-left-radius: 0;

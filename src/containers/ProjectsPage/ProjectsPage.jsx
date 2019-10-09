@@ -18,8 +18,8 @@ const Wrapper = styled.div`
 const ProjectsPage = ({ projects }) => (
   <Wrapper>
     <Helmet>
-      <title>Projects - Nickew</title>
-      <meta property="og:title" content="Projects - Nickew's Portfolio" />
+      <title>Projects - n1ghtdev</title>
+      <meta property="og:title" content="Projects - n1ghtdev's Portfolio" />
     </Helmet>
     <HeaderSection />
     <Grid>

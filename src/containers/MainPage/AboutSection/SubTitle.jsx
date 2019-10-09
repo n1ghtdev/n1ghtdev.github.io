@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import Paragraph from '../../../components/Paragraph';
 import { device } from '../../../breakpoints';
 
-const StyledParagraph = styled(Paragraph)`
+const StyledParagraph = styled(Paragraph).attrs(props => ({
+  Color: props.theme.altSecondaryColor,
+}))`
   @media ${device.mobile} {
     font-size: 1.25rem;
     margin-top: 20px;
@@ -19,7 +21,6 @@ const SubTitle = ({ children }) => (
   <StyledParagraph
     LineHeight="1.35"
     FontSize="1.5rem"
-    Color="#fff"
     FontFamily="Merriweather"
     FontStyle="italic"
   >

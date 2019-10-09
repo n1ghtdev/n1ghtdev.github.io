@@ -20,10 +20,10 @@ const SingleProjectPage = ({ projects, match }) => {
   return (
     <Wrapper>
       <Helmet>
-        <title>{thisProject.title} - Nickew</title>
+        <title>{thisProject.title} - n1ghtdev</title>
         <meta
           property="og:title"
-          content={`${thisProject.title} - Nickew's Portfolio`}
+          content={`${thisProject.title} - n1ghtdev's Portfolio`}
         />
       </Helmet>
       <HeaderSection />

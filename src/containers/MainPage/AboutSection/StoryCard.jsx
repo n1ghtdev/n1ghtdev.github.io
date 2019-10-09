@@ -7,9 +7,9 @@ import { device } from '../../../breakpoints';
 
 const Wrapper = styled.div`
   position: relative;
-  height: 510px;
-  margin: 0 50px;
-  background-color: hsl(210, 100%, 27%);
+  /* height: 510px; */
+  margin: 0 25px;
+  background-color: ${({ theme }) => theme.altPrimaryColor};
   box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.15);
   @media ${device.mobile} {
     height: auto;
@@ -29,10 +29,11 @@ const Wrapper = styled.div`
 
 const Title = styled(H3)`
   position: absolute;
-  left: 0;
+  left: -50px;
   top: -25px;
-  width: 100%;
+  width: 110%;
   text-align: center;
+  color: ${({ theme }) => theme.secondaryColor};
   @media ${device.mobile} {
     left: 0;
     top: -15px;
@@ -50,7 +51,7 @@ const Title = styled(H3)`
 `;
 
 const Content = styled.div`
-  padding: 75px 10px 0 10px;
+  padding: 50px 10px 25px 10px;
   @media ${device.mobile} {
     padding: 50px 10px 20px 10px;
   }
@@ -66,8 +67,8 @@ const Content = styled.div`
   }
 `;
 
-const StyledParagraph = styled(Paragraph).attrs(() => ({
-  Color: '#fff',
+const StyledParagraph = styled(Paragraph).attrs(props => ({
+  Color: props.theme.textColor,
   FontFamily: 'Ubuntu Mono',
   Margin: '0 0 20px 0',
 }))`
@@ -77,7 +78,6 @@ const StyledParagraph = styled(Paragraph).attrs(() => ({
     font-size: 1rem;
   }
   @media ${device.desktop} {
-    padding: 0 20px;
   }
 `;
 

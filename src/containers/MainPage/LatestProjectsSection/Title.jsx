@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { H2 } from '../../../components/Headings';
 import { device } from '../../../breakpoints';
 
-const Title = styled(H2).attrs(() => ({
-  Color: '#000',
+const Title = styled(H2).attrs(props => ({
+  Color: props.theme.primaryColor,
   FontFamily: 'Merriweather',
   FontSize: '2rem',
   FontStyle: 'italic',

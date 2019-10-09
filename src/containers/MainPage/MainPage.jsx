@@ -23,15 +23,15 @@ class MainPage extends Component {
     return (
       <Wrapper>
         <Helmet>
-          <title>Nickew | Front End Developer</title>
-          <meta property="og:title" content="Nickew's Front End Portfolio" />
+          <title>n1ghtdev | Front End Developer</title>
+          <meta property="og:title" content="n1ghtdev's Front End Portfolio" />
           <meta
             property="og:description"
-            content="Portfolio of Front End Developer who's well experienced with React and JS in general."
+            content="Front-end developer portfolio."
           />
           <meta
             name="description"
-            content="Portfolio of Front End Developer who's well experienced with React and JS in general."
+            content="Front-end developer portfolio."
           />
         </Helmet>
         <HomeSection />

@@ -5,7 +5,7 @@ import { device } from '../../../breakpoints';
 
 const Skills = styled(List).attrs(() => ({
   FontSize: '1.125rem',
-  LineHeight: '1.5',
+  LineHeight: '1.7',
 }))`
   @media ${device.mobile} {
     font-size: 1rem;

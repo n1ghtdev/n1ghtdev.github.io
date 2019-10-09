@@ -11,7 +11,7 @@ const Terminal = styled.div`
   width: 100%;
   height: inherit;
   padding-top: 30px;
-  background-color: #001f31;
+  background-color: ${({ theme }) => theme.primaryColor};
   border-radius: 5px;
   @media ${device.mobile} {
     position: relative;

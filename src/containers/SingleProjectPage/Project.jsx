@@ -35,7 +35,7 @@ const InnerProjectContainer = ({ project }) => {
             </H2>
             <HR Color="#E5E5E5" />
             <Span Color="#999999">{date}</Span>
-            <Paragraph Margin="20px 0" FontFamily="Ubuntu" FontWeight="300">
+            <Paragraph Margin="20px 0" FontFamily="Ubuntu" FontWeight="300" Color="#212121">
               {description}
             </Paragraph>
             <HR Color="#E5E5E5" />
