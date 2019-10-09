@@ -5,7 +5,7 @@ import { device } from '../../../breakpoints';
 
 const Wrapper = styled.section`
   position: relative;
-  background-color: #11ec83;
+  background-color: ${({ theme }) => theme.secondaryColor};
   height: 650px;
   margin: 400px 30px 15px 0;
   @media ${device.mobile} {
@@ -26,7 +26,7 @@ const DecorationLine = styled.div`
   height: 210px;
   width: 5px;
   transform: translateX(-50%);
-  background-color: #11ec83;
+  background-color: ${({ theme }) => theme.secondaryColor};
   @media ${device.mobile} {
     display: none;
   }

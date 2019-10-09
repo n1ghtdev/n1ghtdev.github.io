@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import Logotype from './Logotype';
 import StyledHomeSection from './StyledHomeSection';
 import Title from './Title';
@@ -12,6 +14,10 @@ import Span from '../../../components/Span';
 import Scrolldown from './Scrolldown';
 
 import Socials from '../../Socials';
+
+const SecondarySpan = styled(Span)`
+  color: ${({ theme }) => theme.altSecondaryColor};
+`;
 
 const HomeSection = () => (
   <StyledHomeSection>
@@ -29,8 +35,16 @@ const HomeSection = () => (
           <Anim anim="bounceInRight" duration={0.75}>
             <SubTitle>
               who’s passionate about
-              <Span FontStyle="italic"> highly optimized </Span>and
-              <Span FontStyle="italic"> quality driven</Span> solutions
+              <SecondarySpan FontStyle="italic">
+                {' '}
+                highly optimized{' '}
+              </SecondarySpan>
+              and
+              <SecondarySpan FontStyle="italic">
+                {' '}
+                quality driven
+              </SecondarySpan>{' '}
+              solutions
             </SubTitle>
           </Anim>
           <Anim

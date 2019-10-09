@@ -29,20 +29,24 @@ const AboutSection = () => (
       </Row>
       <Row Padding="50px 0 0 0">
         <Col sm={12} lg={6}>
-          <StoryCard title="Nikita @ nickew">
+          <StoryCard title="Nikita @ n1ghtdev">
             <StoryCard.Paragraph>
-              I always had a passion to develop something, that’s why I went
-              studying software engineering. 2 years of learning object-oriented
-              programming and software architecturing while writing code in C#
-              got me bored. That’s where I started to think what can possibly
-              interest me. I remembered that back in middle school I was
-              creating websites with constructors like uCoz, and after a while
-              managed to copy (ripping) others uCoz websites designs and make
-              them as a templates.
-            </StoryCard.Paragraph>
-            <StoryCard.Paragraph>
-              So I thought maybe I should give a chance to web development...and
-              I did.
+              I always had a passion to create things, that’s why I went
+              studying programming. After 2 years of learning object-oriented
+              programming and software architecturing got me bored. By that time{' '}
+              {"I've"} done some projects with programming languages like C#,
+              Java - and did it pretty well but still wanted to try other things
+              that might be more enjoyable. Not gonna lie I chose front-end only
+              because I liked how it sounds furthermore I had already some
+              experience with web-dev back in middle school. At the beginning of
+              learning it was easy to follow just some html and css. At other
+              hand there is JavaScript - which is hard to learn without any
+              help. There was a time when I burned out because of many
+              unfamiliar tools which I was trying to use without even knowing
+              what they are for (it was webpack/redux/sagas). After a while I
+              did actually back to further learning and enjoyed every moment.
+              For now it not so enjoyable as it was but I kinda used to web-dev
+              already.
             </StoryCard.Paragraph>
           </StoryCard>
         </Col>
@@ -53,12 +57,11 @@ const AboutSection = () => (
           </SubTitle>
           <Paragraph
             FontSize="1.75rem"
-            Color="#fff"
             FontFamily="Merriweather"
             FontStyle="italic"
             Margin="25px 0 0 0"
           >
-            knowledge:
+            things I know:
           </Paragraph>
 
           <Skills>
@@ -80,10 +83,9 @@ const AboutSection = () => (
           <Anim anim="shake" duration={1} delay={1} iterationCount="2">
             <Paragraph
               FontSize="1.5rem"
-              Color="#fff"
               FontFamily="Merriweather"
               FontStyle="italic"
-              Margin="25px 0 10px 0"
+              Margin="60px 0 10px 0"
             >
               Currently looking for a local office job to gain real-world
               experience in development.

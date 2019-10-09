@@ -4,14 +4,16 @@ import styled from 'styled-components';
 import { device } from '../../../breakpoints';
 
 const Wrapper = styled.section`
+  color: ${({ theme }) => theme.altSecondaryColor};
   position: relative;
   height: auto;
   margin-top: 75px;
-  background-color: hsl(210, 100%, 20%);
+  background-color: ${({ theme }) => theme.primaryColor};
   border-radius: 5px;
   padding-bottom: 2rem;
   @media ${device.desktop} {
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 6rem;
   }
 `;
 
@@ -22,7 +24,7 @@ const DecorationLine = styled.div`
   height: 70px;
   width: 2px;
   transform: translateX(-50%);
-  background-color: hsl(210, 100%, 50%);
+  background-color: ${({ theme }) => theme.secondaryColor};
 `;
 
 const StyledAboutSection = ({ children }) => (

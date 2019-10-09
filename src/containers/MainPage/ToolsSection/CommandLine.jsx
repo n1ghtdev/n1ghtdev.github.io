@@ -19,7 +19,7 @@ const Item = styled(Span)`
 
 const CommandLine = ({ user, path, children }) => (
   <Wrapper>
-    <Item Color="#11ec83">{user}</Item>
+    <Item Color="#E6E600">{user}</Item>
     <Item Color="#fff">:</Item>
     <Item Color="#3050fa">{path}</Item>
     <Item Color="#fff">$</Item>

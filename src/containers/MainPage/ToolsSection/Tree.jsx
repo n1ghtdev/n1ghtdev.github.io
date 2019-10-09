@@ -54,8 +54,8 @@ const RootFolder = styled.div`
   }
 `;
 const RootFolderName = styled.span`
-  background-color: #11ec83;
-  color: #001f31;
+  background-color: ${({ theme }) => theme.secondaryColor};
+  color: ${({ theme }) => theme.primaryColor};
   @media ${device.mobile} {
     display: none;
   }
@@ -98,8 +98,8 @@ const DeepFolder = styled.div`
   }
 `;
 const DeepFolderName = styled.span`
-  background-color: #11ec83;
-  color: #001f31;
+  background-color: ${({ theme }) => theme.secondaryColor};
+  color: ${({ theme }) => theme.primaryColor};
 `;
 const DeepFolderList = styled.ul`
   padding-left: 55px;
