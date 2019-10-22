@@ -77,7 +77,7 @@
         "name": "pgAdmin"
       }
     ],
-    "sourceLink": "https://github.com/Nickew/Encode",
+    "sourceLink": "https://github.com/n1ghtdev/Encode",
     "demoLink": "https://encode-app.herokuapp.com/"
   },
   {
@@ -153,7 +153,7 @@
         "name": "postman"
       }
     ],
-    "sourceLink": "https://github.com/Nickew/weather-web-app"
+    "sourceLink": "https://github.com/n1ghtdev/weather-web-app"
   },
   {
     "id": 2,
@@ -206,6 +206,6 @@
         "name": "node-sass"
       }
     ],
-    "sourceLink": "https://github.com/Nickew/html-weather-app"
+    "sourceLink": "https://github.com/n1ghtdev/html-weather-app"
   }
 ]

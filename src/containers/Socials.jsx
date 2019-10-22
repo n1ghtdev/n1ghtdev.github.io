@@ -29,7 +29,7 @@ const SocialsList = () => (
       facebook
     </NavItem>
     <NavItem
-      href="https://github.com/Nickew"
+      href="https://github.com/n1ghtdev"
       title="My github page"
       target="_blank"
       rel="noopener"
