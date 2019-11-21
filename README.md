@@ -1,15 +1,10 @@
 ## Nickew's portfolio-website
 
-<a href="https://i.imgur.com/vRWm1U2.jpg"><img src="https://i.imgur.com/vRWm1U2.jpg" style="border-radius: 5px" /></a>
-
 ### Tools
 
-- react v16.7
-- react-waypoints
-- react-typist
-- react-router v5
-- webpack v4
-- styled-components v4
+- react 17.0.0-experimental
+- react-router 5
+- styled-components 4
 
 ### License
 
