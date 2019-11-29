@@ -1,21 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
-import A, { AProps } from './A';
+import styled, { css } from 'styled-components';
 
-type NavMenuItemProps = AProps & { active?: boolean };
+type NavMenuProps = {
+  active?: boolean;
+  children: any;
+};
 
-const Nav = styled.nav``;
-const List = styled.ul`
+export const NavMenu = styled.ul`
+  margin-right: -25px;
   list-style-type: none;
   display: flex;
 `;
-const Item = styled.li`
-  font-weight: bold;
-  font-size: 14px;
-  width: 265px;
-  ${({ theme, active }: NavMenuItemProps & { theme: any }) =>
+
+export const VerticalNavMenu = styled.ul`
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  list-style-type: none;
+`;
+
+const ItemActiveStyles = css`
+  ${({ theme, active }: NavMenuProps & { theme: any }) =>
     active &&
     `
+    opacity: 1;
     &:after {
       content: '';
       margin-left: 5px;
@@ -28,16 +36,37 @@ const Item = styled.li`
   `}
 `;
 
-export const NavMenu = ({ children }: { children: any }) => {
-  return (
-    <Nav>
-      <List>{children}</List>
-    </Nav>
-  );
-};
+const VerticalItem = styled.li`
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  opacity: 0.5;
+  & > a {
+    padding: 15px 0;
+  }
+  ${ItemActiveStyles};
+  &:after {
+    margin-bottom: 3px;
+    margin-left: 8px;
+  }
+`;
 
-export const NavMenuItem = (props: NavMenuItemProps) => (
-  <Item active={props.active}>
-    <A to={props.to}>{props.children}</A>
-  </Item>
+const Item = styled.li`
+  font-weight: bold;
+  font-size: 14px;
+  width: 280px;
+  & > a {
+    padding: 15px 0;
+    display: inline-block;
+  }
+  ${ItemActiveStyles};
+`;
+
+export const NavMenuItem = (props: NavMenuProps) => (
+  <Item active={props.active}>{props.children}</Item>
+);
+
+export const VerticalNavMenuItem = (props: NavMenuProps) => (
+  <VerticalItem active={props.active}>{props.children}</VerticalItem>
 );

@@ -1,7 +1,6 @@
 html {
   height: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -13,11 +12,42 @@ html {
   box-sizing: inherit;
 }
 
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+
+  &--dot {
+    width: 8px;
+    height: 8px;
+    left: -4px;
+    top: -4px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: #fff;
+  }
+  &--canvas {
+    transition: transform 250ms;
+    display: block;
+    z-index: 12000;
+  }
+}
+
 html,
 body {
-  height: 100%;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+* {
+  cursor: none;
 }
 
 img {
@@ -27,7 +57,19 @@ img {
 }
 
 #app {
-  height: 100%;
+  position: relative;
+}
+.slick-slider {
+  display: block;
+}
+.slick-track {
+  display: flex;
+}
+.slick-list {
+  overflow: hidden;
+}
+.slick-slide {
+  height: unset;
 }
 
 /* selection */
