@@ -4,13 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import * as serviceWorker from './serviceWorker';
-import Routes from './routes';
+import Routes from './pages';
 import theme from './theme';
-import Lines from './views/Lines';
+import Lines from './components/Lines';
+import Cursor from './components/Cursor';
+
 /* Global styles */
-import './assets/reset.scss';
-import './assets/base.scss';
-import Cursor from './views/Cursor';
+import './assets/css/reset.scss';
+import './assets/css/base.scss';
 
 const MOUNT_NODE = document.getElementById('app');
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import lerp from '../../utils/lerp';
+import lerp from '../utils/lerp';
 import { debounce } from 'throttle-debounce';
 
 type CursorOptions = {

@@ -8,17 +8,6 @@ export type IModal = {
   closeModal: () => void;
 };
 
-export const useModal = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-  return {
-    isOpen,
-    openModal,
-    closeModal,
-  };
-};
-
 const Overlay = styled.div`
   position: fixed;
   width: 100%;
