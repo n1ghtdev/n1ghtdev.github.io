@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-
 import * as serviceWorker from './serviceWorker';
 import Routes from './pages';
 import theme from './theme';
 import Lines from './components/Lines';
 import Cursor from './components/Cursor';
+import FirebaseProvider from './modules/Firebase';
 
 /* Global styles */
 import './assets/css/reset.scss';
@@ -17,18 +17,18 @@ const MOUNT_NODE = document.getElementById('app');
 
 const App = () => {
   return (
-    <>
+    <FirebaseProvider>
       <Routes />
       <Cursor />
-    </>
+    </FirebaseProvider>
   );
 };
 
 const GlobalStyles = createGlobalStyle`
   body {
     ${({ bgColor, Color }: { bgColor: string; Color: string }) => `
-      background-color: ${bgColor || '#fff'};
-      color: ${Color || '#fff'};
+      background-color: ${bgColor};
+      color: ${Color};
       `}
     background-image: url('https://i.imgur.com/wwh7nDp.png');
     background-repeat: no-repeat;
