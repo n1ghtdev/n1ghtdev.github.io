@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Project from './Project';
 import useModal from '../hooks/useModal';
+import useProject from '../hooks/useProject';
 
 const ProjectModal = React.lazy(() => import('./ProjectModal'));
 
@@ -33,11 +34,12 @@ const Wrapper = styled.div`
 const Projects = (props: ProjectsProps) => {
   const { isOpen, openModal, closeModal } = useModal();
   const [currentProject, setCurrentProject] = React.useState<number>(0);
-
+  const { data, loading, error } = useProject(67);
   const filteredProjects = props.projects.filter(
     (project: any) =>
       project.type === props.filter && project.year === props.year,
   );
+  console.log(data);
   return (
     <Wrapper>
       {filteredProjects.map((project: any) => (
