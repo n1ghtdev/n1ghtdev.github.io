@@ -47,7 +47,7 @@ const Gallery = (props: GalleryProps) => {
       setSecondarySlider(secondarySliderRef.current);
     }
   }, []);
-
+  if (!props.gallery) return <Wrapper />;
   return (
     <Wrapper>
       <MainSlides>
