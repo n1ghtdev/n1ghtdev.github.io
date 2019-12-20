@@ -1,12 +1,14 @@
 import React from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { Modal, IModal } from '../Modal';
+import { Modal } from '../Modal';
 import Container from '../Container';
 import DemoIcon from '../../assets/svg/demo.svg';
 import Gallery from './Gallery';
-
 import ToolsIcons from '../../assets/svg/tools-icons.svg';
-
+import useProject from '../../hooks/useProject';
+import { getProjectById } from '../../store/selectors';
+import { useStore } from '../../store';
 type ProjectModalProps = {
   projectId: number | string;
 };
@@ -22,6 +24,7 @@ const Content = styled.div`
   padding: 50px 25px 35px 0;
   display: flex;
   flex-flow: nowrap column;
+  width: 100%;
 `;
 
 const ModalContainer = styled(Container)`
@@ -35,7 +38,22 @@ const ModalContainer = styled(Container)`
 const Description = styled.div`
   flex: 1;
   max-height: 500px;
+  padding-right: 10px;
   overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #22222a;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #22222a;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d66853;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -47,29 +65,14 @@ const Title = styled.h3`
   margin-bottom: 16px;
 `;
 
-const testData = {
-  id: 0,
-  title: 'Example test project #1',
-  desc:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde.Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde.Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde.Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde.Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde. Lorem ipsum dolor sit amet consectetur adipisicing elit.Quae eveniet magnam, eius aut dolorem laboriosam doloremque quibusdam, illum quasi blanditiis porro quisquam omnis quo unde.',
-  img: [
-    'https://i.imgur.com/FqRFkkq.jpg',
-    'https://via.placeholder.com/1920x2000',
-    'https://via.placeholder.com/636x555',
-    'https://via.placeholder.com/979x755',
-  ],
-  type: 'projects',
-  year: '2019',
-  demo: '#website',
-  code: '#',
-  tools: ['react', 'redux', 'redux-saga', 'webpack', 'nodejs'],
-};
-
 const Buttons = styled.div`
   display: flex;
   max-width: 180px;
   width: 100%;
   justify-content: space-between;
+  align-self: center;
+  position: absolute;
+  bottom: 35px;
 `;
 
 const SourceButton = styled.a`
@@ -96,29 +99,37 @@ const DemoButton = styled.a`
   }
 `;
 
-const ProjectModal = (props: ProjectModalProps & IModal) => {
+const ProjectModal = (props: any) => {
+  const history = useHistory();
+  const { id } = useParams<{ id: string }>();
+  const { state } = useStore();
+  const data = getProjectById(state, id);
+
+  const closeModal = (e: any) => {
+    e.stopPropagation();
+    history.push('/');
+  };
   return (
-    <Modal closeModal={props.closeModal} isOpen={props.isOpen}>
+    <Modal closeModal={closeModal}>
       <ModalContainer>
         <Wrapper>
-          <Gallery gallery={testData.img} />
+          <Gallery gallery={data?.images} />
           <Content>
-            <Title>{testData.title}</Title>
-            <Description>
-              <Paragraph>{testData.desc}</Paragraph>
-            </Description>
-            <div
-              style={{ display: 'flex', height: '100px', marginTop: '50px' }}
-            >
-              {testData.tools.map(tool => (
+            <Title>{data?.title}</Title>
+            {/* <div style={{ display: 'flex', marginBottom: '10px' }}>
+              {data?.tools.map(tool => (
                 <svg style={{ width: '75px', height: '40px' }}>
                   <use xlinkHref={`${ToolsIcons}#${tool}`} />
                 </svg>
               ))}
-            </div>
+            </div> */}
+            <Description>
+              <Paragraph>{data?.description}</Paragraph>
+            </Description>
+
             <Buttons>
-              <DemoButton href={testData.demo}>demo</DemoButton>
-              <SourceButton href={testData.code}>code</SourceButton>
+              <DemoButton href={data?.demo}>demo</DemoButton>
+              <SourceButton href={data?.code}>code</SourceButton>
             </Buttons>
           </Content>
         </Wrapper>

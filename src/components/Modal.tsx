@@ -4,8 +4,7 @@ import styled from 'styled-components';
 
 export type IModal = {
   children?: any;
-  isOpen: boolean;
-  closeModal: () => void;
+  closeModal: (e: React.MouseEvent<HTMLElement>) => void;
 };
 
 const Overlay = styled.div`
@@ -38,7 +37,7 @@ export const Modal = (props: IModal) => {
       ref={ref}
       onClick={(e: any): void => {
         if (e.target === ref.current) {
-          props.closeModal();
+          props.closeModal(e);
         }
       }}
     >

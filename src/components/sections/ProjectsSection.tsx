@@ -6,155 +6,6 @@ import Projects from '../Projects';
 import Container from '../Container';
 import { VerticalNavMenu, VerticalNavMenuItem } from '../NavMenu';
 import A from '../A';
-const testData = [
-  {
-    id: 0,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2019',
-  },
-  {
-    id: 1,
-    title: 'project 2',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2019',
-  },
-  {
-    id: 2,
-    title: 'project 3',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2019',
-  },
-  {
-    id: 3,
-    title: 'project 4',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2019',
-  },
-  {
-    id: 4,
-    title: 'project 5',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 5,
-    title: 'project 6',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 6,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'experiments',
-    year: '2019',
-  },
-  {
-    id: 7,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'experiments',
-    year: '2017',
-  },
-  {
-    id: 8,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'experiments',
-    year: '2018',
-  },
-  {
-    id: 9,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2019',
-  },
-  {
-    id: 10,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 11,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 12,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 13,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 14,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2018',
-  },
-  {
-    id: 15,
-    title: 'project 1',
-    img: 'https://via.placeholder.com/636x555',
-    type: 'projects',
-    year: '2017',
-  },
-  {
-    id: 16,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2017',
-  },
-  {
-    id: 17,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2017',
-  },
-  {
-    id: 18,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2017',
-  },
-  {
-    id: 19,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2017',
-  },
-  {
-    id: 20,
-    title: 'project 1',
-    img: 'https://i.imgur.com/FqRFkkq.jpg',
-    type: 'projects',
-    year: '2017',
-  },
-];
 
 // reusable
 const Wrapper = styled.section`
@@ -173,7 +24,7 @@ const NavWrapper = styled.nav`
 `;
 
 const ProjectsSection = () => {
-  const [filter, setFilter] = React.useState('projects');
+  const [filter, setFilter] = React.useState('project');
   const [year, setYear] = React.useState('2019');
 
   React.useEffect(() => {
@@ -188,11 +39,11 @@ const ProjectsSection = () => {
       <FlexContainer id="sticky-parent">
         <NavWrapper id="sticky">
           <VerticalNavMenu>
-            <VerticalNavMenuItem active={filter === 'projects' && true}>
-              <A onClick={() => setFilter('projects')}>projects</A>
+            <VerticalNavMenuItem active={filter === 'project' && true}>
+              <A onClick={() => setFilter('project')}>projects</A>
             </VerticalNavMenuItem>
-            <VerticalNavMenuItem active={filter === 'experiments' && true}>
-              <A onClick={() => setFilter('experiments')}>experiments</A>
+            <VerticalNavMenuItem active={filter === 'experiment' && true}>
+              <A onClick={() => setFilter('experiment')}>experiments</A>
             </VerticalNavMenuItem>
           </VerticalNavMenu>
           <VerticalNavMenu>
@@ -207,7 +58,7 @@ const ProjectsSection = () => {
             </VerticalNavMenuItem>
           </VerticalNavMenu>
         </NavWrapper>
-        <Projects projects={testData} filter={filter} year={year} />
+        <Projects filter={filter} year={year} />
       </FlexContainer>
     </Wrapper>
   );

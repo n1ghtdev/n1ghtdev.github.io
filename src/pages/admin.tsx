@@ -1,73 +1,6 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { FirebaseContext } from '../modules/Firebase';
-import styled from 'styled-components';
-import Container from '../components/Container';
-import DemoIcon from '../assets/svg/demo.svg';
-import Gallery from '../components/ProjectModal/Gallery';
 
-import ToolsIcons from '../assets/svg/tools-icons.svg';
-const Wrapper = styled.div`
-  display: flex;
-  background-color: ${({ theme }: { theme: any }) => theme.modalBg};
-  color: ${({ theme }: { theme: any }) => theme.modalText};
-  width: calc(100% - 17px);
-`;
-
-const Content = styled.div`
-  padding: 50px 25px 35px 0;
-  display: flex;
-  flex-flow: nowrap column;
-  width: 32%;
-`;
-
-const ModalContainer = styled(Container)`
-  height: 800px;
-`;
-
-const Description = styled.div`
-  flex: 1;
-  max-height: 500px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-`;
-
-const Paragraph = styled.p`
-  line-height: 26px;
-`;
-const Buttons = styled.div`
-  display: flex;
-  max-width: 180px;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-const SourceButton = styled.a`
-  color: #fff;
-  text-decoration: none;
-  &:before {
-    content: '</>';
-    margin-right: 10px;
-    font-size: 14px;
-  }
-`;
-
-const DemoButton = styled.a`
-  color: #fff;
-  text-decoration: none;
-  margin-right: 30px;
-  &:before {
-    content: '';
-    background: url(${DemoIcon}) no-repeat;
-    margin-right: 10px;
-    width: 20px;
-    height: 12px;
-    display: inline-block;
-  }
-`;
-const Title = styled.h3`
-  font-size: 24px;
-  margin-bottom: 16px;
-`;
 const useForm = (cb: any) => {
   const [inputs, setInputs] = React.useState({});
 
@@ -92,38 +25,76 @@ const useForm = (cb: any) => {
   };
 };
 
+// TODO: add Antd for form design
 const Admin = () => {
   const { firebaseDB, storage }: any = React.useContext(FirebaseContext);
-  const [images, setImages] = React.useState();
-  const [imagesLinks, setImagesLinks] = React.useState();
-  const uploadImages = (event: ChangeEvent<HTMLElement>) => {
+  // figure out how to upload poster and images in upload function
+  // probably should pass arg to upload images or poster and then to req
+  // or merge two and make as one req
+
+  // save file to ref instead of state, we don't need to update ui on file uploads
+  const imagesRef: any = React.useRef();
+  const posterRef: any = React.useRef();
+
+  // const [imagesLinks, setImagesLinks] = React.useState();
+
+  // uploads images from input to state images
+  const uploadImages = (event: React.ChangeEvent<HTMLElement>) => {
     const eventTarget = event.target as HTMLInputElement;
-    setImages(eventTarget.files);
+
+    if (eventTarget.name === 'poster') {
+      posterRef.current = eventTarget.files && eventTarget.files[0];
+    } else if (eventTarget.name === 'images') {
+      imagesRef.current = eventTarget.files;
+    }
   };
-  const upload = async () => {
-    const putImageInStorage = (item: any) => {
-      return storage
+  // uploads images to firebase storage from images state (which is Files selected with input type file)
+  // TODO: change function return type to anything but Promise
+  // ...(because function return already resolved value)
+  const uploadImagesToStorage = async (
+    poster: File,
+    images: FileList,
+  ): Promise<any> => {
+    // TODO: move thif function to separate file firebase.tsx / utils
+
+    // TODO: handle error somewhere
+    if (!poster || !images)
+      throw new Error(
+        'poster and images cannot be empty, please pass poster as single File and images as FileList',
+      );
+
+    // form array of promises
+    const promises = [poster, ...Object.values(images)].map(async item => {
+      const response = await storage
         .ref(item.name)
         .put(item)
         .then((snapshot: any) => snapshot.ref.getDownloadURL());
-    };
+      return response;
+    });
 
-    const [...rest] = await Promise.all(
-      Object.values(images).map((item: any) => putImageInStorage(item)),
-    );
-    setImagesLinks(rest);
-    return rest;
+    // define first resolved promise as posterURL and rest will be images
+    const [posterURL, ...rest] = await Promise.all(promises);
+
+    // return as array for custom namings
+    return [posterURL, rest];
   };
+  // firebase test method which uploads inputs to db fb
   const addProject = async () => {
-    //'2019-12-29'.split('-').reverse().join('.')
-    const imgs = images ? await upload() : null;
+    const [poster, images] = await uploadImagesToStorage(
+      posterRef.current,
+      imagesRef.current,
+    );
+
     const dbRef = firebaseDB.ref('/projects');
+
     try {
-      await dbRef.push({ ...inputs, images: imgs });
+      await dbRef.push({ ...inputs, poster, images, type: 'project' });
     } catch (error) {
       console.error(error);
     }
   };
+
+  // custom hook for form controlled inputs
   const { inputs, onSubmit, onChange }: any = useForm(addProject);
 
   return (
@@ -204,6 +175,17 @@ const Admin = () => {
             name="code"
             onChange={onChange}
             value={inputs.code}
+          />
+        </div>
+        <div>
+          <label htmlFor="poster" style={{ display: 'block' }}>
+            Poster
+          </label>
+          <input
+            type="file"
+            id="poster"
+            name="poster"
+            onChange={uploadImages}
           />
         </div>
         <div>

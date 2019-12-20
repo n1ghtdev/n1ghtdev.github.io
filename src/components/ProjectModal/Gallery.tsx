@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 
 type GalleryProps = {
-  gallery: Array<string>;
+  gallery?: string[];
 };
 
 const Wrapper = styled.div`
@@ -12,10 +12,14 @@ const Wrapper = styled.div`
 `;
 const ThumbSlides = styled.div``;
 const ThumbSlide = styled.div`
+  width: 100%;
+  height: 176px;
+  background-color: grey;
+  border-radius: 5px;
   & > img {
+    height: 100%;
     width: 100%;
-    height: 176px;
-    border-radius: 5px;
+    border-radius: inherit;
     object-fit: cover;
   }
 `;
@@ -26,10 +30,15 @@ const MainSlides = styled.div`
 `;
 
 const MainSlide = styled.div`
+  width: 100%;
+  height: 560px;
+  background-color: grey;
+  border-radius: 5px;
+
   & > img {
+    height: 100%;
     width: 100%;
-    height: 560px;
-    border-radius: 5px;
+    border-radius: inherit;
     object-fit: cover;
   }
 `;
@@ -47,7 +56,9 @@ const Gallery = (props: GalleryProps) => {
       setSecondarySlider(secondarySliderRef.current);
     }
   }, []);
-  if (!props.gallery) return <Wrapper />;
+  // if (props.gallery) return null;
+  // if (!props.gallery) return <Wrapper />;
+  const gallery: string[] = props.gallery || ['', '', ''];
   return (
     <Wrapper>
       <MainSlides>
@@ -59,11 +70,15 @@ const Gallery = (props: GalleryProps) => {
           fade={true}
           infinite={false}
         >
-          {props.gallery.map((item, i) => (
-            <MainSlide key={i}>
-              <img src={item} alt="test" />
-            </MainSlide>
-          ))}
+          {gallery.map((item, i) =>
+            item ? (
+              <MainSlide key={i}>
+                <img src={item} alt="test" />
+              </MainSlide>
+            ) : (
+              <MainSlide key={i}></MainSlide>
+            ),
+          )}
         </Slider>
       </MainSlides>
       <ThumbSlides>
@@ -75,11 +90,15 @@ const Gallery = (props: GalleryProps) => {
           focusOnSelect={true}
           infinite={false}
         >
-          {props.gallery.map((item, i) => (
-            <ThumbSlide key={i}>
-              <img src={item} alt="test" />
-            </ThumbSlide>
-          ))}
+          {gallery.map((item, i) =>
+            item ? (
+              <ThumbSlide key={i}>
+                <img src={item} alt="test" />
+              </ThumbSlide>
+            ) : (
+              <ThumbSlide key={i}></ThumbSlide>
+            ),
+          )}
         </Slider>
       </ThumbSlides>
     </Wrapper>

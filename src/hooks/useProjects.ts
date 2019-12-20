@@ -1,34 +1,42 @@
 import React from 'react';
 import { FirebaseContext } from '../modules/Firebase';
+import { useStore } from '../store';
+import {
+  fetchRequest,
+  fetchSuccess,
+  fetchFailure,
+} from '../store/actions/projectActions';
 
-const useProjects = (orderBy: string, orderByValue: string) => {
+// utility function adds object key to object as property
+// ex. [{key: {}}] -> [{id: key}]
+const setObjectKeyAsProperty = (pair: any) => ({ id: pair[0], ...pair[1] });
+
+const useProjects = () => {
   const { firebaseDB }: any = React.useContext(FirebaseContext);
-  const [data, setData] = React.useState(null);
-  const [error, setError] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
+  const { state, dispatch } = useStore();
 
   React.useEffect(() => {
-    const eventRef = firebaseDB.ref('/projects').orderByChild(orderBy).equalTo(orderByValue);
-    const readProjects = async () => {
+    const projectsRef = firebaseDB.ref('/projects');
+
+    const getProjects = async () => {
+      dispatch(fetchRequest());
+
       try {
-        setLoading(true);
-        const snapshot = await eventRef.once('value');
-        setData(snapshot.val());
-        setLoading(false);
+        const response = await projectsRef.once('value');
+
+        dispatch(
+          fetchSuccess(
+            Object.entries(response.val()).map(setObjectKeyAsProperty),
+          ),
+        );
       } catch (error) {
-        setError(error);
-        setLoading(false);
+        dispatch(fetchFailure(error));
       }
-
-      // await eventRef.push({ a: 'a', b: 'qwe' });
-
-
     };
+    getProjects();
+  }, [dispatch, firebaseDB]);
 
-    readProjects();
-  }, []);
-
-  return { data, error, loading };
+  return { ...state };
 };
 
 export default useProjects;

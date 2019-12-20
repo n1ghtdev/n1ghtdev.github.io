@@ -1,13 +1,10 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Project from './Project';
-import useModal from '../hooks/useModal';
 import useProjects from '../hooks/useProjects';
 
-const ProjectModal = React.lazy(() => import('./ProjectModal'));
-
 type ProjectsProps = {
-  projects: Array<object>;
   filter: string;
   year: string;
 };
@@ -32,36 +29,28 @@ const Wrapper = styled.div`
 `;
 
 const Projects = (props: ProjectsProps) => {
-  const { isOpen, openModal, closeModal } = useModal();
-  const [currentProject, setCurrentProject] = React.useState<number>(0);
-  const { data, loading, error } = useProjects('year', props.year);
-  const filteredProjects = props.projects.filter(
+  const location = useLocation();
+  const { projects, loading, error } = useProjects();
+
+  if (loading) return <Wrapper />;
+
+  const filteredProjects: any = projects.filter(
     (project: any) =>
       project.type === props.filter && project.year === props.year,
   );
-  console.log(data);
   return (
     <Wrapper>
       {filteredProjects.map((project: any) => (
-        <Project
+        <Link
           key={project.id}
-          onClick={() => {
-            setCurrentProject(project.id);
-            openModal();
+          to={{
+            pathname: `/projects/${project.id}`,
+            state: { modal: location },
           }}
-          title={project.title}
-          img={project.img}
-        />
+        >
+          <Project title={project.title} img={project.poster} />
+        </Link>
       ))}
-      {isOpen ? (
-        <React.Suspense fallback={<div>LOADING...</div>}>
-          <ProjectModal
-            projectId={currentProject}
-            isOpen={isOpen}
-            closeModal={closeModal}
-          />
-        </React.Suspense>
-      ) : null}
     </Wrapper>
   );
 };

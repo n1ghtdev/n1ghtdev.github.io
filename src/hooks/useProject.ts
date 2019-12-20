@@ -1,10 +1,11 @@
 import React from 'react';
 import { FirebaseContext } from '../modules/Firebase';
+import { IProject } from '../types/ProjectTypes';
 
-const useProject = (projectId: number | string) => {
+const useProject = (projectId: number | string): { data: IProject, error: boolean, loading: boolean } => {
   const { firebaseDB }: any = React.useContext(FirebaseContext);
-  const [data, setData] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [data, setData] = React.useState();
+  const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
@@ -17,7 +18,8 @@ const useProject = (projectId: number | string) => {
         setData(snapshot.val());
         setLoading(false);
       } catch (error) {
-        setError(error);
+        console.error(error)
+        setError(true);
         setLoading(false);
       }
     };

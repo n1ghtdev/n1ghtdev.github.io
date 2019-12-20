@@ -8,6 +8,7 @@ import theme from './theme';
 import Lines from './components/Lines';
 import Cursor from './components/Cursor';
 import FirebaseProvider from './modules/Firebase';
+import { StoreProvider } from './store';
 
 /* Global styles */
 import './assets/css/reset.scss';
@@ -18,8 +19,10 @@ const MOUNT_NODE = document.getElementById('app');
 const App = () => {
   return (
     <FirebaseProvider>
-      <Routes />
-      <Cursor />
+      <StoreProvider>
+        <Routes />
+        <Cursor />
+      </StoreProvider>
     </FirebaseProvider>
   );
 };

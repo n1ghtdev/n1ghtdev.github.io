@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 type ProjectProps = {
-  onClick: () => void;
   img: string;
   title: string;
 };
@@ -25,7 +24,7 @@ const Image = styled.img`
 
 const Project = (props: ProjectProps) => {
   return (
-    <Wrapper onClick={props.onClick}>
+    <Wrapper>
       <Image src={props.img} alt={props.title} />
     </Wrapper>
   );
