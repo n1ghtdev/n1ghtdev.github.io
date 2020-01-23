@@ -9,18 +9,29 @@
     "url": "git://github.com/n1ghtdev/n1ghtdev.github.io"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
   },
   "author": "n1ghtdev",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^7.5.0",
-    "react": "0.0.0-experimental-b53ea6ca0",
-    "react-dom": "0.0.0-experimental-b53ea6ca0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "gatsby": "^2.19.1",
+    "gatsby-image": "^2.2.39",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-styled-components": "^3.1.18",
+    "gatsby-plugin-typescript": "^2.1.26",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-remark-images": "^3.1.42",
+    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-remark": "^2.6.48",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.0",
-    "react-router-dom": "^5.1.2",
     "react-slick": "^0.25.2",
     "react-waypoint": "^9.0.2",
     "stickybits": "^3.7.0",
@@ -36,14 +47,18 @@
     "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^4.4.0",
     "@types/throttle-debounce": "^2.1.0",
-    "babel-plugin-styled-components": "^1.8.0",
-    "eslint": "^6.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "node-sass": "^4.13.0",
-    "react-scripts": "^3.3.0",
     "typescript": "^3.7.2"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [

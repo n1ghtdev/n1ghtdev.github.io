@@ -1,5 +1,3 @@
-## Nickew's portfolio-website
-
 ### Tools
 
 - react 17.0.0-experimental
