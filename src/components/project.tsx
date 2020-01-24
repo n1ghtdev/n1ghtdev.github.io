@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import GithubIcon from './assets/github';
 import ExternalIcon from './assets/external';
 
+import { fadeInDownShort, fadeInUpShort } from '../styles/animations';
+
 type ProjectProps = {
   title: string;
   description: string;
@@ -19,6 +21,18 @@ const Wrapper = styled.article`
   background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
   padding: 20px;
   border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  animation: ${fadeInUpShort} 250ms forwards linear;
+  animation-delay: 500ms;
+  opacity: 0;
+  &:nth-child(2n) {
+    animation: ${fadeInDownShort} 250ms forwards linear;
+    animation-delay: 500ms;
+    opacity: 0;
+  }
 `;
 const Content = styled.header`
   margin-bottom: 15px;

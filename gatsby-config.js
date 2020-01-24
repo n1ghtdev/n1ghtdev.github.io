@@ -3,6 +3,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-typescript-checker',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

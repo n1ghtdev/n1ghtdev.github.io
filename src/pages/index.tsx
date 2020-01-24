@@ -7,17 +7,13 @@ import Projects from '../components/sections/projects';
 
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }) => {
-  console.log(data);
-
-  return (
-    <Layout>
-      <Hero />
-      <Featured data={data.featured.edges} />
-      <Projects data={data.projects.edges} />
-    </Layout>
-  );
-};
+const IndexPage = ({ data }) => (
+  <Layout>
+    <Hero />
+    <Featured data={data.featured.edges} />
+    <Projects data={data.projects.edges} />
+  </Layout>
+);
 
 export default IndexPage;
 

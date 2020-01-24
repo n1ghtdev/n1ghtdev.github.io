@@ -31,9 +31,23 @@ const ItemActiveStyles = css`
 const Item = styled.li`
   font-weight: bold;
   font-size: 14px;
-  margin-right: 40px;
+  margin-right: 30px;
   & > a {
     display: inline-block;
+    transition: opacity 250ms;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &:not(:first-child):before {
+    content: '';
+    display: inline-block;
+    width: 35px;
+    margin-right: 7px;
+    height: 1px;
+    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+    opacity: 0.5;
+    vertical-align: middle;
   }
   ${ItemActiveStyles};
 `;

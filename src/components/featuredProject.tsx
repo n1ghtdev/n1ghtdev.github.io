@@ -1,9 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import useInView from '../hooks/useInView';
 
 import GithubIcon from './assets/github';
 import ExternalIcon from './assets/external';
+
+import {
+  fadeInRightShort,
+  fadeInLeftShort,
+  fadeInUpShort,
+} from '../styles/animations';
 
 type ProjectProps = {
   img: string;
@@ -16,9 +23,13 @@ type ProjectProps = {
 };
 
 const Wrapper = styled.article`
+  height: 320px;
+  margin-bottom: 120px;
+`;
+
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  margin-bottom: 120px;
 `;
 
 const ImageWrapper = styled.a`
@@ -27,9 +38,28 @@ const ImageWrapper = styled.a`
   position: relative;
   display: block;
   cursor: pointer;
+  animation: ${fadeInRightShort} 250ms forwards linear;
 
   ${Wrapper}:nth-child(2n) & {
     grid-column: 6/-1;
+    animation: ${fadeInLeftShort} 250ms forwards linear;
+  }
+`;
+
+const Content = styled.div`
+  grid-column: 7/-1;
+  grid-row: 1/-1;
+  text-align: right;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  animation: ${fadeInUpShort} 250ms forwards linear;
+
+  ${Wrapper}:nth-child(2n) & {
+    grid-column: 1/7;
+    text-align: left;
+    align-items: flex-start;
   }
 `;
 
@@ -60,22 +90,6 @@ const Image = styled.img`
 
   ${ImageWrapper}:hover & {
     filter: grayscale(0);
-  }
-`;
-
-const Content = styled.div`
-  grid-column: 7/-1;
-  grid-row: 1/-1;
-  text-align: right;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: flex-end;
-
-  ${Wrapper}:nth-child(2n) & {
-    grid-column: 1/7;
-    text-align: left;
-    align-items: flex-start;
   }
 `;
 
@@ -144,38 +158,45 @@ const LinkWrapper = styled.div`
 `;
 
 const FeaturedProject = (props: ProjectProps) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { threshold: 0.5 });
+
   return (
-    <Wrapper>
-      <ImageWrapper
-        href={props.external}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <ImageOverlay />
-        <Image src={props.img} alt={props.title} />
-      </ImageWrapper>
-      <Content>
-        <Date>{props.date}</Date>
-        <Title>{props.title}</Title>
-        <Description>{props.description}</Description>
-        <Tools>
-          {props.tools?.map(tool => (
-            <Tool>{tool}</Tool>
-          ))}
-        </Tools>
-        <LinkWrapper>
-          {props.github && (
-            <Link to={props.github}>
-              <GithubIcon />
-            </Link>
-          )}
-          {props.external && (
-            <Link to={props.external}>
-              <ExternalIcon />
-            </Link>
-          )}
-        </LinkWrapper>
-      </Content>
+    <Wrapper ref={ref}>
+      {isInView ? (
+        <Grid>
+          <ImageWrapper
+            href={props.external}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ImageOverlay />
+            <Image src={props.img} alt={props.title} />
+          </ImageWrapper>
+          <Content>
+            <Date>{props.date}</Date>
+            <Title>{props.title}</Title>
+            <Description>{props.description}</Description>
+            <Tools>
+              {props.tools?.map(tool => (
+                <Tool>{tool}</Tool>
+              ))}
+            </Tools>
+            <LinkWrapper>
+              {props.github && (
+                <Link to={props.github}>
+                  <GithubIcon />
+                </Link>
+              )}
+              {props.external && (
+                <Link to={props.external}>
+                  <ExternalIcon />
+                </Link>
+              )}
+            </LinkWrapper>
+          </Content>
+        </Grid>
+      ) : null}
     </Wrapper>
   );
 };

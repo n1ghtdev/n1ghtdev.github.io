@@ -3,18 +3,23 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import Header from '../header';
-import Container from '../container';
 import { NavMenu, NavMenuItem } from '../menu';
 import Span from '../span';
 import Button from '../button';
 import HeroNight from '../assets/night';
+
+import {
+  fadeIn,
+  fadeInUpShort,
+  fadeInDownShort,
+} from '../../styles/animations';
 
 const Wrapper = styled.section`
   height: 100vh;
   position: relative;
 `;
 
-const HeroContainer = styled(Container)`
+const HeroContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -35,26 +40,40 @@ const Buttons = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   justify-content: space-between;
+  animation: ${fadeInDownShort} 250ms forwards linear;
+  animation-delay: 250ms;
+  opacity: 0;
 `;
 
 const PageTitle = styled.h1`
   font-size: 14px;
+  animation: ${fadeIn} 250ms forwards linear;
+  animation-delay: 250ms;
+  opacity: 0;
 `;
 
 const Introduction = styled.h2`
   font-size: 64px;
+  animation: ${fadeInUpShort} 250ms forwards linear;
+  opacity: 0;
+`;
+
+const AnimatedNavMenu = styled(NavMenu)`
+  animation: ${fadeIn} 250ms forwards linear;
+  animation-delay: 250ms;
+  opacity: 0;
 `;
 
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroNight />
+      <HeroNight style={{ margin: '0 -25px' }} />
       <HeroContainer>
         <Header>
           <PageTitle>
             nightdev. <Span color="primary">portfolio</Span>
           </PageTitle>
-          <NavMenu>
+          <AnimatedNavMenu>
             <NavMenuItem active>
               <Link to="/">home</Link>
             </NavMenuItem>
@@ -64,7 +83,7 @@ const Hero = () => {
             <NavMenuItem>
               <Link to="/about">about</Link>
             </NavMenuItem>
-          </NavMenu>
+          </AnimatedNavMenu>
         </Header>
         <Content>
           <Introduction>

@@ -4,6 +4,8 @@ import Helmet from 'react-helmet';
 import theme from '../styles/theme';
 import Links from './links';
 import GlobalStyles from '../styles/GlobalStyles';
+import Footer from './footer';
+import Container from './container';
 
 const Layout = ({
   children,
@@ -40,8 +42,11 @@ const Layout = ({
       </Helmet>
       <GlobalStyles />
       <Links />
-      {/* <Lines /> */}
-      {children}
+
+      <Container>
+        {children}
+        <Footer />
+      </Container>
     </ThemeProvider>
   );
 };
