@@ -67,7 +67,7 @@ const AnimatedNavMenu = styled(NavMenu)`
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroNight style={{ margin: '0 -25px' }} />
+      <HeroNight />
       <HeroContainer>
         <Header>
           <PageTitle>

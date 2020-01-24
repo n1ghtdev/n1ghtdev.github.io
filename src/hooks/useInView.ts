@@ -1,11 +1,9 @@
 import React from 'react';
 
-type Props = {
-  ref: React.RefObject<HTMLElement>;
-  options: IntersectionObserverInit;
-};
-
-const useInView = (ref, options): Props => {
+const useInView = (
+  ref: React.RefObject<HTMLElement>,
+  options: IntersectionObserverInit,
+): boolean => {
   const [isInView, setIsInView] = React.useState(false);
 
   React.useEffect(() => {

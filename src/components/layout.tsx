@@ -7,17 +7,10 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Footer from './footer';
 import Container from './container';
 
-const Layout = ({
-  children,
-  location,
-}: {
-  children: React.ReactNode;
-  location: any;
-}) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={theme}>
       <Helmet>
-        <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>n1ghtdev | Front End Developer</title>
         <meta property="og:type" content="website" />

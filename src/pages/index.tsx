@@ -7,7 +7,7 @@ import Projects from '../components/sections/projects';
 
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data }: { data: any }) => (
   <Layout>
     <Hero />
     <Featured data={data.featured.edges} />

@@ -38,7 +38,7 @@ const Projects = ({ data }: { data: any }) => {
           <>
             <SectionTitle>Other projects</SectionTitle>
             <Grid>
-              {data.map(el => {
+              {data.map((el: any) => {
                 const { frontmatter, id, rawMarkdownBody } = el.node;
                 const { date, title, tech, github, external } = frontmatter;
 

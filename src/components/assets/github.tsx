@@ -5,8 +5,8 @@ const GithubIcon = ({
   height,
   color,
 }: {
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
   color?: string;
 }) => (
   <svg width={width || '32'} height={height || '32'} viewBox="0 0 32 32">
