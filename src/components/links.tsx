@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from '../styles/theme';
 
+import Telegram from './assets/telegram';
 import Github from './assets/github';
 import Gitlab from './assets/gitlab';
 import Codepen from './assets/codepen';
@@ -31,7 +32,7 @@ const Nav = styled.ul`
     content: '';
     display: block;
     width: 1px;
-    height: 80px;
+    height: 60px;
     background-color: ${({ theme }: { theme: any }) => theme.brightDark};
   }
 `;
@@ -49,14 +50,15 @@ const Email = styled.div`
   & > a {
     width: 0px;
     transform: rotate(90deg);
-    margin-bottom: 155px;
+    margin-bottom: 170px;
+    font-size: 18px;
   }
   &:after {
     content: '';
     display: block;
     align-self: center;
     width: 1px;
-    height: 80px;
+    height: 60px;
     background-color: ${({ theme }: { theme: any }) => theme.brightDark};
   }
 `;
@@ -65,6 +67,15 @@ const Links = () => {
   return (
     <Overlay>
       <Nav>
+        <NavItem>
+          <a
+            href="https://t.me/@n1ckew"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Telegram color={theme.brightDark} />
+          </a>
+        </NavItem>
         <NavItem>
           <a
             href="https://github.com/n1ghtdev"
