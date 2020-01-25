@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import theme from '../styles/theme';
+import media from '../styles/media';
 
 import Telegram from './assets/telegram';
 import Github from './assets/github';
@@ -9,6 +11,7 @@ import Codepen from './assets/codepen';
 import Codesandbox from './assets/codesandbox';
 
 const Overlay = styled.div`
+  display: none;
   position: relative;
   z-index: 1;
   opacity: 0.7;
@@ -18,6 +21,10 @@ const Overlay = styled.div`
       opacity: 0.5;
     }
   }
+
+  ${media.xl`
+    display: block;
+  `}
 `;
 
 const Nav = styled.ul`

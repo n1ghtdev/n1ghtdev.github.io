@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import media from '../styles/media';
 
 type NavMenuProps = {
   active?: boolean;
@@ -8,7 +9,11 @@ type NavMenuProps = {
 
 export const NavMenu = styled.ul`
   list-style-type: none;
-  display: inline-flex;
+  display: none;
+
+  ${media.medium`
+    display: inline-flex;
+  `}
 `;
 
 const ItemActiveStyles = css`

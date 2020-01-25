@@ -6,6 +6,8 @@ import useInView from '../hooks/useInView';
 import GithubIcon from './assets/github';
 import ExternalIcon from './assets/external';
 
+import media from '../styles/media';
+
 import {
   fadeInRightShort,
   fadeInLeftShort,
@@ -23,44 +25,63 @@ type ProjectProps = {
 };
 
 const Wrapper = styled.article`
-  height: 320px;
-  margin-bottom: 120px;
+  ${media.large`
+    height: 320px;
+    margin-bottom: 120px;
+  `}
+  margin-bottom: 60px;
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  ${media.large`
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: none;
+  `}
 `;
 
 const ImageWrapper = styled.a`
-  grid-column: 1/8;
-  grid-row: 1/-1;
+  ${media.large`
+    grid-column: 1/8;
+    grid-row: 1/-1;
+
+    ${Wrapper}:nth-child(2n) & {
+      grid-column: 6/-1;
+    }
+  `}
+  grid-column: 1/12;
+  grid-row: 2;
   position: relative;
   display: block;
   cursor: pointer;
   animation: ${fadeInRightShort} 250ms forwards linear;
 
   ${Wrapper}:nth-child(2n) & {
-    grid-column: 6/-1;
     animation: ${fadeInLeftShort} 250ms forwards linear;
   }
 `;
 
 const Content = styled.div`
-  grid-column: 7/-1;
-  grid-row: 1/-1;
+  ${media.large`
+    grid-column: 7/-1;
+    grid-row: 1/-1;
+    margin-bottom: 0;
+    ${Wrapper}:nth-child(2n) & {
+      grid-column: 1/7;
+      text-align: left;
+      align-items: flex-start;
+    }
+  `}
+  grid-row: 1;
   text-align: right;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: flex-end;
+  margin-bottom: 20px;
   animation: ${fadeInUpShort} 250ms forwards linear;
-
-  ${Wrapper}:nth-child(2n) & {
-    grid-column: 1/7;
-    text-align: left;
-    align-items: flex-start;
-  }
 `;
 
 const ImageOverlay = styled.div`
@@ -100,11 +121,18 @@ const Title = styled.h3`
 `;
 
 const Date = styled.p`
+  display: none;
   margin-bottom: 10px;
   font-size: 12px;
+  ${media.large`
+    display: block;
+  `}
 `;
 
 const Description = styled.p`
+  ${media.large`
+    margin-bottom: 20px;
+  `}
   display: block;
   background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
   padding: 25px 15px;
@@ -117,10 +145,13 @@ const Description = styled.p`
 `;
 
 const Tools = styled.ul`
+  display: none;
   list-style-type: none;
-  display: inline-flex;
   margin-bottom: 20px;
   opacity: 0.7;
+  ${media.large`
+    display: inline-flex;
+  `}
 `;
 
 const Tool = styled.li`

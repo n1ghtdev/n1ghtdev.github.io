@@ -13,6 +13,7 @@ import {
   fadeInUpShort,
   fadeInDownShort,
 } from '../../styles/animations';
+import media from '../../styles/media';
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -53,9 +54,16 @@ const PageTitle = styled.h1`
 `;
 
 const Introduction = styled.h2`
-  font-size: 64px;
+  font-size: 2em;
   animation: ${fadeInUpShort} 250ms forwards linear;
   opacity: 0;
+
+  ${media.large`
+    font-size: 4em;
+  `}
+  ${media.medium`
+    font-size: 3em;
+  `}
 `;
 
 const AnimatedNavMenu = styled(NavMenu)`
