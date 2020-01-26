@@ -16,19 +16,27 @@ export const NavMenu = styled.ul`
   `}
 `;
 
-const ItemActiveStyles = css`
-  ${({ theme, active }: NavMenuProps & { theme: any }) =>
-    active &&
-    `
+const InactiveStyles = css`
+  &:after {
+    content: '';
+    margin-left: 5px;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+  }
+`;
+const ActiveStyles = css`
+  ${({ theme }: { theme: any }) => `
     opacity: 1;
     &:after {
       content: '';
       margin-left: 5px;
       display: inline-block;
       background-color: ${theme.primary};
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
+      vertical-align: middle;
     }
   `}
 `;
@@ -37,26 +45,25 @@ const Item = styled.li`
   font-weight: bold;
   font-size: 14px;
   margin-right: 30px;
+  &:last-child {
+    margin-right: 0;
+  }
   & > a {
     display: inline-block;
     transition: opacity 250ms;
+    color: ${({ theme }: { theme: any }) => theme.brightDark};
     &:hover {
       opacity: 0.5;
     }
+
+    ${InactiveStyles};
+    &.active {
+      color: ${({ theme }: { theme: any }) => theme.bright};
+      ${ActiveStyles};
+    }
   }
-  &:not(:first-child):before {
-    content: '';
-    display: inline-block;
-    width: 35px;
-    margin-right: 7px;
-    height: 1px;
-    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
-    opacity: 0.5;
-    vertical-align: middle;
-  }
-  ${ItemActiveStyles};
 `;
 
 export const NavMenuItem = (props: NavMenuProps) => (
-  <Item active={props.active}>{props.children}</Item>
+  <Item>{props.children}</Item>
 );

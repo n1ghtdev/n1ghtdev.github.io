@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 
 const Featured = ({ data }: { data: any }) => {
   return (
-    <Wrapper>
+    <Wrapper id="featured">
       {data.map((el: any) => {
         const { frontmatter, id, rawMarkdownBody } = el.node;
         const { date, title, tech, github, external, poster } = frontmatter;

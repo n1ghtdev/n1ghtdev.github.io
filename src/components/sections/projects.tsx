@@ -16,9 +16,14 @@ const SectionTitle = styled.h2`
   font-size: 2rem;
   color: ${({ theme }: { theme: any }) => theme.bright};
 
-  animation: ${fadeInUp} 250ms forwards linear;
-  animation-delay: 250ms;
   opacity: 0;
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+    animation: ${fadeInUp} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 `;
 const Grid = styled.div`
   display: grid;
@@ -31,32 +36,31 @@ const Projects = ({ data }: { data: any }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { threshold: 0.5 });
 
-  return (
-    <Wrapper ref={ref}>
-      <Container>
-        {isInView ? (
-          <>
-            <SectionTitle>Other projects</SectionTitle>
-            <Grid>
-              {data.map((el: any) => {
-                const { frontmatter, id, rawMarkdownBody } = el.node;
-                const { date, title, tech, github, external } = frontmatter;
+  const visibleClassname = isInView ? 'visible' : '';
 
-                return (
-                  <Project
-                    key={id}
-                    title={title}
-                    description={rawMarkdownBody}
-                    github={github}
-                    external={external}
-                    tools={tech}
-                    date={date}
-                  />
-                );
-              })}
-            </Grid>
-          </>
-        ) : null}
+  return (
+    <Wrapper ref={ref} id="projects">
+      <Container>
+        <SectionTitle className={visibleClassname}>Other projects</SectionTitle>
+        <Grid>
+          {data.map((el: any) => {
+            const { frontmatter, id, rawMarkdownBody } = el.node;
+            const { date, title, tech, github, external } = frontmatter;
+
+            return (
+              <Project
+                key={id}
+                title={title}
+                description={rawMarkdownBody}
+                github={github}
+                external={external}
+                tools={tech}
+                date={date}
+                className={visibleClassname}
+              />
+            );
+          })}
+        </Grid>
       </Container>
     </Wrapper>
   );

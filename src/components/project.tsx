@@ -14,6 +14,7 @@ type ProjectProps = {
   external: string;
   tools: string[];
   date: string;
+  className: string;
 };
 
 const Wrapper = styled.article`
@@ -25,13 +26,17 @@ const Wrapper = styled.article`
   flex-direction: column;
   justify-content: space-between;
 
-  animation: ${fadeInUpShort} 250ms forwards linear;
-  animation-delay: 500ms;
+  visibility: hidden;
   opacity: 0;
-  &:nth-child(2n) {
-    animation: ${fadeInDownShort} 250ms forwards linear;
+
+  &.visible {
+    visibility: visible;
+    animation: ${fadeInUpShort} 250ms forwards linear;
     animation-delay: 500ms;
-    opacity: 0;
+    &:nth-child(2n) {
+      animation: ${fadeInDownShort} 250ms forwards linear;
+      animation-delay: 500ms;
+    }
   }
 `;
 const Content = styled.header`
@@ -87,7 +92,7 @@ const Tool = styled.li`
 
 const Project = (props: ProjectProps) => {
   return (
-    <Wrapper>
+    <Wrapper className={props.className}>
       <Content>
         <Date>{props.date}</Date>
         <Title>{props.title}</Title>

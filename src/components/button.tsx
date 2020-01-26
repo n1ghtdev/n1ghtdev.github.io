@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import theme from '../styles/theme';
@@ -14,16 +13,18 @@ interface ButtonProps {
 }
 
 const ButtonBaseStyles = styled.a`
-  display: block;
-  max-width: 158px;
+  display: inline-block;
   text-align: center;
-  padding: 18px 0;
+  padding: 12px 16px;
   text-decoration: none;
-  flex-grow: 1;
 `;
 
 const StyledButton = styled(ButtonBaseStyles)`
   color: ${(props: ButtonProps) => theme.bright};
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
   background: none;
   border: 1px solid ${(props: ButtonProps) => theme.primary};
   border-radius: 2px;
@@ -38,7 +39,11 @@ const StyledButton = styled(ButtonBaseStyles)`
 const Button = (props: ButtonProps) => {
   if (props.href) {
     return (
-      <StyledButton as={Link} to={props.href}>
+      <StyledButton
+        href={props.href}
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+      >
         {props.children}
       </StyledButton>
     );

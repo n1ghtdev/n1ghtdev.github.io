@@ -1,13 +1,32 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import Helmet from 'react-helmet';
-import theme from '../styles/theme';
-import Links from './links';
-import GlobalStyles from '../styles/GlobalStyles';
+import { navigate } from '@reach/router';
+
+import Header from './header';
 import Footer from './footer';
+import Links from './links';
 import Container from './container';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+import theme from '../styles/theme';
+import GlobalStyles from '../styles/GlobalStyles';
+
+const Layout = ({
+  children,
+  location,
+}: {
+  children: React.ReactNode;
+  location: any;
+}) => {
+  // store location.hash first value on render in ref
+  // it gives us possibility to use empty array of deps in useEffect
+  const hash = React.useRef(location.hash);
+  React.useEffect(() => {
+    if (hash.current) {
+      navigate(hash.current);
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Helmet>
@@ -35,7 +54,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </Helmet>
       <GlobalStyles />
       <Links />
-
+      <Header />
       <Container>
         {children}
         <Footer />

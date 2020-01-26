@@ -2,7 +2,20 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import ResetStyles from './ResetStyles';
 
+import AllerRegular from '../fonts/aller/Aller_Rg.ttf';
+import AllerBold from '../fonts/aller/Aller_Bd.ttf';
+
 const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'Aller';
+    src: url(${AllerRegular}) format('truetype');
+  }
+  @font-face {
+    font-family: 'Aller';
+    src: url(${AllerBold}) format('truetype');
+    font-weight: bold;
+  }
+
   ${ResetStyles}
   html {
     height: 100%;
@@ -20,6 +33,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
   }
   a {
     color: inherit;

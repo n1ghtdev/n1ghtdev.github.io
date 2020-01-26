@@ -24,7 +24,7 @@ type ProjectProps = {
   date: string;
 };
 
-const Wrapper = styled.article`
+const Wrapper: any = styled.article`
   ${media.large`
     height: 320px;
     margin-bottom: 120px;
@@ -56,10 +56,19 @@ const ImageWrapper = styled.a`
   position: relative;
   display: block;
   cursor: pointer;
-  animation: ${fadeInRightShort} 250ms forwards linear;
 
-  ${Wrapper}:nth-child(2n) & {
-    animation: ${fadeInLeftShort} 250ms forwards linear;
+  visibility: hidden;
+  opacity: 0;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInRightShort} 250ms forwards linear;
+    animation-delay: 250ms;
+
+    /* prettier-ignore */
+    ${Wrapper}:nth-child(2n) & {
+      animation: ${fadeInLeftShort} 250ms forwards linear;
+    }
   }
 `;
 
@@ -81,7 +90,15 @@ const Content = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin-bottom: 20px;
-  animation: ${fadeInUpShort} 250ms forwards linear;
+
+  visibility: hidden;
+  opacity: 0;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInUpShort} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 `;
 
 const ImageOverlay = styled.div`
@@ -193,41 +210,39 @@ const FeaturedProject = (props: ProjectProps) => {
   const isInView = useInView(ref, { threshold: 0.5 });
 
   return (
-    <Wrapper ref={ref}>
-      {isInView ? (
-        <Grid>
-          <ImageWrapper
-            href={props.external}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <ImageOverlay />
-            <Image src={props.img} alt={props.title} />
-          </ImageWrapper>
-          <Content>
-            <Date>{props.date}</Date>
-            <Title>{props.title}</Title>
-            <Description>{props.description}</Description>
-            <Tools>
-              {props.tools?.map(tool => (
-                <Tool>{tool}</Tool>
-              ))}
-            </Tools>
-            <LinkWrapper>
-              {props.github && (
-                <Link to={props.github}>
-                  <GithubIcon />
-                </Link>
-              )}
-              {props.external && (
-                <Link to={props.external}>
-                  <ExternalIcon />
-                </Link>
-              )}
-            </LinkWrapper>
-          </Content>
-        </Grid>
-      ) : null}
+    <Wrapper ref={ref} className={isInView ? 'visible' : ''}>
+      <Grid>
+        <ImageWrapper
+          href={props.external}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <ImageOverlay />
+          <Image src={props.img} alt={props.title} />
+        </ImageWrapper>
+        <Content>
+          <Date>{props.date}</Date>
+          <Title>{props.title}</Title>
+          <Description>{props.description}</Description>
+          <Tools>
+            {props.tools?.map(tool => (
+              <Tool>{tool}</Tool>
+            ))}
+          </Tools>
+          <LinkWrapper>
+            {props.github && (
+              <Link to={props.github}>
+                <GithubIcon />
+              </Link>
+            )}
+            {props.external && (
+              <Link to={props.external}>
+                <ExternalIcon />
+              </Link>
+            )}
+          </LinkWrapper>
+        </Content>
+      </Grid>
     </Wrapper>
   );
 };

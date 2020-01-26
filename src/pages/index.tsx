@@ -7,8 +7,8 @@ import Projects from '../components/sections/projects';
 
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }: { data: any }) => (
-  <Layout>
+const IndexPage = ({ data, location }: { data: any; location: any }) => (
+  <Layout location={location}>
     <Hero />
     <Featured data={data.featured.edges} />
     <Projects data={data.projects.edges} />
