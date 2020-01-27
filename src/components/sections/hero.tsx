@@ -35,16 +35,19 @@ const Buttons = styled.div`
 `;
 
 const Introduction = styled.h2`
-  font-size: 2em;
+  font-size: 1.5em;
   animation: ${fadeInUpShort} 250ms forwards linear;
   opacity: 0;
   font-family: 'Aller';
+  line-height: 1.5;
 
+  ${media.medium`
+    padding: 0;
+    font-size: 3em;
+    line-height: 1.35;
+  `}
   ${media.large`
     font-size: 4em;
-  `}
-  ${media.medium`
-    font-size: 3em;
   `}
 `;
 

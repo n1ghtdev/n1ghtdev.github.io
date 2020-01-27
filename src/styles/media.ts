@@ -8,7 +8,7 @@ type breakpointsType = {
 
 type CSSParams = Parameters<typeof css>;
 
-const breakpoints: breakpointsType = {
+export const breakpoints: breakpointsType = {
   small: 576,
   medium: 768,
   large: 992,

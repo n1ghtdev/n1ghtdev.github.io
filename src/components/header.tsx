@@ -1,16 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import NavLink from './navLink';
 import { NavMenu, NavMenuItem } from './menu';
+
 import { fadeIn } from '../styles/animations';
+import media, { breakpoints } from '../styles/media';
+
+import useRaf from '../hooks/useRaf';
 
 type ScrollDirection = 'top' | 'down' | 'up';
 
 const Wrapper = styled.header`
+  display: none;
   position: fixed;
   top: 0;
   width: 100%;
-  display: flex;
   height: 50px;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +28,10 @@ const Wrapper = styled.header`
     scrollDirection === 'up' ? '2px 3px 4px rgba(0,0,0,.3)' : 'none'};
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'down' ? 'translateY(-75px)' : 'translateY(0px)'};
+
+  ${media.medium`
+    display: flex;
+  `}
 `;
 
 const PageTitle = styled.h1`
@@ -44,44 +53,51 @@ const Header = () => {
   const [scrollDirection, setScrollDirection] = React.useState<ScrollDirection>(
     'top',
   );
+  const [isActive, setIsActive] = React.useState(true);
   const lastScrollTop = React.useRef(
     window.pageYOffset || document.documentElement.scrollTop,
   );
-  const raf = React.useRef<number | null>(null);
 
-  // TODO: disable on mobile
-  React.useEffect(() => {
-    const _handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop === lastScrollTop.current) {
-        requestAnimationFrame(_handleScroll);
-        return false;
+  React.useLayoutEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= breakpoints.medium) {
+        setIsActive(false);
+      } else {
+        setIsActive(true);
       }
-
-      if (scrollTop < 250) {
-        setScrollDirection('top');
-      }
-
-      if (scrollTop > 250) {
-        if (scrollTop > lastScrollTop.current) {
-          setScrollDirection('down');
-        } else if (scrollTop < lastScrollTop.current) {
-          setScrollDirection('up');
-        }
-      }
-
-      lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
-      requestAnimationFrame(_handleScroll);
     };
+    handleResize();
+    // TODO: throttle
+    window.addEventListener('resize', handleResize);
 
-    raf.current && cancelAnimationFrame(raf.current);
-    raf.current = requestAnimationFrame(_handleScroll);
     return () => {
-      raf.current && cancelAnimationFrame(raf.current);
+      window.removeEventListener('resize', handleResize);
     };
-  }, [scrollDirection]);
+  }, []);
+
+  const handleScroll = React.useCallback(() => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop === lastScrollTop.current) {
+      return false;
+    }
+
+    if (scrollTop < 250) {
+      setScrollDirection('top');
+    }
+
+    if (scrollTop > 250) {
+      if (scrollTop > lastScrollTop.current) {
+        setScrollDirection('down');
+      } else if (scrollTop < lastScrollTop.current) {
+        setScrollDirection('up');
+      }
+    }
+
+    lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
+  }, []);
+
+  const stopRaf = useRaf(handleScroll, isActive);
 
   return (
     <Wrapper scrollDirection={scrollDirection}>
