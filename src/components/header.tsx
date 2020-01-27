@@ -82,7 +82,6 @@ const Header = () => {
       raf.current && cancelAnimationFrame(raf.current);
     };
   }, [scrollDirection]);
-  console.log('rerender');
 
   return (
     <Wrapper scrollDirection={scrollDirection}>

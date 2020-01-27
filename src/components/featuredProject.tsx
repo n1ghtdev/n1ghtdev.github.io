@@ -207,7 +207,7 @@ const LinkWrapper = styled.div`
 
 const FeaturedProject = (props: ProjectProps) => {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.5 });
+  const isInView = useInView(ref, { threshold: 0.5 }, true);
 
   return (
     <Wrapper ref={ref} className={isInView ? 'visible' : ''}>

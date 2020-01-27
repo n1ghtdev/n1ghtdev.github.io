@@ -4,6 +4,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     'gatsby-plugin-typescript-checker',
+    'gatsby-plugin-why-did-you-render',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

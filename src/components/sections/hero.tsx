@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import Span from '../span';
 import Button from '../button';
 import HeroNight from '../assets/night';
+import Section from '../section';
 
 import { fadeInUpShort, fadeInDownShort } from '../../styles/animations';
 import media from '../../styles/media';
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   height: 100vh;
   position: relative;
 `;
@@ -61,24 +62,26 @@ const Description = styled.span`
 
 const Hero = () => {
   return (
-    <Wrapper id="hero">
-      <HeroNight />
-      <HeroContainer>
-        <Content>
-          <Introduction>
-            <Name>Hi, my name is Nikita</Name>
-            <Description>
-              I am
-              <Span color="primary"> frontend developer</Span> whose passion is
-              to create highly optimized and quality driven applications.
-            </Description>
-          </Introduction>
-          <Buttons>
-            <Button href="/resume.pdf">download resume</Button>
-          </Buttons>
-        </Content>
-      </HeroContainer>
-    </Wrapper>
+    <Section id="hero">
+      <Wrapper>
+        <HeroNight />
+        <HeroContainer>
+          <Content>
+            <Introduction>
+              <Name>Hi, my name is Nikita</Name>
+              <Description>
+                I am
+                <Span color="primary"> frontend developer</Span> whose passion
+                is to create highly optimized and quality driven applications.
+              </Description>
+            </Introduction>
+            <Buttons>
+              <Button href="/resume.pdf">download resume</Button>
+            </Buttons>
+          </Content>
+        </HeroContainer>
+      </Wrapper>
+    </Section>
   );
 };
 

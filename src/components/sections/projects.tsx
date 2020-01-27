@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import Container from '../container';
 import Project from '../project';
 import useInView from '../../hooks/useInView';
+import Section from '../section';
 
 import { fadeInUp } from '../../styles/animations';
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   padding-top: 50px;
   padding-bottom: 100px;
 `;
+
 const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 40px;
@@ -25,6 +27,7 @@ const SectionTitle = styled.h2`
     animation-delay: 250ms;
   }
 `;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -34,35 +37,39 @@ const Grid = styled.div`
 
 const Projects = ({ data }: { data: any }) => {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.5 });
+  const isInView = useInView(ref, { threshold: 0.5 }, true);
 
   const visibleClassname = isInView ? 'visible' : '';
 
   return (
-    <Wrapper ref={ref} id="projects">
-      <Container>
-        <SectionTitle className={visibleClassname}>Other projects</SectionTitle>
-        <Grid>
-          {data.map((el: any) => {
-            const { frontmatter, id, rawMarkdownBody } = el.node;
-            const { date, title, tech, github, external } = frontmatter;
+    <Section id="projects">
+      <Wrapper ref={ref}>
+        <Container>
+          <SectionTitle className={visibleClassname}>
+            Other projects
+          </SectionTitle>
+          <Grid>
+            {data.map((el: any) => {
+              const { frontmatter, id, rawMarkdownBody } = el.node;
+              const { date, title, tech, github, external } = frontmatter;
 
-            return (
-              <Project
-                key={id}
-                title={title}
-                description={rawMarkdownBody}
-                github={github}
-                external={external}
-                tools={tech}
-                date={date}
-                className={visibleClassname}
-              />
-            );
-          })}
-        </Grid>
-      </Container>
-    </Wrapper>
+              return (
+                <Project
+                  key={id}
+                  title={title}
+                  description={rawMarkdownBody}
+                  github={github}
+                  external={external}
+                  tools={tech}
+                  date={date}
+                  className={visibleClassname}
+                />
+              );
+            })}
+          </Grid>
+        </Container>
+      </Wrapper>
+    </Section>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import FeaturedProject from '../featuredProject';
+import Section from '../section';
 import media from '../../styles/media';
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
   ${media.large`
     padding-top: 100px;
     padding-bottom: 100px;
@@ -12,25 +13,27 @@ const Wrapper = styled.section`
 
 const Featured = ({ data }: { data: any }) => {
   return (
-    <Wrapper id="featured">
-      {data.map((el: any) => {
-        const { frontmatter, id, rawMarkdownBody } = el.node;
-        const { date, title, tech, github, external, poster } = frontmatter;
+    <Section id="featured">
+      <Wrapper>
+        {data.map((el: any) => {
+          const { frontmatter, id, rawMarkdownBody } = el.node;
+          const { date, title, tech, github, external, poster } = frontmatter;
 
-        return (
-          <FeaturedProject
-            key={id}
-            title={title}
-            description={rawMarkdownBody}
-            github={github}
-            external={external}
-            tools={tech}
-            date={date}
-            img={poster.publicURL}
-          />
-        );
-      })}
-    </Wrapper>
+          return (
+            <FeaturedProject
+              key={id}
+              title={title}
+              description={rawMarkdownBody}
+              github={github}
+              external={external}
+              tools={tech}
+              date={date}
+              img={poster.publicURL}
+            />
+          );
+        })}
+      </Wrapper>
+    </Section>
   );
 };
 

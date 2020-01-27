@@ -24,6 +24,7 @@
     "gatsby-plugin-styled-components": "^3.1.18",
     "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-plugin-typescript-checker": "^1.1.1",
+    "gatsby-plugin-why-did-you-render": "^1.0.1",
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^3.1.42",
     "gatsby-source-filesystem": "^2.1.46",
