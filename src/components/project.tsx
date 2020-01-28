@@ -98,9 +98,8 @@ const Project = (props: ProjectProps) => {
         <Title>{props.title}</Title>
         <Description>{props.description}</Description>
         <Tools>
-          {props.tools.map(tool => (
-            <Tool key={tool}>{tool}</Tool>
-          ))}
+          {props.tools &&
+            props.tools.map(tool => <Tool key={tool}>{tool}</Tool>)}
         </Tools>
       </Content>
       <LinkWrapper>

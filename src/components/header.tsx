@@ -1,36 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import NavLink from './navLink';
 import { NavMenu, NavMenuItem } from './menu';
-
+import OverlayMenu from './overlayMenu';
 import { fadeIn } from '../styles/animations';
 import media, { breakpoints } from '../styles/media';
-
 import useRaf from '../hooks/useRaf';
+import { navLinks } from '../config';
 
 type ScrollDirection = 'top' | 'down' | 'up';
 
 const Wrapper = styled.header`
-  display: none;
   position: fixed;
   top: 0;
+
   width: 100%;
   height: 50px;
+  padding: 0 15px;
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
-  background-color: ${({ theme }: { theme: any }) => theme.contrast};
-  z-index: 3;
+  z-index: 4;
+
   transition: transform 250ms;
 
+  background-color: ${({ theme }: { theme: any }) => theme.contrast};
   box-shadow: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'up' ? '2px 3px 4px rgba(0,0,0,.3)' : 'none'};
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'down' ? 'translateY(-75px)' : 'translateY(0px)'};
 
   ${media.medium`
-    display: flex;
+    padding: 0 100px;
   `}
 `;
 
@@ -40,9 +42,11 @@ const PageTitle = styled.h1`
   animation-delay: 250ms;
   opacity: 0;
 `;
+
 const PrimaryPageTitle = styled.span`
   color: ${({ theme }: { theme: any }) => theme.primary};
 `;
+
 const AnimatedNavMenu = styled(NavMenu)`
   animation: ${fadeIn} 250ms forwards linear;
   animation-delay: 250ms;
@@ -105,16 +109,14 @@ const Header = () => {
         nightdev. <PrimaryPageTitle color="primary">developer</PrimaryPageTitle>
       </PageTitle>
       <AnimatedNavMenu>
-        <NavMenuItem>
-          <NavLink to="#hero">home</NavLink>
-        </NavMenuItem>
-        <NavMenuItem>
-          <NavLink to="#featured">featured</NavLink>
-        </NavMenuItem>
-        <NavMenuItem>
-          <NavLink to="#projects">projects</NavLink>
-        </NavMenuItem>
+        {navLinks &&
+          navLinks.map((link: any) => (
+            <NavMenuItem key={link.url}>
+              <NavLink to={link.url}>{link.title}</NavLink>
+            </NavMenuItem>
+          ))}
       </AnimatedNavMenu>
+      <OverlayMenu />
     </Wrapper>
   );
 };

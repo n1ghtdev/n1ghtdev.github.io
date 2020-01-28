@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import theme from '../styles/theme';
 import media from '../styles/media';
+import { socials } from '../config';
 
 import Telegram from './assets/telegram';
 import Github from './assets/github';
@@ -70,40 +71,28 @@ const Email = styled.div`
   }
 `;
 
-const Links = () => {
+const Socials = () => {
   return (
     <Overlay>
       <Nav>
         <NavItem>
-          <a
-            href="https://t.me/@n1ckew"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={socials.telegram} target="_blank" rel="noopener noreferrer">
             <Telegram color={theme.brightDark} />
           </a>
         </NavItem>
         <NavItem>
-          <a
-            href="https://github.com/n1ghtdev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={socials.github} target="_blank" rel="noopener noreferrer">
             <Github width="24" height="24" color={theme.brightDark} />
           </a>
         </NavItem>
         <NavItem>
-          <a
-            href="https://gitlab.com/n1ghtdev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={socials.gitlab} target="_blank" rel="noopener noreferrer">
             <Gitlab color={theme.brightDark} />
           </a>
         </NavItem>
         <NavItem>
           <a
-            href="https://codesandbox.io/u/n1ghtdev"
+            href={socials.codesandbox}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -111,20 +100,16 @@ const Links = () => {
           </a>
         </NavItem>
         <NavItem>
-          <a
-            href="https://codepen.io/Nickew/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={socials.codepen} target="_blank" rel="noopener noreferrer">
             <Codepen color={theme.brightDark} />
           </a>
         </NavItem>
       </Nav>
       <Email>
-        <a href="mailto://nickew@yahoo.com">nickew@yahoo.com</a>
+        <a href={`mailto://${socials.email}`}>{socials.email}</a>
       </Email>
     </Overlay>
   );
 };
 
-export default Links;
+export default Socials;

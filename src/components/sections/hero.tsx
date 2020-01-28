@@ -25,6 +25,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+
+  ${media.medium`
+    text-align: left;
+  `}
 `;
 
 const Buttons = styled.div`
@@ -46,17 +51,18 @@ const Introduction = styled.h2`
     font-size: 3em;
     line-height: 1.35;
   `}
-  ${media.large`
-    font-size: 4em;
-  `}
 `;
 
 const Name = styled.span`
   display: block;
-  font-size: 32px;
+  font-size: 16px;
   font-weight: normal;
   opacity: 0.7;
   margin-bottom: 0.5em;
+
+  ${media.medium`
+    font-size: 32px;
+  `}
 `;
 
 const Description = styled.span`
