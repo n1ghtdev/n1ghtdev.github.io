@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import NavLink from './navLink';
 import { NavMenu, NavMenuItem } from './menu';
 import OverlayMenu from './overlayMenu';
-import { fadeIn } from '../styles/animations';
-import media, { breakpoints } from '../styles/media';
-import useRaf from '../hooks/useRaf';
-import { navLinks } from '../config';
+
+import { fadeIn } from '@styles/animations';
+import media, { breakpoints } from '@styles/media';
+
+import useRaf from '@hooks/useRaf';
+import { navLinks } from '@config/index';
 
 type ScrollDirection = 'top' | 'down' | 'up';
 

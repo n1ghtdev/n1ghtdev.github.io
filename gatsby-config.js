@@ -4,7 +4,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     'gatsby-plugin-typescript-checker',
-    'gatsby-plugin-why-did-you-render',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -12,20 +11,8 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/projects`,
-        name: 'projects',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/featured`,
-        name: 'featured',
-      },
-    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -43,7 +30,7 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: '#64ffda' },
+              tracedSVG: { color: '#262940' },
             },
           },
         ],

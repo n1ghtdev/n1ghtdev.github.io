@@ -3,7 +3,7 @@
   "homepage": "https://n1ghtdev.github.io/",
   "version": "1.3.0",
   "private": true,
-  "description": "N1ghtdev's personal portfolio website.",
+  "description": "n1ghtdev personal portfolio website.",
   "repository": {
     "type": "git",
     "url": "git://github.com/n1ghtdev/n1ghtdev.github.io"
@@ -21,6 +21,7 @@
     "gatsby": "^2.19.1",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.1.18",
     "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-plugin-typescript-checker": "^1.1.1",
@@ -29,6 +30,7 @@
     "gatsby-remark-images": "^3.1.42",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.48",
+    "gatsby-transformer-sharp": "^2.3.13",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",

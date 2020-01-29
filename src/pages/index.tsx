@@ -1,13 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Hero from '../components/sections/hero';
-import Featured from '../components/sections/featured';
-import Projects from '../components/sections/projects';
 
-import Layout from '../components/layout';
-import { SectionProvider } from '../hooks/useActiveSection';
+import Hero from '@components/sections/hero';
+import Featured from '@components/sections/featured';
+import Projects from '@components/sections/projects';
+import Layout from '@components/layout';
+
+import { SectionProvider } from '@hooks/useActiveSection';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
+  console.log(data.featured);
+
   return (
     <SectionProvider>
       <Layout location={location}>
@@ -34,12 +37,20 @@ export const pageQuery = graphql`
             github
             title
             poster {
-              publicURL
+              childImageSharp {
+                fluid(
+                  maxWidth: 700
+                  quality: 90
+                  traceSVG: { color: "#262940" }
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
             }
             tech
           }
           id
-          rawMarkdownBody
+          html
         }
       }
     }
@@ -59,7 +70,7 @@ export const pageQuery = graphql`
             tech
           }
           id
-          rawMarkdownBody
+          html
         }
       }
     }

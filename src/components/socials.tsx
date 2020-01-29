@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import theme from '../styles/theme';
-import media from '../styles/media';
-import { socials } from '../config';
+import theme from '@styles/theme';
+import media from '@styles/media';
+import { socials } from '@config/index';
 
 import Telegram from './assets/telegram';
 import Github from './assets/github';

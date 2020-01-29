@@ -1,7 +1,7 @@
 ---
 date: '2019-12-22'
 title: 'Scroll Editor'
-poster: './encode.png'
+poster: './encode3.png'
 github: 'https://github.com/n1ghtdev/scroll-editor'
 external: ''
 tech:

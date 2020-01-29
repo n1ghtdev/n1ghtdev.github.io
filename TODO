@@ -1,9 +1,9 @@
 ☐ show only year instead of full date
 ✔ add footer @done(20-01-27 01:42)
 ✔ adaptive design @done(20-01-27 01:42)
-☐ contact modal
+✘ contact modal @cancelled(20-01-28 20:45)
 ✔ add resume pdf @done(20-01-27 01:42)
 ✔ add telegram to Links @done(20-01-27 01:42)
 ☐ add list of non-project work to project section
 ☐ write tests
-☐ reveal Links on mobile
+✔ reveal Links on mobile @done(20-01-28 20:45)

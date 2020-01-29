@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { title, url, meta } from '../config';
+import { title, url, meta } from '@config/index';
 
 const Head = () => (
   <Helmet>

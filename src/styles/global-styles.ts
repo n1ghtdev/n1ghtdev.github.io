@@ -1,9 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
-import ResetStyles from './ResetStyles';
 
-import AllerRegular from '../fonts/aller/Aller_Rg.ttf';
-import AllerBold from '../fonts/aller/Aller_Bd.ttf';
+import theme from './theme';
+import ResetStyles from './reset-styles';
+
+import AllerRegular from '@fonts/aller/Aller_Rg.ttf';
+import AllerBold from '@fonts/aller/Aller_Bd.ttf';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -36,7 +37,7 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   a {
-    color: inherit;
+    color: ${theme.bright};
     text-decoration: inherit;
   }
   body {
@@ -56,6 +57,7 @@ const GlobalStyles = createGlobalStyle`
     width: auto;
     max-width: 100%;
     height: auto;
+    vertical-align: middle;
   }
   .slick-slider {
     display: block;

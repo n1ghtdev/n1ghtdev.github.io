@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Span from '../span';
-import Button from '../button';
-import HeroNight from '../assets/night';
-import Section from '../section';
+import Span from '@components/span';
+import Button from '@components/button';
+import HeroNight from '@components/assets/night';
+import Section from '@components/section';
 
-import { fadeInUpShort, fadeInDownShort } from '../../styles/animations';
-import media from '../../styles/media';
+import { fadeInUpShort, fadeInDownShort } from '@styles/animations';
+import media from '@styles/media';
 
 const Wrapper = styled.div`
   height: 100vh;

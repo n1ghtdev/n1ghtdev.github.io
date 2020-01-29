@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import GithubIcon from './assets/github';
 import ExternalIcon from './assets/external';
 
-import { fadeInDownShort, fadeInUpShort } from '../styles/animations';
+import { fadeInDownShort, fadeInUpShort } from '@styles/animations';
 
 type ProjectProps = {
   title: string;
@@ -96,7 +96,7 @@ const Project = (props: ProjectProps) => {
       <Content>
         <Date>{props.date}</Date>
         <Title>{props.title}</Title>
-        <Description>{props.description}</Description>
+        <Description dangerouslySetInnerHTML={{ __html: props.description }} />
         <Tools>
           {props.tools &&
             props.tools.map(tool => <Tool key={tool}>{tool}</Tool>)}

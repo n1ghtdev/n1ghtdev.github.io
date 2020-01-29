@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from '../container';
-import Project from '../project';
-import useInView from '../../hooks/useInView';
-import Section from '../section';
 
-import { fadeInUp } from '../../styles/animations';
+import Container from '@components/container';
+import Project from '@components/project';
+import Section from '@components/section';
+
+import useInView from '@hooks/useInView';
+
+import { fadeInUp } from '@styles/animations';
 
 const Wrapper = styled.div`
   padding-top: 50px;
@@ -37,7 +39,7 @@ const Grid = styled.div`
 
 const Projects = ({ data }: { data: any }) => {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.5 }, true);
+  const isInView = useInView(ref, { threshold: 0.15 }, true);
 
   const visibleClassname = isInView ? 'visible' : '';
 
@@ -50,14 +52,14 @@ const Projects = ({ data }: { data: any }) => {
           </SectionTitle>
           <Grid>
             {data.map((el: any) => {
-              const { frontmatter, id, rawMarkdownBody } = el.node;
+              const { frontmatter, id, html } = el.node;
               const { date, title, tech, github, external } = frontmatter;
 
               return (
                 <Project
                   key={id}
                   title={title}
-                  description={rawMarkdownBody}
+                  description={html}
                   github={github}
                   external={external}
                   tools={tech}

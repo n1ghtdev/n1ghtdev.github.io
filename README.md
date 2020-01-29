@@ -1,8 +1,7 @@
-### Tools
+## n1ghtdev portfolio
 
-- react 17.0.0-experimental
-- react-router 5
-- styled-components 4
+My personal portfolio website developed with React, TypeScript,
+Styled-Components and Gatsby.
 
 ### License
 

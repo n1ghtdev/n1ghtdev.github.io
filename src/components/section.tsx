@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useInView from '../hooks/useInView';
-import { useSection } from '../hooks/useActiveSection';
+import useInView from '@hooks/useInView';
+import { useSection } from '@hooks/useActiveSection';
 
 type Props = {
   id: string;
@@ -10,7 +10,6 @@ type Props = {
 };
 
 const Wrapper = styled.section`
-  /* fallback if section not supported by browser */
   display: block;
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import lerp from '../utils/lerp';
+
 import { debounce } from 'throttle-debounce';
 
 type CursorOptions = {
@@ -9,6 +9,8 @@ type CursorOptions = {
   followerWidth?: number;
   followerRadius?: number;
 };
+
+const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;
 
 const useCursor = (
   cursorRef: any,

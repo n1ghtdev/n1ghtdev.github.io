@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import NavLink from './navLink';
 import Hamburger from './hamburger';
-import { navLinks } from '../config';
+
+import { navLinks, socials } from '@config/index';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -13,6 +15,10 @@ const Wrapper = styled.div`
   height: 100vh;
   background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
   transition: all 500ms;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 
   transform: ${({ isOpen }: { isOpen: boolean }) =>
     isOpen ? 'translateX(0)' : 'translateX(100%)'};
@@ -21,24 +27,26 @@ const Wrapper = styled.div`
 `;
 
 const NavList = styled.ul`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-const NavItem = styled.li`
-  &:after {
+  &:first-child:after {
     content: '';
-    width: 2px;
-    height: 20px;
+    width: 1px;
+    height: 35px;
     background-color: ${({ theme }: { theme: any }) => theme.brightDark};
-    display: block;
-    margin: 10px auto;
+    opacity: 0.5;
+    display: inline-block;
+    margin: 10px 0;
   }
+`;
 
+const NavItem = styled.li`
+  margin-bottom: 25px;
+  font-family: 'Aller';
+  text-transform: capitalize;
   & > a {
-    font-size: 24px;
+    font-size: 22px;
+  }
+  &:last-child {
+    margin-bottom: 0;
   }
 `;
 
@@ -62,6 +70,14 @@ const OverlayMenu = () => {
             navLinks.map((link: any) => (
               <NavItem key={link.url}>
                 <NavLink to={link.url}>{link.title}</NavLink>
+              </NavItem>
+            ))}
+        </NavList>
+        <NavList>
+          {socials &&
+            Object.entries(socials).map((link: any) => (
+              <NavItem key={link[1]}>
+                <NavLink to={link[1]}>{link[0]}</NavLink>
               </NavItem>
             ))}
         </NavList>

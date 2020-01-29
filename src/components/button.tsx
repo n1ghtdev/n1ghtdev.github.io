@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import theme from '../styles/theme';
-import { hexToRgba } from '../utils/hexToRgba';
+import theme from '@styles/theme';
+import { hexToRgba } from '@utils/hex-to-rgba';
 
 interface ButtonProps {
   href?: string;

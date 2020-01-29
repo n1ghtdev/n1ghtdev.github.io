@@ -1,21 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import useInView from '../hooks/useInView';
+import Img from 'gatsby-image';
+import useInView from '@hooks/useInView';
 
 import GithubIcon from './assets/github';
 import ExternalIcon from './assets/external';
 
-import media from '../styles/media';
+import media from '@styles/media';
 
 import {
   fadeInRightShort,
   fadeInLeftShort,
   fadeInUpShort,
-} from '../styles/animations';
+} from '@styles/animations';
 
 type ProjectProps = {
-  img: string;
+  img: any;
   title: string;
   description: string;
   github: string;
@@ -26,7 +27,6 @@ type ProjectProps = {
 
 const Wrapper: any = styled.article`
   ${media.large`
-    height: 320px;
     margin-bottom: 120px;
   `}
   margin-bottom: 60px;
@@ -36,44 +36,15 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  ${media.large`
+  align-items: center;
+  ${media.medium`
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: none;
+    grid-template-rows: unset;
   `}
-`;
-
-const ImageWrapper = styled.a`
-  ${media.large`
-    grid-column: 1/8;
-    grid-row: 1/-1;
-
-    ${Wrapper}:nth-child(2n) & {
-      grid-column: 6/-1;
-    }
-  `}
-  grid-column: 1/12;
-  grid-row: 2;
-  position: relative;
-  display: block;
-  cursor: pointer;
-
-  visibility: hidden;
-  opacity: 0;
-
-  ${Wrapper}.visible & {
-    visibility: visible;
-    animation: ${fadeInRightShort} 250ms forwards linear;
-    animation-delay: 250ms;
-
-    /* prettier-ignore */
-    ${Wrapper}:nth-child(2n) & {
-      animation: ${fadeInLeftShort} 250ms forwards linear;
-    }
-  }
 `;
 
 const Content = styled.div`
-  ${media.large`
+  ${media.medium`
     grid-column: 7/-1;
     grid-row: 1/-1;
     margin-bottom: 0;
@@ -101,28 +72,62 @@ const Content = styled.div`
   }
 `;
 
-const ImageOverlay = styled.div`
-  position: absolute;
-  border-radius: 4px;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
-  opacity: 0.6;
-  transition: opacity 250ms;
-  z-index: 1;
+const ImageWrapper = styled.a`
+  ${media.medium`
+    grid-column: 1/8;
+    grid-row: 1/-1;
 
-  ${ImageWrapper}:hover & {
+    ${Wrapper}:nth-child(2n) & {
+      grid-column: 6/-1;
+    }
+  `}
+
+  grid-column: 1/12;
+  grid-row: 2;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInRightShort} 250ms forwards linear;
+    animation-delay: 250ms;
+
+    /* prettier-ignore */
+    ${Wrapper}:nth-child(2n) & {
+      animation: ${fadeInLeftShort} 250ms forwards linear;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+    opacity: .7;
+    transition: opacity 250ms ease-in;
+  }
+
+  &:hover:after {
     opacity: 0;
   }
 `;
-
-const Image = styled.img`
+const Image = styled(Img)`
+  position: relative;
+  vertical-align: middle;
   border-radius: 4px;
   width: 100%;
   max-width: 100%;
-  height: 320px;
-  display: block;
-  object-fit: cover;
+  /* object-fit: cover; */
   filter: grayscale(1);
   transition: filter 250ms;
 
@@ -208,6 +213,9 @@ const LinkWrapper = styled.div`
 const FeaturedProject = (props: ProjectProps) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { threshold: 0.5 }, true);
+  console.log(props.img);
+
+  const { fluid } = props.img.childImageSharp;
 
   return (
     <Wrapper ref={ref} className={isInView ? 'visible' : ''}>
@@ -217,13 +225,14 @@ const FeaturedProject = (props: ProjectProps) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <ImageOverlay />
-          <Image src={props.img} alt={props.title} />
+          <Image fluid={fluid} />
         </ImageWrapper>
         <Content>
           <Date>{props.date}</Date>
           <Title>{props.title}</Title>
-          <Description>{props.description}</Description>
+          <Description
+            dangerouslySetInnerHTML={{ __html: props.description }}
+          />
           <Tools>
             {props.tools?.map(tool => (
               <Tool>{tool}</Tool>

@@ -8,8 +8,8 @@ import Footer from './footer';
 import Socials from './socials';
 import Container from './container';
 
-import theme from '../styles/theme';
-import GlobalStyles from '../styles/GlobalStyles';
+import theme from '@styles/theme';
+import GlobalStyles from '@styles/global-styles';
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -23,7 +23,6 @@ const Layout = ({
   location: any;
 }) => {
   // store location.hash first value on render in ref
-  // it gives us possibility to use empty array of deps in useEffect
   const hash = React.useRef(location.hash);
   React.useEffect(() => {
     if (hash.current) {
