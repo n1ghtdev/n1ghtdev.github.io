@@ -61,9 +61,12 @@ const Header = () => {
     'top',
   );
   const [isActive, setIsActive] = React.useState(true);
-  const lastScrollTop = React.useRef(
-    window.pageYOffset || document.documentElement.scrollTop,
-  );
+  const lastScrollTop = React.useRef();
+
+  React.useEffect(() => {
+    lastScrollTop.current =
+      window.pageYOffset || document.documentElement.scrollTop;
+  }, []);
 
   React.useLayoutEffect(() => {
     const handleResize = () => {
