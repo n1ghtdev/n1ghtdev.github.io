@@ -1,19 +1,9 @@
-General:
-  ☐ add resume document in pdf
-  ☐ add email contact form with google forms
-Archive:
-  ✔ implement React-Helmet @done(19-06-27 18:13)
-  ✔ start to fill portfolio with actual projects @done(19-06-23 16:00)
-  ✔ responsive design @done(19-06-15 20:12)
-  ✔ tablet @done(19-06-15 20:12)
-  ✔ laptop @done(19-06-15 20:12)
-  ✔ fix ProjectTools design @done(19-06-14 20:38)
-  ✔ load polyfills with dynamic import @done(19-06-12 20:10)
-  ✔ replace @babel/polyfill with core-js and regenerator-runtime (for async/await) @done(19-06-12 17:40)
-  ✔ add whatwg-fetch polyfill @done(19-06-12 17:40)
-  ✔ make webpack to split packages as (polyfills -> react -> vendor(other pkgs) -> main) @done(19-06-12 17:40)
-  ✔ fix scroll restoration (when navigating to projects page scroll jumps down) @done(19-06-12 17:40)
-  ✔ implement new design @done(19-06-06 21:07)
-  ✔ design single project page @done(19-06-08 21:29)
-  ✔ design projects page @done(19-06-08 21:31)
-  ✔ refactor project structure @done(19-06-08 21:32)
+☐ show only year instead of full date
+✔ add footer @done(20-01-27 01:42)
+✔ adaptive design @done(20-01-27 01:42)
+✘ contact modal @cancelled(20-01-28 20:45)
+✔ add resume pdf @done(20-01-27 01:42)
+✔ add telegram to Links @done(20-01-27 01:42)
+☐ add list of non-project work to project section
+☐ write tests
+✔ reveal Links on mobile @done(20-01-28 20:45)
