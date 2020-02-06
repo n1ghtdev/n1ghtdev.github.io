@@ -9,9 +9,9 @@ tech:
   - Styled
   - Node.js
   - Express
-  - Ant Design
+  - Antd
 featured: false
 ---
 
-Weather display app shows you current weather, 1 day and 7 days forecast.
-Implemented with [DarkSky API](https://darksky.net/dev).
+Weather web app display current weather, 1 day and 7 days forecast. Implemented
+with [DarkSky API](https://darksky.net/dev).

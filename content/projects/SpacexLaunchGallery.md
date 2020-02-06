@@ -6,9 +6,9 @@ external: ''
 tech:
   - React
   - GraphQL
-  - React Apollo
+  - Apollo
 featured: false
 ---
 
-Gallery contains all SpaceX launches with images and short information about
-launch. Implemented with [SpaceX GraphQL API](https://api.spacex.land/graphql).
+SpaceX launch image gallery. Implemented with
+[SpaceX GraphQL API](https://api.spacex.land/graphql).

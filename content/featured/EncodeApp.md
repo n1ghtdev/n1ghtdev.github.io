@@ -8,7 +8,7 @@ tech:
   - React
   - Node.js
   - Express
-  - Ant Design
+  - Antd
 featured: true
 ---
 

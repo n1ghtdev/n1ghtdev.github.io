@@ -7,7 +7,7 @@ tech:
   - React
   - Redux/Saga
   - Styled
-  - Material UI
+  - MUI
 featured: false
 ---
 

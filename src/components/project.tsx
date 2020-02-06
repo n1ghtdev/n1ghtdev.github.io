@@ -50,6 +50,10 @@ const Description = styled.p`
   margin-bottom: 15px;
   font-size: 16px;
   line-height: 1.35;
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 const Date = styled.div`
   margin-top: 3px;

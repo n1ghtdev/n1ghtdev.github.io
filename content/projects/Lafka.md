@@ -11,6 +11,6 @@ tech:
 featured: false
 ---
 
-Restaurant web application implemeneted with React and Headless Wordpress. WP
-backend powered with WooCommerce makes it easy to: add new products, check
-orders and payments.
+Restaurant web application created with React and Headless Wordpress. WP backend
+powered with WooCommerce makes it easy to: add new products, check orders and
+payments.

@@ -164,6 +164,10 @@ const Description = styled.p`
   text-align: center;
   position: relative;
   z-index: 2;
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Tools = styled.ul`
@@ -191,9 +195,9 @@ const LinkWrapper = styled.div`
   ${Wrapper}:nth-child(2n) & {
     flex-direction: row-reverse;
     & > a:first-child {
-      margin-right: 10px;
+      margin-left: 10px;
     }
-    & > a:nthchild(2) {
+    & > a:nth-child(2) {
       margin-left: 0;
     }
   }

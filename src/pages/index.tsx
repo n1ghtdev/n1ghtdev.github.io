@@ -41,7 +41,7 @@ export const pageQuery = graphql`
                 fluid(
                   maxWidth: 700
                   quality: 90
-                  traceSVG: { color: "#262940" }
+                  traceSVG: { color: "#333c80" }
                 ) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
