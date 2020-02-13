@@ -46,7 +46,7 @@ const Title = styled.h3`
   margin-bottom: 15px;
   color: ${({ theme }: { theme: any }) => theme.bright};
 `;
-const Description = styled.p`
+const Description = styled.div`
   margin-bottom: 15px;
   font-size: 16px;
   line-height: 1.35;

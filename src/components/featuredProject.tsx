@@ -102,24 +102,25 @@ const ImageWrapper = styled.a`
       animation: ${fadeInLeftShort} 250ms forwards linear;
     }
   }
+  ${media.medium`
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+      opacity: .7;
+      transition: opacity 250ms ease-in;
+    }
 
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
-    opacity: .7;
-    transition: opacity 250ms ease-in;
-  }
-
-  &:hover:after {
-    opacity: 0;
-  }
+    &:hover:after {
+      opacity: 0;
+    }
+  `}
 `;
 const Image = styled(Img)`
   position: relative;
@@ -127,13 +128,13 @@ const Image = styled(Img)`
   border-radius: 4px;
   width: 100%;
   max-width: 100%;
-  /* object-fit: cover; */
-  filter: grayscale(1);
-  transition: filter 250ms;
-
-  ${ImageWrapper}:hover & {
-    filter: grayscale(0);
-  }
+  ${media.medium`
+    filter: grayscale(1);
+    transition: filter 250ms;
+    ${ImageWrapper}:hover & {
+      filter: grayscale(0);
+    }
+  `}
 `;
 
 const Title = styled.h3`
@@ -151,7 +152,7 @@ const Date = styled.p`
   `}
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   ${media.large`
     margin-bottom: 20px;
   `}

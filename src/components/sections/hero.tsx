@@ -25,7 +25,6 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 
   ${media.medium`
     text-align: left;
@@ -55,14 +54,9 @@ const Introduction = styled.h2`
 
 const Name = styled.span`
   display: block;
-  font-size: 16px;
-  font-weight: normal;
-  opacity: 0.7;
+  font-size: 1em;
+  font-weight: bold;
   margin-bottom: 0.5em;
-
-  ${media.medium`
-    font-size: 32px;
-  `}
 `;
 
 const Description = styled.span`

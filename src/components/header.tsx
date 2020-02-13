@@ -61,14 +61,14 @@ const Header = () => {
     'top',
   );
   const [isActive, setIsActive] = React.useState(true);
-  const lastScrollTop = React.useRef();
+  const lastScrollTop = React.useRef<number | undefined>();
 
   React.useEffect(() => {
     lastScrollTop.current =
       window.pageYOffset || document.documentElement.scrollTop;
   }, []);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= breakpoints.medium) {
         setIsActive(false);
@@ -88,7 +88,7 @@ const Header = () => {
   const handleScroll = React.useCallback(() => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop === lastScrollTop.current) {
+    if (scrollTop === (lastScrollTop.current || 0)) {
       return false;
     }
 
@@ -97,9 +97,9 @@ const Header = () => {
     }
 
     if (scrollTop > 250) {
-      if (scrollTop > lastScrollTop.current) {
+      if (scrollTop > (lastScrollTop.current || 0)) {
         setScrollDirection('down');
-      } else if (scrollTop < lastScrollTop.current) {
+      } else if (scrollTop < (lastScrollTop.current || 0)) {
         setScrollDirection('up');
       }
     }
@@ -112,7 +112,7 @@ const Header = () => {
   return (
     <Wrapper scrollDirection={scrollDirection}>
       <PageTitle>
-        nightdev. <PrimaryPageTitle color="primary">developer</PrimaryPageTitle>
+        nightdev. <PrimaryPageTitle color="primary">portfolio</PrimaryPageTitle>
       </PageTitle>
       <AnimatedNavMenu>
         {navLinks &&
