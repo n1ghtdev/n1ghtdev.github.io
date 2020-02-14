@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import useInView from '@hooks/useInView';
 
@@ -245,14 +244,18 @@ const FeaturedProject = (props: ProjectProps) => {
           </Tools>
           <LinkWrapper>
             {props.github && (
-              <Link to={props.github}>
+              <a href={props.github} target="_blank" rel="noopener noreferrer">
                 <GithubIcon />
-              </Link>
+              </a>
             )}
             {props.external && (
-              <Link to={props.external}>
+              <a
+                href={props.external}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ExternalIcon />
-              </Link>
+              </a>
             )}
           </LinkWrapper>
         </Content>

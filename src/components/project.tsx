@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import GithubIcon from './assets/github';
@@ -108,14 +107,14 @@ const Project = (props: ProjectProps) => {
       </Content>
       <LinkWrapper>
         {props.github && (
-          <Link to={props.github}>
+          <a href={props.github} target="_blank" rel="noopener noreferrer">
             <GithubIcon />
-          </Link>
+          </a>
         )}
         {props.external && (
-          <Link to={props.external}>
+          <a href={props.external} target="_blank" rel="noopener noreferrer">
             <ExternalIcon />
-          </Link>
+          </a>
         )}
       </LinkWrapper>
     </Wrapper>
