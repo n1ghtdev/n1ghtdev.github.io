@@ -12,10 +12,10 @@ module.exports = {
   socials: {
     github: 'https://github.com/n1ghtdev',
     gitlab: 'https://gitlab.com/n1ghtdev',
-    telegram: 'https://t.me/@n1ckew',
+    telegram: 'https://t.me/n1ckew',
     codesandbox: 'https://codesandbox.io/u/n1ghtdev',
     codepen: 'https://codepen.io/Nickew/',
-    email: 'nickew@yahoo.com',
+    email: 'artyenick@gmail.com',
   },
   navLinks: [
     { title: 'home', url: '#hero' },
