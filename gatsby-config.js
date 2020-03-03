@@ -11,6 +11,12 @@ module.exports = {
         path: `${__dirname}/content/`,
       },
     },
+    {
+      resolve: 'gatsby-remark-images',
+      options: {
+        maxWidth: 1035,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -22,15 +28,6 @@ module.exports = {
             options: {
               target: '_blank',
               rel: 'nofollow noopener noreferrer',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 700,
-              linkImagesToOriginal: true,
-              quality: 90,
-              tracedSVG: { color: '#262940' },
             },
           },
         ],
