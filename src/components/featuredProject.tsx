@@ -73,11 +73,11 @@ const Content = styled.div`
 
 const ImageWrapper = styled.a`
   ${media.medium`
-    grid-column: 1/8;
+    grid-column: 1/10;
     grid-row: 1/-1;
-
+    max-width: 720px;
     ${Wrapper}:nth-child(2n) & {
-      grid-column: 6/-1;
+      grid-column: 4/-1;
     }
   `}
 
@@ -111,13 +111,13 @@ const ImageWrapper = styled.a`
       top: 0;
       right: 0;
       bottom: 0;
-      background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
-      opacity: .7;
+      background-color: #1f223d;
+      opacity: .6;
       transition: opacity 250ms ease-in;
     }
 
     &:hover:after {
-      opacity: 0;
+      opacity: .2;
     }
   `}
 `;
