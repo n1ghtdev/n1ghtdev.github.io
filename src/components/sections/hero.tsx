@@ -42,7 +42,6 @@ const Introduction = styled.h2`
   font-size: 1.5em;
   animation: ${fadeInUpShort} 250ms forwards linear;
   opacity: 0;
-  font-family: 'Aller';
   line-height: 1.5;
 
   ${media.medium`
