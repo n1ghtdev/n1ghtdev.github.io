@@ -77,9 +77,6 @@ const Hero = () => {
                 is to create highly optimized and quality driven applications.
               </Description>
             </Introduction>
-            <Buttons>
-              <Button href="/resume.pdf">download resume</Button>
-            </Buttons>
           </Content>
         </HeroContainer>
       </Wrapper>
