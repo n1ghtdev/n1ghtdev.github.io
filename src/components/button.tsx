@@ -20,7 +20,7 @@ const ButtonBaseStyles = styled.a`
 `;
 
 const StyledButton = styled(ButtonBaseStyles)`
-  color: ${(props: ButtonProps) => theme.bright};
+  color: ${(props: ButtonProps) => theme.text};
   letter-spacing: 4px;
   font-size: 14px;
   text-transform: uppercase;

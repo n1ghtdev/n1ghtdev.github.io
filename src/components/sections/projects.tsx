@@ -18,7 +18,7 @@ const SectionTitle = styled.h2`
   text-align: center;
   margin-bottom: 40px;
   font-size: 2rem;
-  color: ${({ theme }: { theme: any }) => theme.bright};
+  color: ${({ theme }: { theme: any }) => theme.text};
 
   opacity: 0;
   visibility: hidden;

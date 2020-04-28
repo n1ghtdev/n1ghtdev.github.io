@@ -3,23 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import ResetStyles from './reset-styles';
 
-import AllerRegular from '@fonts/aller/Aller_Rg.ttf';
-import AllerBold from '@fonts/aller/Aller_Bd.ttf';
-
 const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'Aller';
-    src: url(${AllerRegular}) format('truetype');
-  }
-  @font-face {
-    font-family: 'Aller';
-    src: url(${AllerBold}) format('truetype');
-    font-weight: bold;
-  }
-
   ${ResetStyles}
   html {
-    height: 100%;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     -webkit-text-size-adjust: 100%;
@@ -37,22 +23,14 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   a {
-    color: ${theme.bright};
+    color: ${theme.text};
     text-decoration: inherit;
   }
   body {
     overflow-x: hidden;
-    min-height: 100%;
-    background-color: ${theme.contrast};
-    color: ${theme.brightDark};
-    /* background-image: url('https://i.imgur.com/wwh7nDp.png'); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    & > div:first-child {
-      position: relative;
-    }
+    background-color: ${theme.background};
+    color: ${theme.text};
   }
-
   img {
     width: auto;
     max-width: 100%;

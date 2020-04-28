@@ -139,7 +139,7 @@ const Image = styled(Img)`
 const Title = styled.h3`
   margin-bottom: 20px;
   font-size: 1.75rem;
-  color: ${({ theme }: { theme: any }) => theme.bright};
+  color: ${({ theme }: { theme: any }) => theme.text};
 `;
 
 const Date = styled.p`
@@ -156,7 +156,7 @@ const Description = styled.div`
     margin-bottom: 20px;
   `}
   display: block;
-  background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
   padding: 25px 15px;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
@@ -203,13 +203,13 @@ const LinkWrapper = styled.div`
   }
   & > a {
     vertical-align: middle;
-    fill: ${({ theme }: { theme: any }) => theme.brightDark};
+    fill: ${({ theme }: { theme: any }) => theme.text};
     transition: fill 250ms;
     &:nth-child(2) {
       margin-left: 10px;
     }
     &:hover {
-      fill: ${({ theme }: { theme: any }) => theme.bright};
+      fill: ${({ theme }: { theme: any }) => theme.text};
     }
   }
 `;
@@ -238,7 +238,7 @@ const FeaturedProject = (props: ProjectProps) => {
             dangerouslySetInnerHTML={{ __html: props.description }}
           />
           <Tools>
-            {props.tools?.map(tool => (
+            {props.tools?.map((tool) => (
               <Tool>{tool}</Tool>
             ))}
           </Tools>

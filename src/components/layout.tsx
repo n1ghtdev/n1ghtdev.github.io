@@ -22,8 +22,8 @@ const Layout = ({
   children: React.ReactNode;
   location: any;
 }) => {
-  // store location.hash first value on render in ref
   const hash = React.useRef(location.hash);
+
   React.useEffect(() => {
     if (hash.current) {
       navigate(hash.current);

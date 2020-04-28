@@ -51,14 +51,14 @@ const Item = styled.li`
   & > a {
     display: inline-block;
     transition: opacity 250ms;
-    color: ${({ theme }: { theme: any }) => theme.brightDark};
+    color: ${({ theme }: { theme: any }) => theme.text};
     &:hover {
       opacity: 0.5;
     }
 
     ${InactiveStyles};
     &.active {
-      color: ${({ theme }: { theme: any }) => theme.bright};
+      color: ${({ theme }: { theme: any }) => theme.text};
       ${ActiveStyles};
     }
   }

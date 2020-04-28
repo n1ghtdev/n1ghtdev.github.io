@@ -9,8 +9,6 @@ import Layout from '@components/layout';
 import { SectionProvider } from '@hooks/useActiveSection';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
-  console.log(data.featured);
-
   return (
     <SectionProvider>
       <Layout location={location}>

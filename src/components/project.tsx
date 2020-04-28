@@ -18,7 +18,7 @@ type ProjectProps = {
 
 const Wrapper = styled.article`
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
   padding: 20px;
   border-radius: 2px;
   display: flex;
@@ -43,7 +43,7 @@ const Content = styled.header`
 `;
 const Title = styled.h3`
   margin-bottom: 15px;
-  color: ${({ theme }: { theme: any }) => theme.bright};
+  color: ${({ theme }: { theme: any }) => theme.text};
 `;
 const Description = styled.div`
   margin-bottom: 15px;
@@ -66,13 +66,13 @@ const LinkWrapper = styled.footer`
   justify-content: flex-end;
   & > a {
     vertical-align: middle;
-    fill: ${({ theme }: { theme: any }) => theme.brightDark};
+    fill: ${({ theme }: { theme: any }) => theme.text};
     transition: fill 250ms;
     &:nth-child(2) {
       margin-left: 10px;
     }
     &:hover {
-      fill: ${({ theme }: { theme: any }) => theme.bright};
+      fill: ${({ theme }: { theme: any }) => theme.text};
     }
   }
 `;
@@ -102,7 +102,7 @@ const Project = (props: ProjectProps) => {
         <Description dangerouslySetInnerHTML={{ __html: props.description }} />
         <Tools>
           {props.tools &&
-            props.tools.map(tool => <Tool key={tool}>{tool}</Tool>)}
+            props.tools.map((tool) => <Tool key={tool}>{tool}</Tool>)}
         </Tools>
       </Content>
       <LinkWrapper>

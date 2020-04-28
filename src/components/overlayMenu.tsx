@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
   transition: all 500ms;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const NavList = styled.ul`
     content: '';
     width: 1px;
     height: 35px;
-    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+    background-color: ${({ theme }: { theme: any }) => theme.text};
     opacity: 0.5;
     display: inline-block;
     margin: 10px 0;

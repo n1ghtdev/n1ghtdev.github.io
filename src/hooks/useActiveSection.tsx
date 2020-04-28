@@ -17,9 +17,7 @@ const SectionContext = React.createContext<SectionContextType>({
 });
 
 export const SectionProvider = (props: Props) => {
-  const [activeSection, setActiveSection] = React.useState();
-
-  // const savedSetActiveSection = React.useCallback(setActiveSection, []);
+  const [activeSection, setActiveSection] = React.useState(null);
 
   return (
     <SectionContext.Provider value={{ activeSection, setActiveSection }}>

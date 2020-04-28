@@ -41,7 +41,7 @@ const Nav = styled.ul`
     display: block;
     width: 1px;
     height: 60px;
-    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+    background-color: ${({ theme }: { theme: any }) => theme.text};
   }
 `;
 const NavItem = styled.li`
@@ -67,7 +67,7 @@ const Email = styled.div`
     align-self: center;
     width: 1px;
     height: 60px;
-    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+    background-color: ${({ theme }: { theme: any }) => theme.text};
   }
 `;
 
@@ -77,17 +77,17 @@ const Socials = () => {
       <Nav>
         <NavItem>
           <a href={socials.telegram} target="_blank" rel="noopener noreferrer">
-            <Telegram color={theme.brightDark} />
+            <Telegram color={theme.text} />
           </a>
         </NavItem>
         <NavItem>
           <a href={socials.github} target="_blank" rel="noopener noreferrer">
-            <Github width="24" height="24" color={theme.brightDark} />
+            <Github width="24" height="24" color={theme.text} />
           </a>
         </NavItem>
         <NavItem>
           <a href={socials.gitlab} target="_blank" rel="noopener noreferrer">
-            <Gitlab color={theme.brightDark} />
+            <Gitlab color={theme.text} />
           </a>
         </NavItem>
         <NavItem>
@@ -96,12 +96,12 @@ const Socials = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Codesandbox color={theme.brightDark} />
+            <Codesandbox color={theme.text} />
           </a>
         </NavItem>
         <NavItem>
           <a href={socials.codepen} target="_blank" rel="noopener noreferrer">
-            <Codepen color={theme.brightDark} />
+            <Codepen color={theme.text} />
           </a>
         </NavItem>
       </Nav>

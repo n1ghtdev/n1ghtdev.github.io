@@ -27,10 +27,8 @@ const Wrapper = styled.header`
   z-index: 4;
 
   transition: transform 250ms;
+  background: transparent;
 
-  background-color: ${({ theme }: { theme: any }) => theme.contrast};
-  box-shadow: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
-    scrollDirection === 'up' ? '2px 3px 4px rgba(0,0,0,.3)' : 'none'};
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'down' ? 'translateY(-75px)' : 'translateY(0px)'};
 
