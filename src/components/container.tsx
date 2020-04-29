@@ -19,7 +19,9 @@ const Container = styled.div`
   ${media.xl`
     max-width: 1030px;
   `}
-
+  ${media.xxl`
+    max-width: 1400px;
+  `}
   @media screen and (max-width: 330px) {
     padding: 0 5px;
   }

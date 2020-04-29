@@ -1,58 +1,60 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import theme from '@styles/theme';
-import { hexToRgba } from '@utils/hex-to-rgba';
-
-interface ButtonProps {
+type Props = {
   href?: string;
   type?: 'button' | 'submit';
   onClick?: (evt: React.MouseEvent<HTMLElement>) => void;
-  theme?: any;
   children: any;
-}
+};
 
-const ButtonBaseStyles = styled.a`
-  display: inline-block;
-  text-align: center;
-  padding: 12px 16px;
-  text-decoration: none;
-`;
-
-const StyledButton = styled(ButtonBaseStyles)`
-  color: ${(props: ButtonProps) => theme.text};
-  letter-spacing: 4px;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: bold;
-  background: none;
-  border: 1px solid ${(props: ButtonProps) => theme.primary};
-  border-radius: 2px;
+const StyledButton = styled.a`
   position: relative;
-  overflow: hidden;
+  display: inline-block;
+  padding: 8px 16px;
+
+  text-align: center;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text};
+  font-weight: bold;
+
+  background: #000;
+  border: 1px solid ${({ theme }) => theme.text};
   transition: background-color 250ms ease-in;
+
   &:hover {
-    background-color: ${(props: ButtonProps) => hexToRgba(theme.primary, '.2')};
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    left: 5px;
+    border: 1px solid ${({ theme }) => theme.text};
   }
 `;
 
-const Button = (props: ButtonProps) => {
+function Button(props: Props) {
+  const { href, onClick, type, children, ...rest } = props;
   if (props.href) {
     return (
       <StyledButton
-        href={props.href}
+        href={href}
         target="_blank"
         rel="nofollow noopener noreferrer"
+        {...rest}
       >
-        {props.children}
+        {children}
       </StyledButton>
     );
   }
   return (
-    <StyledButton onClick={props.onClick} type={props.type || 'button'}>
-      {props.children}
+    <StyledButton as="button" onClick={onClick} type={type || 'button'}>
+      {children}
     </StyledButton>
   );
-};
+}
 
 export default Button;

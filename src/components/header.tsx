@@ -28,6 +28,7 @@ const Wrapper = styled.header`
 
   transition: transform 250ms;
   background: transparent;
+  border-bottom: 1px solid ${({ theme }) => theme.secondary};
 
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'down' ? 'translateY(-75px)' : 'translateY(0px)'};
@@ -45,7 +46,7 @@ const PageTitle = styled.h1`
 `;
 
 const PrimaryPageTitle = styled.span`
-  color: ${({ theme }: { theme: any }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 `;
 
 const AnimatedNavMenu = styled(NavMenu)`
