@@ -35,7 +35,7 @@ const Layout = ({
       <ThemeProvider theme={theme}>
         <Head />
         <GlobalStyles />
-        <Socials />
+        {/* <Socials /> */}
         <Header />
         <Container>
           {children}

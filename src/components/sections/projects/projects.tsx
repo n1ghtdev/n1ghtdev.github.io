@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Container from '@components/container';
 import Project from '@components/project';
@@ -7,35 +6,7 @@ import Section from '@components/section';
 
 import useInView from '@hooks/useInView';
 
-import { fadeInUp } from '@styles/animations';
-
-const Wrapper = styled.div`
-  padding-top: 50px;
-  padding-bottom: 100px;
-`;
-
-const SectionTitle = styled.h2`
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-  color: ${({ theme }: { theme: any }) => theme.text};
-
-  opacity: 0;
-  visibility: hidden;
-
-  &.visible {
-    visibility: visible;
-    animation: ${fadeInUp} 250ms forwards linear;
-    animation-delay: 250ms;
-  }
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: 1fr;
-  grid-gap: 15px;
-`;
+import * as styles from './projects.styles';
 
 const Projects = ({ data }: { data: any }) => {
   const ref = React.useRef(null);
@@ -45,12 +16,12 @@ const Projects = ({ data }: { data: any }) => {
 
   return (
     <Section id="projects">
-      <Wrapper ref={ref}>
+      <styles.Wrapper ref={ref}>
         <Container>
-          <SectionTitle className={visibleClassname}>
+          <styles.SectionTitle className={visibleClassname}>
             Other projects
-          </SectionTitle>
-          <Grid>
+          </styles.SectionTitle>
+          <styles.Grid>
             {data.map((el: any) => {
               const { frontmatter, id, html } = el.node;
               const { date, title, tech, github, external } = frontmatter;
@@ -68,9 +39,9 @@ const Projects = ({ data }: { data: any }) => {
                 />
               );
             })}
-          </Grid>
+          </styles.Grid>
         </Container>
-      </Wrapper>
+      </styles.Wrapper>
     </Section>
   );
 };

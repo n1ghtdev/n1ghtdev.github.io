@@ -1,21 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import FeaturedProject from '@components/featuredProject';
 import Section from '@components/section';
-import media from '@styles/media';
+import FeaturedProject from './featured-project';
 
-const Wrapper = styled.div`
-  ${media.large`
-    padding-top: 100px;
-    padding-bottom: 100px;
-  `}
-`;
+import * as styles from './featured-projects.styles';
 
-const Featured = ({ data }: { data: any }) => {
+const FeaturedProjects = ({ data }: { data: any }) => {
   return (
     <Section id="featured">
-      <Wrapper>
+      <styles.Wrapper>
         {data.map((el: any) => {
           const { frontmatter, id, html } = el.node;
           const { date, title, tech, github, external, poster } = frontmatter;
@@ -33,9 +26,9 @@ const Featured = ({ data }: { data: any }) => {
             />
           );
         })}
-      </Wrapper>
+      </styles.Wrapper>
     </Section>
   );
 };
 
-export default Featured;
+export default FeaturedProjects;
