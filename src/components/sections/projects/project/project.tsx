@@ -1,7 +1,6 @@
 import React from 'react';
 
-import GithubIcon from '@components/assets/github';
-import ExternalIcon from '@components/assets/external';
+import ProjectLinks from '@components/project-links';
 
 import * as styles from './project.styles';
 
@@ -28,27 +27,8 @@ const Project = (props: ProjectProps) => {
 
   return (
     <styles.Wrapper className={className}>
-      <styles.Content>
-        <styles.Date>{date}</styles.Date>
-        <styles.Title>{title}</styles.Title>
-        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-        <styles.Tools>
-          {tools &&
-            tools.map((tool) => <styles.Tool key={tool}>{tool}</styles.Tool>)}
-        </styles.Tools>
-      </styles.Content>
-      <styles.LinkWrapper>
-        {github && (
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            <GithubIcon />
-          </a>
-        )}
-        {external && (
-          <a href={external} target="_blank" rel="noopener noreferrer">
-            <ExternalIcon />
-          </a>
-        )}
-      </styles.LinkWrapper>
+      <styles.Title>{title}</styles.Title>
+      <ProjectLinks github={github} external={external} />
     </styles.Wrapper>
   );
 };

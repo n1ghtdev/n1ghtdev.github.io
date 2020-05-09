@@ -22,9 +22,4 @@ export const SectionTitle = styled.h2`
   }
 `;
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: 1fr;
-  grid-gap: 15px;
-`;
+export const List = styled.div``;

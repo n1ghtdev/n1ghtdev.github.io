@@ -2,16 +2,26 @@ import styled from 'styled-components';
 import { fadeInDownShort, fadeInUpShort } from '@styles/animations';
 
 export const Wrapper = styled.article`
-  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
-  padding: 20px;
-  border-radius: 2px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 
+  padding: 15px;
+  border: 1px solid ${({ theme }) => theme.secondary};
+  border-top: none;
+
+  cursor: pointer;
   visibility: hidden;
   opacity: 0;
+  transition: background-color 250ms;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary};
+  }
+
+  &:first-child {
+    border-top: 1px solid ${({ theme }) => theme.secondary};
+  }
 
   &.visible {
     visibility: visible;
@@ -24,46 +34,9 @@ export const Wrapper = styled.article`
   }
 `;
 
-export const Content = styled.header`
-  margin-bottom: 15px;
-`;
-
 export const Title = styled.h3`
-  margin-bottom: 15px;
   color: ${({ theme }: { theme: any }) => theme.text};
-`;
-
-export const Description = styled.div`
-  margin-bottom: 15px;
   font-size: 16px;
-  line-height: 1.35;
-
-  a:hover {
-    text-decoration: underline;
-  }
-`;
-
-export const Date = styled.div`
-  margin-top: 3px;
-  font-size: 14px;
-  float: right;
-`;
-
-export const LinkWrapper = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  & > a {
-    vertical-align: middle;
-    fill: ${({ theme }: { theme: any }) => theme.text};
-    transition: fill 250ms;
-    &:nth-child(2) {
-      margin-left: 10px;
-    }
-    &:hover {
-      fill: ${({ theme }: { theme: any }) => theme.text};
-    }
-  }
 `;
 
 export const Tools = styled.ul`

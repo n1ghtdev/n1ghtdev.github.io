@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Container from '@components/container';
-import Project from '@components/project';
 import Section from '@components/section';
+import Project from './project';
 
 import useInView from '@hooks/useInView';
 
@@ -21,7 +21,7 @@ const Projects = ({ data }: { data: any }) => {
           <styles.SectionTitle className={visibleClassname}>
             Other projects
           </styles.SectionTitle>
-          <styles.Grid>
+          <styles.List>
             {data.map((el: any) => {
               const { frontmatter, id, html } = el.node;
               const { date, title, tech, github, external } = frontmatter;
@@ -39,7 +39,7 @@ const Projects = ({ data }: { data: any }) => {
                 />
               );
             })}
-          </styles.Grid>
+          </styles.List>
         </Container>
       </styles.Wrapper>
     </Section>
