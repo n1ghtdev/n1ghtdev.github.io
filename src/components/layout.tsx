@@ -5,7 +5,6 @@ import { navigate } from '@reach/router';
 import Head from './head';
 import Header from './header';
 import Footer from './footer';
-import Socials from './socials';
 import Container from './container';
 
 import theme from '@styles/theme';
@@ -35,7 +34,6 @@ const Layout = ({
       <ThemeProvider theme={theme}>
         <Head />
         <GlobalStyles />
-        {/* <Socials /> */}
         <Header />
         <Container>
           {children}
