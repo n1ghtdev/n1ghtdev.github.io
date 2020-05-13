@@ -2,22 +2,11 @@ import styled from 'styled-components';
 import { fadeInDownShort, fadeInUpShort } from '@styles/animations';
 
 export const Wrapper = styled.article`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 15px;
   border: 1px solid ${({ theme }) => theme.secondary};
   border-top: none;
 
-  cursor: pointer;
   visibility: hidden;
   opacity: 0;
-  transition: background-color 250ms;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.primary};
-  }
 
   &:first-child {
     border-top: 1px solid ${({ theme }) => theme.secondary};
@@ -34,9 +23,31 @@ export const Wrapper = styled.article`
   }
 `;
 
+export const Header = styled.header`
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: background-color 250ms;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary};
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const Title = styled.h3`
   color: ${({ theme }: { theme: any }) => theme.text};
   font-size: 16px;
+`;
+
+export const Description = styled.p`
+  animation: ${fadeInUpShort} 250ms forwards linear;
 `;
 
 export const Tools = styled.ul`
@@ -53,4 +64,12 @@ export const Tool = styled.li`
   &:last-child {
     margin-right: 0;
   }
+`;
+
+export const ProjectInnerContent = styled.div`
+  max-height: ${({ open }: { open: boolean }) => (open ? '500px' : '0')};
+  overflow: hidden;
+  /* visibility: ${({ open }: { open: boolean }) =>
+    open ? 'visible' : 'hidden'}; */
+  transition: max-height 500ms;
 `;

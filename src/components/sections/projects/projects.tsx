@@ -24,11 +24,19 @@ const Projects = ({ data }: { data: any }) => {
           <styles.List>
             {data.map((el: any) => {
               const { frontmatter, id, html } = el.node;
-              const { date, title, tech, github, external } = frontmatter;
+              const {
+                date,
+                title,
+                tech,
+                github,
+                external,
+                poster,
+              } = frontmatter;
 
               return (
                 <Project
                   key={id}
+                  img={poster}
                   title={title}
                   description={html}
                   github={github}
