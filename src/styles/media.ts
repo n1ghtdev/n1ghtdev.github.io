@@ -14,7 +14,7 @@ export const breakpoints: breakpointsType = {
   medium: 768,
   large: 992,
   xl: 1200,
-  xxl: 1600,
+  xxl: 1700,
 };
 
 const media = Object.keys(breakpoints).reduce(
@@ -31,7 +31,5 @@ const media = Object.keys(breakpoints).reduce(
   },
   {},
 );
-
-console.log(media);
 
 export default media;

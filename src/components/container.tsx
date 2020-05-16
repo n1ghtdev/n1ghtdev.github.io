@@ -17,10 +17,10 @@ const Container = styled.div`
     max-width: 992px;
   `}
   ${media.xl`
-    max-width: 1030px;
+    max-width: 1200px;
   `}
   ${media.xxl`
-    max-width: 1400px;
+    max-width: 1700px;
   `}
   @media screen and (max-width: 330px) {
     padding: 0 5px;

@@ -28,50 +28,22 @@ const Project = (props: ProjectProps) => {
     className,
   } = props;
 
-  const [open, setOpen] = React.useState(false);
-  const [delayedOpen, setDelayedOpen] = React.useState(false);
-
-  function handleHeaderClick() {
-    if (!open) {
-      setOpen(!open);
-      setTimeout(() => {
-        setDelayedOpen(!open);
-      }, 0);
-    } else {
-      setDelayedOpen(!open);
-      setTimeout(() => {
-        setOpen(!open);
-      }, 500);
-    }
-  }
-
   return (
     <styles.Wrapper className={className}>
-      <styles.Header onClick={handleHeaderClick} tabIndex={-1}>
+      <styles.Header>
         <styles.Title>{title}</styles.Title>
         <ProjectLinks github={github} external={external} />
       </styles.Header>
-      <styles.ProjectInnerContent open={delayedOpen}>
-        {open ? (
-          <>
-            <styles.Description>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              numquam esse nobis rem, consectetur laborum fugiat modi ipsa
-              expedita iste saepe ex, consequuntur quaerat quia! numquam esse
-              nobis rem, consectetur laborum fugiat modi ipsa expedita iste
-              saepe ex, consequuntur quaerat quia! numquam esse nobis rem,
-              consectetur laborum fugiat modi ipsa expedita iste saepe ex,
-              consequuntur quaerat quia! numquam esse nobis rem, consectetur
-              laborum fugiat modi ipsa expedita iste saepe ex, consequuntur
-              quaerat quia!
-            </styles.Description>
-            {img ? <Img fluid={img.childImageSharp.fluid} /> : null}
-          </>
-        ) : null}
-      </styles.ProjectInnerContent>
+      <styles.Content>
+        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
+        <styles.Tags>
+          {tools && tools.length > 0
+            ? tools.map((tool: string) => (
+                <styles.Tag key={tool}>{tool}</styles.Tag>
+              ))
+            : null}
+        </styles.Tags>
+      </styles.Content>
     </styles.Wrapper>
   );
 };

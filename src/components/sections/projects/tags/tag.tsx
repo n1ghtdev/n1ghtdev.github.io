@@ -1,0 +1,55 @@
+import React from 'react';
+import styled from 'styled-components';
+import media from '@styles/media';
+
+type Props = {
+  onClick: (tag: string) => void;
+  tag: string;
+  active: boolean;
+};
+
+export const Item = styled.li`
+  margin: 0;
+  height: 35px;
+  margin-bottom: 10px;
+
+  ${media.xl`
+    width: calc(33.34% - 2px);
+    margin-bottom: 3px;
+  `}
+  ${media.xxl`
+    width: calc(25% - 4px);
+    margin-bottom: 5px;
+  `}
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  height: 100%;
+
+  white-space: nowrap;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  cursor: pointer;
+  color: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.secondary};
+
+  &.active {
+    color: ${({ theme }) => theme.secondary};
+    background: ${({ theme }) => theme.primary};
+  }
+`;
+
+function Tag({ onClick, tag, active }: Props) {
+  return (
+    <Item>
+      <Button onClick={() => onClick(tag)} className={active ? 'active' : ''}>
+        {tag}
+      </Button>
+    </Item>
+  );
+}
+
+export default Tag;
