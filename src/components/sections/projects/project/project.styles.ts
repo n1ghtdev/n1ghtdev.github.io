@@ -3,26 +3,33 @@ import { fadeInUpShort } from '@styles/animations';
 import media from '@styles/media';
 
 export const Wrapper = styled.article`
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: space-between;
+
   width: 100%;
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid ${({ theme }) => theme.secondary};
 
-  visibility: hidden;
-  opacity: 0;
-
   &:hover {
     border-color: ${({ theme }) => theme.primary};
   }
 
-  &.visible {
-    visibility: visible;
-    animation: ${fadeInUpShort} 250ms forwards linear;
-    animation-delay: 500ms;
-  }
+  ${media.medium`
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
 
-  ${media.xl`
-    width: calc(33% - 10px);
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+    &:nth-child(even) {
+      margin-left: 5px;
+    }
+  `}
+  ${media.xxl`
+    width: calc(33% - 20px);
+    margin: 0 10px 20px 10px;
   `}
 `;
 
@@ -34,24 +41,34 @@ export const Header = styled.header`
 
 export const Title = styled.h3`
   color: ${({ theme }: { theme: any }) => theme.text};
-  font-size: 16px;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 1000;
 `;
 
 export const Description = styled.p`
   animation: ${fadeInUpShort} 250ms forwards linear;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 `;
 
 export const Tags = styled.ul`
   display: inline-flex;
-  list-style-type: none;
   flex-wrap: wrap;
+
+  list-style-type: none;
 `;
 
 export const Tag = styled.li`
-  font-size: 14px;
   margin-right: 10px;
   margin-bottom: 5px;
-  opacity: 0.7;
+
+  color: ${({ theme }: { theme: any }) => theme.primary};
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+
   &:last-child {
     margin-right: 0;
   }

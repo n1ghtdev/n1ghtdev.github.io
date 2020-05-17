@@ -30,20 +30,22 @@ const Project = (props: ProjectProps) => {
 
   return (
     <styles.Wrapper className={className}>
-      <styles.Header>
-        <styles.Title>{title}</styles.Title>
-        <ProjectLinks github={github} external={external} />
-      </styles.Header>
-      <styles.Content>
+      <div>
+        <styles.Header>
+          <styles.Title>{title}</styles.Title>
+          <ProjectLinks github={github} external={external} />
+        </styles.Header>
+        {/* <styles.Content> */}
         <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-        <styles.Tags>
-          {tools && tools.length > 0
-            ? tools.map((tool: string) => (
-                <styles.Tag key={tool}>{tool}</styles.Tag>
-              ))
-            : null}
-        </styles.Tags>
-      </styles.Content>
+      </div>
+      <styles.Tags>
+        {tools && tools.length > 0
+          ? tools.map((tool: string) => (
+              <styles.Tag key={tool}>{tool}</styles.Tag>
+            ))
+          : null}
+      </styles.Tags>
+      {/* </styles.Content> */}
     </styles.Wrapper>
   );
 };

@@ -59,7 +59,10 @@ export const List = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  ${media.xl`
-    justify-content: space-between;
+  ${media.medium`
+    /* margin: 0 -5px; */
+  `}
+  ${media.xxl`
+    margin: 0 -20px;
   `}
 `;

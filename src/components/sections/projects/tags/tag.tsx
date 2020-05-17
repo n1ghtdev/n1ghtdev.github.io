@@ -11,15 +11,18 @@ type Props = {
 export const Item = styled.li`
   margin: 0;
   height: 35px;
-  margin-bottom: 10px;
+
+  width: auto;
+  margin-right: 5px;
+  margin-bottom: 5px;
 
   ${media.xl`
     width: calc(33.34% - 2px);
-    margin-bottom: 3px;
+    margin: 0 1px 3px 1px;
   `}
   ${media.xxl`
     width: calc(25% - 4px);
-    margin-bottom: 5px;
+    margin: 0 2px 5px 2px;
   `}
 `;
 
