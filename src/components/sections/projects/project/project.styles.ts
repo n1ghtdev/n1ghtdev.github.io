@@ -17,19 +17,12 @@ export const Wrapper = styled.article`
   }
 
   ${media.medium`
-    width: calc(50% - 5px);
-    margin-bottom: 10px;
-
-    &:nth-child(odd) {
-      margin-right: 5px;
-    }
-    &:nth-child(even) {
-      margin-left: 5px;
-    }
+    width: calc(1/2 * 100% - 10px);
+    margin: 5px;
   `}
   ${media.xxl`
-    width: calc(33% - 20px);
-    margin: 0 10px 20px 10px;
+    width: calc(1/3 * 100% - 20px);
+    margin: 10px;
   `}
 `;
 
@@ -41,7 +34,7 @@ export const Header = styled.header`
 
 export const Title = styled.h3`
   color: ${({ theme }: { theme: any }) => theme.text};
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'Inter', sans-serif;
   font-weight: 1000;
 `;

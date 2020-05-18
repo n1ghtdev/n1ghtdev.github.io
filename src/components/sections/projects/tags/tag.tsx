@@ -17,7 +17,7 @@ export const Item = styled.li`
   margin-bottom: 5px;
 
   ${media.xl`
-    width: calc(33.34% - 2px);
+    width: calc(1/3 * 100% - 2px);
     margin: 0 1px 3px 1px;
   `}
   ${media.xxl`

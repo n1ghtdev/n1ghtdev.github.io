@@ -59,10 +59,10 @@ export const List = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  ${media.medium`
-    /* margin: 0 -5px; */
+  ${media.xl`
+    margin: -5px;
   `}
   ${media.xxl`
-    margin: 0 -20px;
+    margin: -10px;
   `}
 `;
