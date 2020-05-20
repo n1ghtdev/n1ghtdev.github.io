@@ -1,10 +1,7 @@
 import React from 'react';
 
 import useInView from '@hooks/useInView';
-
-import GithubIcon from '@components/assets/github';
-import ExternalIcon from '@components/assets/external';
-
+import ProjectLinks from '@components/project-links';
 import * as styles from './featured-project.styles';
 
 type Props = {
@@ -37,18 +34,7 @@ const FeaturedProject = (props: Props) => {
           ))}
         </styles.Tools>
         <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-        <styles.LinkWrapper>
-          {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer">
-              <GithubIcon />
-            </a>
-          )}
-          {external && (
-            <a href={external} target="_blank" rel="noopener noreferrer">
-              <ExternalIcon />
-            </a>
-          )}
-        </styles.LinkWrapper>
+        <ProjectLinks github={github} external={external} />
       </styles.Content>
     </styles.Wrapper>
   );

@@ -131,21 +131,3 @@ export const Tool = styled.li`
     margin-right: 0;
   }
 `;
-
-export const LinkWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-
-  & > a {
-    vertical-align: middle;
-    fill: ${({ theme }: { theme: any }) => theme.text};
-    transition: fill 250ms;
-    &:nth-child(2) {
-      margin-left: 10px;
-    }
-    &:hover {
-      fill: ${({ theme }: { theme: any }) => theme.text};
-    }
-  }
-`;

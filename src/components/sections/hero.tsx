@@ -11,6 +11,10 @@ import media from '@styles/media';
 const Wrapper = styled.div`
   height: calc(100vh - 50px);
   margin-top: 50px;
+
+  ${media.xxl`
+    padding: 0 100px;
+  `}
 `;
 
 const HeroContainer = styled.div`
@@ -30,6 +34,8 @@ const LeftColumn = styled.div`
     width: 40%;
   `}
 `;
+
+const RightColumn = styled.div``;
 
 const Buttons = styled.div`
   margin-top: 50px;
@@ -108,8 +114,6 @@ const Description = styled.span`
   font-size: 16px;
   line-height: 1.7;
 `;
-
-const RightColumn = styled.div``;
 
 const Hero = () => {
   return (

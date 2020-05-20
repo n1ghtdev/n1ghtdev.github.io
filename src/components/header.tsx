@@ -27,7 +27,7 @@ const Wrapper = styled.header`
   z-index: 4;
 
   transition: transform 250ms;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid ${({ theme }) => theme.secondary};
 
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>

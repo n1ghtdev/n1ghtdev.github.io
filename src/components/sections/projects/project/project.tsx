@@ -1,8 +1,6 @@
 import React from 'react';
-import Img from 'gatsby-image';
 
 import ProjectLinks from '@components/project-links';
-
 import * as styles from './project.styles';
 
 type ProjectProps = {
@@ -17,16 +15,7 @@ type ProjectProps = {
 };
 
 const Project = (props: ProjectProps) => {
-  const {
-    date,
-    title,
-    description,
-    tools,
-    github,
-    external,
-    img,
-    className,
-  } = props;
+  const { title, description, tools, github, external, className } = props;
 
   return (
     <styles.Wrapper className={className}>
