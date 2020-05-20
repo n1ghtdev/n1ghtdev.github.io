@@ -4,40 +4,31 @@ import media from '@styles/media';
 import { fadeInRightShort, fadeInLeftShort } from '@styles/animations';
 
 export const Wrapper = styled.article`
+  display: flex;
+  flex-flow: nowrap column;
+  margin-bottom: 100px;
+
+  ${media.medium`
+    padding: 20px;
+  `}
   ${media.large`
     margin-bottom: 120px;
   `}
-  margin-bottom: 60px;
-  position: relative;
-  height: 600px;
-`;
-
-export const Content = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 40px;
-  transform: translate(0, -50%);
-  width: 50%;
-
-  visibility: hidden;
-  opacity: 0;
-  transition: all 250ms;
-
-  ${Wrapper}:hover & {
-    visibility: visible;
-    opacity: 1;
-  }
+  ${media.xl`
+    flex-flow: nowrap row;
+    align-items: flex-start;
+  `}
 `;
 
 export const ImageWrapper = styled.div`
-  position: relative;
-  display: inline-block;
   width: 100%;
-  height: 100%;
+  flex-shrink: 0;
 
+  position: relative;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
+  order: 1;
 
   ${Wrapper}.visible & {
     visibility: visible;
@@ -50,6 +41,8 @@ export const ImageWrapper = styled.div`
     }
   }
   ${media.medium`
+    box-shadow: 2px 2px 25px ${({ theme }: { theme: any }) => theme.secondary};
+
     &:after {
       content: '';
       position: absolute;
@@ -59,14 +52,21 @@ export const ImageWrapper = styled.div`
       top: 0;
       right: 0;
       bottom: 0;
-      background-color: #000;
+      background-color: ${({ theme }: { theme: any }) => theme.secondary};
       opacity: 0;
       transition: opacity 250ms ease-in;
     }
 
-    ${Wrapper}:hover &:after {
-      opacity: .6;
+    &:hover:after {
+      opacity: 0;
     }
+  `}
+  ${media.xl`
+    max-width: 760px;
+    order: 0;
+  `}
+  ${media.xxl`
+    max-width: 960px;
   `}
 `;
 
@@ -74,49 +74,59 @@ export const Image = styled(Img)`
   position: relative;
   vertical-align: middle;
   width: 100%;
-  max-width: 100%;
-  ${media.medium`
-    transition: filter 250ms;
-    ${Wrapper}:hover & {
-      filter: blur(3px);
-    }
+`;
+
+export const Content = styled.div`
+  order: 0;
+  margin-bottom: 20px;
+
+  ${media.xl`
+    order: 1;
+    margin-bottom: 0;
+    align-self: center;
+    margin-left: 60px;
   `}
 `;
 
 export const Title = styled.h3`
-  margin-bottom: 20px;
-  font-size: 1.75rem;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 1000;
   color: ${({ theme }: { theme: any }) => theme.text};
-`;
-
-export const Date = styled.p`
-  display: none;
   margin-bottom: 10px;
-  font-size: 12px;
-  ${media.large`
-    display: block;
+
+  ${media.medium`
+    font-size: 48px;
   `}
 `;
 
 export const Description = styled.p`
-  ${media.large`
-    margin-bottom: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  line-height: 23px;
+
+  ${media.medium`
+    line-height: 30px;
   `}
 `;
 
 export const Tools = styled.ul`
-  display: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-bottom: 10px;
   list-style-type: none;
-  margin-bottom: 20px;
-  opacity: 0.7;
-  ${media.large`
-    display: inline-flex;
-  `}
 `;
 
 export const Tool = styled.li`
-  font-size: 14px;
   margin-right: 10px;
+  margin-bottom: 5px;
+
+  color: ${({ theme }: { theme: any }) => theme.primary};
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+
   &:last-child {
     margin-right: 0;
   }
@@ -125,6 +135,7 @@ export const Tool = styled.li`
 export const LinkWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 20px;
 
   & > a {
     vertical-align: middle;

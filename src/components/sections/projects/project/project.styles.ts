@@ -8,7 +8,7 @@ export const Wrapper = styled.article`
   justify-content: space-between;
 
   width: 100%;
-  padding: 15px;
+  padding: 5px 15px 15px 15px;
   margin-bottom: 20px;
   border: 1px solid ${({ theme }) => theme.secondary};
 
@@ -30,6 +30,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 `;
 
 export const Title = styled.h3`

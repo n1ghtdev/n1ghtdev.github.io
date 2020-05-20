@@ -35,7 +35,6 @@ const Project = (props: ProjectProps) => {
           <styles.Title>{title}</styles.Title>
           <ProjectLinks github={github} external={external} />
         </styles.Header>
-        {/* <styles.Content> */}
         <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
       </div>
       <styles.Tags>
@@ -45,7 +44,6 @@ const Project = (props: ProjectProps) => {
             ))
           : null}
       </styles.Tags>
-      {/* </styles.Content> */}
     </styles.Wrapper>
   );
 };

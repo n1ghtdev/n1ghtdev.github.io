@@ -37,7 +37,7 @@ export const pageQuery = graphql`
             poster {
               childImageSharp {
                 fluid(
-                  maxWidth: 720
+                  maxWidth: 1920
                   quality: 90
                   traceSVG: { color: "#333c80" }
                 ) {

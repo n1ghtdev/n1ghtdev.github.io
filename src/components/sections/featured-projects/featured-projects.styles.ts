@@ -6,4 +6,7 @@ export const Wrapper = styled.div`
     padding-top: 100px;
     padding-bottom: 100px;
   `}
+  ${media.xxl`
+    padding: 100px;
+  `}
 `;

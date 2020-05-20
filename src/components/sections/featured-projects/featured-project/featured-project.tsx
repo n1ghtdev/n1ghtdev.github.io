@@ -18,7 +18,7 @@ type Props = {
 };
 
 const FeaturedProject = (props: Props) => {
-  const { date, title, description, img, tools, github, external } = props;
+  const { title, description, img, tools, github, external } = props;
   const { fluid: fluidImage } = img.childImageSharp;
 
   const ref = React.useRef(null);
@@ -30,14 +30,13 @@ const FeaturedProject = (props: Props) => {
         <styles.Image fluid={fluidImage} />
       </styles.ImageWrapper>
       <styles.Content>
-        <styles.Date>{date}</styles.Date>
         <styles.Title>{title}</styles.Title>
-        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
         <styles.Tools>
           {tools?.map((tool) => (
             <styles.Tool>{tool}</styles.Tool>
           ))}
         </styles.Tools>
+        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
         <styles.LinkWrapper>
           {github && (
             <a href={github} target="_blank" rel="noopener noreferrer">
