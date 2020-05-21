@@ -69,7 +69,7 @@ const OverlayMenu = () => {
           {navLinks &&
             navLinks.map((link: any) => (
               <NavItem key={link.url}>
-                <NavLink to={link.url}>{link.title}</NavLink>
+                <NavLink to={`/${link.url}`}>{link.title}</NavLink>
               </NavItem>
             ))}
         </NavList>
@@ -77,7 +77,7 @@ const OverlayMenu = () => {
           {socials &&
             Object.entries(socials).map((link: any) => (
               <NavItem key={link[1]}>
-                <NavLink to={link[1]}>{link[0]}</NavLink>
+                <NavLink href={link[1]}>{link[0]}</NavLink>
               </NavItem>
             ))}
         </NavList>

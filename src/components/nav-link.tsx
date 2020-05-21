@@ -1,9 +1,21 @@
 import React from 'react';
-import { Link, GatsbyLinkProps } from 'gatsby';
+import { Link } from 'gatsby';
 import { useSection } from '@hooks/use-active-section';
 
-const NavLink = (props: GatsbyLinkProps<any>) => {
+type Props = {
+  [key: string]: any;
+};
+
+const NavLink = (props: Props) => {
   const { activeSection } = useSection();
+
+  if (props.href) {
+    return (
+      <a href={props.href} target="_blank" rel="noopener noreferrer">
+        {props.children}
+      </a>
+    );
+  }
 
   return (
     <Link

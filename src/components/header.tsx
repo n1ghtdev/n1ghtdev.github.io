@@ -117,7 +117,7 @@ const Header = () => {
         {navLinks &&
           navLinks.map((link: any) => (
             <NavMenuItem key={link.url}>
-              <NavLink to={link.url}>{link.title}</NavLink>
+              <NavLink to={`/${link.url}`}>{link.title}</NavLink>
             </NavMenuItem>
           ))}
       </AnimatedNavMenu>
