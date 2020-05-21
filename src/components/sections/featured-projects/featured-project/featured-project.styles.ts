@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import media from '@styles/media';
-import { fadeInRightShort, fadeInLeftShort } from '@styles/animations';
+import { fadeInRightShort } from '@styles/animations';
 
 export const Wrapper = styled.article`
   display: flex;
@@ -17,12 +17,14 @@ export const Wrapper = styled.article`
   ${media.xl`
     flex-flow: nowrap row;
     align-items: flex-start;
+    margin-bottom: 150px;
   `}
 `;
 
 export const ImageWrapper = styled.div`
   width: 100%;
   flex-shrink: 0;
+  max-height: 350px;
 
   position: relative;
   overflow: hidden;
@@ -34,32 +36,9 @@ export const ImageWrapper = styled.div`
     visibility: visible;
     animation: ${fadeInRightShort} 250ms forwards linear;
     animation-delay: 250ms;
-
-    /* prettier-ignore */
-    ${Wrapper}:nth-child(2n) & {
-      animation: ${fadeInLeftShort} 250ms forwards linear;
-    }
   }
   ${media.medium`
     box-shadow: 2px 2px 25px ${({ theme }: { theme: any }) => theme.secondary};
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background-color: ${({ theme }: { theme: any }) => theme.secondary};
-      opacity: 0;
-      transition: opacity 250ms ease-in;
-    }
-
-    &:hover:after {
-      opacity: 0;
-    }
   `}
   ${media.xl`
     max-width: 760px;
@@ -67,6 +46,7 @@ export const ImageWrapper = styled.div`
   `}
   ${media.xxl`
     max-width: 960px;
+    max-height: 420px;
   `}
 `;
 
@@ -74,6 +54,7 @@ export const Image = styled(Img)`
   position: relative;
   vertical-align: middle;
   width: 100%;
+  height: 100%;
 `;
 
 export const Content = styled.div`
@@ -100,8 +81,11 @@ export const Title = styled.h3`
   `}
 `;
 
-export const Description = styled.p`
+export const InnerContent = styled.div`
   margin-left: 20px;
+`;
+
+export const Description = styled.p`
   margin-bottom: 20px;
   line-height: 23px;
 
@@ -113,7 +97,6 @@ export const Description = styled.p`
 export const Tools = styled.ul`
   display: inline-flex;
   flex-wrap: wrap;
-  margin-left: 20px;
   margin-bottom: 10px;
   list-style-type: none;
 `;
@@ -122,7 +105,7 @@ export const Tool = styled.li`
   margin-right: 10px;
   margin-bottom: 5px;
 
-  color: ${({ theme }: { theme: any }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;

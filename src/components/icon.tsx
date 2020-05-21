@@ -11,9 +11,11 @@ const SvgWrapper = styled.i`
     fill: ${({ isDisabled, theme }: { isDisabled: boolean; theme: any }) =>
       isDisabled ? theme.secondary : '#fff'};
 
+    transition: fill 250ms;
+
     &:hover {
       fill: ${({ isDisabled, theme }: { isDisabled: boolean; theme: any }) =>
-        isDisabled ? theme.secondary : '#fff'};
+        isDisabled ? theme.secondary : theme.primary};
     }
   }
 `;

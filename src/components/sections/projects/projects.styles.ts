@@ -5,6 +5,7 @@ import media from '@styles/media';
 export const Wrapper = styled.div`
   padding-top: 50px;
   padding-bottom: 100px;
+  min-height: 100vh;
 `;
 
 export const Header = styled.div`

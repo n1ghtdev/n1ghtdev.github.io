@@ -28,13 +28,17 @@ const FeaturedProject = (props: Props) => {
       </styles.ImageWrapper>
       <styles.Content>
         <styles.Title>{title}</styles.Title>
-        <styles.Tools>
-          {tools?.map((tool) => (
-            <styles.Tool>{tool}</styles.Tool>
-          ))}
-        </styles.Tools>
-        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-        <ProjectLinks github={github} external={external} />
+        <styles.InnerContent>
+          <styles.Tools>
+            {tools?.map((tool) => (
+              <styles.Tool>{tool}</styles.Tool>
+            ))}
+          </styles.Tools>
+          <styles.Description
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+          <ProjectLinks github={github} external={external} />
+        </styles.InnerContent>
       </styles.Content>
     </styles.Wrapper>
   );

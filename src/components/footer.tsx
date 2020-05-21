@@ -6,7 +6,7 @@ const Wrapper = styled.footer`
   padding: 25px 0;
   font-size: 12px;
   text-transform: uppercase;
-  opacity: 0.7;
+  color: ${({ theme }) => theme.primary};
 `;
 
 const Footer = () => {

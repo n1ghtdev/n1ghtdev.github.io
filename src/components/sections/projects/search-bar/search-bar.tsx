@@ -12,6 +12,7 @@ function SearchBar(props: Props) {
     <styles.Form>
       <styles.Input
         value={props.value}
+        placeholder="Search for project..."
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           props.onChange(e.target.value)
         }

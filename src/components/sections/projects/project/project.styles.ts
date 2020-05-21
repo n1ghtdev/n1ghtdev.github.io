@@ -6,6 +6,7 @@ export const Wrapper = styled.article`
   display: flex;
   flex-flow: nowrap column;
   justify-content: space-between;
+  min-height: 200px;
 
   width: 100%;
   padding: 5px 15px 15px 15px;

@@ -111,7 +111,7 @@ const Header = () => {
   return (
     <Wrapper scrollDirection={scrollDirection}>
       <PageTitle>
-        nightdev. <PrimaryPageTitle color="primary">portfolio</PrimaryPageTitle>
+        nightdev.<PrimaryPageTitle color="primary">portfolio</PrimaryPageTitle>
       </PageTitle>
       <AnimatedNavMenu>
         {navLinks &&
