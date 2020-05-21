@@ -4,9 +4,13 @@ title: 'HackerNews'
 github: 'https://github.com/n1ghtdev/hackernews'
 external: ''
 tech:
-  - React/TypeScript
-  - MERN-stack
+  - React
+  - TypeScript
+  - Node.js
+  - Express
+  - Mongodb
   - JWT
 ---
 
-Hackernews clone
+Side-project to improve my full-stack development skills. It's just another
+HackerNews clone you find on internet, nothing special here.

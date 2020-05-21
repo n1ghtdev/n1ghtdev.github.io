@@ -5,9 +5,8 @@ github: ''
 external: 'https://lafka.group/'
 tech:
   - React
-  - Redux/Saga
-  - Headless WP
-  - WooCommerce
+  - Redux
+  - Wordpress
 featured: false
 ---
 
