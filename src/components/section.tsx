@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useInView from '@hooks/useInView';
-import { useSection } from '@hooks/useActiveSection';
+import useInView from '@hooks/use-in-view';
+import { useSection } from '@hooks/use-active-section';
 
 type Props = {
   id: string;

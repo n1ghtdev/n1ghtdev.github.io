@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, GatsbyLinkProps } from 'gatsby';
-import { useSection } from '@hooks/useActiveSection';
+import { useSection } from '@hooks/use-active-section';
 
 const NavLink = (props: GatsbyLinkProps<any>) => {
   const { activeSection } = useSection();

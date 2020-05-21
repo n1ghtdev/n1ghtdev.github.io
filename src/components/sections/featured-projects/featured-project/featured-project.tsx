@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useInView from '@hooks/useInView';
+import useInView from '@hooks/use-in-view';
 import ProjectLinks from '@components/project-links';
 import * as styles from './featured-project.styles';
 

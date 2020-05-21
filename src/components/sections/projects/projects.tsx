@@ -6,7 +6,7 @@ import Project from './project';
 import SearchBar from './search-bar';
 import { Tags, Tag } from './tags';
 
-import useInView from '@hooks/useInView';
+import useInView from '@hooks/use-in-view';
 
 import { ejectTags } from '@utils/eject-tags';
 

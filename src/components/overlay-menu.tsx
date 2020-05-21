@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NavLink from './navLink';
+import NavLink from './nav-link';
 import Hamburger from './hamburger';
 
 import { navLinks, socials } from '@config/index';
