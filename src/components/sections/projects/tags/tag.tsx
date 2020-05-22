@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import media from '@styles/media';
 
 type Props = {
-  onClick: (tag: string) => void;
+  onClick: any;
   tag: string;
   active: boolean;
 };

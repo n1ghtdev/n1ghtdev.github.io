@@ -3,7 +3,7 @@ import React from 'react';
 import ProjectLinks from '@components/project-links';
 import * as styles from './project.styles';
 
-type ProjectProps = {
+type Props = {
   title: string;
   img: any;
   description: string;
@@ -14,7 +14,7 @@ type ProjectProps = {
   className: string;
 };
 
-const Project = (props: ProjectProps) => {
+const Project = (props: Props) => {
   const { title, description, tools, github, external, className } = props;
 
   return (

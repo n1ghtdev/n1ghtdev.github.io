@@ -22,7 +22,7 @@ const NavLink = (props: Props) => {
       {...(props as any)}
       getProps={({ location }) => {
         const { to } = props;
-        if (`#${activeSection}` === to) return { className: 'active' };
+        if (`/#${activeSection}` === to) return { className: 'active' };
       }}
     />
   );

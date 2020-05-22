@@ -3,19 +3,21 @@ import React from 'react';
 import * as styles from './search-bar.styles';
 
 type Props = {
-  value: string;
-  onChange: any;
+  query: any;
+  onChangeQuery: any;
 };
 
-function SearchBar(props: Props) {
+function SearchBar({ query, onChangeQuery }: Props) {
+  function handleQueryChange(e: React.ChangeEvent<HTMLInputElement>) {
+    onChangeQuery(e.target.value);
+  }
+
   return (
     <styles.Form>
       <styles.Input
-        value={props.value}
+        value={query}
         placeholder="Search for project..."
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          props.onChange(e.target.value)
-        }
+        onChange={handleQueryChange}
       />
     </styles.Form>
   );

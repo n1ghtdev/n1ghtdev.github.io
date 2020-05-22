@@ -21,7 +21,7 @@ const IndexPage = ({ data, location }: { data: any; location: any }) => {
       <Layout location={location}>
         <Hero />
         <FeaturedProjects data={data.featured.edges} />
-        <Projects data={sortProjectsByDate} />
+        <Projects projects={sortProjectsByDate} />
       </Layout>
     </SectionProvider>
   );
