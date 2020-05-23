@@ -4,8 +4,6 @@ import theme from './theme';
 import ResetStyles from './reset-styles';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Fira+Mono:500,700|Inter:500,700,900&display=swap');
-
   ${ResetStyles}
   html {
     box-sizing: border-box;

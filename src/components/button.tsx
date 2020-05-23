@@ -11,7 +11,7 @@ type Props = {
 const StyledButton = styled.a`
   position: relative;
   display: inline-block;
-  padding: 8px 16px;
+  padding: 10px 16px;
 
   text-align: center;
   text-decoration: none;
@@ -20,19 +20,10 @@ const StyledButton = styled.a`
 
   background: #000;
   border: 1px solid ${({ theme }) => theme.text};
-  transition: background-color 250ms ease-in;
+  transition: border-color 250ms;
 
   &:hover {
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 5px;
-    left: 5px;
-    border: 1px solid ${({ theme }) => theme.text};
+    border-color: ${({ theme }) => theme.primary};
   }
 `;
 

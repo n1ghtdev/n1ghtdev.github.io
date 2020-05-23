@@ -89,6 +89,13 @@ export const Description = styled.p`
   margin-bottom: 20px;
   line-height: 23px;
 
+  a {
+    color: ${({ theme }) => theme.primary};
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   ${media.medium`
     line-height: 30px;
   `}

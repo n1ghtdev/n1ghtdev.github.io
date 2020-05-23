@@ -46,6 +46,13 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 20px;
+
+  a {
+    color: ${({ theme }) => theme.primary};
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const Tags = styled.ul`

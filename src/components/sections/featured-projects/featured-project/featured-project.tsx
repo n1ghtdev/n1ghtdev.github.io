@@ -31,7 +31,7 @@ const FeaturedProject = (props: Props) => {
         <styles.InnerContent>
           <styles.Tools>
             {tools?.map((tool) => (
-              <styles.Tool>{tool}</styles.Tool>
+              <styles.Tool key={tool}>{tool}</styles.Tool>
             ))}
           </styles.Tools>
           <styles.Description
