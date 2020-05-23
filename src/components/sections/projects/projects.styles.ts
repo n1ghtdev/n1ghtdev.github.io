@@ -55,8 +55,11 @@ export const Aside = styled.aside`
   `}
 `;
 
-export const List = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
+`;
+
+export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
 
@@ -66,4 +69,29 @@ export const List = styled.div`
   ${media.xxl`
     margin: -10px;
   `}
+`;
+
+export const LoadMore = styled.button`
+  display: block;
+  margin: 50px auto 0 auto;
+
+  background-color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.primary};
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  transition: all 250ms;
+
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.primary};
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondary};
+    box-shadow: 2px 2px 4px ${({ theme }) => theme.secondary};
+  }
 `;

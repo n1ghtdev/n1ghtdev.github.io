@@ -6,6 +6,7 @@ import SearchBar from './search-bar';
 import { Tags, Tag } from './tags';
 
 import useInView from '@hooks/use-in-view';
+import usePaginatedProjects from '@hooks/use-paginated-projects';
 import useFilter from '@hooks/use-filter';
 import { ejectTags } from '@utils/eject-tags';
 import { IProject, ITag } from '@typings/project';
@@ -24,6 +25,11 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
     activeTags,
     setActiveTags,
   } = useFilter(projects);
+
+  const { paginatedProjects, loadMore, hasNextPage } = usePaginatedProjects(
+    filteredProjects.length > 0 ? filteredProjects : projects,
+    6,
+  );
 
   const tags = projects
     .reduce(
@@ -84,7 +90,12 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
             <SearchBar query={query} onChangeQuery={setQuery} />
             <Tags>{renderTags(tags)}</Tags>
           </styles.Aside>
-          <styles.List>{renderProjects(filteredProjects)}</styles.List>
+          <styles.ContentWrapper>
+            <styles.Content>{renderProjects(paginatedProjects)}</styles.Content>
+            {hasNextPage ? (
+              <styles.LoadMore onClick={loadMore}>load more</styles.LoadMore>
+            ) : null}
+          </styles.ContentWrapper>
         </styles.FlexContainer>
       </styles.Wrapper>
     </Section>

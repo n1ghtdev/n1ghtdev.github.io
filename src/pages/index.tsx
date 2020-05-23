@@ -9,19 +9,12 @@ import Layout from '@components/layout';
 import { SectionProvider } from '@hooks/use-active-section';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
-  const sortProjectsByDate = data.projects.edges.sort((a: any, b: any) => {
-    const aDate = a.node.frontmatter.date.replace('-', '');
-    const bDate = b.node.frontmatter.date.replace('-', '');
-
-    return bDate.localeCompare(aDate);
-  });
-
   return (
     <SectionProvider>
       <Layout location={location}>
         <Hero />
         <FeaturedProjects data={data.featured.edges} />
-        <Projects projects={sortProjectsByDate} />
+        <Projects projects={data.projects.edges} />
       </Layout>
     </SectionProvider>
   );
@@ -64,6 +57,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/projects/" }
         frontmatter: { featured: { ne: true } }
       }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
         node {

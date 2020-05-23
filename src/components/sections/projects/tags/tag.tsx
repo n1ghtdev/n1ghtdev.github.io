@@ -22,7 +22,7 @@ export const Item = styled.li`
   `}
   ${media.xxl`
     width: calc(25% - 4px);
-    margin: 0 2px 5px 2px;
+    margin: 0 2px 4px 2px;
   `}
 `;
 
@@ -42,6 +42,11 @@ export const Button = styled.button`
   &.active {
     color: ${({ theme }) => theme.secondary};
     background: ${({ theme }) => theme.primary};
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.primary};
   }
 `;
 

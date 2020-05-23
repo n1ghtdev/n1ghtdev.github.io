@@ -1,35 +1,38 @@
 import React from 'react';
+import { IProject } from '@typings/project';
 
 function useFilter(projects: any[]) {
   const [query, setQuery] = React.useState('');
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
-  const [filteredProjects, setFilteredProjects] = React.useState(projects);
+  const [filteredProjects, setFilteredProjects] = React.useState<any[]>([]);
 
   React.useEffect(() => {
-    const queryRegex = new RegExp(query, 'i');
+    if (activeTags.length !== 0 || query.length !== 0) {
+      const queryRegex = new RegExp(query, 'i');
 
-    const newFilteredProjects = projects.filter(({ node }: { node: any }) => {
-      const { title, tech } = node.frontmatter;
+      const newFilteredProjects = projects.filter(({ node }: { node: any }) => {
+        const { title, tech } = node.frontmatter;
 
-      const filteredByQuery =
-        queryRegex.test(title) || queryRegex.test(node.html);
+        const filteredByQuery =
+          queryRegex.test(title) || queryRegex.test(node.html);
 
-      const filteredByTags = activeTags.every((tag: string) =>
-        tech.includes(tag),
-      );
+        const filteredByTags = activeTags.every((tag: string) =>
+          tech.includes(tag),
+        );
 
-      if (activeTags.length > 0) {
-        if (query.length > 2) {
-          return filteredByQuery && filteredByTags;
+        if (activeTags.length > 0) {
+          if (query.length > 2) {
+            return filteredByQuery && filteredByTags;
+          } else {
+            return filteredByTags;
+          }
         } else {
-          return filteredByTags;
+          return filteredByQuery;
         }
-      } else {
-        return filteredByQuery;
-      }
-    });
+      });
 
-    setFilteredProjects(newFilteredProjects);
+      setFilteredProjects(newFilteredProjects);
+    }
   }, [query, activeTags, projects]);
 
   function handleSetActiveTags(tag: string) {
