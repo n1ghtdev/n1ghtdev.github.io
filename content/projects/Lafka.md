@@ -2,7 +2,7 @@
 date: '2019-07-13'
 title: 'LAFKA'
 github: ''
-external: 'https://lafka.group/'
+external: ''
 tech:
   - React
   - Redux
