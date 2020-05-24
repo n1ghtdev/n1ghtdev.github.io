@@ -21,7 +21,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@styles/*": ["src/styles/*"],
       "@fonts/*": ["src/fonts/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@typings/*": ["src/typings/*"]
     }
   },
   "include": ["src"]

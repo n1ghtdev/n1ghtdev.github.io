@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NavLink from './navLink';
+import NavLink from './nav-link';
 import Hamburger from './hamburger';
 
 import { navLinks, socials } from '@config/index';
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: ${({ theme }: { theme: any }) => theme.contrastLow};
+  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
   transition: all 500ms;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const NavList = styled.ul`
     content: '';
     width: 1px;
     height: 35px;
-    background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+    background-color: ${({ theme }: { theme: any }) => theme.text};
     opacity: 0.5;
     display: inline-block;
     margin: 10px 0;
@@ -69,7 +69,7 @@ const OverlayMenu = () => {
           {navLinks &&
             navLinks.map((link: any) => (
               <NavItem key={link.url}>
-                <NavLink to={link.url}>{link.title}</NavLink>
+                <NavLink to={`/${link.url}`}>{link.title}</NavLink>
               </NavItem>
             ))}
         </NavList>
@@ -77,7 +77,7 @@ const OverlayMenu = () => {
           {socials &&
             Object.entries(socials).map((link: any) => (
               <NavItem key={link[1]}>
-                <NavLink to={link[1]}>{link[0]}</NavLink>
+                <NavLink href={link[1]}>{link[0]}</NavLink>
               </NavItem>
             ))}
         </NavList>

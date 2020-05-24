@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ExternalIcon = () => (
-  <svg viewBox="0 0 64 64" width="38" height="38">
+  <svg viewBox="0 0 64 64" width="38" height="38" fill="#fff">
     <g id="WWW">
       <path d="M9.758,41A24.116,24.116,0,0,0,24.171,54.682c-3.261-2.96-5.84-7.739-7.177-13.682Z" />
       <path d="M33,41V55.932C38.3,55.28,42.939,49.487,44.956,41Z" />

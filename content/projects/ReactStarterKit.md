@@ -5,7 +5,7 @@ github: 'https://github.com/n1ghtdev/react-starter-kit'
 external: ''
 tech:
   - React
-  - Redux/Saga
+  - Redux
   - Styled
   - MUI
 featured: false

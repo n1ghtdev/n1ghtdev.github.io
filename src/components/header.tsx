@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NavLink from './navLink';
+import NavLink from './nav-link';
 import { NavMenu, NavMenuItem } from './menu';
-import OverlayMenu from './overlayMenu';
+import OverlayMenu from './overlay-menu';
 
 import { fadeIn } from '@styles/animations';
 import media, { breakpoints } from '@styles/media';
 
-import useRaf from '@hooks/useRaf';
+import useRaf from '@hooks/use-raf';
 import { navLinks } from '@config/index';
 
 type ScrollDirection = 'top' | 'down' | 'up';
@@ -27,10 +27,9 @@ const Wrapper = styled.header`
   z-index: 4;
 
   transition: transform 250ms;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid ${({ theme }) => theme.secondary};
 
-  background-color: ${({ theme }: { theme: any }) => theme.contrast};
-  box-shadow: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
-    scrollDirection === 'up' ? '2px 3px 4px rgba(0,0,0,.3)' : 'none'};
   transform: ${({ scrollDirection }: { scrollDirection: ScrollDirection }) =>
     scrollDirection === 'down' ? 'translateY(-75px)' : 'translateY(0px)'};
 
@@ -47,7 +46,7 @@ const PageTitle = styled.h1`
 `;
 
 const PrimaryPageTitle = styled.span`
-  color: ${({ theme }: { theme: any }) => theme.primary};
+  color: ${({ theme }) => theme.primary};
 `;
 
 const AnimatedNavMenu = styled(NavMenu)`
@@ -112,13 +111,13 @@ const Header = () => {
   return (
     <Wrapper scrollDirection={scrollDirection}>
       <PageTitle>
-        nightdev. <PrimaryPageTitle color="primary">portfolio</PrimaryPageTitle>
+        nightdev.<PrimaryPageTitle color="primary">portfolio</PrimaryPageTitle>
       </PageTitle>
       <AnimatedNavMenu>
         {navLinks &&
           navLinks.map((link: any) => (
             <NavMenuItem key={link.url}>
-              <NavLink to={link.url}>{link.title}</NavLink>
+              <NavLink to={`/${link.url}`}>{link.title}</NavLink>
             </NavMenuItem>
           ))}
       </AnimatedNavMenu>

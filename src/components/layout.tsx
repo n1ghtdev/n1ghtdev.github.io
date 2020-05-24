@@ -5,7 +5,6 @@ import { navigate } from '@reach/router';
 import Head from './head';
 import Header from './header';
 import Footer from './footer';
-import Socials from './socials';
 import Container from './container';
 
 import theme from '@styles/theme';
@@ -22,8 +21,8 @@ const Layout = ({
   children: React.ReactNode;
   location: any;
 }) => {
-  // store location.hash first value on render in ref
   const hash = React.useRef(location.hash);
+
   React.useEffect(() => {
     if (hash.current) {
       navigate(hash.current);
@@ -35,7 +34,6 @@ const Layout = ({
       <ThemeProvider theme={theme}>
         <Head />
         <GlobalStyles />
-        <Socials />
         <Header />
         <Container>
           {children}

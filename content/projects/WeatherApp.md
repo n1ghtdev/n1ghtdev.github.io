@@ -5,7 +5,7 @@ github: 'https://github.com/n1ghtdev/weather-web-app'
 external: ''
 tech:
   - React
-  - Redux/Saga
+  - Redux
   - Styled
   - Node.js
   - Express

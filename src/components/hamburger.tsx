@@ -23,7 +23,7 @@ const InnerStyles = css`
   display: block;
   width: 100%;
   height: 2px;
-  background-color: ${({ theme }: { theme: any }) => theme.brightDark};
+  background-color: ${({ theme }: { theme: any }) => theme.text};
 `;
 
 const Inner = styled.span<{ isActive: boolean }>`

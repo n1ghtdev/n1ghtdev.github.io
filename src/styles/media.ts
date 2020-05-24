@@ -9,10 +9,12 @@ type breakpointsType = {
 type CSSParams = Parameters<typeof css>;
 
 export const breakpoints: breakpointsType = {
+  tiny: 370,
   small: 576,
   medium: 768,
   large: 992,
   xl: 1200,
+  xxl: 1600,
 };
 
 const media = Object.keys(breakpoints).reduce(
@@ -29,7 +31,5 @@ const media = Object.keys(breakpoints).reduce(
   },
   {},
 );
-
-console.log(media);
 
 export default media;
