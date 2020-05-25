@@ -19,9 +19,9 @@ const Head = () => (
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content={meta.themeColor} />
     <link
-      href="https://fonts.googleapis.com/css?family=Fira+Mono:500,700|Inter:500,700,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@500;700;900&display=swap"
       rel="stylesheet"
-    />
+    ></link>
   </Helmet>
 );
 

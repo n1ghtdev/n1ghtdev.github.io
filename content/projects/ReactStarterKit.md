@@ -12,5 +12,4 @@ featured: false
 ---
 
 React boilerplate with Redux, Sagas and Immer for state management.
-Styled-components and Material UI to make your application look fancy. Also
-added polyfills to support atleas IE 10.
+Styled-components and Material UI for styling. _Not maintained._

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import media from '@styles/media';
-import { fadeInRightShort } from '@styles/animations';
+import { fadeInRightShort, fadeInLeftShort } from '@styles/animations';
 
 export const Wrapper = styled.article`
   display: flex;
@@ -30,7 +30,6 @@ export const ImageWrapper = styled.div`
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  order: 1;
 
   ${Wrapper}.visible & {
     visibility: visible;
@@ -58,8 +57,16 @@ export const Image = styled(Img)`
 `;
 
 export const Content = styled.div`
-  order: 0;
   margin-bottom: 20px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInLeftShort} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 
   ${media.xl`
     order: 1;
@@ -85,7 +92,7 @@ export const InnerContent = styled.div`
   margin-left: 20px;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   margin-bottom: 20px;
   line-height: 23px;
 

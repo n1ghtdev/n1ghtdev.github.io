@@ -8,4 +8,4 @@ tech:
   - TypeScript
 ---
 
-React polling component written on TypeScript and React class-based version.
+React poll component written on React and TypeScript.

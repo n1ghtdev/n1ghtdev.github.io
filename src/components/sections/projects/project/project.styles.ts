@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fadeInUpShort } from '@styles/animations';
 import media from '@styles/media';
 
 export const Wrapper = styled.article`
@@ -41,8 +40,7 @@ export const Title = styled.h3`
   font-weight: 1000;
 `;
 
-export const Description = styled.p`
-  animation: ${fadeInUpShort} 250ms forwards linear;
+export const Description = styled.div`
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 20px;

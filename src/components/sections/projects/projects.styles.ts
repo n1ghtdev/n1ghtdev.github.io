@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { fadeInUp } from '@styles/animations';
+import { fadeIn, fadeInUp, fadeInRight } from '@styles/animations';
 import media from '@styles/media';
+import Container from '@components/container';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Container)`
   padding-top: 50px;
   padding-bottom: 100px;
   min-height: 100vh;
@@ -10,6 +11,14 @@ export const Wrapper = styled.div`
 
 export const Header = styled.div`
   margin-bottom: 40px;
+  opacity: 0;
+  visibility: hidden;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInUp} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 `;
 
 export const Title = styled.h2`
@@ -19,31 +28,39 @@ export const Title = styled.h2`
   font-family: 'Inter', sans-serif;
   font-weight: 1000;
   color: ${({ theme }: { theme: any }) => theme.text};
-
-  opacity: 0;
-  visibility: hidden;
-
-  &.visible {
-    visibility: visible;
-    animation: ${fadeInUp} 250ms forwards linear;
-    animation-delay: 250ms;
-  }
 `;
 
 export const Subtitle = styled.p``;
 
 export const FlexContainer = styled.div`
   display: block;
+  opacity: 0;
+  visibility: hidden;
 
   ${media.xl`
     display: flex;
   `}
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeIn} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 `;
 
 export const Aside = styled.aside`
   display: block;
   flex-shrink: 0;
   width: 100%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  ${Wrapper}.visible & {
+    visibility: visible;
+    animation: ${fadeInRight} 250ms forwards linear;
+    animation-delay: 250ms;
+  }
 
   ${media.xl`
     max-width: 320px;

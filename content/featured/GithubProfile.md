@@ -10,5 +10,5 @@ tech:
 featured: true
 ---
 
-Search for Github user's profile information and repositories using
-[GitHub v4 API](https://developer.github.com/v4/).
+Web application to search for Github user profile information and list all
+repos. [GitHub v4 API](https://developer.github.com/v4/).
