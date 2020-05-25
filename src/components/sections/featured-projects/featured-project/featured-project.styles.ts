@@ -85,7 +85,7 @@ export const InnerContent = styled.div`
   margin-left: 20px;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   margin-bottom: 20px;
   line-height: 23px;
 

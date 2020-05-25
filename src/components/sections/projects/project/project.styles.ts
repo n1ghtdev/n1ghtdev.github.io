@@ -41,7 +41,7 @@ export const Title = styled.h3`
   font-weight: 1000;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   animation: ${fadeInUpShort} 250ms forwards linear;
   font-size: 14px;
   line-height: 1.5;
