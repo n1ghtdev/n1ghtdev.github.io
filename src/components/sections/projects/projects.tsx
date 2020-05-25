@@ -27,7 +27,7 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
   } = useFilter(projects);
 
   const { paginatedProjects, loadMore, hasNextPage } = usePaginatedProjects(
-    filteredProjects.length > 0 ? filteredProjects : projects,
+    filteredProjects,
     6,
   );
 

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { fadeInUp } from '@styles/animations';
 import media from '@styles/media';
+import Container from '@components/container';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Container)`
   padding-top: 50px;
   padding-bottom: 100px;
   min-height: 100vh;
