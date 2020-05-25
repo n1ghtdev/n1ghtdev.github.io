@@ -13,5 +13,5 @@ tech:
 featured: false
 ---
 
-Weather web app display current weather, 1 day and 7 days forecast. Implemented
+Weather web application shows current weather and 1/7 days forecast. Implemented
 with [DarkSky API](https://darksky.net/dev).

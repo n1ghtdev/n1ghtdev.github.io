@@ -12,6 +12,6 @@ tech:
 featured: true
 ---
 
-Web application lets you encrypt and decrypt text information with symmetric and
-asymmetric algorithms implemented with
+Web application provides with encrypting and decrypting text information by
+symmetric and asymmetric algorithms implemented with
 [Crypto](https://nodejs.org/api/crypto.html).

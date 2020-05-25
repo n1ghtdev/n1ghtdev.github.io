@@ -9,5 +9,5 @@ tech:
   - TypeScript
 ---
 
-Audio player made from scratch with Web Audio API and canvas. Everything you
-hear fetches from Deezer API.
+Audio player made from scratch with Web Audio API and canvas. All data fetch
+from [Rapid API/Deezer](https://rapidapi.com/deezerdevs/api/deezer-1).

@@ -10,6 +10,6 @@ tech:
 featured: false
 ---
 
-Restaurant web application created with React and Headless Wordpress. WP backend
-powered with WooCommerce makes it easy to: add new products, check orders and
-payments.
+Ecommerce restaurant web application made with Wordpress and React. Contains
+shop of products made with WooCommerce plugin. Wordpress is used as headless CMS
+to deliver data to client (SPA).
