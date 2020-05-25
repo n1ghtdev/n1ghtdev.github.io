@@ -35,10 +35,8 @@ const Layout = ({
         <Head />
         <GlobalStyles />
         <Header />
-        <Container>
-          {children}
-          <Footer />
-        </Container>
+        {children}
+        <Footer />
       </ThemeProvider>
     </Wrapper>
   );

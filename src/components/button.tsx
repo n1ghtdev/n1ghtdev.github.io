@@ -1,29 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 type Props = {
   href?: string;
-  type?: 'button' | 'submit';
+  type?: "button" | "submit";
   onClick?: (evt: React.MouseEvent<HTMLElement>) => void;
   children: any;
 };
 
 const StyledButton = styled.a`
-  position: relative;
   display: inline-block;
-  padding: 10px 16px;
+  position: relative;
+  font-size: 22px;
+  transition: all 250ms;
 
-  text-align: center;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text};
-  font-weight: bold;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: all 150ms ease-out;
+    background: ${({ theme }) => theme.secondary};
+    opacity: 0.5;
+  }
 
-  background: #000;
-  border: 1px solid ${({ theme }) => theme.text};
-  transition: border-color 250ms;
-
-  &:hover {
-    border-color: ${({ theme }) => theme.primary};
+  &:hover:before {
+    height: 6px;
+    transform: translateY(22px);
+    background: ${({ theme }) => theme.primary};
+    opacity: 1;
   }
 `;
 
@@ -42,7 +49,7 @@ function Button(props: Props) {
     );
   }
   return (
-    <StyledButton as="button" onClick={onClick} type={type || 'button'}>
+    <StyledButton as="button" onClick={onClick} type={type || "button"}>
       {children}
     </StyledButton>
   );

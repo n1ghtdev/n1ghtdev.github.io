@@ -76,11 +76,9 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
 
   return (
     <Section id="projects">
-      <styles.Wrapper ref={ref}>
+      <styles.Wrapper className={visibleClassname} ref={ref}>
         <styles.Header>
-          <styles.Title className={visibleClassname}>
-            Other projects
-          </styles.Title>
+          <styles.Title>Other projects</styles.Title>
           <styles.Subtitle>
             Includes work and side projects/experiments.
           </styles.Subtitle>
