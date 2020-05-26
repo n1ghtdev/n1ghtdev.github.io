@@ -4,7 +4,9 @@ import { IProject } from '@typings/project';
 function useFilter(projects: any[]) {
   const [query, setQuery] = React.useState('');
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
-  const [filteredProjects, setFilteredProjects] = React.useState<any[]>([]);
+  const [filteredProjects, setFilteredProjects] = React.useState<any[]>(
+    projects,
+  );
 
   React.useEffect(() => {
     if (activeTags.length !== 0 || query.length !== 0) {
@@ -21,17 +23,15 @@ function useFilter(projects: any[]) {
         );
 
         if (activeTags.length > 0) {
-          if (query.length > 2) {
-            return filteredByQuery && filteredByTags;
-          } else {
-            return filteredByTags;
-          }
+          return filteredByTags && filteredByQuery;
         } else {
           return filteredByQuery;
         }
       });
 
       setFilteredProjects(newFilteredProjects);
+    } else {
+      setFilteredProjects(projects);
     }
   }, [query, activeTags, projects]);
 

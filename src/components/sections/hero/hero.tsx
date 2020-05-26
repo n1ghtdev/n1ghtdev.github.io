@@ -11,7 +11,7 @@ const Hero = () => {
         <styles.FlexContainer>
           <styles.Content>
             <styles.Header>
-              <styles.Title>{hero.name}</styles.Title>
+              <styles.Title>{hero.title}</styles.Title>
               <styles.Specialization>{hero.spec}</styles.Specialization>
             </styles.Header>
             <styles.Description>{hero.desc}</styles.Description>

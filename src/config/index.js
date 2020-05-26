@@ -22,4 +22,10 @@ module.exports = {
     { title: 'featured', url: '#featured' },
     { title: 'projects', url: '#projects' },
   ],
+  hero: {
+    title: 'night',
+    spec: 'front-end developer',
+    desc:
+      'An experienced self-taught developer who is concerned about quality driven solutions. Passionated to learn new things, so as to improve skillset by developing side-projects. Based in Kyiv, Ukraine.',
+  },
 };
