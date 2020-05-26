@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  /* background-color: ${({ theme }: { theme: any }) => theme.contrastLow}; */
+  background-color: #000;
   transition: all 500ms;
   display: flex;
   flex-direction: column;
