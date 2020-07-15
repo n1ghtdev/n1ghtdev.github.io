@@ -20,6 +20,7 @@ const NavLink = (props: Props) => {
   return (
     <Link
       {...(props as any)}
+      onClick={props.onClick}
       getProps={({ location }) => {
         const { to } = props;
         if (`/#${activeSection}` === to) return { className: 'active' };
