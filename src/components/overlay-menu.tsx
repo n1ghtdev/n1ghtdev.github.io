@@ -40,7 +40,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   margin-bottom: 25px;
-  font-family: 'Aller';
+  font-family: 'Fira Mono', monospace;
   text-transform: capitalize;
   & > a {
     font-size: 22px;
