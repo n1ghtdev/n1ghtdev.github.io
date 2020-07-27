@@ -25,6 +25,7 @@ export const ImageWrapper = styled.div`
   width: 100%;
   flex-shrink: 0;
   max-height: 350px;
+  margin-bottom: 40px;
 
   position: relative;
   overflow: hidden;
@@ -38,6 +39,9 @@ export const ImageWrapper = styled.div`
   }
   ${media.medium`
     box-shadow: 2px 2px 25px ${({ theme }: { theme: any }) => theme.secondary};
+  `}
+  ${media.large`
+    margin-bottom: 0;
   `}
   ${media.xl`
     max-width: 760px;

@@ -10,5 +10,4 @@ tech:
   - Emotion
 ---
 
-Interactive WebKit scroll generator with live preview and auto generating CSS
-styles.
+Interactive WebKit scroll generator with live preview and auto generating CSS.

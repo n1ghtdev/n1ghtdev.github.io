@@ -10,5 +10,5 @@ tech:
 featured: false
 ---
 
-SpaceX launch image gallery. Implemented with
+SpaceX launches image gallery. Implemented with
 [SpaceX GraphQL API](https://api.spacex.land/graphql).
