@@ -7,14 +7,18 @@ import Projects from '@components/sections/projects';
 import Layout from '@components/layout';
 
 import { SectionProvider } from '@hooks/use-active-section';
+import Header from '@components/header';
+import Footer from '@components/footer';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
   return (
     <SectionProvider>
       <Layout location={location}>
+        <Header />
         <Hero />
         <FeaturedProjects data={data.featured.edges} />
         <Projects projects={data.projects.edges} />
+        <Footer />
       </Layout>
     </SectionProvider>
   );

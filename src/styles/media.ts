@@ -14,7 +14,7 @@ export const breakpoints: breakpointsType = {
   medium: 768,
   large: 992,
   xl: 1200,
-  xxl: 1600,
+  xxl: 1400,
 };
 
 const media = Object.keys(breakpoints).reduce(
@@ -29,7 +29,7 @@ const media = Object.keys(breakpoints).reduce(
 
     return accumulator;
   },
-  {},
+  {}
 );
 
 export default media;
