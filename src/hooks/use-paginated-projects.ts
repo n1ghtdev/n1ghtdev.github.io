@@ -5,7 +5,7 @@ function usePaginatedProjects(projects: IProject[], perPage: number = 5) {
   const [paginatedProjects, setPaginatedProjects] = React.useState(projects);
   const [currentPage, setCurrentPage] = React.useState(0);
   const [hasNextPage, setHasNextPage] = React.useState(
-    projects.length > perPage,
+    projects.length > perPage
   );
 
   React.useEffect(() => {

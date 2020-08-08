@@ -1,18 +1,12 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { navigate } from '@reach/router';
 
 import Head from './head';
-import Header from './header';
-import Footer from './footer';
 import Container from './container';
 
 import theme from '@styles/theme';
 import GlobalStyles from '@styles/global-styles';
-
-const Wrapper = styled.div`
-  overflow: hidden;
-`;
 
 const Layout = ({
   children,
@@ -30,15 +24,11 @@ const Layout = ({
   }, []);
 
   return (
-    <Wrapper id="root">
-      <ThemeProvider theme={theme}>
-        <Head />
-        <GlobalStyles />
-        <Header />
-        {children}
-        <Footer />
-      </ThemeProvider>
-    </Wrapper>
+    <ThemeProvider theme={theme}>
+      <Head />
+      <GlobalStyles />
+      <Container>{children}</Container>
+    </ThemeProvider>
   );
 };
 

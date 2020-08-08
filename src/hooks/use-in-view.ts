@@ -5,7 +5,7 @@ type Props = {};
 const useInView = (
   ref: React.RefObject<HTMLElement>,
   options: IntersectionObserverInit,
-  once?: boolean,
+  once?: boolean
 ): boolean => {
   const [isInView, setIsInView] = React.useState(false);
 
@@ -30,7 +30,7 @@ const useInView = (
         observer.disconnect();
       };
     }
-  }, [options, ref, isInView]);
+  }, [options, ref, isInView, once]);
 
   return isInView;
 };
