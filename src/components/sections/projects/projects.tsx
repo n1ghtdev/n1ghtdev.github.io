@@ -28,13 +28,13 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
 
   const { paginatedProjects, loadMore, hasNextPage } = usePaginatedProjects(
     filteredProjects,
-    6,
+    6
   );
 
   const tags = projects
     .reduce(
       (acc: any[], cur: any) => ejectTags(acc, cur.node.frontmatter.tech),
-      [],
+      []
     )
     .sort((a: any, b: any) => b.count - a.count);
 

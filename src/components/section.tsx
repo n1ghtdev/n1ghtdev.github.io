@@ -6,6 +6,7 @@ import { useSection } from '@hooks/use-active-section';
 
 type Props = {
   id: string;
+  className?: string;
   children: React.ReactNode;
 };
 
@@ -23,7 +24,7 @@ const Section = (props: Props) => {
   }, [isInView, setActiveSection, props.id]);
 
   return (
-    <Wrapper id={props.id} ref={ref}>
+    <Wrapper className={props.className} id={props.id} ref={ref}>
       {props.children}
     </Wrapper>
   );
