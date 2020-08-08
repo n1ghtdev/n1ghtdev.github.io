@@ -26,6 +26,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.1.18",
+    "gatsby-plugin-svg-sprite-loader": "^0.1.5",
     "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-plugin-typescript-checker": "^1.1.1",
     "gatsby-plugin-why-did-you-render": "^1.0.1",

@@ -7,6 +7,7 @@ module.exports = {
       options: {
         rule: {
           include: /assets\/.*\.svg/,
+          exclude: /sprite/,
           omitKeys: [
             'xmlnsDc',
             'xmlnsCc',
