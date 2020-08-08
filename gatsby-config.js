@@ -2,6 +2,22 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets\/.*\.svg/,
+          omitKeys: [
+            'xmlnsDc',
+            'xmlnsCc',
+            'xmlnsRdf',
+            'xmlnsSvg',
+            'xmlnsSodipodi',
+            'xmlnsInkscape',
+          ],
+        },
+      },
+    },
     'gatsby-plugin-typescript',
     'gatsby-plugin-typescript-checker',
     {
