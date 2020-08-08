@@ -5,7 +5,7 @@ function useFilter(projects: any[]) {
   const [query, setQuery] = React.useState('');
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
   const [filteredProjects, setFilteredProjects] = React.useState<any[]>(
-    projects,
+    projects
   );
 
   React.useEffect(() => {
@@ -19,7 +19,7 @@ function useFilter(projects: any[]) {
           queryRegex.test(title) || queryRegex.test(node.html);
 
         const filteredByTags = activeTags.every((tag: string) =>
-          tech.includes(tag),
+          tech.includes(tag)
         );
 
         if (activeTags.length > 0) {

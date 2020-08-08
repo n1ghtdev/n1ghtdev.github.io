@@ -1,32 +1,48 @@
 import React from 'react';
-import { hero, socials } from '@config/index';
+import Button from '@components/button';
+import ToolIcon from '@components/tool-icon';
+import {
+  HeroSection,
+  Wrapper,
+  Content,
+  Title,
+  Subtitle,
+  Illustration,
+  Footer,
+  FooterTitle,
+  Tools,
+  Tool,
+} from './style';
 
-import Section from '@components/section';
-import * as styles from './hero.styles';
+import { hero } from '@config/index';
+import IllustrationSVG from '../../../assets/night.svg';
 
 const Hero = () => {
   return (
-    <Section id="hero">
-      <styles.Wrapper>
-        <styles.FlexContainer>
-          <styles.Content>
-            <styles.Header>
-              <styles.Title>{hero.title}</styles.Title>
-              <styles.Specialization>{hero.spec}</styles.Specialization>
-            </styles.Header>
-            <styles.Description>{hero.desc}</styles.Description>
-            <styles.Buttons>
-              <styles.EmailButton href={`mailto://${socials.email}`}>
-                get in touch
-              </styles.EmailButton>
-              <styles.GithubButton href={socials.github}>
-                github profile
-              </styles.GithubButton>
-            </styles.Buttons>
-          </styles.Content>
-        </styles.FlexContainer>
-      </styles.Wrapper>
-    </Section>
+    <HeroSection id="hero">
+      <Wrapper>
+        <Content>
+          <Title dangerouslySetInnerHTML={{ __html: hero.title }} />
+          <Subtitle>{hero.subtitle}</Subtitle>
+          <Button to="projects">view projects</Button>
+        </Content>
+        <Illustration>
+          <IllustrationSVG />
+        </Illustration>
+        <Footer>
+          <FooterTitle>developer tools</FooterTitle>
+          <Tools>
+            {hero.tools.map((tool: string) => {
+              return (
+                <Tool>
+                  <ToolIcon name={tool} />
+                </Tool>
+              );
+            })}
+          </Tools>
+        </Footer>
+      </Wrapper>
+    </HeroSection>
   );
 };
 
