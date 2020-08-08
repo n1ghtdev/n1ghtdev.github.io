@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@components/button';
 import ToolIcon from '@components/tool-icon';
 import {
   HeroSection,
@@ -7,6 +6,7 @@ import {
   Content,
   Title,
   Subtitle,
+  StyledButton,
   Illustration,
   Footer,
   FooterTitle,
@@ -15,7 +15,7 @@ import {
 } from './style';
 
 import { hero } from '@config/index';
-import IllustrationSVG from '../../../assets/night.svg';
+import IllustrationSVG from '../../assets/illustration';
 
 const Hero = () => {
   return (
@@ -24,7 +24,7 @@ const Hero = () => {
         <Content>
           <Title dangerouslySetInnerHTML={{ __html: hero.title }} />
           <Subtitle>{hero.subtitle}</Subtitle>
-          <Button to="projects">view projects</Button>
+          <StyledButton to="projects">view projects</StyledButton>
         </Content>
         <Illustration>
           <IllustrationSVG />
@@ -32,9 +32,9 @@ const Hero = () => {
         <Footer>
           <FooterTitle>developer tools</FooterTitle>
           <Tools>
-            {hero.tools.map((tool: string) => {
+            {hero.tools.map((tool: string, idx: number) => {
               return (
-                <Tool>
+                <Tool animationOrder={idx}>
                   <ToolIcon name={tool} />
                 </Tool>
               );

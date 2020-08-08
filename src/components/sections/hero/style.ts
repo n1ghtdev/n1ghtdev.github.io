@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Section from '@components/section';
+import Button from '@components/button';
 import media from '@styles/media';
+import { fadeIn } from '@styles/animations';
 
 export const HeroSection = styled(Section)`
   height: calc(100vh - 100px);
@@ -30,6 +32,9 @@ export const Title = styled.h2`
   font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 900;
+  animation: ${fadeIn} 250ms forwards linear;
+  animation-delay: 500ms;
+  opacity: 0;
 
   span {
     background: ${({ theme }) =>
@@ -51,6 +56,9 @@ export const Subtitle = styled.h3`
   font-weight: 500;
   text-transform: uppercase;
   margin: 1rem 0 2rem 0;
+  animation: ${fadeIn} 250ms forwards linear;
+  animation-delay: 750ms;
+  opacity: 0;
 
   ${media.large`
     font-size: 2rem; 
@@ -60,14 +68,21 @@ export const Subtitle = styled.h3`
   `}
 `;
 
+export const StyledButton = styled(Button)`
+  animation: ${fadeIn} 250ms forwards linear;
+  animation-delay: 750ms;
+  opacity: 0;
+`;
+
 export const Illustration = styled.div`
   display: none;
+
   grid-area: illustration;
   align-self: center;
 
-  svg {
-    width: 100%;
-  }
+  animation: ${fadeIn} 250ms linear forwards;
+  animation-delay: 500ms;
+  opacity: 0;
 
   ${media.medium`
     display: block; 
@@ -79,17 +94,42 @@ export const Footer = styled.div`
 `;
 
 export const FooterTitle = styled.p`
-  opacity: 0.5;
   text-transform: uppercase;
   font-weight: 500;
   display: flex;
   align-items: center;
   white-space: nowrap;
 
+  animation: fadeInUp 250ms linear forwards;
+  animation-delay: 800ms;
+  opacity: 0;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 25%, 0);
+    }
+    to {
+      opacity: 0.5;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes animateLine {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
   &:after {
+    animation: animateLine 1500ms linear forwards;
+    animation-delay: 1000ms;
     content: '';
     display: block;
-    flex: 1;
+    width: 0;
     height: 1px;
     margin-left: 20px;
     background: ${({ theme }) => theme.text};
@@ -107,5 +147,20 @@ export const Tool = styled.li`
   width: 100px;
   flex-shrink: 0;
   filter: grayscale(1);
-  opacity: 0.25;
+  opacity: 0;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 10%, 0);
+    }
+    to {
+      opacity: 0.25;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  animation: fadeIn 250ms linear forwards;
+  animation-delay: ${({ animationOrder }: { animationOrder: number }) =>
+    `${100 * animationOrder + 1000}ms`};
 `;
