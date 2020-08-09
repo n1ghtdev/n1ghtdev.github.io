@@ -47,7 +47,7 @@ const Content = styled.span`
   z-index: 2;
 `;
 
-function ButtonBase(props: Props) {
+function Button(props: Props) {
   const { children, ...rest } = props;
 
   function getAsProp() {
@@ -67,4 +67,4 @@ function ButtonBase(props: Props) {
   );
 }
 
-export default ButtonBase;
+export default Button;

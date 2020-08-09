@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Hero from '@components/sections/hero';
-import FeaturedProjects from '@components/sections/featured-projects';
 import Projects from '@components/sections/projects';
 import Layout from '@components/layout';
 
@@ -16,7 +15,6 @@ const IndexPage = ({ data, location }: { data: any; location: any }) => {
       <Layout location={location}>
         <Header />
         <Hero />
-        <FeaturedProjects data={data.featured.edges} />
         <Projects projects={data.projects.edges} />
         <Footer />
       </Layout>

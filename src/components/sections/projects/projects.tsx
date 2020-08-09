@@ -1,57 +1,25 @@
 import React from 'react';
+import Slider from 'react-slick';
 
 import Section from '@components/section';
 import Project from './project';
-import SearchBar from './search-bar';
-import { Tags, Tag } from './tags';
+import { Wrapper, Title, Subtitle, List, SliderArrow, Dots } from './style';
+import { breakpoints } from '@styles/media';
 
 import useInView from '@hooks/use-in-view';
-import usePaginatedProjects from '@hooks/use-paginated-projects';
-import useFilter from '@hooks/use-filter';
-import { ejectTags } from '@utils/eject-tags';
-import { IProject, ITag } from '@typings/project';
+import { IProject } from '@typings/project';
 
-import * as styles from './projects.styles';
+type Props = {
+  projects: IProject[];
+};
 
-const Projects = ({ projects }: { projects: IProject[] }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.15 }, true);
-  const visibleClassname = isInView ? 'visible' : '';
+const Projects = ({ projects }: Props) => {
+  const titleRef = React.useRef(null);
+  const listRef = React.useRef(null);
+  const sliderRef = React.useRef<Slider | null>(null);
 
-  const {
-    filteredProjects,
-    query,
-    setQuery,
-    activeTags,
-    setActiveTags,
-  } = useFilter(projects);
-
-  const { paginatedProjects, loadMore, hasNextPage } = usePaginatedProjects(
-    filteredProjects,
-    6
-  );
-
-  const tags = projects
-    .reduce(
-      (acc: any[], cur: any) => ejectTags(acc, cur.node.frontmatter.tech),
-      []
-    )
-    .sort((a: any, b: any) => b.count - a.count);
-
-  function renderTags(tags: ITag[]) {
-    return tags.map((tag: ITag) => (
-      <Tag
-        key={tag.title}
-        tag={tag.title}
-        onClick={setActiveTags}
-        active={
-          activeTags && activeTags.length > 0
-            ? activeTags.some((activeTag: string) => activeTag === tag.title)
-            : false
-        }
-      />
-    ));
-  }
+  const titleInView = useInView(titleRef, { threshold: 1 }, true);
+  const listInView = useInView(listRef, { threshold: 0.6 }, true);
 
   function renderProjects(projects: IProject[]) {
     return projects.map((el: any) => {
@@ -68,34 +36,54 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
           external={external}
           tools={tech}
           date={date}
-          className={visibleClassname}
+          className={listVisibleClass}
         />
       );
     });
   }
 
+  const sliderSettings = {
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    dots: true,
+    appendDots: (dots: any) => <Dots>{dots}</Dots>,
+    prevArrow: <SliderArrow>{'<<'} prev</SliderArrow>,
+    nextArrow: <SliderArrow>next {'>>'}</SliderArrow>,
+    responsive: [
+      {
+        breakpoint: breakpoints.large,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: breakpoints.small,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
+  const titleVisibleClass = titleInView ? 'visible' : '';
+  const listVisibleClass = listInView ? 'visible' : '';
+
   return (
     <Section id="projects">
-      <styles.Wrapper className={visibleClassname} ref={ref}>
-        <styles.Header>
-          <styles.Title>Other projects</styles.Title>
-          <styles.Subtitle>
-            Includes work and side projects/experiments.
-          </styles.Subtitle>
-        </styles.Header>
-        <styles.FlexContainer>
-          <styles.Aside>
-            <SearchBar query={query} onChangeQuery={setQuery} />
-            <Tags>{renderTags(tags)}</Tags>
-          </styles.Aside>
-          <styles.ContentWrapper>
-            <styles.Content>{renderProjects(paginatedProjects)}</styles.Content>
-            {hasNextPage ? (
-              <styles.LoadMore onClick={loadMore}>load more</styles.LoadMore>
-            ) : null}
-          </styles.ContentWrapper>
-        </styles.FlexContainer>
-      </styles.Wrapper>
+      <Wrapper>
+        <Title className={titleVisibleClass} ref={titleRef}>
+          Projects
+        </Title>
+        <Subtitle className={titleVisibleClass}>
+          Includes work and side projects/experiments.
+        </Subtitle>
+        <List className={listVisibleClass} ref={listRef}>
+          <Slider ref={sliderRef} {...sliderSettings}>
+            {renderProjects(projects)}
+          </Slider>
+        </List>
+      </Wrapper>
     </Section>
   );
 };
