@@ -1,7 +1,18 @@
 import React from 'react';
 
-import ProjectLinks from '@components/project-links';
-import * as styles from './project.styles';
+import {
+  Wrapper,
+  Poster,
+  Content,
+  Header,
+  Links,
+  Title,
+  Description,
+  Tags,
+  Tag,
+} from './style';
+import GithubIcon from '@components/assets/github';
+import ExternalIcon from '@components/assets/external';
 
 type Props = {
   title: string;
@@ -18,22 +29,38 @@ const Project = (props: Props) => {
   const { title, description, tools, github, external, className } = props;
 
   return (
-    <styles.Wrapper className={className}>
-      <div>
-        <styles.Header>
-          <styles.Title>{title}</styles.Title>
-          <ProjectLinks github={github} external={external} />
-        </styles.Header>
-        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-      </div>
-      <styles.Tags>
-        {tools && tools.length > 0
-          ? tools.map((tool: string) => (
-              <styles.Tag key={tool}>{tool}</styles.Tag>
-            ))
-          : null}
-      </styles.Tags>
-    </styles.Wrapper>
+    <Wrapper className={className}>
+      <Poster src="https://via.placeholder.com/540x320" alt={title} />
+      <Content>
+        <Header>
+          <Title>{title}</Title>
+          <Links>
+            <a
+              href={github || '#'}
+              className={!github ? 'disabled' : ''}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+            </a>
+            <a
+              href={external || '#'}
+              className={!external ? 'disabled' : ''}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalIcon />
+            </a>
+          </Links>
+        </Header>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
+        <Tags>
+          {tools && tools.length > 0
+            ? tools.map((tool: string) => <Tag key={tool}>{tool}</Tag>)
+            : null}
+        </Tags>
+      </Content>
+    </Wrapper>
   );
 };
 

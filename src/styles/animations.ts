@@ -1,14 +1,16 @@
 import { keyframes } from 'styled-components';
 
-export const fadeIn = keyframes`
+export const fadeInFn = (finalOpacity: number = 1) => keyframes`
   from {
     opacity: 0;
   }
 
   to {
-    opacity: 1;
+    opacity: ${finalOpacity};
   }
 `;
+
+export const fadeIn = fadeInFn();
 
 export const fadeInUp = keyframes`
   from {
