@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
-
-import ButtonBase from './button-base';
+import { Link } from 'gatsby';
 
 type Props = {
+  className?: string;
   href?: string;
   to?: string;
   type?: 'button' | 'submit';
@@ -12,33 +11,60 @@ type Props = {
   children: any;
 };
 
-function Button(props: Props) {
-  const { href, onClick, type, children, ...rest } = props;
+const Wrapper = styled.a`
+  background: none;
+  border: none;
 
-  if (props.href) {
-    return (
-      <ButtonBase
-        as="a"
-        href={href}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        {...rest}
-      >
-        {children}
-      </ButtonBase>
-    );
-  } else if (props.to) {
-    return (
-      <ButtonBase as={Link} to={props.to} {...rest}>
-        {children}
-      </ButtonBase>
-    );
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  position: relative;
+  background: ${({ theme }) =>
+    `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`};
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: inherit;
+    filter: blur(20px);
+    transform: translate3d(0, 0, 0);
   }
+
+  &:hover:before {
+  }
+`;
+
+const Content = styled.span`
+  position: relative;
+  z-index: 2;
+`;
+
+function ButtonBase(props: Props) {
+  const { children, ...rest } = props;
+
+  function getAsProp() {
+    if (props.href) {
+      return 'a';
+    } else if (props.to) {
+      return Link;
+    } else {
+      return 'button';
+    }
+  }
+
   return (
-    <ButtonBase as="button" onClick={onClick} type={type || 'button'}>
-      {children}
-    </ButtonBase>
+    <Wrapper as={getAsProp()} {...rest}>
+      <Content>{children}</Content>
+    </Wrapper>
   );
 }
 
-export default Button;
+export default ButtonBase;
