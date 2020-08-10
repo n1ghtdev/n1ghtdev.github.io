@@ -5,8 +5,9 @@ import Section from '@components/section';
 import Project from './project';
 import { Wrapper, Title, Subtitle, List, SliderArrow, Dots } from './style';
 import { breakpoints } from '@styles/media';
+import { fadeIn, fadeOut } from '@utils/gsap-animations';
 
-import useInView from '@hooks/use-in-view';
+import useIntersection from '@hooks/use-intersection';
 import { IProject } from '@typings/project';
 
 type Props = {
@@ -14,12 +15,37 @@ type Props = {
 };
 
 const Projects = ({ projects }: Props) => {
-  const titleRef = React.useRef(null);
+  const ref = React.useRef(null);
   const listRef = React.useRef(null);
   const sliderRef = React.useRef<Slider | null>(null);
 
-  const titleInView = useInView(titleRef, { threshold: 1 }, true);
-  const listInView = useInView(listRef, { threshold: 0.6 }, true);
+  const intersection = useIntersection(ref, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6,
+  });
+
+  const intersectionList = useIntersection(listRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.8,
+  });
+
+  React.useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      fadeIn('.p-header-fadeIn');
+    } else {
+      fadeOut('.p-header-fadeIn');
+    }
+  }, [intersection]);
+
+  React.useEffect(() => {
+    if (intersectionList && intersectionList.isIntersecting) {
+      fadeIn('.fadeIn');
+    } else {
+      fadeOut('.fadeIn');
+    }
+  }, [intersectionList]);
 
   function renderProjects(projects: IProject[]) {
     return projects.map((el: any) => {
@@ -36,7 +62,6 @@ const Projects = ({ projects }: Props) => {
           external={external}
           tools={tech}
           date={date}
-          className={listVisibleClass}
         />
       );
     });
@@ -66,19 +91,14 @@ const Projects = ({ projects }: Props) => {
     ],
   };
 
-  const titleVisibleClass = titleInView ? 'visible' : '';
-  const listVisibleClass = listInView ? 'visible' : '';
-
   return (
     <Section id="projects">
-      <Wrapper>
-        <Title className={titleVisibleClass} ref={titleRef}>
-          Projects
-        </Title>
-        <Subtitle className={titleVisibleClass}>
+      <Wrapper ref={ref}>
+        <Title className="p-header-fadeIn">Projects</Title>
+        <Subtitle className="p-header-fadeIn">
           Includes work and side projects/experiments.
         </Subtitle>
-        <List className={listVisibleClass} ref={listRef}>
+        <List ref={listRef} className="fadeIn">
           <Slider ref={sliderRef} {...sliderSettings}>
             {renderProjects(projects)}
           </Slider>

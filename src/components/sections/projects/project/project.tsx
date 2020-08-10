@@ -22,14 +22,13 @@ type Props = {
   external: string;
   tools: string[];
   date: string;
-  className: string;
 };
 
 const Project = (props: Props) => {
-  const { title, description, tools, github, external, className } = props;
+  const { title, description, tools, github, external } = props;
 
   return (
-    <Wrapper className={className}>
+    <Wrapper>
       <Poster src="https://via.placeholder.com/540x320" alt={title} />
       <Content>
         <Header>

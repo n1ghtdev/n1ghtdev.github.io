@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fadeIn, fadeInLeft, fadeInRight } from '@styles/animations';
 
 type SliderArrowProps = {
   className: string;
@@ -15,21 +14,11 @@ export const Title = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   opacity: 0;
-
-  &.visible {
-    animation: ${fadeIn} 250ms linear forwards;
-    animation-delay: 500ms;
-  }
 `;
 
 export const Subtitle = styled.span`
   display: inline-block;
   opacity: 0;
-
-  &.visible {
-    animation: ${fadeIn} 250ms linear forwards;
-    animation-delay: 750ms;
-  }
 `;
 
 export const List = styled.div`
@@ -60,21 +49,9 @@ export const SliderArrow = styled.button`
 
   &.slick-prev {
     left: 10px;
-    opacity: 0;
-
-    ${List}.visible & {
-      animation: ${fadeInRight} 250ms linear forwards;
-      animation-delay: 750ms;
-    }
   }
   &.slick-next {
     right: 10px;
-    opacity: 0;
-
-    ${List}.visible & {
-      animation: ${fadeInLeft} 250ms linear forwards;
-      animation-delay: 750ms;
-    }
   }
   &.slick-disabled {
     color: #3c4e73;

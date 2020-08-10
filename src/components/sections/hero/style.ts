@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Section from '@components/section';
 import Button from '@components/button';
 import media from '@styles/media';
-import { fadeIn } from '@styles/animations';
 
 export const HeroSection = styled(Section)`
   height: calc(100vh - 100px);
@@ -32,8 +31,6 @@ export const Title = styled.h2`
   font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 900;
-  animation: ${fadeIn} 250ms forwards linear;
-  animation-delay: 500ms;
   opacity: 0;
 
   span {
@@ -56,8 +53,6 @@ export const Subtitle = styled.h3`
   font-weight: 500;
   text-transform: uppercase;
   margin: 1rem 0 2rem 0;
-  animation: ${fadeIn} 250ms forwards linear;
-  animation-delay: 750ms;
   opacity: 0;
 
   ${media.large`
@@ -69,20 +64,15 @@ export const Subtitle = styled.h3`
 `;
 
 export const StyledButton = styled(Button)`
-  animation: ${fadeIn} 250ms forwards linear;
-  animation-delay: 750ms;
   opacity: 0;
 `;
 
 export const Illustration = styled.div`
   display: none;
+  opacity: 0;
 
   grid-area: illustration;
   align-self: center;
-
-  animation: ${fadeIn} 250ms linear forwards;
-  animation-delay: 500ms;
-  opacity: 0;
 
   ${media.medium`
     display: block; 
@@ -99,21 +89,7 @@ export const FooterTitle = styled.p`
   display: flex;
   align-items: center;
   white-space: nowrap;
-
-  animation: fadeInUp 250ms linear forwards;
-  animation-delay: 800ms;
   opacity: 0;
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 25%, 0);
-    }
-    to {
-      opacity: 0.5;
-      transform: translate3d(0, 0, 0);
-    }
-  }
 
   @keyframes animateLine {
     from {
@@ -141,6 +117,7 @@ export const Tools = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  opacity: 0;
 `;
 
 export const Tool = styled.li`
@@ -148,6 +125,13 @@ export const Tool = styled.li`
   flex-shrink: 0;
   filter: grayscale(1);
   opacity: 0;
+  animation-delay: ${({ animationOrder }: { animationOrder: number }) =>
+    `${100 * animationOrder + 1000}ms`};
+
+  /* prettier-ignore */
+  ${Tools}.hero-fadeIn & {
+    animation: fadeIn 250ms linear forwards;
+  }
 
   @keyframes fadeIn {
     from {
@@ -159,8 +143,4 @@ export const Tool = styled.li`
       transform: translate3d(0, 0, 0);
     }
   }
-
-  animation: fadeIn 250ms linear forwards;
-  animation-delay: ${({ animationOrder }: { animationOrder: number }) =>
-    `${100 * animationOrder + 1000}ms`};
 `;

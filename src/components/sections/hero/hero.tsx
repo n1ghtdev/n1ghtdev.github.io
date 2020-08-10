@@ -15,23 +15,46 @@ import {
 } from './style';
 
 import { hero } from '@config/index';
+import useIntersection from '@hooks/use-intersection';
+import { fadeIn, fadeOut } from '@utils/gsap-animations';
 import IllustrationSVG from '../../assets/illustration';
 
 const Hero = () => {
+  const ref = React.useRef(null);
+
+  const intersection = useIntersection(ref, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6,
+  });
+
+  React.useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      fadeIn('.hero-fadeIn');
+    } else {
+      fadeOut('.hero-fadeIn');
+    }
+  }, [intersection]);
+
   return (
     <HeroSection id="hero">
-      <Wrapper>
+      <Wrapper ref={ref}>
         <Content>
-          <Title dangerouslySetInnerHTML={{ __html: hero.title }} />
-          <Subtitle>{hero.subtitle}</Subtitle>
-          <StyledButton to="projects">view projects</StyledButton>
+          <Title
+            className="hero-fadeIn"
+            dangerouslySetInnerHTML={{ __html: hero.title }}
+          />
+          <Subtitle className="hero-fadeIn">{hero.subtitle}</Subtitle>
+          <StyledButton className="hero-fadeIn" to="projects">
+            view projects
+          </StyledButton>
         </Content>
-        <Illustration>
+        <Illustration className="hero-fadeIn">
           <IllustrationSVG />
         </Illustration>
         <Footer>
-          <FooterTitle>developer tools</FooterTitle>
-          <Tools>
+          <FooterTitle className="hero-fadeIn">developer tools</FooterTitle>
+          <Tools className="hero-fadeIn">
             {hero.tools.map((tool: string, idx: number) => {
               return (
                 <Tool animationOrder={idx}>
