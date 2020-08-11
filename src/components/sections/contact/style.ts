@@ -2,12 +2,14 @@ import styled, { css } from 'styled-components';
 import Button from '@components/button';
 
 export const Wrapper = styled.div`
-  padding: 100px 0;
+  padding-bottom: 100px;
 `;
 
 export const Title = styled.h2`
   margin-bottom: 10px;
+  font-size: 2rem;
   text-align: center;
+  opacity: 0;
 `;
 
 export const Subtitle = styled.span`
@@ -19,6 +21,7 @@ export const Subtitle = styled.span`
   border-radius: 5px;
   padding: 5px 15px;
   margin-bottom: 40px;
+  opacity: 0;
 `;
 
 export const Form = styled.form`
@@ -29,6 +32,7 @@ export const Form = styled.form`
 
 export const FormRow = styled.div`
   margin-bottom: 20px;
+  opacity: 0;
 `;
 
 export const Label = styled.label`
@@ -67,4 +71,5 @@ export const SubmitButton = styled(Button)`
   display: block;
   width: 100%;
   margin-top: 40px;
+  opacity: 0;
 `;

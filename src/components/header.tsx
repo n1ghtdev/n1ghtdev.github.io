@@ -18,9 +18,9 @@ const Wrapper = styled.header`
 `;
 
 const Name = styled.h1`
-  font-family: 'Lobster', sans-serif;
   font-weight: normal;
-  font-size: 4rem;
+  font-size: 16px;
+  font-weight: bold;
   animation: ${fadeIn} 250ms forwards linear;
   animation-delay: 250ms;
   opacity: 0;

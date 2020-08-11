@@ -5,7 +5,7 @@ import Section from '@components/section';
 import Project from './project';
 import { Wrapper, Title, Subtitle, List, SliderArrow, Dots } from './style';
 import { breakpoints } from '@styles/media';
-import { fadeIn, fadeOut } from '@utils/gsap-animations';
+import { fadeIn } from '@utils/gsap-animations';
 
 import useIntersection from '@hooks/use-intersection';
 import { IProject } from '@typings/project';
@@ -69,8 +69,8 @@ const Projects = ({ projects }: Props) => {
     slidesToScroll: 2,
     dots: true,
     appendDots: (dots: any) => <Dots>{dots}</Dots>,
-    prevArrow: <SliderArrow>{'<<'} prev</SliderArrow>,
-    nextArrow: <SliderArrow>next {'>>'}</SliderArrow>,
+    prevArrow: <SliderArrow>{'<'} prev</SliderArrow>,
+    nextArrow: <SliderArrow>next {'>'}</SliderArrow>,
     responsive: [
       {
         breakpoint: breakpoints.large,

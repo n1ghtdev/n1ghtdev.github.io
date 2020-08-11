@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 export const Title = styled.h2`
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 10px;
   opacity: 0;
 `;
 
@@ -23,7 +24,7 @@ export const Subtitle = styled.span`
 
 export const List = styled.div`
   position: relative;
-  margin: 80px -10px 100px -10px;
+  margin: 80px -20px 100px -20px;
   opacity: 0;
 
   .slick-slide > div {
@@ -40,19 +41,19 @@ export const SliderArrows = styled.div`
 export const SliderArrow = styled.button`
   background: none;
   color: ${({ theme }) => theme.text};
-  font-size: 1.5rem;
   text-transform: uppercase;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0;
   position: absolute;
-  top: -50px;
+  top: -40px;
   cursor: pointer;
 
   &.slick-prev {
-    left: 10px;
+    left: 20px;
   }
   &.slick-next {
-    right: 10px;
+    right: 20px;
   }
   &.slick-disabled {
     color: #3c4e73;

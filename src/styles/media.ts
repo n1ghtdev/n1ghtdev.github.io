@@ -1,7 +1,5 @@
 import { css } from 'styled-components';
 
-const FONT_SIZE = 16;
-
 type breakpointsType = {
   [key: string]: any;
 };

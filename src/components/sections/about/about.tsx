@@ -1,39 +1,46 @@
 import React from 'react';
 import { Wrapper, Title, Illustration, Content } from './style';
 import IllustrationSVG from '@components/assets/illustration';
+import Section from '@components/section';
+import { fadeIn } from '@utils/gsap-animations';
+import useIntersection from '@hooks/use-intersection';
+import { about, socials } from '@config/index';
 
 type Props = {};
 
 function About(props: Props) {
+  const ref = React.useRef(null);
+  const intersection = useIntersection(ref, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4,
+  });
+
+  React.useEffect(() => {
+    if (intersection && intersection.isIntersecting) {
+      fadeIn('.about-fadeIn');
+    }
+  }, [intersection]);
+
   return (
-    <Wrapper>
-      <Title>About me</Title>
-      <Illustration>
-        <IllustrationSVG />
-      </Illustration>
-      <Content>
-        <p>
-          My name is Nikita, I’m self-taught front-end developer with Software
-          Engineering background.
-        </p>
-        <p>
-          For my first 2 years in university I learned C# OOP, which was great
-          experience for me but still not what I wanted to do.
-        </p>
-        <p>
-          That’s when I stared to learn front-end development throughtout
-          courses, articles and etc. One of the most impactful free courses I
-          found for myself as a web beginner was FreecodeCamp which was easy to
-          follow.
-        </p>
-        <p>
-          Today most of the time I’m working on freelance with HTML/CSS/JS and
-          PHP (Wordpress, OpenCart). In free time I’m enjoying my time with
-          React side-projects development.
-        </p>
-        <p>I’m based in Kyiv, Ukraine and looking for a REACT FRONT-END JOB.</p>
-      </Content>
-    </Wrapper>
+    <Section id="about">
+      <Wrapper ref={ref}>
+        <Title className="about-fadeIn">About me</Title>
+        <Illustration className="about-fadeIn">
+          <IllustrationSVG />
+        </Illustration>
+        <Content className="about-fadeIn">
+          <div dangerouslySetInnerHTML={{ __html: about }} />
+          <ul>
+            {Object.values(socials).map((item: any) => (
+              <li>
+                <a href={item.link}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </Content>
+      </Wrapper>
+    </Section>
   );
 }
 

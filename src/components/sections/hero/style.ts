@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Section from '@components/section';
 import Button from '@components/button';
 import media from '@styles/media';
 
 export const HeroSection = styled(Section)`
-  height: calc(100vh - 100px);
+  height: 100vh;
 `;
 
 export const Wrapper = styled.div`
@@ -30,7 +31,7 @@ export const Content = styled.div`
 export const Title = styled.h2`
   font-weight: 900;
   font-size: 2.5rem;
-  line-height: 1.2;
+  line-height: 1.1;
   opacity: 0;
   /* transform: translate(0, -200px); */
 
@@ -59,13 +60,34 @@ export const Subtitle = styled.h3`
   ${media.large`
     font-size: 2rem; 
   `}
-  ${media.xl`
-    margin-top: 0;
-  `}
 `;
 
 export const StyledButton = styled(Button)`
   opacity: 0;
+`;
+
+export const ContactMe = styled(Link)`
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const DividerOr = styled.span`
+  margin: 0 10px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+  &:after,
+  &:before {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background: ${({ theme }) => theme.text};
+    vertical-align: middle;
+    display: inline-block;
+    opacity: 0.2;
+    margin: 0 10px;
+  }
 `;
 
 export const Illustration = styled.div`
@@ -85,8 +107,7 @@ export const Footer = styled.div`
 `;
 
 export const FooterTitle = styled.p`
-  text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -110,7 +131,7 @@ export const FooterTitle = styled.p`
     height: 1px;
     margin-left: 20px;
     background: ${({ theme }) => theme.text};
-    opacity: 0.2;
+    opacity: 0.1;
   }
 `;
 
@@ -122,7 +143,7 @@ export const Tools = styled.ul`
 `;
 
 export const Tool = styled.li`
-  width: 100px;
+  width: 75px;
   flex-shrink: 0;
   filter: grayscale(1);
   opacity: 0;

@@ -7,6 +7,8 @@ import {
   Title,
   Subtitle,
   StyledButton,
+  ContactMe,
+  DividerOr,
   Illustration,
   Footer,
   FooterTitle,
@@ -16,7 +18,7 @@ import {
 
 import { hero } from '@config/index';
 import useIntersection from '@hooks/use-intersection';
-import { fadeIn, fadeOut } from '@utils/gsap-animations';
+import { fadeIn } from '@utils/gsap-animations';
 import IllustrationSVG from '../../assets/illustration';
 
 const Hero = () => {
@@ -43,15 +45,17 @@ const Hero = () => {
             dangerouslySetInnerHTML={{ __html: hero.title }}
           />
           <Subtitle className="hero-fadeIn">{hero.subtitle}</Subtitle>
-          <StyledButton className="hero-fadeIn" to="projects">
+          <StyledButton className="hero-fadeIn" to="/#projects">
             view projects
           </StyledButton>
+          <DividerOr>or</DividerOr>
+          <ContactMe to="/#contact">Contact me</ContactMe>
         </Content>
         <Illustration className="hero-fadeIn">
           <IllustrationSVG />
         </Illustration>
         <Footer>
-          <FooterTitle className="hero-fadeIn">developer tools</FooterTitle>
+          <FooterTitle className="hero-fadeIn">Developer tools</FooterTitle>
           <Tools className="hero-fadeIn">
             {hero.tools.map((tool: string, idx: number) => {
               return (
