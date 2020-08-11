@@ -19,7 +19,7 @@ const Head = () => (
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content={meta.themeColor} />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;700;900&family=Fira+Sans&display=swap"
       rel="stylesheet"
     ></link>
   </Helmet>

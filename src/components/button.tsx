@@ -14,12 +14,10 @@ type Props = {
 const Wrapper = styled.a`
   background: none;
   border: none;
+  cursor: pointer;
 
   display: inline-block;
-  padding: 10px 15px;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
+  padding: 12px 16px;
 
   position: relative;
   background: ${({ theme }) =>
@@ -45,6 +43,10 @@ const Wrapper = styled.a`
 const Content = styled.span`
   position: relative;
   z-index: 2;
+  font-size: 16px;
+  color: ${({ theme }) => theme.text};
+  font-weight: bold;
+  text-transform: capitalize;
 `;
 
 function Button(props: Props) {

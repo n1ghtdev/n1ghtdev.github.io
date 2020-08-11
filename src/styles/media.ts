@@ -19,10 +19,10 @@ export const breakpoints: breakpointsType = {
 
 const media = Object.keys(breakpoints).reduce(
   (accumulator: breakpointsType, label: string): breakpointsType => {
-    const emBreakpoint = `${breakpoints[label] / FONT_SIZE}em`;
+    const pxBreakpoint = `${breakpoints[label]}px`;
 
     accumulator[label] = (...args: CSSParams) => css`
-      @media (min-width: ${emBreakpoint}) {
+      @media (min-width: ${pxBreakpoint}) {
         ${css(...(args as CSSParams))};
       }
     `;
