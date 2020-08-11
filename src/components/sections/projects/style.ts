@@ -24,6 +24,7 @@ export const Subtitle = styled.span`
 export const List = styled.div`
   position: relative;
   margin: 80px -10px 100px -10px;
+  opacity: 0;
 
   .slick-slide > div {
     height: 100%;

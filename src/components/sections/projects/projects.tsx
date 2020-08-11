@@ -34,16 +34,12 @@ const Projects = ({ projects }: Props) => {
   React.useEffect(() => {
     if (intersection && intersection.isIntersecting) {
       fadeIn('.p-header-fadeIn');
-    } else {
-      fadeOut('.p-header-fadeIn');
     }
   }, [intersection]);
 
   React.useEffect(() => {
     if (intersectionList && intersectionList.isIntersecting) {
       fadeIn('.fadeIn');
-    } else {
-      fadeOut('.fadeIn');
     }
   }, [intersectionList]);
 

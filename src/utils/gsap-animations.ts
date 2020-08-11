@@ -6,10 +6,10 @@ type options = {
 };
 
 export const fadeIn = (element: string, options?: options) => {
-  gsap.to(element, 1, {
+  gsap.to(element, 3, {
     opacity: options?.opacity || 1,
     y: options?.y || 0,
-    ease: 'power4.out',
+    ease: 'expo.out',
     stagger: {
       amount: 0.7,
     },

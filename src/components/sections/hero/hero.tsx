@@ -31,8 +31,6 @@ const Hero = () => {
   React.useEffect(() => {
     if (intersection && intersection.isIntersecting) {
       fadeIn('.hero-fadeIn');
-    } else {
-      fadeOut('.hero-fadeIn');
     }
   }, [intersection]);
 

@@ -28,10 +28,11 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h2`
+  font-weight: 900;
   font-size: 2.5rem;
   line-height: 1.2;
-  font-weight: 900;
   opacity: 0;
+  /* transform: translate(0, -200px); */
 
   span {
     background: ${({ theme }) =>
