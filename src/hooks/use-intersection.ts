@@ -24,7 +24,8 @@ const useIntersection = (
       };
     }
     return () => {};
-  }, [options, options.root, options.rootMargin, options.threshold, ref]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [options.root, options.rootMargin, options.threshold, ref.current]);
 
   return intersectionObserverEntry;
 };
