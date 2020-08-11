@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 
 import Hero from '@components/sections/hero';
 import Projects from '@components/sections/projects';
+import About from '@components/sections/about';
+import Contact from '@components/sections/contact';
 import Layout from '@components/layout';
 
 import { SectionProvider } from '@hooks/use-active-section';
@@ -16,6 +18,8 @@ const IndexPage = ({ data, location }: { data: any; location: any }) => {
         <Header />
         <Hero />
         <Projects projects={data.projects.edges} />
+        <About />
+        <Contact />
         <Footer />
       </Layout>
     </SectionProvider>
