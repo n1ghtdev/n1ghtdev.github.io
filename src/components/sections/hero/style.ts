@@ -11,12 +11,13 @@ export const HeroSection = styled(Section)`
 export const Wrapper = styled.div`
   height: 100%;
   display: grid;
-  grid-template: 1fr auto / 1fr 1fr;
+  grid-template: 2fr 1fr / 1fr 1fr;
   grid-template-areas:
     'content content'
     'footer footer';
 
   ${media.medium`
+    grid-template: 1fr auto / 1fr 1fr;
     grid-template-areas:
       'content illustration'
       'footer footer';
@@ -26,6 +27,11 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   grid-area: content;
   align-self: center;
+  text-align: center;
+
+  ${media.medium`
+    text-align: left;
+  `}
 `;
 
 export const Title = styled.h2`
@@ -33,7 +39,6 @@ export const Title = styled.h2`
   font-size: 2.5rem;
   line-height: 1.1;
   opacity: 0;
-  /* transform: translate(0, -200px); */
 
   span {
     background: ${({ theme }) =>
@@ -137,13 +142,33 @@ export const FooterTitle = styled.p`
 
 export const Tools = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   opacity: 0;
+
+  ${media.medium`
+    flex-wrap: nowrap; 
+  `}
 `;
 
 export const Tool = styled.li`
-  width: 75px;
+  width: 20%;
+  & > svg {
+    width: 60px;
+  }
+  height: 70px;
+  ${media.medium`
+    width: 60px;
+    height: auto;
+    & > svg {
+      width: 100%;
+    } 
+  `}
+  ${media.large`
+    width: 70px;
+  `}
+
   flex-shrink: 0;
   filter: grayscale(1);
   opacity: 0;

@@ -63,7 +63,6 @@ module.exports = {
       'jquery',
       'node',
       'php',
-      'git',
     ],
     desc:
       'An experienced self-taught developer who is concerned about quality driven solutions. Passionated to learn new things, so as to improve skillset by developing side-projects. Based in Kyiv, Ukraine.',

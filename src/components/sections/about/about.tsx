@@ -1,5 +1,12 @@
 import React from 'react';
-import { Wrapper, Title, Illustration, Content } from './style';
+import {
+  Wrapper,
+  Title,
+  Illustration,
+  Content,
+  SocialList,
+  SocialItem,
+} from './style';
 import IllustrationSVG from '@components/assets/illustration';
 import Section from '@components/section';
 import { fadeIn } from '@utils/gsap-animations';
@@ -31,13 +38,13 @@ function About(props: Props) {
         </Illustration>
         <Content className="about-fadeIn">
           <div dangerouslySetInnerHTML={{ __html: about }} />
-          <ul>
+          <SocialList>
             {Object.values(socials).map((item: any) => (
-              <li>
+              <SocialItem>
                 <a href={item.link}>{item.title}</a>
-              </li>
+              </SocialItem>
             ))}
-          </ul>
+          </SocialList>
         </Content>
       </Wrapper>
     </Section>
