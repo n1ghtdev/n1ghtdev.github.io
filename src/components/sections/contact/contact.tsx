@@ -1,4 +1,7 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+
 import Section from '@components/section';
 import {
   Wrapper,
@@ -9,6 +12,7 @@ import {
   Label,
   Input,
   Textarea,
+  Error,
   SubmitButton,
 } from './style';
 import { fadeIn } from '@utils/gsap-animations';
@@ -17,6 +21,19 @@ import useIntersection from '@hooks/use-intersection';
 type Props = {};
 
 function Contact(props: Props) {
+  const schema = Yup.object({
+    name: Yup.string(),
+    email: Yup.string()
+      .email('Please enter a valid email')
+      .min(5)
+      .required('Please enter a valid email'),
+    message: Yup.string().max(200).required('Message cannot be empty'),
+  });
+  const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+    initialValues: { name: '', email: '', message: '' },
+    validationSchema: schema,
+    onSubmit: (values: any) => {},
+  });
   const ref = React.useRef(null);
   const intersection = useIntersection(ref, {
     root: null,
@@ -35,20 +52,36 @@ function Contact(props: Props) {
       <Wrapper ref={ref}>
         <Title className="contact-fadeIn">Contact</Title>
         <Subtitle className="contact-fadeIn">artyenick@gmail.com</Subtitle>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <FormRow className="contact-fadeIn">
             <Label htmlFor="name">Name</Label>
-            <Input type="text" id="name" name="name" />
+            <Input name="name" value={values.name} onChange={handleChange} />
+            <Error>
+              {touched.name && errors.name ? <div>{errors.name}</div> : null}
+            </Error>
           </FormRow>
           <FormRow className="contact-fadeIn">
             <Label htmlFor="email">Email</Label>
-            <Input type="text" id="email" name="email" />
+            <Input name="email" value={values.email} onChange={handleChange} />
+            <Error>
+              {touched.email && errors.email ? <div>{errors.email}</div> : null}
+            </Error>
           </FormRow>
           <FormRow className="contact-fadeIn">
             <Label htmlFor="message">Message</Label>
-            <Textarea rows={6} id="message" name="message" />
+            <Textarea
+              rows={6}
+              name="message"
+              value={values.message}
+              onChange={handleChange}
+            />
+            <Error>
+              {touched.message && errors.message ? (
+                <div>{errors.message}</div>
+              ) : null}
+            </Error>
           </FormRow>
-          <SubmitButton className="contact-fadeIn" onClick={() => {}}>
+          <SubmitButton type="submit" className="contact-fadeIn">
             send email
           </SubmitButton>
         </Form>

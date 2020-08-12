@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import Button from '@components/button';
 
@@ -65,6 +66,13 @@ export const Input = styled.input`
 
 export const Textarea = styled.textarea`
   ${InputStyles};
+`;
+
+export const Error = styled.span`
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #e83030;
 `;
 
 export const SubmitButton = styled(Button)`
