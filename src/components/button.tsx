@@ -1,20 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
-type Props = {
+type BaseButtonProps = {
+  children: string | React.ReactNode;
   className?: string;
-  href?: string;
   to?: string;
-  type?: 'button' | 'submit';
-  onClick?: (evt: React.MouseEvent<HTMLElement>) => void;
-  children: any;
 };
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<any>;
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<any>;
+type Props = Partial<AnchorButtonProps & NativeButtonProps>;
 
-const Wrapper = styled.a`
+const ButtonStyles = css`
   background: none;
   border: none;
   cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
 
   display: inline-block;
   padding: 12px 16px;
@@ -32,11 +34,8 @@ const Wrapper = styled.a`
     height: 100%;
     display: block;
     background: inherit;
-    filter: blur(20px);
+    filter: blur(10px);
     transform: translate3d(0, 0, 0);
-  }
-
-  &:hover:before {
   }
 `;
 
@@ -49,23 +48,40 @@ const Content = styled.span`
   text-transform: capitalize;
 `;
 
+const HTMLButton = styled.button`
+  ${ButtonStyles}
+  transition: filter 250ms;
+  &:disabled {
+    filter: grayscale(0.6);
+  }
+`;
+const HTMLAnchor = styled.a`
+  ${ButtonStyles}
+`;
+const GatsbyLink = styled(Link)`
+  ${ButtonStyles}
+`;
+
 function Button(props: Props) {
   const { children, ...rest } = props;
 
-  function getAsProp() {
-    if (props.href) {
-      return 'a';
-    } else if (props.to) {
-      return Link;
-    } else {
-      return 'button';
-    }
+  if (props.href) {
+    return (
+      <HTMLAnchor {...rest}>
+        <Content>{children}</Content>
+      </HTMLAnchor>
+    );
+  } else if (props.to) {
+    return (
+      <GatsbyLink to={props.to}>
+        <Content>{children}</Content>
+      </GatsbyLink>
+    );
   }
-
   return (
-    <Wrapper as={getAsProp()} {...rest}>
+    <HTMLButton {...rest}>
       <Content>{children}</Content>
-    </Wrapper>
+    </HTMLButton>
   );
 }
 
