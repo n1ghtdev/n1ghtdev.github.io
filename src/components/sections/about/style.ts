@@ -49,26 +49,31 @@ export const Content = styled.div`
   }
 `;
 
-export const SocialList = styled.ul``;
+export const Socials = styled.ul`
+  margin-top: 20px;
+`;
 
-export const SocialItem = styled.li`
-  margin-bottom: 20px;
+export const Social = styled.li`
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 30px;
+
   &:last-child {
-    margin-bottom: 0;
+    margin-right: 0;
   }
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background: ${({ theme }) => theme.text};
-    margin-right: 10px;
-    vertical-align: middle;
-    margin-top: -2px;
-  }
-  &:hover {
-    a {
+
+  & > a {
+    display: flex;
+    align-items: center;
+    &:hover {
       text-decoration: underline;
+    }
+    & > svg {
+      width: 32px;
+      height: 32px;
+    }
+    & > span {
+      margin-left: 10px;
     }
   }
 `;

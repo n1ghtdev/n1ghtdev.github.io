@@ -9,17 +9,8 @@ module.exports = {
     favicon: 'https://i.imgur.com/ZZbWYlp.png',
     themeColor: '#1d1f30',
   },
-  socials: {
-    github: {
-      title: 'github/n1ghtdev',
-      link: 'https://github.com/n1ghtdev',
-    },
-    linkedin: {
-      title: 'linked/nightdev',
-      link: 'https://www.linkedin.com/in/nightdev/',
-    },
-    codepen: { title: 'codepen/Nickew', link: 'https://codepen.io/Nickew/' },
-  },
+  github: 'https://github.com/n1ghtdev',
+  linkedin: 'https://www.linkedin.com/in/nightdev/',
   email: 'artyenick@gmail.com',
   navLinks: [
     { title: 'home', url: '#hero' },

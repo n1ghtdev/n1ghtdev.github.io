@@ -4,14 +4,16 @@ import {
   Title,
   Illustration,
   Content,
-  SocialList,
-  SocialItem,
+  Socials,
+  Social,
 } from './style';
 import IllustrationSVG from '@components/assets/illustration';
+import GithubRoundIcon from '@components/assets/github-round-icon';
+import LinkedinIcon from '@components/assets/linkedin-icon';
 import Section from '@components/section';
 import { fadeIn } from '@utils/gsap-animations';
 import useIntersection from '@hooks/use-intersection';
-import { about, socials } from '@config/index';
+import { about, github, linkedin } from '@config/index';
 
 type Props = {};
 
@@ -38,13 +40,20 @@ function About(props: Props) {
         </Illustration>
         <Content className="about-fadeIn">
           <div dangerouslySetInnerHTML={{ __html: about }} />
-          <SocialList>
-            {Object.values(socials).map((item: any) => (
-              <SocialItem>
-                <a href={item.link}>{item.title}</a>
-              </SocialItem>
-            ))}
-          </SocialList>
+          <Socials>
+            <Social>
+              <a href={github}>
+                <GithubRoundIcon />
+                <span>github</span>
+              </a>
+            </Social>
+            <Social>
+              <a href={linkedin}>
+                <LinkedinIcon />
+                <span>linkedin</span>
+              </a>
+            </Social>
+          </Socials>
         </Content>
       </Wrapper>
     </Section>

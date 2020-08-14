@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import NavLink from './nav-link';
 import Hamburger from './hamburger';
 
-import { navLinks, socials } from '@config/index';
+import { navLinks } from '@config/index';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -72,14 +72,6 @@ const OverlayMenu = () => {
                 <NavLink onClick={() => setIsActive(false)} to={`/${link.url}`}>
                   {link.title}
                 </NavLink>
-              </NavItem>
-            ))}
-        </NavList>
-        <NavList>
-          {socials &&
-            Object.entries(socials).map((link: any) => (
-              <NavItem key={link[1]}>
-                <NavLink href={link[1]}>{link[0]}</NavLink>
               </NavItem>
             ))}
         </NavList>
