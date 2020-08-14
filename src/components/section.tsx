@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useIntersection from '@hooks/use-intersection';
-import { useSection } from '@hooks/use-active-section';
-
 type Props = {
   id: string;
   className?: string;
@@ -15,16 +12,8 @@ const Wrapper = styled.section`
 `;
 
 const Section = (props: Props) => {
-  const ref = React.useRef(null);
-  // const intersection = useIntersection(ref, { threshold: 0.5 });
-  // const { setActiveSection } = useSection();
-
-  // React.useEffect(() => {
-  //   intersection && setActiveSection(props.id);
-  // }, [intersection, setActiveSection, props.id]);
-
   return (
-    <Wrapper className={props.className} id={props.id} ref={ref}>
+    <Wrapper className={props.className} id={props.id}>
       {props.children}
     </Wrapper>
   );

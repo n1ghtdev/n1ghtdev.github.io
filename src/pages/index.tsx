@@ -7,22 +7,17 @@ import About from '@components/sections/about';
 import Contact from '@components/sections/contact';
 import Layout from '@components/layout';
 
-import { SectionProvider } from '@hooks/use-active-section';
-// import Header from '@components/header';
 import Footer from '@components/footer';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
   return (
-    <SectionProvider>
-      <Layout location={location}>
-        {/* <Header /> */}
-        <Hero />
-        <Projects projects={data.projects.edges} />
-        <About />
-        <Contact />
-        <Footer />
-      </Layout>
-    </SectionProvider>
+    <Layout location={location}>
+      <Hero />
+      <Projects projects={data.projects.edges} />
+      <About />
+      <Contact />
+      <Footer />
+    </Layout>
   );
 };
 
