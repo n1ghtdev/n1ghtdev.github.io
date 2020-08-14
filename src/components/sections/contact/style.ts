@@ -25,13 +25,13 @@ export const Subtitle = styled.span`
   opacity: 0;
 `;
 
-export const Form = styled.form`
+export const FormWrapper = styled.form`
   max-width: 680px;
   width: 100%;
   margin: 0 auto;
 `;
 
-export const FormRow = styled.div`
+export const Row = styled.div`
   margin-bottom: 20px;
   opacity: 0;
 `;
@@ -40,6 +40,7 @@ export const Label = styled.label`
   display: inline-block;
   font-weight: bold;
   margin-bottom: 10px;
+  text-transform: capitalize;
 `;
 
 const InputStyles = css`
@@ -56,6 +57,13 @@ const InputStyles = css`
     outline: none;
     border-color: ${({ theme }) => theme.secondary};
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: inset 0 0 0 30px #1a202d !important;
+    -webkit-text-fill-color: ${({ theme }) => theme.text} !important;
+  }
 `;
 
 export const Input = styled.input`
@@ -66,6 +74,9 @@ export const Input = styled.input`
 
 export const Textarea = styled.textarea`
   ${InputStyles};
+  resize: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 export const Error = styled.span`

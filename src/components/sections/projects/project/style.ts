@@ -65,6 +65,6 @@ export const Links = styled.div`
   }
   & > a.disabled {
     opacity: 0.4;
-    user-select: none;
+    pointer-events: none;
   }
 `;
