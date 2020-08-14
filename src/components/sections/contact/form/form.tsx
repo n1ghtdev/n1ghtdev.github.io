@@ -3,11 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 
-import { FormWrapper, Input, Textarea, SubmitButton } from './style';
+import {
+  FormWrapper,
+  Input,
+  Textarea,
+  FormButtonSubmit,
+  FormResponseMessage,
+} from './style';
 import FormRow from './form-row';
-import ButtonSubmit from '@components/button-submit';
-
-type Props = {};
 
 type ResponseResult = {
   status: number;
@@ -16,6 +19,7 @@ type ResponseResult = {
 
 const USER_ID = (process.env as any).GATSBY_USER_ID;
 const TEMPLATE_ID = (process.env as any).GATSBY_TEMPLATE_ID;
+const SUCCESSFUL_MESSAGE = 'Thank You. The email was successfully sent.';
 
 const schema = Yup.object({
   name: Yup.string(),
@@ -32,7 +36,7 @@ const initialValues = {
   message: '',
 };
 
-function Form(props: Props) {
+function Form() {
   const {
     handleSubmit,
     handleChange,
@@ -41,36 +45,45 @@ function Form(props: Props) {
     touched,
     isSubmitting,
     setSubmitting,
-    isValidating,
+    dirty,
     isValid,
   } = useFormik({
     initialValues,
     validationSchema: schema,
     onSubmit: (values: any) => submitForm(values),
   });
-  const [isSubmitSuccessed, setIsSubmitSuccessed] = React.useState(false);
+
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = React.useState<
+    boolean | undefined
+  >();
+  const [responseMessage, setResponseMessage] = React.useState<string>('');
 
   function submitForm(values: any) {
-    emailjs.send('gmail', '', values, USER_ID).then(
-      (result: ResponseResult) => handleSubmitSuccess(result),
-      (error: ResponseResult) => handleSubmitFailure(error)
+    emailjs.send('gmail', TEMPLATE_ID, values, USER_ID).then(
+      (result: ResponseResult) => handleSubmitResult(result),
+      (error: ResponseResult) => handleSubmitResult(error)
     );
   }
 
-  function handleSubmitResult() {
+  function handleSubmitResult(result: ResponseResult) {
+    const { status, text } = result;
+
+    const isStatusSuccessful = status >= 200 && status < 300;
+    const message = isStatusSuccessful ? SUCCESSFUL_MESSAGE : text;
+
+    setIsSubmitSuccessful(isStatusSuccessful);
+    setResponseMessage(message);
+
     setSubmitting(false);
-  }
-  function handleSubmitSuccess(result: ResponseResult) {
-    handleSubmitResult();
-    // status 200 text OK
-  }
-  function handleSubmitFailure(error: ResponseResult) {
-    handleSubmitResult();
-    // status 400-500 text error message
   }
 
   return (
     <FormWrapper onSubmit={handleSubmit}>
+      {responseMessage ? (
+        <FormResponseMessage isSuccess={!!isSubmitSuccessful}>
+          {responseMessage}
+        </FormResponseMessage>
+      ) : null}
       <FormRow name="name" error={touched.name && errors.name}>
         <Input name="name" value={values.name} onChange={handleChange} />
       </FormRow>
@@ -85,13 +98,14 @@ function Form(props: Props) {
           onChange={handleChange}
         />
       </FormRow>
-      <ButtonSubmit
-        loading={isValid && isSubmitting}
+      <FormButtonSubmit
+        disabled={!dirty || !isValid}
+        loading={isSubmitting}
         type="submit"
         className="contact-fadeIn"
       >
         send email
-      </ButtonSubmit>
+      </FormButtonSubmit>
     </FormWrapper>
   );
 }

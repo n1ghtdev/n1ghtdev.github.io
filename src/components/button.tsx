@@ -53,6 +53,7 @@ const HTMLButton = styled.button`
   transition: filter 250ms;
   &:disabled {
     filter: grayscale(0.6);
+    cursor: not-allowed;
   }
 `;
 const HTMLAnchor = styled.a`

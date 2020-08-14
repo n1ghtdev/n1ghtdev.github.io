@@ -5,6 +5,8 @@ const theme = {
   secondary: '#832cff',
   background: '#151b27',
   text: '#e2f3f5',
+  success: '#137538',
+  error: '#bf2a3d',
 };
 
 export default theme;
