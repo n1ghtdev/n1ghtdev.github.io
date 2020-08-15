@@ -2,6 +2,8 @@ import React from 'react';
 
 import {
   Wrapper,
+  PosterWrapper,
+  PosterHover,
   Poster,
   Content,
   Header,
@@ -29,7 +31,12 @@ const Project = (props: Props) => {
 
   return (
     <Wrapper>
-      <Poster src="https://via.placeholder.com/540x320" alt={title} />
+      <PosterWrapper href={external || github}>
+        <Poster src="https://via.placeholder.com/540x320" alt={title} />
+        <PosterHover>
+          <ExternalIcon />
+        </PosterHover>
+      </PosterWrapper>
       <Content>
         <Header>
           <Title>{title}</Title>

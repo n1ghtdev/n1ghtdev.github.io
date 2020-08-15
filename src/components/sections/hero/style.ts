@@ -177,10 +177,10 @@ export const Tool = styled.li`
 
   /* prettier-ignore */
   ${Tools}.hero-fadeIn & {
-    animation: fadeIn 250ms linear forwards;
+    animation: fadeInTool 250ms linear forwards;
   }
 
-  @keyframes fadeIn {
+  @keyframes fadeInTool {
     from {
       opacity: 0;
       transform: translate3d(0, 10%, 0);

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '@styles/media';
 
 type SliderArrowProps = {
   className: string;
@@ -24,8 +25,12 @@ export const Subtitle = styled.span`
 
 export const List = styled.div`
   position: relative;
-  margin: 80px -20px 100px -20px;
+  margin: 80px -10px 20px -10px;
   opacity: 0;
+
+  ${media.medium`
+    margin: 80px -20px 100px -20px;
+  `}
 
   .slick-slide > div {
     height: 100%;
@@ -62,14 +67,21 @@ export const SliderArrow = styled.button`
 `;
 
 export const Dots = styled.ul`
-  display: flex;
   position: absolute;
   bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
+  display: none;
+
+  ${media.medium`
+    display: flex;
+  `}
 
   & > li {
-    margin-right: 10px;
+    margin-right: 15px;
+    ${media.medium`
+      margin-right: 10px;
+    `}
     &:last-child {
       margin-right: 0;
     }
@@ -79,9 +91,13 @@ export const Dots = styled.ul`
       color: ${({ theme }) => theme.text};
       font-weight: bold;
       border: 1px solid #3c4e73;
-      padding: 10px 15px;
+      padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
+
+      ${media.medium`
+        padding: 10px 15px;
+      `}
     }
     &.slick-active > button {
       color: #3c4e73;

@@ -66,7 +66,7 @@ const Projects = ({ projects }: Props) => {
   const sliderSettings = {
     infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToScroll: 3,
     dots: true,
     appendDots: (dots: any) => <Dots>{dots}</Dots>,
     prevArrow: <SliderArrow>{'<'} prev</SliderArrow>,
@@ -76,12 +76,14 @@ const Projects = ({ projects }: Props) => {
         breakpoint: breakpoints.large,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       {
         breakpoint: breakpoints.small,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],

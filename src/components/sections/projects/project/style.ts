@@ -11,6 +11,52 @@ export const Poster = styled.img`
   border-radius: 10px;
 `;
 
+export const PosterWrapper = styled.a`
+  display: block;
+  position: relative;
+  cursor: pointer;
+`;
+
+export const PosterHover = styled.div`
+  opacity: 0;
+  transition: opacity 250ms;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    opacity: 1;
+
+    svg {
+      animation: fadeIn 250ms linear forwards;
+    }
+  }
+
+  svg {
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+`;
+
 export const Content = styled.div`
   flex: 1;
   display: flex;
