@@ -2,7 +2,8 @@ module.exports = {
   title: 'night | Front-End Developer',
   siteUrl: 'https://n1ghtdev.github.io',
   meta: {
-    description: 'React Front-End developer portfolio.',
+    description:
+      'Self-taught experienced front-end developer who loves to create things.',
     ogImage: 'https://i.imgur.com/W6SxhRr.png',
     ogImageWidth: '665',
     ogImageHeight: '400',

@@ -38,7 +38,7 @@ const Project = (props: Props) => {
         ) : (
           <Poster
             as="img"
-            src="https://via.placeholder.com/540x320"
+            src="https://via.placeholder.com/320x260"
             alt={title}
           />
         )}
@@ -52,6 +52,7 @@ const Project = (props: Props) => {
           <Links>
             <a
               href={github || '#'}
+              title="github"
               className={!github ? 'disabled' : ''}
               target="_blank"
               rel="noopener noreferrer"
@@ -60,6 +61,7 @@ const Project = (props: Props) => {
             </a>
             <a
               href={external || '#'}
+              title="live website"
               className={!external ? 'disabled' : ''}
               target="_blank"
               rel="noopener noreferrer"

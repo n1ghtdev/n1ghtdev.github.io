@@ -4,9 +4,10 @@ import { title, siteUrl, meta } from '@config/index';
 
 const Head = () => (
   <Helmet>
+    <html lang="en" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <meta property="description" content={meta.description} />
+    <meta name="description" content={meta.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={meta.ogImage} />

@@ -6,8 +6,7 @@ const Wrapper = styled.footer`
   padding: 25px 0;
   font-size: 12px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.text};
-  opacity: 0.3;
+  color: #7685a7;
 
   p:first-child {
     margin-bottom: 10px;

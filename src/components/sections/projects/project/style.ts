@@ -93,7 +93,7 @@ export const Tags = styled.ul`
 `;
 
 export const Tag = styled.li`
-  color: #5c6c8c;
+  color: #7685a7;
   font-size: 14px;
   font-weight: bold;
   margin-right: 10px;

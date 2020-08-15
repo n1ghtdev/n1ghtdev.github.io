@@ -3,7 +3,19 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    title: require('./src/config/index').title,
+    author: 'n1ghtdev',
+    description: require('./src/config/index').meta.description,
+    siteUrl: require('./src/config/index').siteUrl,
+  },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://n1ghtdev.github.io',
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {

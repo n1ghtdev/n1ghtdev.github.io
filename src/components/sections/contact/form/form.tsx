@@ -85,13 +85,24 @@ function Form() {
         </FormResponseMessage>
       ) : null}
       <FormRow name="name" error={touched.name && errors.name}>
-        <Input name="name" value={values.name} onChange={handleChange} />
+        <Input
+          id="name"
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+        />
       </FormRow>
       <FormRow name="email" error={touched.email && errors.email}>
-        <Input name="email" value={values.email} onChange={handleChange} />
+        <Input
+          id="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+        />
       </FormRow>
       <FormRow name="message" error={touched.message && errors.message}>
         <Textarea
+          id="message"
           rows={6}
           name="message"
           value={values.message}
