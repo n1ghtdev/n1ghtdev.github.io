@@ -1,6 +1,8 @@
 ---
+order: 2
 date: '2020-03-14'
 title: 'Deezer Player'
+poster: './images/deezer-player.png'
 github: 'https://github.com/n1ghtdev/deezer-player'
 external: 'https://n1ghtdev.github.io/deezer-player/'
 tech:

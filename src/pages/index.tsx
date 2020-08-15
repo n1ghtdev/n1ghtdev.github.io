@@ -25,8 +25,9 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   {
-    featured: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/featured/" } }
+    projects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {
         node {
@@ -35,39 +36,18 @@ export const pageQuery = graphql`
             external
             github
             title
+            tech
             poster {
               childImageSharp {
                 fluid(
                   maxWidth: 1920
                   quality: 90
-                  traceSVG: { color: "#333c80" }
+                  traceSVG: { color: "#151b27" }
                 ) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
-            tech
-          }
-          id
-          html
-        }
-      }
-    }
-    projects: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/projects/" }
-        frontmatter: { featured: { ne: true } }
-      }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date
-            external
-            github
-            title
-            tech
           }
           id
           html

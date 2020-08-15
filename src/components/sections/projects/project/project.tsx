@@ -18,8 +18,8 @@ import ExternalIcon from '@components/assets/external';
 
 type Props = {
   title: string;
-  img: any;
   description: string;
+  poster: any;
   github: string;
   external: string;
   tools: string[];
@@ -27,12 +27,21 @@ type Props = {
 };
 
 const Project = (props: Props) => {
-  const { title, description, tools, github, external } = props;
+  const { title, description, poster, tools, github, external } = props;
+  const posterImg = poster?.childImageSharp?.fluid;
 
   return (
     <Wrapper>
       <PosterWrapper href={external || github}>
-        <Poster src="https://via.placeholder.com/540x320" alt={title} />
+        {posterImg ? (
+          <Poster fluid={posterImg} alt={title} />
+        ) : (
+          <Poster
+            as="img"
+            src="https://via.placeholder.com/540x320"
+            alt={title}
+          />
+        )}
         <PosterHover>
           <ExternalIcon />
         </PosterHover>

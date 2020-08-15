@@ -1,4 +1,5 @@
 ---
+order: 6
 date: '2019-06-05'
 title: 'React Starter Kit'
 github: 'https://github.com/n1ghtdev/react-starter-kit'
@@ -8,7 +9,6 @@ tech:
   - Redux
   - Styled
   - MUI
-featured: false
 ---
 
 React boilerplate with Redux, Sagas and Immer for state management.

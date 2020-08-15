@@ -1,22 +1,17 @@
 module.exports = {
-  title: 'n1ghtdev | Front-End Developer',
-  url: 'https://n1ghtdev.github.io/',
+  title: 'night | Front-End Developer',
+  siteUrl: 'https://n1ghtdev.github.io',
   meta: {
-    description: '',
-    ogImage: 'https://i.imgur.com/KhVoogP.png',
-    ogImageWidth: '590',
-    ogImageHeight: '440',
-    favicon: 'https://i.imgur.com/ZZbWYlp.png',
-    themeColor: '#1d1f30',
+    description: 'React Front-End developer portfolio.',
+    ogImage: 'https://i.imgur.com/W6SxhRr.png',
+    ogImageWidth: '665',
+    ogImageHeight: '400',
+    favicon: 'https://i.imgur.com/1KVWP0Z.png',
+    themeColor: '#151b27',
   },
   github: 'https://github.com/n1ghtdev',
   linkedin: 'https://www.linkedin.com/in/nightdev/',
   email: 'artyenick@gmail.com',
-  navLinks: [
-    { title: 'home', url: '#hero' },
-    { title: 'featured', url: '#featured' },
-    { title: 'projects', url: '#projects' },
-  ],
   about: `
     <p>
       My name is Nikita, I’m self-taught front-end developer with Software

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 export const Wrapper = styled.article`
   height: 100%;
@@ -7,14 +8,18 @@ export const Wrapper = styled.article`
   padding: 10px;
 `;
 
-export const Poster = styled.img`
+export const Poster = styled(Img)`
   border-radius: 10px;
+  height: 260px;
 `;
 
 export const PosterWrapper = styled.a`
   display: block;
   position: relative;
   cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
 `;
 
 export const PosterHover = styled.div`
@@ -30,6 +35,7 @@ export const PosterHover = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 
   &:hover {
     opacity: 1;

@@ -51,7 +51,7 @@ const Projects = ({ projects }: Props) => {
       return (
         <Project
           key={id}
-          img={poster}
+          poster={poster}
           title={title}
           description={html}
           github={github}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { title, url, meta } from '@config/index';
+import { title, siteUrl, meta } from '@config/index';
 
 const Head = () => (
   <Helmet>
@@ -8,7 +8,7 @@ const Head = () => (
     <title>{title}</title>
     <meta property="description" content={meta.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={meta.ogImage} />
     <meta property="og:image:width" content={meta.ogImageWidth} />
     <meta property="og:image:height" content={meta.ogImageHeight} />

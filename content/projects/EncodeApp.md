@@ -1,7 +1,8 @@
 ---
+order: 1
 date: '2019-01-17'
 title: 'Encode App'
-poster: './encode.png'
+poster: './images/encode.png'
 github: 'https://github.com/n1ghtdev/encode'
 external: 'https://encode-app.herokuapp.com/'
 tech:
@@ -9,7 +10,6 @@ tech:
   - Node.js
   - Express
   - Antd
-featured: true
 ---
 
 Web application provides with encrypting and decrypting text information by
