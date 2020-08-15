@@ -86,18 +86,17 @@ export const Dots = styled.ul`
       margin-right: 0;
     }
     & > button {
-      transition: background 250ms;
+      transition: background, border-color 250ms;
       background: none;
       color: ${({ theme }) => theme.text};
       font-weight: bold;
       border: 1px solid #3c4e73;
-      padding: 5px 10px;
+      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-
-      ${media.medium`
-        padding: 10px 15px;
-      `}
+      &:hover {
+        border-color: ${({ theme }) => theme.text};
+      }
     }
     &.slick-active > button {
       color: #3c4e73;

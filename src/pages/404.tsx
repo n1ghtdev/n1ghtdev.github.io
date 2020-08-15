@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import { navigate } from 'gatsby';
 
-type Props = {};
-
-const Wrapper = styled.div``;
-
-function Page404(props: Props) {
-  return <h1>404</h1>;
+function NotFoundPage() {
+  React.useEffect(() => {
+    navigate('/');
+  }, []);
+  return null;
 }
 
-export default Page404;
+export default NotFoundPage;

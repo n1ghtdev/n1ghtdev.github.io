@@ -21,9 +21,15 @@ const ButtonStyles = css`
   display: inline-block;
   padding: 12px 16px;
 
+  transition: background-position 250ms;
   position: relative;
-  background: ${({ theme }) =>
-    `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`};
+  background-size: 300% 100%;
+  background-image: ${({ theme }) =>
+    `linear-gradient(to right,
+      ${theme.primary},
+      ${theme.secondary},
+      ${theme.secondary},
+      ${theme.primary})`};
 
   &:before {
     content: '';
@@ -36,6 +42,14 @@ const ButtonStyles = css`
     background: inherit;
     filter: blur(10px);
     transform: translate3d(0, 0, 0);
+  }
+
+  &:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover {
+    background-position: 100% 0;
   }
 `;
 
@@ -54,6 +68,9 @@ const HTMLButton = styled.button`
   &:disabled {
     filter: grayscale(0.6);
     cursor: not-allowed;
+  }
+  &:hover:disabled {
+    background-position: 0 0;
   }
 `;
 const HTMLAnchor = styled.a`
