@@ -7,8 +7,3 @@ export interface IProject {
   tools: string[];
   date: string;
 }
-
-export interface ITag {
-  title: string;
-  count: number;
-}

@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html,
   body {
-    font-family: 'Fira Sans', 'Poppins', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import ToolIcon from '@components/tool-icon';
 import {
   HeroSection,
   Wrapper,
@@ -15,48 +14,39 @@ import {
   Tools,
   Tool,
 } from './style';
+import ToolIcon from '@components/tool-icon';
+import IllustrationSVG from '../../assets/illustration';
 
 import { hero } from '@config/index';
-import useIntersection from '@hooks/use-intersection';
-import { fadeIn } from '@utils/gsap-animations';
-import IllustrationSVG from '../../assets/illustration';
+import useAnimation from '@hooks/use-animation';
 
 const Hero = () => {
   const ref = React.useRef(null);
 
-  const intersection = useIntersection(ref, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.6,
-  });
-
-  React.useEffect(() => {
-    if (intersection && intersection.isIntersecting) {
-      fadeIn('.hero-fadeIn');
-    }
-  }, [intersection]);
+  const animationClass = 'hero-fade-in';
+  useAnimation(ref, animationClass);
 
   return (
     <HeroSection id="hero">
       <Wrapper ref={ref}>
         <Content>
           <Title
-            className="hero-fadeIn"
+            className={animationClass}
             dangerouslySetInnerHTML={{ __html: hero.title }}
           />
-          <Subtitle className="hero-fadeIn">{hero.subtitle}</Subtitle>
-          <StyledButton className="hero-fadeIn" to="/#projects">
+          <Subtitle className={animationClass}>{hero.subtitle}</Subtitle>
+          <StyledButton className={animationClass} to="/#projects">
             view projects
           </StyledButton>
           <DividerOr>or</DividerOr>
           <ContactMe to="/#contact">Contact me</ContactMe>
         </Content>
-        <Illustration className="hero-fadeIn">
+        <Illustration className={animationClass}>
           <IllustrationSVG />
         </Illustration>
         <Footer>
-          <FooterTitle className="hero-fadeIn">Developer tools</FooterTitle>
-          <Tools className="hero-fadeIn">
+          <FooterTitle className={animationClass}>Developer tools</FooterTitle>
+          <Tools className={animationClass}>
             {hero.tools.map((tool: string, idx: number) => {
               return (
                 <Tool animationOrder={idx}>

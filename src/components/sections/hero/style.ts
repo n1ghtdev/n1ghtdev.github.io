@@ -175,8 +175,7 @@ export const Tool = styled.li`
   animation-delay: ${({ animationOrder }: { animationOrder: number }) =>
     `${100 * animationOrder + 1000}ms`};
 
-  /* prettier-ignore */
-  ${Tools}.hero-fadeIn & {
+  ${Tools}.hero-fade-in & {
     animation: fadeInTool 250ms linear forwards;
   }
 

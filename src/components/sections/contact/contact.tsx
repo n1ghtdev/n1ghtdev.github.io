@@ -3,29 +3,21 @@ import React from 'react';
 import Form from './form';
 import Section from '@components/section';
 import { Wrapper, Title, Subtitle } from './style';
-import { fadeIn } from '@utils/gsap-animations';
-import useIntersection from '@hooks/use-intersection';
+
+import useAnimation from '@hooks/use-animation';
 import { email } from '@config/index';
 
 function Contact() {
   const ref = React.useRef(null);
-  const intersection = useIntersection(ref, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.4,
-  });
 
-  React.useEffect(() => {
-    if (intersection && intersection.isIntersecting) {
-      fadeIn('.contact-fadeIn');
-    }
-  }, [intersection]);
+  const animationClass = 'contact-fade-in';
+  useAnimation(ref, animationClass);
 
   return (
     <Section id="contact">
       <Wrapper ref={ref}>
-        <Title className="contact-fadeIn">Contact</Title>
-        <Subtitle className="contact-fadeIn">{email}</Subtitle>
+        <Title className={animationClass}>Contact</Title>
+        <Subtitle className={animationClass}>{email}</Subtitle>
         <Form />
       </Wrapper>
     </Section>

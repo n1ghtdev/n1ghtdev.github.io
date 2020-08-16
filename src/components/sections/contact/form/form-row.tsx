@@ -5,11 +5,12 @@ type Props = {
   name: string;
   error: string | boolean | undefined;
   children: React.ReactNode;
+  className?: string;
 };
 
-function FormRow({ name, error, children }: Props) {
+function FormRow({ name, error, children, className }: Props) {
   return (
-    <Row className="contact-fadeIn">
+    <Row className={className || ''}>
       <Label htmlFor={name}>{name}</Label>
       {children}
       <Error>{error || ''}</Error>

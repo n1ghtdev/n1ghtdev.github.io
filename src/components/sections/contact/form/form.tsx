@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
+import useAnimation from '@hooks/use-animation';
 
 import {
   FormWrapper,
@@ -37,6 +38,10 @@ const initialValues = {
 };
 
 function Form() {
+  const ref = React.useRef(null);
+  const animationClass = 'contact-form-fade-in';
+  useAnimation(ref, animationClass);
+
   const {
     handleSubmit,
     handleChange,
@@ -78,13 +83,17 @@ function Form() {
   }
 
   return (
-    <FormWrapper onSubmit={handleSubmit}>
+    <FormWrapper ref={ref} onSubmit={handleSubmit}>
       {responseMessage ? (
         <FormResponseMessage isSuccess={!!isSubmitSuccessful}>
           {responseMessage}
         </FormResponseMessage>
       ) : null}
-      <FormRow name="name" error={touched.name && errors.name}>
+      <FormRow
+        className={animationClass}
+        name="name"
+        error={touched.name && errors.name}
+      >
         <Input
           id="name"
           name="name"
@@ -92,7 +101,11 @@ function Form() {
           onChange={handleChange}
         />
       </FormRow>
-      <FormRow name="email" error={touched.email && errors.email}>
+      <FormRow
+        className={animationClass}
+        name="email"
+        error={touched.email && errors.email}
+      >
         <Input
           id="email"
           name="email"
@@ -100,7 +113,11 @@ function Form() {
           onChange={handleChange}
         />
       </FormRow>
-      <FormRow name="message" error={touched.message && errors.message}>
+      <FormRow
+        className={animationClass}
+        name="message"
+        error={touched.message && errors.message}
+      >
         <Textarea
           id="message"
           rows={6}
@@ -113,7 +130,7 @@ function Form() {
         disabled={!dirty || !isValid}
         loading={isSubmitting}
         type="submit"
-        className="contact-fadeIn"
+        className={animationClass}
       >
         send email
       </FormButtonSubmit>
