@@ -49,7 +49,7 @@ const Hero = () => {
           <Tools className={animationClass}>
             {hero.tools.map((tool: string, idx: number) => {
               return (
-                <Tool animationOrder={idx}>
+                <Tool key={tool} animationOrder={idx}>
                   <ToolIcon name={tool} />
                 </Tool>
               );

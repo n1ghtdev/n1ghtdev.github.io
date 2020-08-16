@@ -66,7 +66,7 @@ const FloorSecond = styled.path`
 const IllustrationSVG = () => {
   return (
     <Svg width="874" height="553" viewBox="0 0 874 553" fill="none">
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <Background
           d="M772.63 365.291C768.397 401.584 759.601 430.723 747.527 453.961C731.461 484.924 703.98 497.4 679.431 510.454C672.337 514.219 664.962 517.428 657.372 520.051C612.7 535.565 562.702 531.45 523.428 523.259C495.882 517.509 467.921 513.971 439.812 512.68C431.795 512.319 423.769 512.139 415.736 512.142C403.349 512.158 180.311 516.394 126.007 406.383C112.6 379.246 103.41 346.096 100.108 305.688C90.7658 191.448 142.113 116.42 208.346 67.3783C333.638 -25.3909 505.378 -21.5004 628.822 73.7125C711.049 137.134 788.038 233.119 772.63 365.291Z"
           fill="url(#paint0_linear)"
@@ -321,7 +321,7 @@ const IllustrationSVG = () => {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#151B27" />
-          <stop offset="1" stopColor="#3F3D56" stop-opacity="0" />
+          <stop offset="1" stopColor="#3F3D56" stopOpacity="0" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="874" height="553" fill="white" />
