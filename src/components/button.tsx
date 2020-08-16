@@ -91,7 +91,7 @@ function Button(props: Props) {
     );
   } else if (props.to) {
     return (
-      <GatsbyLink to={props.to}>
+      <GatsbyLink to={props.to} {...rest}>
         <Content>{children}</Content>
       </GatsbyLink>
     );

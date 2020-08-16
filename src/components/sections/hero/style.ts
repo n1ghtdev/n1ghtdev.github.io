@@ -72,12 +72,14 @@ export const StyledButton = styled(Button)`
 `;
 
 export const ContactMe = styled(Link)`
+  opacity: 0;
   &:hover {
     text-decoration: underline;
   }
 `;
 
 export const DividerOr = styled.span`
+  opacity: 0;
   margin: 0 10px;
   font-weight: bold;
   font-style: italic;

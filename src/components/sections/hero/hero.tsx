@@ -38,8 +38,10 @@ const Hero = () => {
           <StyledButton className={animationClass} to="/#projects">
             view projects
           </StyledButton>
-          <DividerOr>or</DividerOr>
-          <ContactMe to="/#contact">Contact me</ContactMe>
+          <DividerOr className={animationClass}>or</DividerOr>
+          <ContactMe className={animationClass} to="/#contact">
+            Contact me
+          </ContactMe>
         </Content>
         <Illustration className={animationClass}>
           <IllustrationSVG />
