@@ -18,8 +18,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html,
   body {
-    font-family: 'Fira Mono', monospace;
-    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
   }

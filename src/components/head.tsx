@@ -1,14 +1,15 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { title, url, meta } from '@config/index';
+import { title, siteUrl, meta } from '@config/index';
 
 const Head = () => (
   <Helmet>
+    <html lang="en" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
-    <meta property="description" content={meta.description} />
+    <meta name="description" content={meta.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:image" content={meta.ogImage} />
     <meta property="og:image:width" content={meta.ogImageWidth} />
     <meta property="og:image:height" content={meta.ogImageHeight} />
@@ -19,7 +20,7 @@ const Head = () => (
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content={meta.themeColor} />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Inter:wght@500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700;900&display=swap"
       rel="stylesheet"
     ></link>
   </Helmet>

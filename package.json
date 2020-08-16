@@ -12,17 +12,25 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json,css}'"
   },
-  "author": "n1ghtdev",
+  "author": "n1ghtdev <artyenick@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.19.1",
+    "emailjs-com": "^2.6.3",
+    "formik": "^2.1.5",
+    "gatsby": "^2.24.34",
     "gatsby-image": "^2.2.39",
+    "gatsby-plugin-google-analytics": "^2.3.13",
     "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.1.18",
+    "gatsby-plugin-svg-sprite-loader": "^0.1.5",
     "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-plugin-typescript-checker": "^1.1.1",
     "gatsby-plugin-why-did-you-render": "^1.0.1",
@@ -31,39 +39,63 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.13",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "gsap": "^3.4.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-image-lightbox": "^5.1.0",
     "react-slick": "^0.25.2",
     "react-transition-group": "^4.3.0",
     "react-waypoint": "^9.0.2",
     "stickybits": "^3.7.0",
-    "styled-components": "^5.0.0-rc.2",
-    "throttle-debounce": "^2.1.0"
+    "styled-components": "^5.1.1",
+    "throttle-debounce": "^2.1.0",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
+    "@types/gsap": "^1.20.2",
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.11",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.4",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^5.0.15",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-slick": "^0.23.4",
-    "@types/styled-components": "^4.4.0",
+    "@types/styled-components": "^5.1.2",
     "@types/throttle-debounce": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
+    "@types/yup": "^0.29.4",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-flowtype": "^3.13.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "node-sass": "^4.14.1",
-    "typescript": "^3.7.2"
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,json,css}": [
+      "npm run format",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [

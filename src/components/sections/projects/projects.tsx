@@ -1,57 +1,53 @@
 import React from 'react';
+import Slider from 'react-slick';
 
+import { Wrapper, Title, Subtitle, List, SliderArrow, Dots } from './style';
 import Section from '@components/section';
 import Project from './project';
-import SearchBar from './search-bar';
-import { Tags, Tag } from './tags';
 
-import useInView from '@hooks/use-in-view';
-import usePaginatedProjects from '@hooks/use-paginated-projects';
-import useFilter from '@hooks/use-filter';
-import { ejectTags } from '@utils/eject-tags';
-import { IProject, ITag } from '@typings/project';
+import useAnimation from '@hooks/use-animation';
+import { IProject } from '@typings/project';
+import { breakpoints } from '@styles/media';
 
-import * as styles from './projects.styles';
+type Props = {
+  projects: IProject[];
+};
 
-const Projects = ({ projects }: { projects: IProject[] }) => {
+const SLICK_SETTINGS = {
+  infinite: false,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  dots: true,
+  appendDots: (dots: any) => <Dots>{dots}</Dots>,
+  prevArrow: <SliderArrow>{'<'} prev</SliderArrow>,
+  nextArrow: <SliderArrow>next {'>'}</SliderArrow>,
+  responsive: [
+    {
+      breakpoint: breakpoints.large,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+    {
+      breakpoint: breakpoints.small,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
+const Projects = ({ projects }: Props) => {
   const ref = React.useRef(null);
-  const isInView = useInView(ref, { threshold: 0.15 }, true);
-  const visibleClassname = isInView ? 'visible' : '';
+  const listRef = React.useRef(null);
+  const sliderRef = React.useRef<Slider | null>(null);
 
-  const {
-    filteredProjects,
-    query,
-    setQuery,
-    activeTags,
-    setActiveTags,
-  } = useFilter(projects);
-
-  const { paginatedProjects, loadMore, hasNextPage } = usePaginatedProjects(
-    filteredProjects,
-    6,
-  );
-
-  const tags = projects
-    .reduce(
-      (acc: any[], cur: any) => ejectTags(acc, cur.node.frontmatter.tech),
-      [],
-    )
-    .sort((a: any, b: any) => b.count - a.count);
-
-  function renderTags(tags: ITag[]) {
-    return tags.map((tag: ITag) => (
-      <Tag
-        key={tag.title}
-        tag={tag.title}
-        onClick={setActiveTags}
-        active={
-          activeTags && activeTags.length > 0
-            ? activeTags.some((activeTag: string) => activeTag === tag.title)
-            : false
-        }
-      />
-    ));
-  }
+  const animationClass = 'projects-fade-in';
+  const animationListClass = 'projects-list-fade-in';
+  useAnimation(ref, animationClass);
+  useAnimation(listRef, animationListClass);
 
   function renderProjects(projects: IProject[]) {
     return projects.map((el: any) => {
@@ -61,41 +57,33 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
       return (
         <Project
           key={id}
-          img={poster}
+          poster={poster}
           title={title}
           description={html}
           github={github}
           external={external}
           tools={tech}
           date={date}
-          className={visibleClassname}
         />
       );
     });
   }
 
+  const sliderSettings = React.useMemo(() => SLICK_SETTINGS, []);
+
   return (
     <Section id="projects">
-      <styles.Wrapper className={visibleClassname} ref={ref}>
-        <styles.Header>
-          <styles.Title>Other projects</styles.Title>
-          <styles.Subtitle>
-            Includes work and side projects/experiments.
-          </styles.Subtitle>
-        </styles.Header>
-        <styles.FlexContainer>
-          <styles.Aside>
-            <SearchBar query={query} onChangeQuery={setQuery} />
-            <Tags>{renderTags(tags)}</Tags>
-          </styles.Aside>
-          <styles.ContentWrapper>
-            <styles.Content>{renderProjects(paginatedProjects)}</styles.Content>
-            {hasNextPage ? (
-              <styles.LoadMore onClick={loadMore}>load more</styles.LoadMore>
-            ) : null}
-          </styles.ContentWrapper>
-        </styles.FlexContainer>
-      </styles.Wrapper>
+      <Wrapper ref={ref}>
+        <Title className={animationClass}>Projects</Title>
+        <Subtitle className={animationClass}>
+          Includes work and side projects/experiments.
+        </Subtitle>
+        <List ref={listRef} className={animationListClass}>
+          <Slider ref={sliderRef} {...sliderSettings}>
+            {renderProjects(projects)}
+          </Slider>
+        </List>
+      </Wrapper>
     </Section>
   );
 };

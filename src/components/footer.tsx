@@ -6,11 +6,20 @@ const Wrapper = styled.footer`
   padding: 25px 0;
   font-size: 12px;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.primary};
+  color: #7685a7;
+
+  p:first-child {
+    margin-bottom: 10px;
+  }
 `;
 
 const Footer = () => {
-  return <Wrapper>n1ghtdev (c) {new Date().getFullYear()}</Wrapper>;
+  return (
+    <Wrapper>
+      <p>licensed under mit</p>
+      <p>n1ghtdev (c) {new Date().getFullYear()}</p>
+    </Wrapper>
+  );
 };
 
 export default Footer;

@@ -2,21 +2,22 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Hero from '@components/sections/hero';
-import FeaturedProjects from '@components/sections/featured-projects';
 import Projects from '@components/sections/projects';
+import About from '@components/sections/about';
+import Contact from '@components/sections/contact';
 import Layout from '@components/layout';
 
-import { SectionProvider } from '@hooks/use-active-section';
+import Footer from '@components/footer';
 
 const IndexPage = ({ data, location }: { data: any; location: any }) => {
   return (
-    <SectionProvider>
-      <Layout location={location}>
-        <Hero />
-        <FeaturedProjects data={data.featured.edges} />
-        <Projects projects={data.projects.edges} />
-      </Layout>
-    </SectionProvider>
+    <Layout location={location}>
+      <Hero />
+      <Projects projects={data.projects.edges} />
+      <About />
+      <Contact />
+      <Footer />
+    </Layout>
   );
 };
 
@@ -24,8 +25,9 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   {
-    featured: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/featured/" } }
+    projects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: frontmatter___order, order: ASC }
     ) {
       edges {
         node {
@@ -34,39 +36,18 @@ export const pageQuery = graphql`
             external
             github
             title
+            tech
             poster {
               childImageSharp {
                 fluid(
                   maxWidth: 1920
                   quality: 90
-                  traceSVG: { color: "#333c80" }
+                  traceSVG: { color: "#151b27" }
                 ) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
-            tech
-          }
-          id
-          html
-        }
-      }
-    }
-    projects: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/projects/" }
-        frontmatter: { featured: { ne: true } }
-      }
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date
-            external
-            github
-            title
-            tech
           }
           id
           html

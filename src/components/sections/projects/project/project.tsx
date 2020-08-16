@@ -1,39 +1,83 @@
 import React from 'react';
 
-import ProjectLinks from '@components/project-links';
-import * as styles from './project.styles';
+import {
+  Wrapper,
+  PosterWrapper,
+  PosterHover,
+  Poster,
+  Content,
+  Header,
+  Links,
+  Title,
+  Description,
+  Tags,
+  Tag,
+} from './style';
+import GithubIcon from '@components/assets/github';
+import ExternalIcon from '@components/assets/external';
 
 type Props = {
   title: string;
-  img: any;
   description: string;
+  poster: any;
   github: string;
   external: string;
   tools: string[];
   date: string;
-  className: string;
 };
 
 const Project = (props: Props) => {
-  const { title, description, tools, github, external, className } = props;
+  const { title, description, poster, tools, github, external } = props;
+  const posterImg = poster?.childImageSharp?.fluid;
 
   return (
-    <styles.Wrapper className={className}>
-      <div>
-        <styles.Header>
-          <styles.Title>{title}</styles.Title>
-          <ProjectLinks github={github} external={external} />
-        </styles.Header>
-        <styles.Description dangerouslySetInnerHTML={{ __html: description }} />
-      </div>
-      <styles.Tags>
-        {tools && tools.length > 0
-          ? tools.map((tool: string) => (
-              <styles.Tag key={tool}>{tool}</styles.Tag>
-            ))
-          : null}
-      </styles.Tags>
-    </styles.Wrapper>
+    <Wrapper>
+      <PosterWrapper href={external || github}>
+        {posterImg ? (
+          <Poster fluid={posterImg} alt={title} />
+        ) : (
+          <Poster
+            as="img"
+            src="https://via.placeholder.com/320x260"
+            alt={title}
+          />
+        )}
+        <PosterHover>
+          <ExternalIcon />
+        </PosterHover>
+      </PosterWrapper>
+      <Content>
+        <Header>
+          <Title>{title}</Title>
+          <Links>
+            <a
+              href={github || '#'}
+              title="github"
+              className={!github ? 'disabled' : ''}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+            </a>
+            <a
+              href={external || '#'}
+              title="live website"
+              className={!external ? 'disabled' : ''}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalIcon />
+            </a>
+          </Links>
+        </Header>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
+        <Tags>
+          {tools && tools.length > 0
+            ? tools.map((tool: string) => <Tag key={tool}>{tool}</Tag>)
+            : null}
+        </Tags>
+      </Content>
+    </Wrapper>
   );
 };
 
