@@ -29,12 +29,7 @@ module.exports = {
       to follow.
     </p>
     <p>
-      Today most of the time I’m working on freelance with HTML/CSS/JS and
-      PHP (Wordpress, OpenCart). In free time I’m enjoying my time with
-      React side-projects development.
-    </p>
-    <p>
-      I’m based in Kyiv, Ukraine and looking for a REACT FRONT-END JOB.
+      Today most of the time I’m working with React developing Single Page Applications.
     </p>`,
   hero: {
     title: 'I develop <span>quality driven</span> solutions',
