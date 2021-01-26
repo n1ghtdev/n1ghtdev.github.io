@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import ButtonSubmit from '@components/button-submit';
+import { THEME } from '@styles/theme';
 
 export const FormWrapper = styled.form`
   max-width: 680px;
@@ -14,8 +15,8 @@ export const FormResponseMessage = styled.div`
   margin-bottom: 20px;
   border-radius: 5px;
 
-  ${({ isSuccess, theme }: { isSuccess: boolean; theme: any }) => `
-    background-color: ${isSuccess ? theme.success : theme.error};
+  ${({ isSuccess }: { isSuccess: boolean }) => `
+    background-color: ${isSuccess ? THEME.GREEN : THEME.RED};
   `}
 
   @keyframes fadeIn {
@@ -57,19 +58,19 @@ const InputStyles = css`
   background: #1a202d;
   border: 2px solid #303b52;
   border-radius: 3px;
-  color: ${({ theme }) => theme.text};
+  color: ${THEME.LIGHT};
   font-family: 'Fira Sans', sans-serif;
 
   &:focus {
     outline: none;
-    border-color: ${({ theme }) => theme.secondary};
+    border-color: ${THEME.PURPLE};
   }
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     -webkit-box-shadow: inset 0 0 0 30px #1a202d !important;
-    -webkit-text-fill-color: ${({ theme }) => theme.text} !important;
+    -webkit-text-fill-color: ${THEME.LIGHT} !important;
   }
 `;
 

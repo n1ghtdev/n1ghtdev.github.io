@@ -1,11 +1,9 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, { Fragment } from 'react';
 import { navigate } from '@reach/router';
 
 import Head from './head';
 import Container from './container';
 
-import theme from '@styles/theme';
 import GlobalStyles from '@styles/global-styles';
 
 const Layout = ({
@@ -24,11 +22,11 @@ const Layout = ({
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <Fragment>
       <Head />
       <GlobalStyles />
       <Container>{children}</Container>
-    </ThemeProvider>
+    </Fragment>
   );
 };
 

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import theme from './theme';
+import { THEME } from './theme';
 import ResetStyles from './reset-styles';
 
 const GlobalStyles = createGlobalStyle`
@@ -23,32 +23,19 @@ const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
   a {
-    color: ${theme.text};
+    color: ${THEME.LIGHT};
     text-decoration: inherit;
   }
   body {
     overflow-x: hidden;
-    background-color: ${theme.background};
-    color: ${theme.text};
+    background-color: ${THEME.DARK};
+    color: ${THEME.LIGHT};
   }
   img {
     width: auto;
     max-width: 100%;
     height: auto;
     vertical-align: middle;
-  }
-  .slick-slider {
-    display: block;
-  }
-  .slick-track {
-    display: flex;
-  }
-  .slick-list {
-    overflow: hidden;
-  }
-  .slick-slide {
-    padding: 0 10px;
-    height: unset;
   }
 `;
 

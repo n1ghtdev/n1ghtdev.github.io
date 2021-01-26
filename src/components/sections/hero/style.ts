@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Section from '@components/section';
 import Button from '@components/button';
 import media from '@styles/media';
+import { THEME } from '@styles/theme';
 
 export const HeroSection = styled(Section)`
   height: 100vh;
@@ -41,17 +42,16 @@ export const Title = styled.h2`
   opacity: 0;
 
   span {
-    background: ${({ theme }) =>
-      `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`};
+    background: linear-gradient(90deg, ${THEME.BLUE}, ${THEME.PURPLE});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   ${media.large`
-    font-size: 4rem; 
+    font-size: 4rem;
   `}
   ${media.xxl`
-    font-size: 5rem; 
+    font-size: 5rem;
   `}
 `;
 
@@ -63,7 +63,7 @@ export const Subtitle = styled.h3`
   opacity: 0;
 
   ${media.large`
-    font-size: 2rem; 
+    font-size: 2rem;
   `}
 `;
 
@@ -89,7 +89,7 @@ export const DividerOr = styled.span`
     content: '';
     width: 15px;
     height: 1px;
-    background: ${({ theme }) => theme.text};
+    background: ${THEME.LIGHT};
     vertical-align: middle;
     display: inline-block;
     opacity: 0.2;
@@ -105,7 +105,7 @@ export const Illustration = styled.div`
   align-self: center;
 
   ${media.medium`
-    display: block; 
+    display: block;
   `}
 `;
 
@@ -137,7 +137,7 @@ export const FooterTitle = styled.p`
     width: 0;
     height: 1px;
     margin-left: 20px;
-    background: ${({ theme }) => theme.text};
+    background: ${THEME.LIGHT};
     opacity: 0.1;
   }
 `;
@@ -150,7 +150,7 @@ export const Tools = styled.ul`
   opacity: 0;
 
   ${media.medium`
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
   `}
 `;
 
@@ -165,7 +165,7 @@ export const Tool = styled.li`
     height: auto;
     & > svg {
       width: 100%;
-    } 
+    }
   `}
   ${media.large`
     width: 70px;

@@ -1,7 +1,6 @@
 import React from 'react';
-import Slider from 'react-slick';
 
-import { Wrapper, Title, Subtitle, List, SliderArrow, Dots } from './style';
+import { Wrapper, Title, Subtitle, List } from './style';
 import Section from '@components/section';
 import Project from './project';
 
@@ -13,39 +12,13 @@ type Props = {
   projects: IProject[];
 };
 
-const SLICK_SETTINGS = {
-  infinite: false,
-  slidesToShow: 3,
-  slidesToScroll: 3,
-  dots: true,
-  appendDots: (dots: any) => <Dots>{dots}</Dots>,
-  prevArrow: <SliderArrow>{'<'} prev</SliderArrow>,
-  nextArrow: <SliderArrow>next {'>'}</SliderArrow>,
-  responsive: [
-    {
-      breakpoint: breakpoints.large,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: breakpoints.small,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
-
 const Projects = ({ projects }: Props) => {
   const ref = React.useRef(null);
   const listRef = React.useRef(null);
-  const sliderRef = React.useRef<Slider | null>(null);
 
   const animationClass = 'projects-fade-in';
   const animationListClass = 'projects-list-fade-in';
+
   useAnimation(ref, animationClass);
   useAnimation(listRef, animationListClass);
 
@@ -69,8 +42,6 @@ const Projects = ({ projects }: Props) => {
     });
   }
 
-  const sliderSettings = React.useMemo(() => SLICK_SETTINGS, []);
-
   return (
     <Section id="projects">
       <Wrapper ref={ref}>
@@ -79,9 +50,7 @@ const Projects = ({ projects }: Props) => {
           Includes work and side projects/experiments.
         </Subtitle>
         <List ref={listRef} className={animationListClass}>
-          <Slider ref={sliderRef} {...sliderSettings}>
-            {renderProjects(projects)}
-          </Slider>
+          {renderProjects(projects)}
         </List>
       </Wrapper>
     </Section>

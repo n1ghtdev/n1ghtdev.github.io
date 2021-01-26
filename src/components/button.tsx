@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
+import { THEME } from '@styles/theme';
 
 type BaseButtonProps = {
   children: string | React.ReactNode;
@@ -24,12 +25,13 @@ const ButtonStyles = css`
   transition: background-position 250ms;
   position: relative;
   background-size: 300% 100%;
-  background-image: ${({ theme }) =>
-    `linear-gradient(to right,
-      ${theme.primary},
-      ${theme.secondary},
-      ${theme.secondary},
-      ${theme.primary})`};
+  background-image: linear-gradient(
+    to right,
+    ${THEME.BLUE},
+    ${THEME.PURPLE},
+    ${THEME.PURPLE},
+    ${THEME.BLUE}
+  );
 
   &:before {
     content: '';
@@ -57,7 +59,7 @@ const Content = styled.span`
   position: relative;
   z-index: 2;
   font-size: 16px;
-  color: ${({ theme }) => theme.text};
+  color: ${THEME.LIGHT}
   font-weight: bold;
   text-transform: capitalize;
 `;

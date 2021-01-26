@@ -32,6 +32,7 @@ const LoadingWrapper = styled.span`
 
 function ButtonSubmit(props: Partial<Props>) {
   const { type, onClick, disabled, loading = false, children, ...rest } = props;
+
   const [innerLoading, setInnerLoading] = React.useState(loading || false);
   const loadingTimerRef = React.useRef<number>();
 

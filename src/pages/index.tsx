@@ -9,7 +9,7 @@ import Layout from '@components/layout';
 
 import Footer from '@components/footer';
 
-const IndexPage = ({ data, location }: { data: any; location: any }) => {
+const PageIndex = ({ data, location }: { data: any; location: any }) => {
   return (
     <Layout location={location}>
       <Hero />
@@ -21,7 +21,7 @@ const IndexPage = ({ data, location }: { data: any; location: any }) => {
   );
 };
 
-export default IndexPage;
+export default PageIndex;
 
 export const pageQuery = graphql`
   {

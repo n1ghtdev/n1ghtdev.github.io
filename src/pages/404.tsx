@@ -1,11 +1,12 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 
-function NotFoundPage() {
+function PageNotFound() {
   React.useEffect(() => {
     navigate('/');
   }, []);
+
   return null;
 }
 
-export default NotFoundPage;
+export default PageNotFound;

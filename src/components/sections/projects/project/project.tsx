@@ -1,20 +1,20 @@
 import React from 'react';
 
+import Img from 'gatsby-image';
 import {
-  Wrapper,
-  PosterWrapper,
-  PosterHover,
-  Poster,
-  Content,
-  Header,
-  Links,
-  Title,
-  Description,
-  Tags,
-  Tag,
+  ProjectBase,
+  ProjectLink,
+  ProjectHover,
+  ProjectContent,
+  ProjectHeader,
+  ProjectLinks,
+  ProjectDescr,
+  ProjectTags,
+  ProjectTag,
 } from './style';
 import GithubIcon from '@components/assets/github';
 import ExternalIcon from '@components/assets/external';
+import { Placeholder } from '@components/placeholder';
 
 type Props = {
   title: string;
@@ -31,25 +31,21 @@ const Project = (props: Props) => {
   const posterImg = poster?.childImageSharp?.fluid;
 
   return (
-    <Wrapper>
-      <PosterWrapper href={external || github}>
+    <ProjectBase>
+      <ProjectLink href={external || github}>
         {posterImg ? (
-          <Poster fluid={posterImg} alt={title} />
+          <Img className="gatsby-img" fluid={posterImg} alt={title} />
         ) : (
-          <Poster
-            as="img"
-            src="https://via.placeholder.com/320x260"
-            alt={title}
-          />
+          <Placeholder>{title}</Placeholder>
         )}
-        <PosterHover>
+        <ProjectHover>
           <ExternalIcon />
-        </PosterHover>
-      </PosterWrapper>
-      <Content>
-        <Header>
-          <Title>{title}</Title>
-          <Links>
+        </ProjectHover>
+      </ProjectLink>
+      <ProjectContent>
+        <ProjectHeader>
+          <h3>{title}</h3>
+          <ProjectLinks>
             <a
               href={github || '#'}
               title="github"
@@ -68,16 +64,18 @@ const Project = (props: Props) => {
             >
               <ExternalIcon />
             </a>
-          </Links>
-        </Header>
-        <Description dangerouslySetInnerHTML={{ __html: description }} />
-        <Tags>
-          {tools && tools.length > 0
-            ? tools.map((tool: string) => <Tag key={tool}>{tool}</Tag>)
+          </ProjectLinks>
+        </ProjectHeader>
+        <ProjectDescr dangerouslySetInnerHTML={{ __html: description }} />
+        <ProjectTags>
+          {tools?.length > 0
+            ? tools.map((tool: string) => (
+                <ProjectTag key={tool}>{tool}</ProjectTag>
+              ))
             : null}
-        </Tags>
-      </Content>
-    </Wrapper>
+        </ProjectTags>
+      </ProjectContent>
+    </ProjectBase>
   );
 };
 

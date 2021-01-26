@@ -1,28 +1,94 @@
-import styled from 'styled-components';
-import Img from 'gatsby-image';
+import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.article`
+const ProjectBase = styled.article`
   height: 100%;
   display: flex;
-  flex-flow: column nowrap;
   padding: 10px;
+  flex-flow: column nowrap;
+  flex-basis: calc(1 / 3 * 100%);
+  flex-shrink: 0;
 `;
 
-export const Poster = styled(Img)`
-  border-radius: 10px;
-  height: 260px;
+const ProjectContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
-export const PosterWrapper = styled.a`
+const ProjectHeader = styled.div`
+  padding-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ProjectTitle = styled.h3``;
+
+const ProjectDescr = styled.div`
+  flex: 1;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: justify;
+  line-height: 1.35;
+`;
+
+const ProjectTags = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const ProjectTag = styled.li`
+  color: #7685a7;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+
+  &:before {
+    content: '#';
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const ProjectLinks = styled.div`
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  & > a:first-child {
+    margin-right: 20px;
+  }
+  & > a.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+`;
+
+const image = css`
+  border-radius: inherit;
+  height: 100%;
+`;
+
+const ProjectLink = styled.a`
   display: block;
   position: relative;
   cursor: pointer;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-app-region: no-drag;
+  height: 260px;
+  border-radius: 10px;
+
+  & > .gatsby-img {
+    ${image}
+  }
+
+  // -webkit-user-select: none;
+  // -webkit-user-drag: none;
+  // -webkit-app-region: no-drag;
 `;
 
-export const PosterHover = styled.div`
+const ProjectHover = styled.div`
   opacity: 0;
   transition: opacity 250ms;
 
@@ -63,60 +129,15 @@ export const PosterHover = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  flex: 1;
-  display: flex;
-  flex-flow: column nowrap;
-`;
-
-export const Header = styled.div`
-  padding-top: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const Title = styled.h3``;
-
-export const Description = styled.div`
-  flex: 1;
-  font-weight: 500;
-  margin-bottom: 10px;
-  text-align: justify;
-  line-height: 1.35;
-`;
-
-export const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-export const Tag = styled.li`
-  color: #7685a7;
-  font-size: 14px;
-  font-weight: bold;
-  margin-right: 10px;
-
-  &:before {
-    content: '#';
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-export const Links = styled.div`
-  svg {
-    width: 24px;
-    height: 24px;
-  }
-  & > a:first-child {
-    margin-right: 20px;
-  }
-  & > a.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-  }
-`;
+export {
+  ProjectBase,
+  ProjectContent,
+  ProjectHeader,
+  ProjectTitle,
+  ProjectDescr,
+  ProjectLink,
+  ProjectHover,
+  ProjectTags,
+  ProjectTag,
+  ProjectLinks,
+};
