@@ -9,12 +9,7 @@ import {
   ContactMe,
   DividerOr,
   Illustration,
-  Footer,
-  FooterTitle,
-  Tools,
-  Tool,
 } from './style';
-import ToolIcon from '@components/tool-icon';
 import IllustrationSVG from '../../assets/illustration';
 
 import { hero } from '@config/index';
@@ -46,18 +41,6 @@ const Hero = () => {
         <Illustration className={animationClass}>
           <IllustrationSVG />
         </Illustration>
-        <Footer>
-          <FooterTitle className={animationClass}>Developer tools</FooterTitle>
-          <Tools className={animationClass}>
-            {hero.tools.map((tool: string, idx: number) => {
-              return (
-                <Tool key={tool} animationOrder={idx}>
-                  <ToolIcon name={tool} />
-                </Tool>
-              );
-            })}
-          </Tools>
-        </Footer>
       </Wrapper>
     </HeroSection>
   );

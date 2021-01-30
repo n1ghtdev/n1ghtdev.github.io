@@ -16,7 +16,10 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@section/*": ["src/section/*"],
       "@config/*": ["src/config/*"],
       "@hooks/*": ["src/hooks/*"],
       "@styles/*": ["src/styles/*"],

@@ -25,13 +25,7 @@ const ButtonStyles = css`
   transition: background-position 250ms;
   position: relative;
   background-size: 300% 100%;
-  background-image: linear-gradient(
-    to right,
-    ${THEME.BLUE},
-    ${THEME.PURPLE},
-    ${THEME.PURPLE},
-    ${THEME.BLUE}
-  );
+  background-color: ${THEME.PRIMARY};
 
   &:before {
     content: '';
@@ -55,54 +49,25 @@ const ButtonStyles = css`
   }
 `;
 
-const Content = styled.span`
-  position: relative;
-  z-index: 2;
-  font-size: 16px;
-  color: ${THEME.LIGHT}
-  font-weight: bold;
-  text-transform: capitalize;
+const LinkExternal = styled.a`
+  ${ButtonStyles}
 `;
 
-const HTMLButton = styled.button`
-  ${ButtonStyles}
-  transition: filter 250ms;
-  &:disabled {
-    filter: grayscale(0.6);
-    cursor: not-allowed;
-  }
-  &:hover:disabled {
-    background-position: 0 0;
-  }
-`;
-const HTMLAnchor = styled.a`
-  ${ButtonStyles}
-`;
-const GatsbyLink = styled(Link)`
+const LinkInternal = styled(Link)`
   ${ButtonStyles}
 `;
 
 function Button(props: Props) {
   const { children, ...rest } = props;
 
-  if (props.href) {
+  if (props.to) {
     return (
-      <HTMLAnchor {...rest}>
-        <Content>{children}</Content>
-      </HTMLAnchor>
-    );
-  } else if (props.to) {
-    return (
-      <GatsbyLink to={props.to} {...rest}>
-        <Content>{children}</Content>
-      </GatsbyLink>
+      <LinkInternal to={props.to} {...rest}>
+        {children}
+      </LinkInternal>
     );
   }
-  return (
-    <HTMLButton {...rest}>
-      <Content>{children}</Content>
-    </HTMLButton>
-  );
+  return <LinkExternal {...rest}>{children}</LinkExternal>;
 }
 
 export default Button;

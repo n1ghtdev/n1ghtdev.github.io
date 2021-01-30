@@ -31,7 +31,7 @@ export const List = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     height: 6px;
-    background-color: ${THEME.BLUE};
+    background-color: ${THEME.NEUTRAL};
     border-radius: 4px;
   }
   // opacity: 0;

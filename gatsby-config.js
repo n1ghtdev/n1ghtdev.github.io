@@ -16,12 +16,6 @@ module.exports = {
         host: require('./src/config/index').siteUrl,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-175550178-1',
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -72,5 +66,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-graphql-codegen`
   ],
 };
