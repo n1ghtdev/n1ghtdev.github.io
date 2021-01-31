@@ -11,7 +11,7 @@ const Styles = css`
 
   font-weight: bold;
   display: inline-block;
-  border-radius: 6px;
+  background-color: ${THEME.NEUTRAL};
 
   transition-duration: 300ms;
   transition-property: background-color;

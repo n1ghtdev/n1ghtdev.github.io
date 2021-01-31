@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
-import { graphql } from 'gatsby';
 
-import Projects from '@components/sections/projects';
-import About from '@components/sections/about';
 import App from '@components/app';
 
-import Footer from '@components/footer';
 import { SectionHero } from '@section/hero';
 import { SectionProjects } from '@section/projects';
+import { SectionAbout } from '@section/about';
+import { SectionFooter } from '@section/footer';
 
 type Props = { location: Location };
 
@@ -18,8 +16,8 @@ const PageIndex: FC<Props> = (props) => {
     <App location={location}>
       <SectionHero />
       <SectionProjects />
-      <About />
-      <Footer />
+      <SectionAbout />
+      <SectionFooter />
     </App>
   );
 };

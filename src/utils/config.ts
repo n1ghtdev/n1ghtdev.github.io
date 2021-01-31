@@ -1,10 +1,11 @@
-const TITLE = 'night | Front-End Developer';
+import internalConfig from '../../config';
 
-const SITE_URL = 'https://n1ghtdev.github.io';
+const TITLE = internalConfig.TITLE;
+
+const SITE_URL = internalConfig.SITE_URL;
 
 const META = {
-  description:
-    'Self-taught experienced front-end developer who loves to create things.',
+  description: internalConfig.DESCR,
   ogImage: 'https://i.imgur.com/W6SxhRr.png',
   ogImageWidth: '665',
   ogImageHeight: '400',

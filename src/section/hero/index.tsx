@@ -1,12 +1,17 @@
 import IllustrationSVG from '@components/assets/illustration';
 import { BoxBottom } from '@components/box/bottom';
 import { BoxRight } from '@components/box/right';
-import Button from '@components/button';
 import { LinkAir } from '@components/link/air';
 import { LinkPrimary } from '@components/link/primary';
-import { HERO } from '@section/config';
+import { HERO } from '@utils/config';
 import media from '@styles/media';
-import { TEXT_SIZE_2, THEME, TEXT_SIZE_1, TEXT_SIZE_3 } from '@styles/theme';
+import {
+  TEXT_SIZE_2,
+  THEME,
+  TEXT_SIZE_1,
+  TEXT_SIZE_3,
+  SPACE_S,
+} from '@styles/theme';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
@@ -59,6 +64,8 @@ const Divider = styled.span`
     width: 15px;
     height: 1px;
     background-color: ${THEME.LIGHT};
+    margin-left: ${SPACE_S};
+    margin-right: ${SPACE_S};
     vertical-align: middle;
     display: inline-block;
     opacity: 0.2;

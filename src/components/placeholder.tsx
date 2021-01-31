@@ -2,7 +2,7 @@ import { THEME } from '@styles/theme';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-const Base = styled.div`
+const Wrapper = styled.div`
   border-radius: inherit;
   background-color: ${THEME.NEUTRAL};
   height: 100%;
@@ -15,7 +15,7 @@ const Base = styled.div`
 `;
 
 const Placeholder: FC = ({ children }) => {
-  return <Base>{children}</Base>;
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export { Placeholder };

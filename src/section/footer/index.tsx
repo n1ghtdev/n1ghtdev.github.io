@@ -1,7 +1,25 @@
-import { FC } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-const SectionFooter: FC = () => {
-  return null;
+const Wrapper = styled.footer`
+  text-align: center;
+  padding: 25px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7685a7;
+
+  p:first-child {
+    margin-bottom: 10px;
+  }
+`;
+
+const SectionFooter = () => {
+  return (
+    <Wrapper>
+      <p>licensed under mit</p>
+      <p>n1ghtdev (c) {new Date().getFullYear()}</p>
+    </Wrapper>
+  );
 };
 
 export { SectionFooter };

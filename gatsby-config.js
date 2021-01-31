@@ -4,16 +4,16 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: require('./src/config/index').title,
+    title: require('./config').TITLE,
     author: 'n1ghtdev',
-    description: require('./src/config/index').meta.description,
-    siteUrl: require('./src/config/index').siteUrl,
+    description: require('./config').DESCR,
+    siteUrl: require('./config').SITE_URL,
   },
   plugins: [
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: require('./src/config/index').siteUrl,
+        host: require('./config').SITE_URL,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -66,6 +66,5 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-graphql-codegen`
   ],
 };

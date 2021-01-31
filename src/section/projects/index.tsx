@@ -2,7 +2,27 @@ import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { ProjectsCard } from './components/card';
-import { version } from 'process';
+import { SPACE_M } from '@styles/theme';
+import media from '@styles/media';
+
+type Project = {
+  node: {
+    frontmatter: {
+      date: string;
+      external: string;
+      github: string;
+      title: string;
+      tech: string[];
+      poster?: {
+        childImageSharp: {
+          fluid: any;
+        };
+      };
+    };
+    id: string;
+    html: string;
+  };
+};
 
 const query = graphql`
   {
@@ -20,7 +40,14 @@ const query = graphql`
 `;
 
 const Wrapper = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: ${SPACE_M};
+  margin-bottom: 10rem;
+
+  ${media.medium`
+    grid-template-columns: 1fr 1fr;
+  `}
 `;
 
 const SectionProjects: FC = () => {
@@ -28,16 +55,14 @@ const SectionProjects: FC = () => {
 
   const { edges: projects } = data.projects;
 
-  console.log(projects);
-
   return (
     <Wrapper>
-      {projects.map(({ node }: any) => {
+      {projects.map(({ node }: Project) => {
         const { frontmatter: project } = node;
-        console.log(project);
 
         return (
           <ProjectsCard
+            descr={node.html}
             date={project.date}
             key={node.id}
             external={project.external}

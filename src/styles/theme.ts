@@ -2,7 +2,7 @@ const THEME = {
   DARK: '#151b27',
   GREEN: '#137538',
   LIGHT: '#e2f3f5',
-  PRIMARY: '#574AE2', //173ef6
+  PRIMARY: '#574AE2',
   PURPLE: '#832cff',
   RED: '#bf2a3d',
   NEUTRAL: '#303d59',
@@ -11,6 +11,7 @@ const THEME = {
 const SPACE_S = '0.5rem';
 const SPACE_M = '0.75rem';
 const SPACE_L = '1rem';
+const SPACE_XL = '2rem';
 
 const TEXT_SIZE_1 = '4rem';
 const TEXT_SIZE_2 = '2rem';
@@ -23,6 +24,7 @@ export {
   SPACE_L,
   SPACE_M,
   SPACE_S,
+  SPACE_XL,
   TEXT_SIZE_1,
   TEXT_SIZE_2,
   TEXT_SIZE_3,
