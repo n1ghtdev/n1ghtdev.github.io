@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://n1ghtdev.github.io/sitemap.xml
-Host: https://n1ghtdev.github.io
+Host: https://nxty.dev
